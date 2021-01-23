@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 
 import KarenContext from '../../KarenContext'
-import HighScoreDisplay from '../../Components/HighScoreDisplay/HighScoreDisplay'
 
 import './PlayerPageModal.css'
 
