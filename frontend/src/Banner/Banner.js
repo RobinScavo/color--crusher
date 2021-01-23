@@ -17,8 +17,6 @@ const Banner = () => {
             <h1 className='gameName'>Kolor Krusher</h1>
             <CryptoCoin />
             <UserName />
-
-            {/* <button className='logoutButton fancyButton'>Log In</button> */}
         </div>
     )
 }

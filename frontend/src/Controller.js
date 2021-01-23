@@ -7,7 +7,8 @@ import InstructionModal from './Components/Modals/InstructionModal';
 import LoginModal from './Components/Modals/LoginFormModal';
 import PlayerPageModal from './Components/Modals/PlayerPageModal';
 import MyBioModal from './Components/Modals/MyBioModal';
-import { Modal } from './ModalContext/Modal'
+import { Modal } from './ModalContext/Modal';
+import { ModalProvider } from './ModalContext/Modal';
 
 class Controller extends React.Component {
     constructor (props) {
@@ -144,36 +145,35 @@ class Controller extends React.Component {
         return (
             <div className='gameBoardDiv' value={this.state}>
                 <KarenContext.Provider value={this.state}>
-                    <Backdrop />
+                    <ModalProvider>
+                        <Backdrop />
 
-                    {/* Modal Control */}
-                    {this.state.instructionModal &&
-                        <Modal>
-                            <InstructionModal />
-                        </Modal>
-                    }
-                    {this.state.loginModal &&
-                        <Modal>
-                            <LoginModal />
-                        </Modal>
-                    }
-                    {this.state.bioModal &&
-                        <Modal>
-                            <MyBioModal />
-                        </Modal>
-                    }
-                    {this.state.playerPageModal &&
-                        <Modal>
-                            <PlayerPageModal />
-                        </Modal>
-                    }
+                        {/* Modal Control */}
+                        {this.state.instructionModal &&
+                            <Modal visibility={this.state.modalVisible}>
+                                <InstructionModal />
+                            </Modal>
+                        }
+                        {this.state.loginModal &&
+                            <Modal>
+                                <LoginModal />
+                            </Modal>
+                        }
+                        {this.state.bioModal &&
+                            <Modal>
+                                <MyBioModal />
+                            </Modal>
+                        }
+                        {this.state.playerPageModal &&
+                            <Modal>
+                                <PlayerPageModal />
+                            </Modal>
+                        }
+                    </ModalProvider>
                 </KarenContext.Provider>
             </div>
         )
     }
 }
-
-
-
 
 export default Controller;

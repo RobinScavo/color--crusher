@@ -36,7 +36,6 @@ export function generateHardColors() {
     //make an array
     const arr = [];
     for (let i = 0; i < 6; i++) {
-        //get random color and push into array
         arr.push(randomColor());
     }
 
@@ -64,7 +63,7 @@ const zenObject = {
     17: "I have lived with several Zen masters - all of them cats.",
     18: "Matters of great concern should be treated lightly. Matters of small concerns should be treated seriously.",
     19: "Obstacles don't block the path, they are the path.",
-
+    20: "If it is to be, it must be me.",
 }
 
 

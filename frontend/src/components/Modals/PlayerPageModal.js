@@ -1,4 +1,5 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
+
 
 import KarenContext from '../../KarenContext'
 import HighScoreDisplay from '../HighScoreDisplay/HighScoreDisplay'

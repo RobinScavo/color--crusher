@@ -19,10 +19,6 @@ class ColorBall extends React.Component {
         }
     }
 
-    // componentDidMount() {
-    //     console.log('mounted')
-    // }
-
     componentDidUpdate(prevProps) {
         if (prevProps.color !== this.props.color) {
             this.timeout = setTimeout(() => {
@@ -58,7 +54,6 @@ class ColorBall extends React.Component {
             this.state.removeCoin()
         }
     }
-
 
     render() {
         return (

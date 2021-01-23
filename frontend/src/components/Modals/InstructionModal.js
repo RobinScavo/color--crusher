@@ -7,7 +7,7 @@ import './LogInFormModal.css'
 import './InstructionModel.css'
 
 function InstructionModel() {
-  const values = useContext(KarenContext)
+  const values = useContext(KarenContext);
 
   return (
     <div className='instructionDiv'>
@@ -74,8 +74,5 @@ function InstructionModel() {
     </div>
     )
 }
-
-
-
 
 export default InstructionModel;

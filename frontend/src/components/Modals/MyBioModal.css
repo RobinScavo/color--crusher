@@ -28,7 +28,8 @@
 .myPic {
     width: 90%;
     height: 45%;
-    background-image: url('../../Images/Atitlan.jpeg');
+    /* background-image: url('../../Images/Atitlan.jpeg'); */
+    background-image: url('https://ik.imagekit.io/p5h3whhlyvs/Atitlan_kZjNG1Okd.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -10,7 +10,6 @@ const ScoreTimer = () => {
     const [seconds, setSeconds ] = useState(values.timer);
 
     useEffect(() => {
-        console.log('timerRender!!!!!')
         let interval = null;
         if (values.gameOn && seconds > 0) {
             interval = setInterval(() => {
