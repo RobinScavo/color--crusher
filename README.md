@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 # Kolor_Krusher-Express
-=======
 -Game for teaching and practicing CSS. Each round will cover a different concept:
 
 ROUND 1: Select the correct RGB color value.
@@ -41,4 +39,3 @@ Player Page featuring CRUD operations: CREATE: user form (csurf protected) UPDAT
 Add animations to RGB game
 
 Create flex-box round
->>>>>>> heroku
