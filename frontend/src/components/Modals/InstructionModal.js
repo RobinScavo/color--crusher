@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 
 import HighScoreDisplay from '../../Components/HighScoreDisplay/HighScoreDisplay'
+import HighScoreDisplay from '../HighScoreDisplay/HighScoreDisplay'
 import KarenContext from '../../KarenContext'
 
 import './LogInFormModal.css'
