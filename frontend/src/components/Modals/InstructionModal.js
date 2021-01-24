@@ -33,7 +33,11 @@ function InstructionModel() {
             <div className='modeDiv'>
               <div className='buttonDiv'>
                 <h1 className='titleText'>Zen Mode</h1>
-                <button className='goldButton zen' >zen</button>
+                <button className='goldButton zen' onClick={() => {
+                    values.toggleInstructionModal();
+                    values.toggleStartZen();
+                    values.startGame();
+                }}>zen</button>
               </div>
               <div className='arrowText'>
                 <h1 className='arrow'>➛</h1>
@@ -47,6 +51,7 @@ function InstructionModel() {
                 <h1 className='titleText'>Battle Mode</h1>
                 <button  className='goldButton battle' onClick={() => {
                   values.toggleInstructionModal();
+                  values.toggleStartBattle();
                   values.startGame();
                 }}>Battle</button>
               </div>

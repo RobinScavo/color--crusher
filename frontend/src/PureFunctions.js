@@ -34,8 +34,8 @@ function addStyleString (arr) {
 }
 
 export function generateHardColors() {
-    //make an array
     const arr = [];
+
     for (let i = 0; i < 6; i++) {
         arr.push(randomColor());
     }
@@ -52,6 +52,42 @@ function randomColor() {
     //pick a "blue" from 0 to 255
     const b = Math.floor(Math.random() * 256);
     return RGBtoHSL(`(${r}, ${g}, ${b})`);
+}
+
+export function generateBattleColors() {
+    const arr = []
+    //Pick Random RGB color
+    const ranColor = randomColor()
+    arr.push(ranColor);
+    //Find compliment
+    const compliment = findComplement(ranColor)
+    //find triadic compliments
+    const triOne = findTriadics(ranColor).triOneColor;
+    const triTwo = findTriadics(ranColor).triTwoColor;
+    //Find triadic compliments of compliments
+    const analogousOne  = findTriadics(compliment).triOneColor;
+    const analogousTwo  = findTriadics(compliment).triTwoColor;
+    arr.push(analogousOne, triOne, compliment, triTwo, analogousTwo)
+
+    return addStyleString(arr)
+}
+
+export function generateZenColors() {
+    const arr = []
+    //Pick Random RGB color
+    const ranColor = randomColor()
+    arr.push(ranColor);
+    //Find compliment
+    const compliment = findComplement(ranColor)
+    //find analogous compliments
+    const triOne = findAnalogous(ranColor).analogousOneColor;
+    const triTwo = findAnalogous(ranColor).analogousTwoColor;
+    //Find analogous compliments of compliment
+    const analogousOne  = findAnalogous(compliment).analogousOneColor;
+    const analogousTwo  = findAnalogous(compliment).analogousTwoColor;
+    arr.push(analogousOne, triOne, compliment, triTwo, analogousTwo)
+
+    return addStyleString(arr)
 }
 
 function RGBtoHSL (rgbValue) {
@@ -109,27 +145,17 @@ function RGBtoHSL (rgbValue) {
 }
 
 export function HSLtoRGB (hslValue) {
-
-    // let sep = hslValue.indexOf(',') > -1 ? "," : " ";
-    // let hsl = hslValue.substr(4).split(")")[0].split(sep);
     let sliced = hslValue.slice(1, hslValue.length -2);
-    // console.log('sliced', sliced)
     let split = sliced.split(',');
-    // console.log('split', split)
     let h = Number(split[0]);
     let preS = split[1]
     preS = preS.slice(0, preS.length-1)
     let s = Number(preS);
     let l = Number(split[2]);
 
-    // console.log('#########', h, s, l)
-    // h = hslValue[0];
-    // s = hslValue[1].substr(0, hslValue[1].length -1) / 100;
-    // l = hslValue[2].substr(0, hslValue[2].length -1) / 100;
-
     s /= 100;
     l /= 100;
-    // console.log('*********', h, s, l)
+
     let c = (1 - Math.abs(2 * l - 1)) * s;
     let x = c * (1 - Math.abs((h / 60) % 2 - 1));
     let m = l - c/2;
@@ -137,7 +163,6 @@ export function HSLtoRGB (hslValue) {
     let g = 0;
     let b = 0;
 
-    // console.log('________', h, s, l, c, x, m)
     if (0 <= h && h < 60) {
         r = c; g = x; b = 0;
     } else if (60 <= h && h < 120) {
@@ -155,14 +180,74 @@ export function HSLtoRGB (hslValue) {
     r = Math.round((r + m) * 255);
     g = Math.round((g + m) * 255);
     b = Math.round((b + m) * 255);
-    // console.log('%%%%%%%%%%', r, g, b)
+
     return `(${r}, ${g}, ${b})`;
 }
 
-// console.log(HSLtoRGB('(211, 3%, 7%)'))
+function findComplement (color) {
+    let splitColor = color.split(',');
+    let hue = Number(splitColor[0].slice(1));
+    let satch = splitColor[1].slice(1);
+    let light = splitColor[2].slice(0, splitColor[2].length -1);
+    let complimentHue = 0;
 
-function findComplements (rgbValue) {
+    if (hue >= 180) {
+        complimentHue = hue - 180;
+    } else {
+        complimentHue = hue + 180;
+    }
 
+    return (`(${complimentHue}, ${satch}, ${light})`)
+}
+
+function findTriadics (hslColor) {
+    let valueArray= hslColor.split(',');
+    let hue = Number(valueArray[0].slice(1));
+    let satch = valueArray[1].slice(1, valueArray[1].length -1);
+    let light = valueArray[2].slice(1, valueArray[2].length -2);;
+    let triOne = 0;
+    let triTwo = 0;
+
+    if (hue < 120) {
+        triOne = hue + 120;
+        triTwo = hue + 240;
+    } else if (hue >= 120 && hue < 240) {
+        triOne = hue + 120;
+        triTwo = hue - 120;
+    } else {
+        triOne = hue - 240;
+        triTwo = hue - 120;
+    }
+
+    let triOneColor = (`(${triOne}, ${satch}%, ${light}%)`)
+    let triTwoColor = (`(${triTwo}, ${satch}%, ${light}%)`)
+
+    return {triOneColor, triTwoColor}
+}
+
+function findAnalogous (hslColor) {
+    let valueArray= hslColor.split(',');
+    let hue = Number(valueArray[0].slice(1));
+    let satch = valueArray[1].slice(1, valueArray[1].length -1);
+    let light = valueArray[2].slice(1, valueArray[2].length -2);;
+    let triOne = 0;
+    let triTwo = 0;
+
+    if (hue < 150) {
+        triOne = hue + 150;
+        triTwo = hue + 210;
+    } else if (hue >= 150 && hue < 240) {
+        triOne = hue + 150;
+        triTwo = hue - 150;
+    } else {
+        triOne = hue - 210;
+        triTwo = hue - 150;
+    }
+
+    let analogousOneColor = (`(${triOne}, ${satch}%, ${light}%)`)
+    let analogousTwoColor = (`(${triTwo}, ${satch}%, ${light}%)`)
+
+    return {analogousOneColor, analogousTwoColor}
 }
 
 const zenObject = {

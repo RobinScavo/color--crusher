@@ -14,7 +14,17 @@ const Banner = () => {
     return (
         <div className='bannerDiv'>
             <ScoreTimer gameStart={values.gameOn}/>
-            <h1 className='gameName'>Kolor Krusher</h1>
+
+            {!values.gameOn && !values.startBattle && !values.startZen &&
+                <h1 className='gameName'>Kolor Krusher</h1>
+            }
+            {values.startBattle &&
+                <h1 className='gameName'>Battle Mode</h1>
+            }
+            {values.startZen &&
+                <h1 className='gameName'>Zen Mode</h1>
+            }
+
             <CryptoCoin />
             <UserName />
         </div>

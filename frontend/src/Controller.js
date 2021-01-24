@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { generateHardColors, generateEasyColors, HSLtoRGB } from './PureFunctions';
+import { generateEasyColors, HSLtoRGB, generateBattleColors, generateZenColors } from './PureFunctions';
 import Backdrop from './Backdrop/Backdrop'
 import KarenContext from './KarenContext';
 import InstructionModal from './Components/Modals/InstructionModal';
@@ -12,11 +12,11 @@ import { ModalProvider } from './ModalContext/Modal';
 
 class Controller extends React.Component {
     constructor (props) {
-        const hardArray = generateHardColors();
+        const battleArray = generateBattleColors();
 
         super (props);
         this.state = {
-            colorArray: hardArray,
+            colorArray: battleArray,
             colorTargetId: '',
             colorTarget: null,
             round: 0,
@@ -35,15 +35,18 @@ class Controller extends React.Component {
             startBattle: false,
             startDemo: false,
 
-            startGame: this.startGame,
-            correctGuess: this.correctGuess,
-            updateTimer: this.updateTimerContext,
-            removeCoin: this.removeCoin,
-
             toggleInstructionModal: this.toggleInstructionModal,
             toggleLoginModal: this.toggleLoginModal,
             toggleBioModal: this.toggleBioModal,
             togglePlayerPageModal: this.togglePlayerPageModal,
+
+            toggleStartZen: this.toggleStartZen,
+            toggleStartBattle: this.toggleStartBattle,
+
+            startGame: this.startGame,
+            correctGuess: this.correctGuess,
+            updateTimer: this.updateTimerContext,
+            removeCoin: this.removeCoin,
         }
     }
 
@@ -51,6 +54,15 @@ class Controller extends React.Component {
     toggleLoginModal = () => this.setState({ loginModal: !this.state.loginModal })
     toggleBioModal = () => this.setState({ bioModal: !this.state.bioModal })
     togglePlayerPageModal = () => this.setState({ playerPageModal: !this.state.playerPageModal })
+
+    toggleStartZen = () => {
+        if (this.state.startBattle) this.toggleStartBattle()
+        this.setState({ startZen: !this.state.startZen })
+    }
+    toggleStartBattle = () => {
+        if (this.state.startZen) this.toggleStartZen()
+        this.setState({ startBattle: !this.state.startBattle })
+    }
 
     startGame = () => {
         this.clearBoard();
@@ -90,16 +102,15 @@ class Controller extends React.Component {
     }
 
     clearBoard = () => {
-        this.setState({
-            colorArray: [
-                {background: `radial-gradient(circle at 100px 100px, rgba(0, 0, 0, 0.1), #000)`},
-                {background: `radial-gradient(circle at 100px 100px, rgba(0, 0, 0, 0.1), #000)`},
-                {background: `radial-gradient(circle at 100px 100px, rgba(0, 0, 0, 0.1), #000)`},
-                {background: `radial-gradient(circle at 100px 100px, rgba(0, 0, 0, 0.1), #000)`},
-                {background: `radial-gradient(circle at 100px 100px, rgba(0, 0, 0, 0.1), #000)`},
-                {background: `radial-gradient(circle at 100px 100px, rgba(0, 0, 0, 0.1), #000)`},
-            ]
-        })
+        let clearArray = []
+
+        for (let i = 0; i < 6; i++) {
+            clearArray.push({ background:
+                `radial-gradient(circle at 100px 100px, rgba(0, 0, 0, 0.1), #000)`
+            })
+        }
+
+        this.setState({ colorArray: clearArray })
     }
 
     updateTimerContext = (seconds) => {
@@ -108,8 +119,6 @@ class Controller extends React.Component {
             score: this.state.score + seconds,
         })
     }
-
-
 
     updateColorArrayContext = () => {
         let randomSix = Math.floor(Math.random() * 6)
@@ -124,8 +133,13 @@ class Controller extends React.Component {
         let targetId = targetArray[randomSix];
         let arr = [];
 
-        (this.state.round <= 2) ? arr = generateEasyColors()
-                                : arr = generateHardColors()
+        if (this.state.startZen) arr = generateZenColors()
+
+        if (this.state.startBattle) {
+            this.state.round <= 2
+                ? arr = generateEasyColors()
+                : arr = generateBattleColors()
+            }
 
         const targetColor = arr[randomSix]
         const firstSlice = (targetColor.background.slice(42))

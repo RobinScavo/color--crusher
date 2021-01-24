@@ -12,7 +12,14 @@ const Bowl = (props) => {
             <div className='innerGold'></div>
         </div>
         <div className='bowl'>
-            <h2 className='display'>{props.display}</h2>
+
+            {values.battleMode &&
+                <h2 className='display'>{props.display}</h2>
+            }
+            {!values.battleMode &&
+                <h2 className='display'>kk</h2>
+            }
+
             <div className='lowerHalf'></div>
         </div>
     </div>

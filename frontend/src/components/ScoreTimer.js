@@ -28,7 +28,12 @@ const ScoreTimer = () => {
     return (
         <div>
             <div className='scoreTimerDiv'>
-                <h1 className='scoreTimer'>{seconds}</h1>
+                {!values.startBattle &&
+                    <h1 className='scoreTimer'>kk</h1>
+                }
+                {values.startBattle &&
+                    <h1 className='scoreTimer'>{seconds}</h1>
+                }
             </div>
         </div>
     )
