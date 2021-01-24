@@ -11,8 +11,10 @@
 .gameName {
     position: relative;
     padding-left: 20px;
+    padding-right: 5px;
     margin-top: 12px;
     font-size: 60px;
+    text-shadow: 2px 2px 3px rgb(158, 126, 131);
 }
 
 @media only screen and (max-width: 900px) {

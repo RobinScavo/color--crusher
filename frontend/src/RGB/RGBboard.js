@@ -23,8 +23,8 @@ const RGBboard = () => {
 
     // Ghost-ball effect when clearing board
     if (!values.gameOn && values.round > 0) {
-        targetRGB = values.colorTarget;
-        targetRGBDarkness = '(30, 30, 30)';
+        // targetRGB = values.colorTarget;
+        // targetRGBDarkness = '(30, 30, 30)';
         visibility = 'hidden';
         textColor = 'rgb(206, 186, 186)'
     }
@@ -33,10 +33,8 @@ const RGBboard = () => {
         <div className='lipDiv'>
 
             {/* Flash target color on plate after correct guess */}
-            <div className='plateDiv' style={{
-                background: `radial-gradient(circle at 400px 550px, rgb${targetRGB}, rgb${targetRGBDarkness})`
-            }}>
-
+            <div className='plateDiv' >
+            {/* style={{background: `radial-gradient(circle at 400px 550px, rgb${targetRGB}, rgb${targetRGBDarkness})`}} */}
                 {/* Set the balls */}
                 {indexArray.map(index => (
                     <ColorBall
@@ -53,7 +51,7 @@ const RGBboard = () => {
                 ))}
 
                 {/* Inner plate: either start button, target color or 'Correct' message */}
-                <div className='targetColorDiv' style={{background: `radial-gradient(circle at 400px 550px, rgb${targetRGB}, rgb${targetRGBDarkness})`}}>
+                <div className='targetColorDiv' >
 
                     {/* Start button */}
                     {!values.gameOn && values.round === 0 &&
@@ -71,7 +69,7 @@ const RGBboard = () => {
 
                     {/* 'Correct message' */}
                     {!values.gameOn && values.round > 0 &&
-                        <h2 className='colorNumber' style={{color: `${textColor}`}}>CORRECT</h2>}
+                        <h2 className='colorNumber'>CORRECT</h2>}
                 </div>
             </div>
         </div>
@@ -80,3 +78,6 @@ const RGBboard = () => {
 
 
 export default RGBboard;
+
+
+// style={{background: `radial-gradient(circle at 400px 550px, rgb${targetRGB}, rgb${targetRGBDarkness})`}}

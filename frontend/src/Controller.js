@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { generateHardColors, generateEasyColors } from './PureFunctions';
+import { generateHardColors, generateEasyColors, HSLtoRGB } from './PureFunctions';
 import Backdrop from './Backdrop/Backdrop'
 import KarenContext from './KarenContext';
 import InstructionModal from './Components/Modals/InstructionModal';
@@ -92,12 +92,12 @@ class Controller extends React.Component {
     clearBoard = () => {
         this.setState({
             colorArray: [
-                {background: `radial-gradient(circle at 100px 100px, rgba(255, 255, 255, 0.1), #000)`},
-                {background: `radial-gradient(circle at 100px 100px, rgb(255, 255, 255, 0.1), #000)`},
-                {background: `radial-gradient(circle at 100px 100px, rgb(255, 255, 255, 0.1), #000)`},
-                {background: `radial-gradient(circle at 100px 100px, rgb(255, 255, 255, 0.1), #000)`},
-                {background: `radial-gradient(circle at 100px 100px, rgb(255, 255, 255, 0.1), #000)`},
-                {background: `radial-gradient(circle at 100px 100px, rgb(255, 255, 255, 0.1), #000)`},
+                {background: `radial-gradient(circle at 100px 100px, rgba(0, 0, 0, 0.1), #000)`},
+                {background: `radial-gradient(circle at 100px 100px, rgba(0, 0, 0, 0.1), #000)`},
+                {background: `radial-gradient(circle at 100px 100px, rgba(0, 0, 0, 0.1), #000)`},
+                {background: `radial-gradient(circle at 100px 100px, rgba(0, 0, 0, 0.1), #000)`},
+                {background: `radial-gradient(circle at 100px 100px, rgba(0, 0, 0, 0.1), #000)`},
+                {background: `radial-gradient(circle at 100px 100px, rgba(0, 0, 0, 0.1), #000)`},
             ]
         })
     }
@@ -124,20 +124,21 @@ class Controller extends React.Component {
         let targetId = targetArray[randomSix];
         let arr = [];
 
-        (this.state.round <= 3) ? arr = generateEasyColors()
+        (this.state.round <= 2) ? arr = generateEasyColors()
                                 : arr = generateHardColors()
 
         const targetColor = arr[randomSix]
         const firstSlice = (targetColor.background.slice(42))
         const colorTarget = (firstSlice.slice(0, firstSlice.length -7))
-        console.log('update')
+        const rgbTarget = HSLtoRGB(`${colorTarget}`)
+
         this.setState({
             coinArray: [true, true, true],
             colorArray: arr,
             round: this.state.round + 1,
             colorTargetId: targetId,
             gameOn: true,
-            colorTarget: colorTarget,
+            colorTarget: rgbTarget,
         })
     }
 
@@ -150,7 +151,7 @@ class Controller extends React.Component {
 
                         {/* Modal Control */}
                         {this.state.instructionModal &&
-                            <Modal visibility={this.state.modalVisible}>
+                            <Modal >
                                 <InstructionModal />
                             </Modal>
                         }

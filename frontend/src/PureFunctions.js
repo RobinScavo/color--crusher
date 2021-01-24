@@ -14,8 +14,9 @@ export function generateEasyColors() {
 
     while (returnArr.length !== 6) {
         let randomNum = Math.floor(Math.random() *8)
-        if (!returnArr.includes(arr[randomNum])){
-            returnArr.push(arr[randomNum])
+        let hslBall = RGBtoHSL(arr[randomNum])
+        if (!returnArr.includes(hslBall)){
+            returnArr.push(hslBall)
         }
     }
 
@@ -26,7 +27,7 @@ export function generateEasyColors() {
 function addStyleString (arr) {
     const newArray = []
     for (let i = 0; i < arr.length; i++) {
-        newArray.push({ background: `radial-gradient(circle at 100px 100px, rgb${arr[i]}, #000)` })
+        newArray.push({ background: `radial-gradient(circle at 100px 100px, hsl${arr[i]}, #000)` })
     }
 
     return newArray
@@ -41,6 +42,127 @@ export function generateHardColors() {
 
     const newArray = addStyleString(arr);
     return newArray;
+}
+
+function randomColor() {
+    //pick a "red" from 0 to 255
+    const r = Math.floor(Math.random() * 256);
+    //pick a "green" from 0 to 255
+    const g = Math.floor(Math.random() * 256);
+    //pick a "blue" from 0 to 255
+    const b = Math.floor(Math.random() * 256);
+    return RGBtoHSL(`(${r}, ${g}, ${b})`);
+}
+
+function RGBtoHSL (rgbValue) {
+    //slice -n- dice
+    let sliced = rgbValue.slice(1, rgbValue.length -1);
+    let split = sliced.split(',');
+    let red = Number(split[0]);
+    let green = Number(split[1]);
+    let blue = Number(split[2]);
+
+    //Make red, green, blue fractions of 1
+    red /= 255;
+    green /= 255;
+    blue /= 255;
+
+    //Find greatest and smallest channel values
+    let cmin = Math.min(red, green, blue);
+    let cmax = Math.max(red, green, blue);
+    let delta = cmax - cmin;
+
+    //calculate hue
+    //no difference
+    let h = 0;
+    let s = 0;
+    let l = 0;
+    if (delta === 0) {
+        h = 0;
+    }
+    //Red is max
+    else if (cmax === red) {
+        h = ((green - blue) / delta) % 6;
+    }
+    //Green is max
+    else if (cmax === green) {
+        h = (blue - red) / delta + 2;
+    }
+    //Blue is max
+    else {
+        h = (red - green) / delta + 4;
+    }
+    h = Math.round(h * 60);
+    //Make negative hues positive behind 360 degrees
+    if (h < 0) {
+        h += 360
+    }
+    //Calculate lightness
+    l = (cmax + cmin) / 2;
+    //Calculate saturation
+    s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+    // Multiply by 100
+    s = +(s * 100).toFixed(1);
+    l = +(l * 100).toFixed(1);
+
+    return(`(${h}, ${s}%, ${l}%)`)
+}
+
+export function HSLtoRGB (hslValue) {
+
+    // let sep = hslValue.indexOf(',') > -1 ? "," : " ";
+    // let hsl = hslValue.substr(4).split(")")[0].split(sep);
+    let sliced = hslValue.slice(1, hslValue.length -2);
+    // console.log('sliced', sliced)
+    let split = sliced.split(',');
+    // console.log('split', split)
+    let h = Number(split[0]);
+    let preS = split[1]
+    preS = preS.slice(0, preS.length-1)
+    let s = Number(preS);
+    let l = Number(split[2]);
+
+    // console.log('#########', h, s, l)
+    // h = hslValue[0];
+    // s = hslValue[1].substr(0, hslValue[1].length -1) / 100;
+    // l = hslValue[2].substr(0, hslValue[2].length -1) / 100;
+
+    s /= 100;
+    l /= 100;
+    // console.log('*********', h, s, l)
+    let c = (1 - Math.abs(2 * l - 1)) * s;
+    let x = c * (1 - Math.abs((h / 60) % 2 - 1));
+    let m = l - c/2;
+    let r = 0;
+    let g = 0;
+    let b = 0;
+
+    // console.log('________', h, s, l, c, x, m)
+    if (0 <= h && h < 60) {
+        r = c; g = x; b = 0;
+    } else if (60 <= h && h < 120) {
+        r = x; g = c; b = 0;
+    } else if (120 <= h && h < 180) {
+        r = 0; g = c; b = x;
+    } else if (180 <= h && h < 240) {
+        r = 0; g = x; b = c;
+    } else if (240 <= h && h < 300) {
+        r = x; g = 0; b = c;
+    } else if (300 <= h && h < 360) {
+        r = c; g = 0; b = x;
+    }
+
+    r = Math.round((r + m) * 255);
+    g = Math.round((g + m) * 255);
+    b = Math.round((b + m) * 255);
+    // console.log('%%%%%%%%%%', r, g, b)
+    return `(${r}, ${g}, ${b})`;
+}
+
+// console.log(HSLtoRGB('(211, 3%, 7%)'))
+
+function findComplements (rgbValue) {
+
 }
 
 const zenObject = {
@@ -64,18 +186,8 @@ const zenObject = {
     18: "Matters of great concern should be treated lightly. Matters of small concerns should be treated seriously.",
     19: "Obstacles don't block the path, they are the path.",
     20: "If it is to be, it must be me.",
+    21: "Don't enable the scumbags"
 }
 
 
-
-function randomColor() {
-    //pick a "red" from 0 to 255
-    const r = Math.floor(Math.random() * 256);
-    //pick a "green" from 0 to 255
-    const g = Math.floor(Math.random() * 256);
-    //pick a "blue" from 0 to 255
-    const b = Math.floor(Math.random() * 256);
-    return `(${r}, ${g}, ${b})`;
-}
-
-export default generateEasyColors;
+// export default generateEasyColors;

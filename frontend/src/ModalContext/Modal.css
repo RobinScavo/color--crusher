@@ -10,17 +10,17 @@
     margin-bottom: 22px;
   }
 
-  .visible {
+  /* .visible {
     visibility: visible;
     opacity: 1;
     transition: opacity 2s linear;
-  }
+  } */
 
-  .hidden {
+  /* .hidden {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s 2s, opacity 2s linear;
-  }
+  } */
 
 
   #modal-background {

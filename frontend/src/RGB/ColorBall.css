@@ -11,7 +11,7 @@
 .hidden {
     visibility: hidden;
     opacity: 0;
-    transition: visibility 2s linear 900ms, opacity 900ms;
+    transition: visibility 1ms linear 900ms, opacity 900ms;
 }
 
 .colorBall::before {
