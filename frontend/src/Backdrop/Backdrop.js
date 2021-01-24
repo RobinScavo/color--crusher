@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import RGBboard from '../RGB/RGBboard'
 import Banner from '../Banner/Banner'
 import Footer from '../Footer/Footer'
-// import PreGameInstruction from '../Components/Instructions/pregame'
+import KarenContext from '../KarenContext'
 
 
 import './Backdrop.css'
 
 const BackDrop = () => {
+    const values = useContext(KarenContext);
+
     return (
         <div className='backDrop'>
             <Banner />
@@ -19,8 +21,12 @@ const BackDrop = () => {
                 <div className='sideDiv'></div>
                 <Footer />
                 <div className='bottomBar'>
-                    <h3>Skore</h3>
-                    <h3>Koins</h3>
+                    {values.startBattle &&
+                        <h3>Skore</h3>
+                    }
+                    {values.startBattle &&
+                        <h3>Koins</h3>
+                    }
                 </div>
             </div>
         </div>

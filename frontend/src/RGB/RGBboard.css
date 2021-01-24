@@ -57,3 +57,17 @@
     padding-bottom: 20px;
     font-weight: bolder;
 }
+
+.kernelDiv {
+    display: flex;
+    height: 200px;
+    width: 160px;
+    text-align: center;
+}
+
+.shortKernel {
+    display: flex;
+    align-items: center;
+    font-size: 35px;
+    color: hsl(351, 24.4%, 33.7%);
+}

@@ -1,7 +1,8 @@
 import React, { useContext} from 'react';
 
-import KarenContext from '../KarenContext'
-import ColorBall from './ColorBall'
+import KarenContext from '../KarenContext';
+import ColorBall from './ColorBall';
+// import zenObject from '../PureFunctions';
 
 import './RGBboard.css'
 
@@ -9,12 +10,8 @@ const RGBboard = () => {
     const values = useContext(KarenContext)
     const arr = values.colorArray;
     const target = values.colorTargetId;
-
-    //Set the inital plate colors and ball visibility
-    let targetRGB = '(206, 186, 186)'
-    let targetRGBDarkness = '(107, 65, 71)'
-    let textColor = 'rgba(5, 13, 133, 0.9)';
-    let visibility = 'visible'
+    let kernelVisibility = values.kernelVisibility;
+    let visibility = 'visible';
 
     //Arrays for ColorBall map
     let idArray = ['colorOne', 'colorTwo', 'colorThree', 'colorFour', 'colorFive', 'colorSix'];
@@ -22,12 +19,7 @@ const RGBboard = () => {
     let indexArray = [0, 1, 2, 3, 4, 5]
 
     // Ghost-ball effect when clearing board
-    if (!values.gameOn && values.round > 0) {
-        // targetRGB = values.colorTarget;
-        // targetRGBDarkness = '(30, 30, 30)';
-        visibility = 'hidden';
-        textColor = 'rgb(206, 186, 186)'
-    }
+    if (!values.gameOn && values.round > 0) visibility = 'hidden';
 
     return (
         <div className='lipDiv'>
@@ -49,32 +41,37 @@ const RGBboard = () => {
                         visibility={visibility}
                     />
                 ))}
-
-                {/* Inner plate: either start button, target color or 'Correct' message */}
-                <div className='targetColorDiv' >
-
-                    {/* Start button */}
-                    {!values.gameOn && values.round === 0 &&
-                        <button className='startButton' onClick={() => {
-                            values.toggleInstructionModal()
-                        }}>START</button>}
-
-                    {/* Target color */}
-                    {values.gameOn &&
-                        <div className='targetDiv'>
-                            <h2 className='colorText'>RGB</h2>
-                            <h2 className='colorNumber'>{values.colorTarget}</h2>
-                        </div>
-                    }
-
-                    {/* 'Correct message' */}
-                    {!values.gameOn && values.round > 0 &&
-                        <h2 className='colorNumber'>CORRECT</h2>}
-                </div>
+                {/* Start button */}
+                {!values.gameOn && values.round === 0 && !values.instructionModal && !values.startZen && !values.startBattle &&
+                    <button className='startButton' onClick={() => {
+                        values.toggleInstructionModal()
+                    }}>START</button>
+                }
+                {values.startBattle &&
+                    <div className='targetColorDiv' >
+                        {/* Target color */}
+                        {values.gameOn && values.startBattle &&
+                            <div className='targetDiv'>
+                                <h2 className='colorText'>RGB</h2>
+                                <h2 className='colorNumber'>{values.colorTarget}</h2>
+                            </div>
+                        }
+                        {!values.gameOn && values.round > 0 && !values.startZen &&
+                            <h2 className='colorNumber'>CORRECT</h2>
+                        }
+                    </div>
+                }
+                {values.startZen &&
+                    <div className='kernelDiv'>
+                        <h2 className='shortKernel' style={{visibility:`${kernelVisibility}`}}>{values.zenKernel}</h2>
+                    </div>
+                }
             </div>
         </div>
     )
 }
+
+
 
 
 export default RGBboard;

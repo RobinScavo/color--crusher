@@ -250,7 +250,7 @@ function findAnalogous (hslColor) {
     return {analogousOneColor, analogousTwoColor}
 }
 
-const zenObject = {
+export const zenObject = {
     1: "I've never known a thing in my life.",
     2: "Nothing is something worth doing.",
     3: "Sleep is the best meditation.",
@@ -266,13 +266,10 @@ const zenObject = {
     13: "Life begins where fear ends.",
     14: "Don't curse the darkness, light a candle.",
     15: "This will never come again.",
-    16: "Nothing is what I want.",
+    16: "Nothing is what you want.",
     17: "I have lived with several Zen masters - all of them cats.",
     18: "Matters of great concern should be treated lightly. Matters of small concerns should be treated seriously.",
     19: "Obstacles don't block the path, they are the path.",
     20: "If it is to be, it must be me.",
     21: "Don't enable the scumbags"
 }
-
-
-// export default generateEasyColors;

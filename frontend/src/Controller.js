@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { generateEasyColors, HSLtoRGB, generateBattleColors, generateZenColors } from './PureFunctions';
+import { generateEasyColors, HSLtoRGB, generateBattleColors, generateZenColors, zenObject } from './PureFunctions';
 import Backdrop from './Backdrop/Backdrop'
 import KarenContext from './KarenContext';
 import InstructionModal from './Components/Modals/InstructionModal';
@@ -25,6 +25,8 @@ class Controller extends React.Component {
             coins: 0,
             coinArray: [true, true, true],
             gameOn: false,
+            zenKernel: '',
+            kernelVisiblity: 'hidden',
 
             instructionModal: false,
             loginModal: false,
@@ -43,6 +45,7 @@ class Controller extends React.Component {
             toggleStartZen: this.toggleStartZen,
             toggleStartBattle: this.toggleStartBattle,
 
+            displayKernel: this.displayKernel,
             startGame: this.startGame,
             correctGuess: this.correctGuess,
             updateTimer: this.updateTimerContext,
@@ -86,20 +89,30 @@ class Controller extends React.Component {
 
     correctGuess = () => {
         let coinCount = 0;
-        for (let coin of this.state.coinArray) {
-            if (coin) coinCount++
+
+        if (this.state.startBattle) {
+            for (let coin of this.state.coinArray) {
+                if (coin) coinCount++
+            }
+
+            this.setState({
+                gameOn: false,
+                coins: this.state.coins += coinCount,
+             });
         }
-
-        this.setState({
-            gameOn: false,
-            coins: this.state.coins += coinCount,
-         });
-
+        if (this.state.startZen) {
+            this.setState({kernelVisiblity:'visible'})
+            setTimeout(() => {
+                this.setState({kernelVisiblity:'hidden'})
+            }, 1000)
+        }
         this.clearBoard();
         setTimeout(() => {
             this.updateColorArrayContext();
         }, 1500)
     }
+
+
 
     clearBoard = () => {
         let clearArray = []
@@ -145,6 +158,7 @@ class Controller extends React.Component {
         const firstSlice = (targetColor.background.slice(42))
         const colorTarget = (firstSlice.slice(0, firstSlice.length -7))
         const rgbTarget = HSLtoRGB(`${colorTarget}`)
+        const choosenKernel = this.displayKernel();
 
         this.setState({
             coinArray: [true, true, true],
@@ -153,7 +167,14 @@ class Controller extends React.Component {
             colorTargetId: targetId,
             gameOn: true,
             colorTarget: rgbTarget,
+            zenKernel: choosenKernel,
         })
+    }
+
+    displayKernel = () => {
+        let randomNum = Math.floor(Math.random() * Object.keys(zenObject).length)
+        let randomKernel = zenObject[randomNum];
+        return randomKernel;
     }
 
     render() {
