@@ -15,14 +15,18 @@ const FooterButtons = () => {
     const checkBattle = () => {
         if (values.startBattle) values.toggleStartBattle()
     }
+    const checkConvert = () => {
+        if (values.startConvert) values.toggleStartConvert()
+    }
 
     return (
         <div className='footerButtonDiv'>
             <button className='footerButton' onClick={() => {
-                values.toggleGameOn();
-                values.clearRounds();
                 checkZen();
                 checkBattle();
+                checkConvert();
+                values.clearRounds();
+                values.toggleGameOn();
             }}>Home</button>
             <button className='footerButton' onClick={() => {
                 values.toggleWindowDisplay();

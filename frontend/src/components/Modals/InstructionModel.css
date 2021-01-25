@@ -118,13 +118,17 @@
     color: rgba(5, 13, 133, 0.9);
     font-size: 12px;
     font-family: 'Fraunces', serif;
-    margin-left: 5px;
+    margin-left: 0px;
     margin-bottom: 5px;
-    width: 70px;
+    width: 80px;
 }
 
 .zen {
     font-size: 30px;
+}
+
+.convert {
+    font-size: 15px;
 }
 
 .lowerDiv {

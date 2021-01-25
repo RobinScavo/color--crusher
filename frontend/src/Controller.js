@@ -1,6 +1,14 @@
 import React from 'react'
 
-import { generateEasyColors, HSLtoRGB, generateBattleColors, generateZenColors, zenObject } from './PureFunctions';
+import {
+    generateEasyColors,
+    HSLtoRGB,
+    generateBattleColors,
+    generateZenColors,
+    generateGhostColors ,
+    zenObject,
+} from './PureFunctions';
+
 import Backdrop from './Backdrop/Backdrop'
 import KarenContext from './KarenContext';
 import InstructionModal from './Components/Modals/InstructionModal';
@@ -38,7 +46,7 @@ class Controller extends React.Component {
 
             startZen: false,
             startBattle: false,
-            startDemo: false,
+            startConvert: false,
 
             toggleInstructionModal: this.toggleInstructionModal,
             toggleLoginModal: this.toggleLoginModal,
@@ -46,9 +54,10 @@ class Controller extends React.Component {
             togglePlayerPageModal: this.togglePlayerPageModal,
             toggleWindowDisplay: this.toggleWindowDisplay,
 
+            toggleGameOn: this.toggleGameOn,
             toggleStartZen: this.toggleStartZen,
             toggleStartBattle: this.toggleStartBattle,
-            toggleGameOn: this.toggleGameOn,
+            toggleStartConvert: this.toggleStartConvert,
 
             startGame: this.startGame,
             correctGuess: this.correctGuess,
@@ -68,11 +77,18 @@ class Controller extends React.Component {
 
     toggleStartZen = () => {
         if (this.state.startBattle) this.toggleStartBattle()
+        if (this.state.startConvert) this.toggleStartConvert()
         this.setState({ startZen: !this.state.startZen })
     }
     toggleStartBattle = () => {
         if (this.state.startZen) this.toggleStartZen()
+        if (this.state.startConvert) this.toggleStartConvert()
         this.setState({ startBattle: !this.state.startBattle })
+    }
+    toggleStartConvert = () => {
+        if (this.state.startZen) this.toggleStartZen()
+        if (this.state.startBattle) this.toggleStartBattle()
+        this.setState({ startConvert: !this.state.startConvert})
     }
 
     startGame = () => {
@@ -153,6 +169,7 @@ class Controller extends React.Component {
         let arr = [];
 
         if (this.state.startZen) arr = generateZenColors()
+        if (this.state.startConvert) arr = generateGhostColors()
 
         if (this.state.startBattle) {
             this.state.round <= 2

@@ -24,6 +24,9 @@ const Banner = () => {
             {values.startZen &&
                 <h1 className='gameName'>Zen Mode</h1>
             }
+            {values.startConvert &&
+                <h1 className='gameName'>Kolor Konverter</h1>
+            }
 
             <CryptoCoin />
             <UserName />

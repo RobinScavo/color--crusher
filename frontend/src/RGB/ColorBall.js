@@ -12,6 +12,7 @@ class ColorBall extends React.Component {
             target: null,
             gameOn: false,
             validTarget: true,
+            blurred: 'blurred',
 
             delay: props.delay,
             correctGuess: props.correctGuess,
@@ -58,7 +59,7 @@ class ColorBall extends React.Component {
     render() {
         return (
         <div
-            className={`colorBall ${this.state.visibility}`}
+            className={`colorBall ${this.state.visibility} ${this.state.blurred}`}
             id={this.state.id}
             onClick={() => this.checkGuess(this.state.id)}
             style={this.state.color}

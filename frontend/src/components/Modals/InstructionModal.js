@@ -41,7 +41,7 @@ function InstructionModel() {
               </div>
               <div className='arrowText'>
                 <h1 className='arrow'>➛</h1>
-                <h1 className='modeText'>Just click the balls. Relax.</h1>
+                <h1 className='modeText'>Just klick the balls. Relax.</h1>
               </div>
             </div>
 
@@ -57,19 +57,23 @@ function InstructionModel() {
               </div>
               <div className='arrowText'>
                 <h1 className='arrow'>➛</h1>
-                <h1 className='modeText'>Compete aginst the best!</h1>
+                <h1 className='modeText'>Kompete aginst the best!</h1>
               </div>
             </div>
 
             {/* Demo mode */}
             <div className='modeDiv'>
               <div className='buttonDiv'>
-                <h1 className='titleText'>Demo Mode</h1>
-                <button className='goldButton demo' >Demo</button>
+                <h1 className='titleText'>KonvertMode</h1>
+                <button className='goldButton convert' onClick={() => {
+                  values.toggleInstructionModal();
+                  values.toggleStartConvert();
+                  values.startGame();
+                }}>Konvert</button>
               </div>
               <div className='arrowText'>
                 <h1 className='arrow'>➛</h1>
-                <h1 className='modeText'>A sampler of each round.</h1>
+                <h1 className='modeText'>Konvert your kolors.</h1>
               </div>
             </div>
           </div>

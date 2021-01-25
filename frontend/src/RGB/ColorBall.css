@@ -66,3 +66,8 @@
     left: 30px;
     top: 116px;
 }
+
+.blurred {
+    background-clip: padding-box;
+    backdrop-filter: blur(6px );
+}

@@ -44,6 +44,32 @@ export function generateHardColors() {
     return newArray;
 }
 
+export function generateGhostColors() {
+    const arr = [];
+
+    for (let i = 0; i < 6; i++) {
+        let temp = randomColor();
+        let sliced = temp.slice(1)
+        arr.push(sliced);
+    }
+
+    const newArray = addStyleString(arr);
+    const blurredArray = addBlurClass(newArray)
+    return newArray;
+}
+
+function addBlurClass(arr) {
+    const blurredArray = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        let object = arr[i];
+        object.class = 'blurred';
+        blurredArray.push(object)
+    }
+    console.log(blurredArray[2].class)
+    return blurredArray;
+}
+
 function randomColor() {
     //pick a "red" from 0 to 255
     const r = Math.floor(Math.random() * 256);

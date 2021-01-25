@@ -40,30 +40,30 @@
 .windowOne {
     position: absolute;
     top: 45px;
-    left: 225px;
+    left: 222px;
 }
 .windowTwo {
     position: absolute;
-    top: 175px;
+    top: 170px;
     right: 20px;
 }
 .windowThree {
     position: absolute;
-    bottom: 145px;
+    bottom: 150px;
     right: 20px
 }
 .windowFour {
     position: absolute;
     bottom: 45px;
-    left: 225px;
+    left: 222px;
 }
 .windowFive {
     position: absolute;
-    bottom: 145px;
+    bottom: 150px;
     left: 20px;
 }
 .windowSix {
     position: absolute;
-    top: 175px;
+    top: 170px;
     left: 20px;
 }

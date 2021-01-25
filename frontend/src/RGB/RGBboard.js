@@ -44,15 +44,23 @@ const RGBboard = () => {
                         delay={delayArray[index]}
                         removeCoin={values.removeCoin}
                         visibility={visibility}
+                        blurred={arr[index].class}
                     />
                 ))}
-                {/* Start button */}
                 <div className='targetColorDiv' >
+                    {/* Start button */}
                     {!values.gameOn && values.round === 0 && !values.instructionModal && !values.startZen && !values.startBattle &&
                         <button className='startButton' onClick={() => {
                             values.toggleInstructionModal()
                         }}>START</button>
                     }
+
+                    {/* Clear button */}
+                    {/* {values.startConvert &&
+                        <button className='startButton' onClick={() => {
+                            values.
+                        } }>Klear</button>
+                    } */}
                     {/* Target color */}
                     {values.startBattle && values.gameOn && values.startBattle &&
                         <div className='targetDiv'>
