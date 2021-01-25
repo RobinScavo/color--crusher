@@ -6,7 +6,7 @@ import KarenContext from '../../KarenContext'
 import './LogInFormModal.css'
 import './InstructionModel.css'
 
-function InstructionModel() {
+function InstructionModal() {
   const values = useContext(KarenContext);
 
   return (
@@ -84,4 +84,4 @@ function InstructionModel() {
     )
 }
 
-export default InstructionModel;
+export default InstructionModal;
