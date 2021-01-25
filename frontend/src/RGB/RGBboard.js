@@ -2,7 +2,6 @@ import React, { useContext} from 'react';
 
 import KarenContext from '../KarenContext';
 import ColorBall from './ColorBall';
-// import zenObject from '../PureFunctions';
 
 import './RGBboard.css'
 
@@ -11,6 +10,8 @@ const RGBboard = () => {
     const arr = values.colorArray;
     const target = values.colorTargetId;
     let kernelVisibility = values.kernelVisibility;
+    let kernelLength = values.zenKernel.length;
+    let kernelClassLength = 'shortKernel';
     let visibility = 'visible';
 
     //Arrays for ColorBall map
@@ -20,6 +21,13 @@ const RGBboard = () => {
 
     // Ghost-ball effect when clearing board
     if (!values.gameOn && values.round > 0) visibility = 'hidden';
+
+    //Adjust font for kernal length
+    if (kernelLength > 35 && kernelLength < 50) {
+        kernelClassLength = 'longKernel'
+    } else if  (kernelLength > 50) {
+        kernelClassLength = 'realLongKernel'
+    }
 
     return (
         <div className='lipDiv'>
@@ -63,7 +71,7 @@ const RGBboard = () => {
                 }
                 {values.startZen &&
                     <div className='kernelDiv'>
-                        <h2 className='shortKernel' style={{visibility:`${kernelVisibility}`}}>{values.zenKernel}</h2>
+                        <h2 className={`${kernelClassLength} ${kernelVisibility}`}>{values.zenKernel}</h2>
                     </div>
                 }
             </div>
@@ -71,10 +79,4 @@ const RGBboard = () => {
     )
 }
 
-
-
-
 export default RGBboard;
-
-
-// style={{background: `radial-gradient(circle at 400px 550px, rgb${targetRGB}, rgb${targetRGBDarkness})`}}

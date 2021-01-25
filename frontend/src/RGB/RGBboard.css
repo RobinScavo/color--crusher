@@ -61,7 +61,7 @@
 .kernelDiv {
     display: flex;
     height: 200px;
-    width: 160px;
+    width: 170px;
     text-align: center;
 }
 
@@ -70,4 +70,33 @@
     align-items: center;
     font-size: 35px;
     color: hsl(351, 24.4%, 33.7%);
+}
+
+.longKernel {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: hsl(351, 24.4%, 33.7%);
+}
+
+.realLongKernel {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: hsl(351, 24.4%, 33.7%);
+}
+
+.hidden {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+}
+
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@-webkit-keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
 }

@@ -251,6 +251,7 @@ function findAnalogous (hslColor) {
 }
 
 export const zenObject = {
+    0: "Trust is good... control is better",
     1: "I've never known a thing in my life.",
     2: "Nothing is something worth doing.",
     3: "Sleep is the best meditation.",

@@ -26,7 +26,9 @@ class Controller extends React.Component {
             coinArray: [true, true, true],
             gameOn: false,
             zenKernel: '',
-            kernelVisiblity: 'hidden',
+            kernelVisibility: 'visible',
+            zenObject: zenObject,
+            mutableZen: zenObject,
 
             instructionModal: false,
             loginModal: false,
@@ -45,7 +47,6 @@ class Controller extends React.Component {
             toggleStartZen: this.toggleStartZen,
             toggleStartBattle: this.toggleStartBattle,
 
-            displayKernel: this.displayKernel,
             startGame: this.startGame,
             correctGuess: this.correctGuess,
             updateTimer: this.updateTimerContext,
@@ -99,15 +100,12 @@ class Controller extends React.Component {
                 gameOn: false,
                 coins: this.state.coins += coinCount,
              });
-        }
-        if (this.state.startZen) {
-            this.setState({kernelVisiblity:'visible'})
-            setTimeout(() => {
-                this.setState({kernelVisiblity:'hidden'})
-            }, 1000)
+        } else if (this.state.startZen) {
+            this.setState({ kernelVisibility: 'hidden' })
         }
         this.clearBoard();
         setTimeout(() => {
+            this.toggleKernelDisplay();
             this.updateColorArrayContext();
         }, 1500)
     }
@@ -122,8 +120,9 @@ class Controller extends React.Component {
                 `radial-gradient(circle at 100px 100px, rgba(0, 0, 0, 0.1), #000)`
             })
         }
-
-        this.setState({ colorArray: clearArray })
+        this.setState({
+            colorArray: clearArray,
+        })
     }
 
     updateTimerContext = (seconds) => {
@@ -158,7 +157,6 @@ class Controller extends React.Component {
         const firstSlice = (targetColor.background.slice(42))
         const colorTarget = (firstSlice.slice(0, firstSlice.length -7))
         const rgbTarget = HSLtoRGB(`${colorTarget}`)
-        const choosenKernel = this.displayKernel();
 
         this.setState({
             coinArray: [true, true, true],
@@ -167,14 +165,25 @@ class Controller extends React.Component {
             colorTargetId: targetId,
             gameOn: true,
             colorTarget: rgbTarget,
-            zenKernel: choosenKernel,
         })
     }
 
-    displayKernel = () => {
-        let randomNum = Math.floor(Math.random() * Object.keys(zenObject).length)
-        let randomKernel = zenObject[randomNum];
-        return randomKernel;
+    toggleKernelDisplay = () => {
+        let randomKernel = '';
+        if (Object.keys(this.state.mutableZen).length > 0) {
+            console.log(Object.keys(this.state.mutableZen).length, this.state.mutableZen, zenObject)
+            let kernelArray = Object.keys(this.state.mutableZen);
+            let randomNum = Math.random();
+            let kernelIndex = Math.floor(randomNum * kernelArray.length)
+            let randomKey = kernelArray[kernelIndex];
+            randomKernel = this.state.mutableZen[randomKey]
+            delete this.state.mutableZen[randomKey]
+        };
+
+        this.setState({
+            zenKernel: randomKernel,
+            kernelVisibility: 'visible',
+        })
     }
 
     render() {
