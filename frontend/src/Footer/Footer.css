@@ -1,12 +1,9 @@
 .footerDiv {
-    position: relative;
-    align-self: flex-end;
-    padding-bottom: 25px;
-    bottom: 2px;
     display: flex;
-    justify-content: space-between;
-    height: 100px;
+    justify-content: center;
+    display: flex;
+    height: 120px;
     width: 100%;
     z-index: 0;
-    /* background-color: blanchedalmond; */
+    overflow: visible;
 }

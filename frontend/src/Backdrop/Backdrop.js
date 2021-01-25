@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import RGBboard from '../RGB/RGBboard'
 import Banner from '../Banner/Banner'
 import Footer from '../Footer/Footer'
+import Window from '../Components/Window/Window'
 import KarenContext from '../KarenContext'
 
 
@@ -15,6 +16,7 @@ const BackDrop = () => {
         <div className='backDrop'>
             <Banner />
             <div className='upperRoundDiv'>
+                <Window />
                 <RGBboard />
                 <div className='innerDiv'></div>
                 <div className='sideDivRight'></div>

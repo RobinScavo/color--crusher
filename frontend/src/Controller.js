@@ -29,6 +29,7 @@ class Controller extends React.Component {
             kernelVisibility: 'visible',
             zenObject: zenObject,
             mutableZen: zenObject,
+            windowDisplayed: false,
 
             instructionModal: false,
             loginModal: false,
@@ -43,14 +44,17 @@ class Controller extends React.Component {
             toggleLoginModal: this.toggleLoginModal,
             toggleBioModal: this.toggleBioModal,
             togglePlayerPageModal: this.togglePlayerPageModal,
+            toggleWindowDisplay: this.toggleWindowDisplay,
 
             toggleStartZen: this.toggleStartZen,
             toggleStartBattle: this.toggleStartBattle,
+            toggleGameOn: this.toggleGameOn,
 
             startGame: this.startGame,
             correctGuess: this.correctGuess,
             updateTimer: this.updateTimerContext,
             removeCoin: this.removeCoin,
+            clearRounds: this.clearRounds,
         }
     }
 
@@ -58,6 +62,9 @@ class Controller extends React.Component {
     toggleLoginModal = () => this.setState({ loginModal: !this.state.loginModal })
     toggleBioModal = () => this.setState({ bioModal: !this.state.bioModal })
     togglePlayerPageModal = () => this.setState({ playerPageModal: !this.state.playerPageModal })
+    toggleGameOn = () => this.setState({ gameOn: false })
+    toggleWindowDisplay = () => this.setState({ windowDisplayed: !this.state.windowDisplayed})
+    clearRounds = () => this.setState({ round: 0})
 
     toggleStartZen = () => {
         if (this.state.startBattle) this.toggleStartBattle()
@@ -171,7 +178,6 @@ class Controller extends React.Component {
     toggleKernelDisplay = () => {
         let randomKernel = '';
         if (Object.keys(this.state.mutableZen).length > 0) {
-            console.log(Object.keys(this.state.mutableZen).length, this.state.mutableZen, zenObject)
             let kernelArray = Object.keys(this.state.mutableZen);
             let randomNum = Math.random();
             let kernelIndex = Math.floor(randomNum * kernelArray.length)

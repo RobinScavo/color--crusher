@@ -22,7 +22,7 @@ const RGBboard = () => {
     // Ghost-ball effect when clearing board
     if (!values.gameOn && values.round > 0) visibility = 'hidden';
 
-    //Adjust font for kernal length
+    //Adjust font for kernel length
     if (kernelLength > 35 && kernelLength < 50) {
         kernelClassLength = 'longKernel'
     } else if  (kernelLength > 50) {
@@ -31,10 +31,7 @@ const RGBboard = () => {
 
     return (
         <div className='lipDiv'>
-
-            {/* Flash target color on plate after correct guess */}
             <div className='plateDiv' >
-            {/* style={{background: `radial-gradient(circle at 400px 550px, rgb${targetRGB}, rgb${targetRGBDarkness})`}} */}
                 {/* Set the balls */}
                 {indexArray.map(index => (
                     <ColorBall
@@ -50,30 +47,32 @@ const RGBboard = () => {
                     />
                 ))}
                 {/* Start button */}
-                {!values.gameOn && values.round === 0 && !values.instructionModal && !values.startZen && !values.startBattle &&
-                    <button className='startButton' onClick={() => {
-                        values.toggleInstructionModal()
-                    }}>START</button>
-                }
-                {values.startBattle &&
-                    <div className='targetColorDiv' >
-                        {/* Target color */}
-                        {values.gameOn && values.startBattle &&
-                            <div className='targetDiv'>
-                                <h2 className='colorText'>RGB</h2>
-                                <h2 className='colorNumber'>{values.colorTarget}</h2>
-                            </div>
-                        }
-                        {!values.gameOn && values.round > 0 && !values.startZen &&
+                <div className='targetColorDiv' >
+                    {!values.gameOn && values.round === 0 && !values.instructionModal && !values.startZen && !values.startBattle &&
+                        <button className='startButton' onClick={() => {
+                            values.toggleInstructionModal()
+                        }}>START</button>
+                    }
+                    {/* Target color */}
+                    {values.startBattle && values.gameOn && values.startBattle &&
+                        <div className='targetDiv'>
+                            <h2 className='colorText'>RGB</h2>
+                            <h2 className='colorNumber'>{values.colorTarget}</h2>
+                        </div>
+                    }
+                    {values.startBattle && !values.gameOn && values.round > 0 && !values.startZen &&
+                        <div className='targetDiv'>
                             <h2 className='colorNumber'>CORRECT</h2>
-                        }
-                    </div>
-                }
-                {values.startZen &&
-                    <div className='kernelDiv'>
-                        <h2 className={`${kernelClassLength} ${kernelVisibility}`}>{values.zenKernel}</h2>
-                    </div>
-                }
+                        </div>
+                    }
+                    {values.startZen &&
+                        <div className='targetDiv'>
+                            <div className='kernelDiv'>
+                                <h2 className={`${kernelClassLength} ${kernelVisibility}`}>{values.zenKernel}</h2>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     )
