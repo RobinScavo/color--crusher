@@ -4,7 +4,8 @@ import './Footer.css'
 import KarenContext from '../KarenContext';
 import Bowl from '../Components/Bowl'
 import FooterButtons from './FooterButtons'
-import ConvertPanel from './ConvertPanel'
+import LeftConvertPanel from './LeftConvertPanel'
+import RightConvertPanel from './RightConvertPanel'
 
 const Footer = () => {
     const values = useContext(KarenContext);
@@ -20,8 +21,8 @@ const Footer = () => {
             }
             {values.startConvert &&
                 <>
-                <ConvertPanel id='leftConvert'/>
-                <ConvertPanel id='rightConvert'/>
+                <LeftConvertPanel />
+                <RightConvertPanel />
                 </>
             }
         </div>
