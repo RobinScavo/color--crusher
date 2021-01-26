@@ -10,7 +10,6 @@ const Window = () => {
     const windowDisplay = values.windowDisplayed;
     let windowVisibility = false;
     windowVisibility = windowDisplay ? 'windowVisible' : 'windowHidden';
-    console.log(windowDisplay, windowVisibility)
     const colorArray = values.colorArray;
     const slicedArray = [];
 

@@ -55,7 +55,7 @@ export function generateGhostColors() {
 
     const newArray = addStyleString(arr);
     const blurredArray = addBlurClass(newArray)
-    return newArray;
+    return blurredArray;
 }
 
 function addBlurClass(arr) {
@@ -66,7 +66,6 @@ function addBlurClass(arr) {
         object.class = 'blurred';
         blurredArray.push(object)
     }
-    console.log(blurredArray[2].class)
     return blurredArray;
 }
 

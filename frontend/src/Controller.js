@@ -124,23 +124,28 @@ class Controller extends React.Component {
                 coins: this.state.coins += coinCount,
              });
         } else if (this.state.startZen) {
-            this.setState({ kernelVisibility: 'hidden' })
+            this.setState({
+                kernelVisibility: 'hidden',
+                gameOn: false,
+            })
+            setTimeout(() => {
+                this.toggleKernelDisplay();
+            }, 1500)
         }
         this.clearBoard();
         setTimeout(() => {
-            this.toggleKernelDisplay();
             this.updateColorArrayContext();
         }, 1500)
     }
 
 
 
+
     clearBoard = () => {
         let clearArray = []
-
         for (let i = 0; i < 6; i++) {
             clearArray.push({ background:
-                `radial-gradient(circle at 100px 100px, rgba(0, 0, 0, 0.1), #000)`
+                `radial-gradient(circle at 100px 100px, rgba(255, 255, 255, 0.1), #000)`
             })
         }
         this.setState({

@@ -1,0 +1,19 @@
+.convertDiv {
+    height: 300px;
+    width: 350px;
+    background-color: lemonchiffon;
+}
+
+#leftConvert {
+    position: absolute;
+    left: -20px;
+    bottom: 0px;
+    border-top-right-radius: 35%;
+}
+
+#rightConvert {
+    position: absolute;
+    right: -20px;
+    bottom: 0px;
+    border-top-left-radius: 35%;
+}

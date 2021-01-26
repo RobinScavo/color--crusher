@@ -13,8 +13,9 @@ class ColorBall extends React.Component {
             gameOn: false,
             validTarget: true,
             blurred: 'blurred',
-
+            startConvert: props.startConvert,
             delay: props.delay,
+
             correctGuess: props.correctGuess,
             removeCoin: props.removeCoin
         }
@@ -29,6 +30,7 @@ class ColorBall extends React.Component {
                     visibility: this.props.visibility,
                     color: this.props.color,
                     validTarget: true,
+                    startConvert: this.props.startConvert,
                 })
             }, this.state.delay)
         }
@@ -40,7 +42,9 @@ class ColorBall extends React.Component {
     }
 
     checkGuess = (id) => {
-        if (!this.state.gameOn) return
+        if (!this.state.gameOn) return;
+        if (this.props.startConvert) return;
+        console.log(this.state.startConvert)
         if (this.state.target === id) {
             this.setState({color: {}})
             this.state.correctGuess();

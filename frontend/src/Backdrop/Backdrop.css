@@ -101,11 +101,12 @@
     font-size: 25px;
 }
 
-.startButton:hover {
+.startButton:hover, .startButton:focus {
     height: 68px;
     width: 149px;
     font-size: 26px;
     cursor: pointer;
+    outline: none;
 }
 
 .sideDiv {

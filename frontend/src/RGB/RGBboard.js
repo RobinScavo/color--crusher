@@ -38,29 +38,29 @@ const RGBboard = () => {
                         key={idArray[index]}
                         id={idArray[index]}
                         color={arr[index]}
+                        delay={delayArray[index]}
+                        blurred={arr[index].class}
+                        visibility={visibility}
                         target={target}
                         correctGuess={values.correctGuess}
-                        gameOn={values.gameOn}
-                        delay={delayArray[index]}
                         removeCoin={values.removeCoin}
-                        visibility={visibility}
-                        blurred={arr[index].class}
+                        gameOn={values.gameOn}
+                        startConvert={values.startConvert}
                     />
                 ))}
                 <div className='targetColorDiv' >
                     {/* Start button */}
-                    {!values.gameOn && values.round === 0 && !values.instructionModal && !values.startZen && !values.startBattle &&
+                    {!values.gameOn && values.round === 0 && !values.instructionModal && !values.startConvert && !values.startBattle &&
                         <button className='startButton' onClick={() => {
                             values.toggleInstructionModal()
                         }}>START</button>
                     }
-
                     {/* Clear button */}
-                    {/* {values.startConvert &&
+                    {values.startConvert &&
                         <button className='startButton' onClick={() => {
-                            values.
+                            values.correctGuess()
                         } }>Klear</button>
-                    } */}
+                    }
                     {/* Target color */}
                     {values.startBattle && values.gameOn && values.startBattle &&
                         <div className='targetDiv'>
