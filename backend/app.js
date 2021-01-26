@@ -40,6 +40,36 @@ app.use(
 
 app.use(routes); // Connect all the routes
 
+if (process.env.NODE_ENV === 'production') {
+  const path = require('path');
+  // Serve the frontend's index.html file at the root route
+  // app.get('/', (req, res) => {
+  //   res.cookie('XSRF-TOKEN', req.csrfToken());
+  //   res.sendFile(
+  //     path.resolve(__dirname, '../frontend', 'build', 'index.html')
+  //   );
+  // });
+
+  // Serve the static assets in the frontend's build folder
+  app.use(express.static('../frontend/build'));
+
+  // Serve the frontend's index.html file at all other routes NOT starting with /api
+  app.get(/^(?!\/?api).*/, (req, res) => {
+    res.cookie('XSRF-TOKEN', req.csrfToken());
+    res.sendFile(
+      path.resolve(__dirname, '../frontend', 'build', 'index.html')
+    );
+  });
+}
+
+// Add a XSRF-TOKEN cookie in development
+if (process.env.NODE_ENV !== 'production') {
+  app.get('/api/csrf/restore', (req, res) => {
+    res.cookie('XSRF-TOKEN', req.csrfToken());
+    res.status(201).json({});
+  });
+}
+
 // Catch unhandled requests and forward to error handler.
 app.use((_req, _res, next) => {
   const err = new Error("The requested resource couldn't be found.");
@@ -70,5 +100,6 @@ app.use((err, _req, res, _next) => {
     stack: isProduction ? null : err.stack,
   });
 });
+
 
 module.exports = app;
