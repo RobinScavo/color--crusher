@@ -79,6 +79,22 @@ function randomColor() {
     return RGBtoHSL(`(${r}, ${g}, ${b})`);
 }
 
+//find high numbers
+function randomPastelColor() {
+    //pick a "red" from 0 to 255
+    const r = Math.floor(Math.random() * 76) + 180;
+    //pick a "green" from 0 to 255
+    const g = Math.floor(Math.random() * 76) + 180;
+    //pick a "blue" from 0 to 255
+    const b = Math.floor(Math.random() * 76) + 180;
+
+    //make sure its not too white
+    if ((r+g+b) > 700 || (r+g+b) < 600) {
+        return randomPastelColor()
+    }
+    return RGBtoHSL(`(${r}, ${g}, ${b})`);
+}
+
 export function generateBattleColors() {
     const arr = []
     //Pick Random RGB color
@@ -101,6 +117,24 @@ export function generateZenColors() {
     const arr = []
     //Pick Random RGB color
     const ranColor = randomColor()
+    arr.push(ranColor);
+    //Find compliment
+    const compliment = findComplement(ranColor)
+    //find analogous compliments
+    const triOne = findAnalogous(ranColor).analogousOneColor;
+    const triTwo = findAnalogous(ranColor).analogousTwoColor;
+    //Find analogous compliments of compliment
+    const analogousOne  = findAnalogous(compliment).analogousOneColor;
+    const analogousTwo  = findAnalogous(compliment).analogousTwoColor;
+    arr.push(analogousOne, triOne, compliment, triTwo, analogousTwo)
+
+    return addStyleString(arr)
+}
+
+export function generatePastelColors() {
+    const arr = []
+    //Pick Random RGB color
+    const ranColor = randomPastelColor()
     arr.push(ranColor);
     //Find compliment
     const compliment = findComplement(ranColor)

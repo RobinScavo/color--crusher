@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 
-import './Footer.css'
 import KarenContext from '../KarenContext';
 import Bowl from '../Components/Bowl'
 import FooterButtons from './FooterButtons'
-import LeftConvertPanel from './LeftConvertPanel'
-import RightConvertPanel from './RightConvertPanel'
+import ClassConvertPanels from './ClassConvertPanels'
+
+import './Footer.css'
 
 const Footer = () => {
     const values = useContext(KarenContext);
@@ -20,10 +20,7 @@ const Footer = () => {
                 </>
             }
             {values.startConvert &&
-                <>
-                <LeftConvertPanel />
-                <RightConvertPanel />
-                </>
+                <ClassConvertPanels />
             }
         </div>
     )

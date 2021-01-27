@@ -1,55 +1,44 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 
-import './ConvertPanel.css'
+import KarenContext from '../KarenContext'
+
+import './ClassConvertPanels.css'
 
 const RightConvertPanel = () => {
-    const [colorValue, setColorValue] = useState('')
+    const values = useContext(KarenContext)
+    const tempArray =['333', '44', '55']
 
-    const handleSubmit= (evt) => {
-        evt.preventDefault();
-    }
     return (
         <div className='convertDiv' id='rightConvert'>
             <div className='rightButtonDiv' >
                 <div className='rightConvertTextDiv'>Kreate Random Kolors</div>
-                <button className='rightConvertButton'>Triadic</button>
-                <button className='rightConvertButton'>Analogous</button>
-                <button className='rightConvertButton'>Pastel</button>
+                <button className='rightConvertButton' onClick={() => {
+                    values.toggleCreateTriadic();
+                } }>Triadic</button>
+                <button className='rightConvertButton' onClick={() => {
+                    values.toggleCreateAnalogous();
+                }}>Analogous</button>
+                <button className='rightConvertButton' onClick={() => {
+                    values.toggleCreatePastel();
+                }}>Pastel</button>
             </div>
-            <form onSubmit={handleSubmit}>
-                <div className='rightConvertInputDiv'>
-                    <div className='convertBling  firstBling'></div>
-                    <label className='convertLabel'>
-                        HUE
-                        <input
-                            className='rightConvertInput'
-                            type='text'
-                            value={colorValue}
-                            onChange={e => setColorValue(e.target.value)}
-                        />
-                    </label>
-                    <div className='convertBling secondBling'></div>
-                    <label className='convertLabel'>
-                        SATURATION
-                        <input
-                            className='rightConvertInput'
-                            type='text'
-                            value={colorValue}
-                            onChange={e => setColorValue(e.target.value)}
-                        />
-                    </label>
-                    <div className='convertBling thirdBling'></div>
-                    <label className='convertLabel'>
-                        LIGHT
-                        <input
-                            className='rightConvertInput'
-                            type='text'
-                            value={colorValue}
-                            onChange={e => setColorValue(e.target.value)}
-                        />
-                    </label>
+            <div className='rightConvertInputDiv'>
+                <div className='convertBling  firstBling'></div>
+                <div className='rightLabelDiv'>
+                    <h1 className='rightLabel'>Hue</h1>
+                    <h1 className='rightInput'>{tempArray[0]}</h1>
                 </div>
-            </form>
+                <div className='convertBling  secondBling'></div>
+                <div className='rightLabelDiv'>
+                    <h1 className='rightLabel'>Saturation</h1>
+                    <h1 className='rightInput'>{tempArray[1]}</h1>
+                </div>
+                <div className='convertBling  thirdBling'></div>
+                <div className='rightLabelDiv'>
+                    <h1 className='rightLabel'>Light</h1>
+                    <h1 className='rightInput'>{tempArray[2]}</h1>
+                </div>
+            </div>
         </div>
     )
 }

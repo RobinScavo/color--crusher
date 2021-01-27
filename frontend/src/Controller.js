@@ -5,7 +5,8 @@ import {
     HSLtoRGB,
     generateBattleColors,
     generateZenColors,
-    generateGhostColors ,
+    generateGhostColors,
+    generatePastelColors,
     zenObject,
 } from './PureFunctions';
 
@@ -48,6 +49,10 @@ class Controller extends React.Component {
             startBattle: false,
             startConvert: false,
 
+            createTriadic: false,
+            createAnalogous: false,
+            createPastel: false,
+
             toggleInstructionModal: this.toggleInstructionModal,
             toggleLoginModal: this.toggleLoginModal,
             toggleBioModal: this.toggleBioModal,
@@ -58,6 +63,10 @@ class Controller extends React.Component {
             toggleStartZen: this.toggleStartZen,
             toggleStartBattle: this.toggleStartBattle,
             toggleStartConvert: this.toggleStartConvert,
+
+            toggleCreateTriadic: this.toggleCreateTriadic,
+            toggleCreateAnalogous: this.toggleCreateAnalogous,
+            toggleCreatePastel: this.toggleCreatePastel,
 
             startGame: this.startGame,
             correctGuess: this.correctGuess,
@@ -75,20 +84,60 @@ class Controller extends React.Component {
     toggleWindowDisplay = () => this.setState({ windowDisplayed: !this.state.windowDisplayed})
     clearRounds = () => this.setState({ round: 0})
 
+    toggleCreateAnalogous = () => {
+        if (this.state.createPastel) this.toggleCreatePastel();
+        if (this.state.createTriadic) this.toggleCreateTriadic();
+        if (this.state.createAnalogous) return;
+        this.setState({ createAnalogous: true});
+        // if (this.state.colorArray[0].class === 'blurred') {
+        //     console.log(this.state.colorArray[0].class)
+        //     this.updateColorArrayContext();
+        //     this.setState({ createAnalogous: false})
+        //     return
+        // }
+        this.clearBoard();
+        setTimeout(() => {
+            this.updateColorArrayContext();
+            this.setState({ createAnalogous: false})
+        }, 1500)
+    }
+    toggleCreatePastel = () => {
+        if (this.state.createAnalogous) this.toggleCreateAnalogous();
+        if (this.state.createTriadic) this.toggleCreateTriadic();
+        if (this.state.createPastel) return;
+        this.setState({ createPastel: true});
+        this.clearBoard();
+        setTimeout(() => {
+            this.updateColorArrayContext();
+            this.setState({ createPastel: false})
+        }, 1500)
+    }
+    toggleCreateTriadic = () => {
+        if (this.state.createAnalogous) this.toggleCreateAnalogous();
+        if (this.state.createPastel) this.toggleCreatePastel();
+        if (this.state.createTriadic) return;
+        this.setState({ createTriadic: true});
+        this.clearBoard();
+        setTimeout(() => {
+            this.updateColorArrayContext();
+            this.setState({ createTriadic: false});
+        }, 1500)
+    }
+
     toggleStartZen = () => {
-        if (this.state.startBattle) this.toggleStartBattle()
-        if (this.state.startConvert) this.toggleStartConvert()
-        this.setState({ startZen: !this.state.startZen })
+        if (this.state.startBattle) this.toggleStartBattle();
+        if (this.state.startConvert) this.toggleStartConvert();
+        this.setState({ startZen: !this.state.startZen });
     }
     toggleStartBattle = () => {
-        if (this.state.startZen) this.toggleStartZen()
-        if (this.state.startConvert) this.toggleStartConvert()
-        this.setState({ startBattle: !this.state.startBattle })
+        if (this.state.startZen) this.toggleStartZen();
+        if (this.state.startConvert) this.toggleStartConvert();
+        this.setState({ startBattle: !this.state.startBattle });
     }
     toggleStartConvert = () => {
-        if (this.state.startZen) this.toggleStartZen()
-        if (this.state.startBattle) this.toggleStartBattle()
-        this.setState({ startConvert: !this.state.startConvert})
+        if (this.state.startZen) this.toggleStartZen();
+        if (this.state.startBattle) this.toggleStartBattle();
+        this.setState({ startConvert: !this.state.startConvert});
     }
 
     startGame = () => {
@@ -138,9 +187,6 @@ class Controller extends React.Component {
         }, 1500)
     }
 
-
-
-
     clearBoard = () => {
         let clearArray = []
         for (let i = 0; i < 6; i++) {
@@ -161,6 +207,7 @@ class Controller extends React.Component {
     }
 
     updateColorArrayContext = () => {
+        console.log('update')
         let randomSix = Math.floor(Math.random() * 6)
         let targetArray = [
             'colorOne',
@@ -173,8 +220,16 @@ class Controller extends React.Component {
         let targetId = targetArray[randomSix];
         let arr = [];
 
-        if (this.state.startZen) arr = generateZenColors()
-        if (this.state.startConvert) arr = generateGhostColors()
+        if (this.state.startZen) arr = generateZenColors();
+
+        if (this.state.startConvert && !this.state.createTriadic && !this.state.createAnalogous && !this.state.createPastel)
+            arr = generateGhostColors();
+        if (this.state.startConvert && this.state.createTriadic && !this.state.createAnalogous && !this.state.createPastel)
+            arr = generateBattleColors();
+        if (this.state.startConvert && !this.state.createTriadic && this.state.createAnalogous && !this.state.createPastel)
+            arr = generateZenColors();
+        if (this.state.startConvert && !this.state.createTriadic && !this.state.createAnalogous && this.state.createPastel)
+            arr = generatePastelColors();
 
         if (this.state.startBattle) {
             this.state.round <= 2

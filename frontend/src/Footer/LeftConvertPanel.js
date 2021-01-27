@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import './ConvertPanel.css'
+import './ClassConvertPanels.css'
 
 const LeftConvertPanel = () => {
     const [colorValue, setColorValue] = useState('')
