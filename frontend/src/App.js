@@ -7,11 +7,11 @@ import * as sessionActions from "./store/session";
 import Controller from './Controller'
 
 function App() {
-  const dispatch = useDispatch();
-  const [isLoaded, setIsLoaded] = useState(false);
-  useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // const [isLoaded, setIsLoaded] = useState(false);
+  // useEffect(() => {
+  //   dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+  // }, [dispatch]);
 
   return (
     <>

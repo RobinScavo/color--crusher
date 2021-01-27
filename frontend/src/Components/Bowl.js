@@ -13,10 +13,10 @@ const Bowl = (props) => {
         </div>
         <div className='bowl'>
 
-            {values.battleMode &&
+            {values.startBattle &&
                 <h2 className='display'>{props.display}</h2>
             }
-            {!values.battleMode &&
+            {!values.startBattle &&
                 <h2 className='display'>kk</h2>
             }
 

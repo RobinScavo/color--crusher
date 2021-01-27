@@ -276,7 +276,7 @@ function findAnalogous (hslColor) {
 }
 
 export const zenObject = {
-    0: "Trust is good... control is better",
+    0: "Trust is good... control is better.",
     1: "I've never known a thing in my life.",
     2: "Nothing is something worth doing.",
     3: "Sleep is the best meditation.",
@@ -297,5 +297,5 @@ export const zenObject = {
     18: "Matters of great concern should be treated lightly. Matters of small concerns should be treated seriously.",
     19: "Obstacles don't block the path, they are the path.",
     20: "If it is to be, it must be me.",
-    21: "Don't enable the scumbags"
+    21: "Don't enable the scumbags."
 }
