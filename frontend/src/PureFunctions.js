@@ -89,7 +89,8 @@ function randomPastelColor() {
     const b = Math.floor(Math.random() * 76) + 180;
 
     //make sure its not too white
-    if ((r+g+b) > 700 || (r+g+b) < 600) {
+    console.log('??????????', ((Math.abs(r - g)) + (Math.abs(g - b))))
+    if ((r+g+b) > 700 || (r+g+b) < 600  || ((Math.abs(r - g)) + (Math.abs(g - b))) < 40) {
         return randomPastelColor()
     }
     return RGBtoHSL(`(${r}, ${g}, ${b})`);

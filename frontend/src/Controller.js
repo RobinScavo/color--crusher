@@ -85,43 +85,43 @@ class Controller extends React.Component {
     clearRounds = () => this.setState({ round: 0})
 
     toggleCreateAnalogous = () => {
-        if (this.state.createPastel) this.toggleCreatePastel();
-        if (this.state.createTriadic) this.toggleCreateTriadic();
-        if (this.state.createAnalogous) return;
+        if (this.state.createAnalogous || this.state.createPastel || this.state.createTriadic) return;
         this.setState({ createAnalogous: true});
-        // if (this.state.colorArray[0].class === 'blurred') {
-        //     console.log(this.state.colorArray[0].class)
-        //     this.updateColorArrayContext();
-        //     this.setState({ createAnalogous: false})
-        //     return
-        // }
+        let delayOrNot = 0;
+        (this.state.colorArray[0].class === 'blurred')
+            ? delayOrNot = 0
+            : delayOrNot = 1500
         this.clearBoard();
         setTimeout(() => {
             this.updateColorArrayContext();
             this.setState({ createAnalogous: false})
-        }, 1500)
+        }, delayOrNot)
     }
     toggleCreatePastel = () => {
-        if (this.state.createAnalogous) this.toggleCreateAnalogous();
-        if (this.state.createTriadic) this.toggleCreateTriadic();
-        if (this.state.createPastel) return;
+        if (this.state.createAnalogous || this.state.createPastel || this.state.createTriadic) return;
         this.setState({ createPastel: true});
+        let delayOrNot = 0;
+        (this.state.colorArray[0].class === 'blurred')
+            ? delayOrNot = 0
+            : delayOrNot = 1500
         this.clearBoard();
         setTimeout(() => {
             this.updateColorArrayContext();
             this.setState({ createPastel: false})
-        }, 1500)
+        }, delayOrNot)
     }
     toggleCreateTriadic = () => {
-        if (this.state.createAnalogous) this.toggleCreateAnalogous();
-        if (this.state.createPastel) this.toggleCreatePastel();
-        if (this.state.createTriadic) return;
+        if (this.state.createAnalogous || this.state.createPastel || this.state.createTriadic) return;
         this.setState({ createTriadic: true});
+        let delayOrNot = 0;
+        (this.state.colorArray[0].class === 'blurred')
+            ? delayOrNot = 0
+            : delayOrNot = 1500
         this.clearBoard();
         setTimeout(() => {
             this.updateColorArrayContext();
             this.setState({ createTriadic: false});
-        }, 1500)
+        }, delayOrNot)
     }
 
     toggleStartZen = () => {
