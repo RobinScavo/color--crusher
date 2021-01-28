@@ -150,6 +150,24 @@ export function generatePastelColors() {
     return addStyleString(arr)
 }
 
+export function generateCustomColors(playerColor) {
+    const arr = []
+    //Pick Random RGB color
+    // const ranColor = randomPastelColor()
+    arr.push(playerColor);
+    //Find compliment
+    const compliment = findComplement(playerColor)
+    //find analogous compliments
+    const triOne = findAnalogous(playerColor).analogousOneColor;
+    const triTwo = findAnalogous(playerColor).analogousTwoColor;
+    //Find analogous compliments of compliment
+    const analogousOne  = findAnalogous(compliment).analogousOneColor;
+    const analogousTwo  = findAnalogous(compliment).analogousTwoColor;
+    arr.push(analogousOne, triOne, compliment, triTwo, analogousTwo)
+
+    return addStyleString(arr)
+}
+
 function RGBtoHSL (rgbValue) {
     //slice -n- dice
     let sliced = rgbValue.slice(1, rgbValue.length -1);

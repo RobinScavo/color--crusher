@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+
+import KarenContext from '../KarenContext'
+import generateCustomColors from '../PureFunctions'
 
 import './ClassConvertPanels.css'
 
 const LeftConvertPanel = (props) => {
-    // const [colorValue, setColorValue] = useState('')
+    const values = useContext(KarenContext);
+    let fromRgbTopValue = '';
+    let fromRgbMiddleValue = '';
+    let fromRgbBottomValue = '';
 
-    // const handleSubmit= (evt) => {
-    //     evt.preventDefault();
-    // }
     return (
         <div className='convertDiv' id='leftConvert'>
             <div className={`convertButtonDiv leftButtonDiv`} >
@@ -32,15 +35,16 @@ const LeftConvertPanel = (props) => {
                     <div className='convertArrow'>➛</div>
                 </div>
             </div>
-            <form >
+            <div >
                 <div className='convertInputDiv'>
                     <label className='convertLabel'>
                         {props.fromTopLabel}
                         <input
                             className='convertInput'
                             type='text'
-                            // value={colorValue}
+                            value={fromRgbTopValue}
                             placeholder={props.fromTopInput}
+                            maxLength='3'
                             // onChange={e => setColorValue(e.target.value)}
                         />
                     </label>
@@ -49,7 +53,7 @@ const LeftConvertPanel = (props) => {
                         <input
                             className='convertInput'
                             type='text'
-                            // value={colorValue}
+                            value={fromRgbMiddleValue}
                             placeholder={props.fromMiddleInput}
                             // onChange={e => setColorValue(e.target.value)}
                         />
@@ -59,14 +63,14 @@ const LeftConvertPanel = (props) => {
                         <input
                             className='convertInput'
                             type='text'
-                            // value={colorValue}
+                            value={fromRgbBottomValue}
                             placeholder={props.fromBottomInput}
                             // onChange={e => setColorValue(e.target.value)}
                         />
                     </label>
-                    <button className='submitButton'>Konvert</button>
+                    <button className='submitButton' onClick={props.playerSubmit}>Konvert</button>
                 </div>
-            </form>
+            </div>
         </div>
     )
 }
