@@ -71,7 +71,7 @@ function LoginForm() {
       <button className='playerPageButton' onClick={() => {
         values.toggleLoginModal();
         values.togglePlayerPageModal();
-      }}>Player Page</button>
+      }}>Player</button>
     </div>
     </>
   )

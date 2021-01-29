@@ -140,7 +140,7 @@ export function generatePastelColors() {
     const arr = []
     //Pick Random RGB color
     const ranColor = randomPastelColor()
-    // console.log('TTTTTTT', ranColor)
+    console.log('TTTTTTT', ranColor)
     arr.push(ranColor);
     //Find compliment
     const compliment = findComplement(ranColor)
@@ -159,19 +159,23 @@ export function generateCustomColors(playerColor) {
     const arr = []
     //Pick Random RGB color
     // const ranColor = randomPastelColor()
-    let convertedColor = RGBtoHSL(playerColor);
-    // console.log('VVVVV', convertedColor)
-    arr.push(convertedColor);
+    // let convertedColor = RGBtoHSL(playerColor);
+    let tempArr = playerColor.split(',')
+    let first = tempArr[0]
+    let second = `${tempArr[1]}%`
+    let third = `${tempArr[2]}%`
+    let tempPlayer = `(${first}, ${second}, ${third})`
+    arr.push(tempPlayer);
     //Find compliment
-    const compliment = findComplement(convertedColor)
+    const compliment = findComplement(tempPlayer)
     //find analogous compliments
-    const triOne = findAnalogous(convertedColor).analogousOneColor;
-    const triTwo = findAnalogous(convertedColor).analogousTwoColor;
+    const triOne = findAnalogous(tempPlayer).analogousOneColor;
+    const triTwo = findAnalogous(tempPlayer).analogousTwoColor;
     //Find analogous compliments of compliment
     const analogousOne  = findAnalogous(compliment).analogousOneColor;
     const analogousTwo  = findAnalogous(compliment).analogousTwoColor;
     arr.push(analogousOne, triOne, compliment, triTwo, analogousTwo)
-    // console.log('UUUUUUUU', arr, convertedColor)
+    console.log('UUUUUUUU', arr, playerColor)
 
     return addStyleString(arr)
 }
@@ -428,7 +432,7 @@ export const zenObject = {
     4: "Everything has a crack in it, that's how the light gets in.",
     5: "These mountains that you carry, you were only meant to climb.",
     6: "Let go or be dragged.",
-    7: "Transcend the bullshit.",
+    // 7: "Transcend the bullshit.",
     8: "And when they played they really played. And when they worked they really worked.",
     9: "Relax. Nothing is under control.",
     10: "If you chase two rabbits, you catch none.",
@@ -442,5 +446,5 @@ export const zenObject = {
     18: "Matters of great concern should be treated lightly. Matters of small concerns should be treated seriously.",
     19: "Obstacles don't block the path, they are the path.",
     20: "If it is to be, it must be me.",
-    21: "Don't enable the scumbags."
+    // 21: "Don't enable the scumbags."
 }

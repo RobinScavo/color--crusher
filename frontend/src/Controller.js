@@ -262,20 +262,12 @@ class Controller extends React.Component {
         const targetColor = arr[randomSix]
         const firstSlice = (targetColor.background.slice(42))
         let colorTarget = (firstSlice.slice(0, firstSlice.length -7))
-        // colorTarget = colorTarget.slice(1, colorTarget.length -1)
-        // let tempColor = HSLtoRGB(`${colorTarget.join(',')}`)
-        // convertedColor = tempColor.split(', ')
-        // let temp = colorArray[i].background
-        // let sliced = targetColor.background.slice(43, targetColor.length -8)
-        // console.log('IIIIIIIII', colorTarget)
         colorTarget = colorTarget.split(',')
         let first = colorTarget[0]
         let second = colorTarget[1]
         let third = colorTarget[2]
         let combined = `${first.slice(1)}, ${second.slice(0, second.length -1)}, ${third.slice(0, third.length-2)}`
-        // console.log(`(${combined})`)
         let converted = HSLtoRGB(combined)
-        // let rgbTarget = HSLtoRGB(`${colorTarget}`)
         this.setState({
             coinArray: [true, true, true],
             colorArray: arr,
