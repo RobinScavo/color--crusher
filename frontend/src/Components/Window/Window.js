@@ -16,8 +16,13 @@ const Window = () => {
 
     for (let i = 0; i < 6; i++) {
         let temp = colorArray[i].background
-        let sliced = temp.slice(42, temp.length -7)
-        let converted = HSLtoRGB(`${sliced}`)
+        let sliced = temp.slice(43, temp.length -8)
+        sliced = sliced.split(',')
+        let first = sliced[0]
+        let second = sliced[1]
+        let third = sliced[2]
+        let combined = `${first}, ${second.slice(0, second.length -1)}, ${third.slice(0, third.length-1)}`
+        let converted = HSLtoRGB(combined)
         slicedArray.push(converted)
     }
 
@@ -25,9 +30,9 @@ const Window = () => {
         <>
             {values.startBattle &&
                 <div className={`windowDiv ${windowVisibility}`}>
-                    {cheaterArray.map(cheater => <div className={`window ${cheater}`} >
-                        <div>Only Cheating</div>
-                        <div>Yourself</div>
+                    {cheaterArray.map(cheater => <div key={cheater.toString()} className={`window ${cheater}`} >
+                        <div >Only Cheating</div>
+                        <div >Yourself</div>
                     </div>)}
                 </div>
             }

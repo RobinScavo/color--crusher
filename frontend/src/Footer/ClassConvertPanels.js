@@ -18,6 +18,8 @@ class ConvertPanels extends React.Component {
 
         super(props);
         this.state = {
+            setCustom: props.setCustom,
+
             fromRgbButton: true,
             fromHslButton: false,
             fromHexButton: false,
@@ -103,12 +105,12 @@ class ConvertPanels extends React.Component {
                    (this.state.fromHexButton && this.state.toHexButton)) {
                         convertedColor = tempInput;
         }
-
         this.setState({
             toTopInput: `${convertedColor[0]}`,
             toMiddleInput: `${convertedColor[1]}`,
             toBottomInput: `${convertedColor[2]}`,
         })
+        this.state.setCustom(`${convertedColor[0]}, ${convertedColor[1]}, ${convertedColor[2]}`);
     }
 
     checkInput = (playerInput, mode) => {

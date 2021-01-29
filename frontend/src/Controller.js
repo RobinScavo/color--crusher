@@ -7,6 +7,7 @@ import {
     generateZenColors,
     generateGhostColors,
     generatePastelColors,
+    generateCustomColors,
     zenObject,
 } from './PureFunctions';
 
@@ -39,6 +40,7 @@ class Controller extends React.Component {
             zenObject: zenObject,
             mutableZen: zenObject,
             windowDisplayed: false,
+            customColor: '255, 255, 255',
 
             instructionModal: false,
             loginModal: false,
@@ -52,6 +54,7 @@ class Controller extends React.Component {
             createTriadic: false,
             createAnalogous: false,
             createPastel: false,
+            createCustom: false,
 
             toggleInstructionModal: this.toggleInstructionModal,
             toggleLoginModal: this.toggleLoginModal,
@@ -67,6 +70,7 @@ class Controller extends React.Component {
             toggleCreateTriadic: this.toggleCreateTriadic,
             toggleCreateAnalogous: this.toggleCreateAnalogous,
             toggleCreatePastel: this.toggleCreatePastel,
+            setCustomColor: this.setCustomColor,
 
             startGame: this.startGame,
             correctGuess: this.correctGuess,
@@ -121,6 +125,22 @@ class Controller extends React.Component {
         setTimeout(() => {
             this.updateColorArrayContext();
             this.setState({ createTriadic: false});
+        }, delayOrNot)
+    }
+    setCustomColor = (custom) => {
+        // if (this.state.createAnalogous || this.state.createPastel || this.state.createTriadic) return;
+        this.setState({
+            createCustom: true,
+            customColor: custom,
+        });
+        let delayOrNot = 0;
+        (this.state.colorArray[0].class === 'blurred')
+            ? delayOrNot = 0
+            : delayOrNot = 1500
+        this.clearBoard();
+        setTimeout(() => {
+            this.updateColorArrayContext();
+            this.setState({ createCustom: false});
         }, delayOrNot)
     }
 
@@ -230,6 +250,8 @@ class Controller extends React.Component {
             arr = generateZenColors();
         if (this.state.startConvert && !this.state.createTriadic && !this.state.createAnalogous && this.state.createPastel)
             arr = generatePastelColors();
+        if (this.state.startConvert && this.state.createCustom)
+            arr = generateCustomColors(this.state.customColor);
 
         if (this.state.startBattle) {
             this.state.round <= 2
@@ -239,16 +261,28 @@ class Controller extends React.Component {
 
         const targetColor = arr[randomSix]
         const firstSlice = (targetColor.background.slice(42))
-        const colorTarget = (firstSlice.slice(0, firstSlice.length -7))
-        const rgbTarget = HSLtoRGB(`${colorTarget}`)
-
+        let colorTarget = (firstSlice.slice(0, firstSlice.length -7))
+        // colorTarget = colorTarget.slice(1, colorTarget.length -1)
+        // let tempColor = HSLtoRGB(`${colorTarget.join(',')}`)
+        // convertedColor = tempColor.split(', ')
+        // let temp = colorArray[i].background
+        // let sliced = targetColor.background.slice(43, targetColor.length -8)
+        // console.log('IIIIIIIII', colorTarget)
+        colorTarget = colorTarget.split(',')
+        let first = colorTarget[0]
+        let second = colorTarget[1]
+        let third = colorTarget[2]
+        let combined = `${first.slice(1)}, ${second.slice(0, second.length -1)}, ${third.slice(0, third.length-2)}`
+        // console.log(`(${combined})`)
+        let converted = HSLtoRGB(combined)
+        // let rgbTarget = HSLtoRGB(`${colorTarget}`)
         this.setState({
             coinArray: [true, true, true],
             colorArray: arr,
             round: this.state.round + 1,
             colorTargetId: targetId,
             gameOn: true,
-            colorTarget: rgbTarget,
+            colorTarget: converted,
         })
     }
 

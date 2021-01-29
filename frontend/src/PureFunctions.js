@@ -89,12 +89,16 @@ function randomPastelColor() {
     const b = Math.floor(Math.random() * 76) + 180;
 
     //make sure its not too white
-    console.log('??????????', ((Math.abs(r - g)) + (Math.abs(g - b))))
     if ((r+g+b) > 700 || (r+g+b) < 600  || ((Math.abs(r - g)) + (Math.abs(g - b))) < 40) {
         return randomPastelColor()
     }
+    console.log(r, g, b)
     return RGBtoHSL(`(${r}, ${g}, ${b})`);
 }
+
+// function convertCustomColor() {
+//     return
+// }
 
 export function generateBattleColors() {
     const arr = []
@@ -136,6 +140,7 @@ export function generatePastelColors() {
     const arr = []
     //Pick Random RGB color
     const ranColor = randomPastelColor()
+    // console.log('TTTTTTT', ranColor)
     arr.push(ranColor);
     //Find compliment
     const compliment = findComplement(ranColor)
@@ -146,7 +151,7 @@ export function generatePastelColors() {
     const analogousOne  = findAnalogous(compliment).analogousOneColor;
     const analogousTwo  = findAnalogous(compliment).analogousTwoColor;
     arr.push(analogousOne, triOne, compliment, triTwo, analogousTwo)
-
+    // console.log('JJJJJJJJ', arr)
     return addStyleString(arr)
 }
 
@@ -154,16 +159,19 @@ export function generateCustomColors(playerColor) {
     const arr = []
     //Pick Random RGB color
     // const ranColor = randomPastelColor()
-    arr.push(playerColor);
+    let convertedColor = RGBtoHSL(playerColor);
+    // console.log('VVVVV', convertedColor)
+    arr.push(convertedColor);
     //Find compliment
-    const compliment = findComplement(playerColor)
+    const compliment = findComplement(convertedColor)
     //find analogous compliments
-    const triOne = findAnalogous(playerColor).analogousOneColor;
-    const triTwo = findAnalogous(playerColor).analogousTwoColor;
+    const triOne = findAnalogous(convertedColor).analogousOneColor;
+    const triTwo = findAnalogous(convertedColor).analogousTwoColor;
     //Find analogous compliments of compliment
     const analogousOne  = findAnalogous(compliment).analogousOneColor;
     const analogousTwo  = findAnalogous(compliment).analogousTwoColor;
     arr.push(analogousOne, triOne, compliment, triTwo, analogousTwo)
+    // console.log('UUUUUUUU', arr, convertedColor)
 
     return addStyleString(arr)
 }

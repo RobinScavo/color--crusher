@@ -20,7 +20,7 @@ const Footer = () => {
                 </>
             }
             {values.startConvert &&
-                <ClassConvertPanels />
+                <ClassConvertPanels setCustom={values.setCustomColor}/>
             }
         </div>
     )
