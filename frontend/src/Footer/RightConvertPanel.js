@@ -36,7 +36,7 @@ const RightConvertPanel = (props) => {
                 <div className='convertBling  thirdBling'></div>
                 <div className='rightLabelDiv'>
                     <h1 className='rightLabel'>{props.toBottomLabel}</h1>
-                    <h1 className='rightInput'>{props.toTopInput}</h1>
+                    <h1 className='rightInput'>{props.toBottomInput}</h1>
                 </div>
             </div>
         </div>

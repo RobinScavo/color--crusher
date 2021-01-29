@@ -1,15 +1,18 @@
-import React, { useContext } from 'react'
-
-import KarenContext from '../KarenContext'
-import generateCustomColors from '../PureFunctions'
+import React, { useState, useEffect } from 'react'
 
 import './ClassConvertPanels.css'
 
 const LeftConvertPanel = (props) => {
-    const values = useContext(KarenContext);
-    let fromRgbTopValue = '';
-    let fromRgbMiddleValue = '';
-    let fromRgbBottomValue = '';
+    const [topValue, setTopValue] = useState('');
+    const [middleValue, setMiddleValue] = useState('');
+    const [bottomValue, setBottomValue] = useState('');
+    const stringVal = [`${topValue}`, `${middleValue}`, `${bottomValue}`]
+
+    useEffect(() => {
+        setTopValue(props.fromTopInput)
+        setMiddleValue(props.fromMiddleInput)
+        setBottomValue(props.fromBottomInput)
+    }, [props])
 
     return (
         <div className='convertDiv' id='leftConvert'>
@@ -42,10 +45,11 @@ const LeftConvertPanel = (props) => {
                         <input
                             className='convertInput'
                             type='text'
-                            value={fromRgbTopValue}
+                            value={topValue}
                             placeholder={props.fromTopInput}
                             maxLength='3'
-                            // onChange={e => setColorValue(e.target.value)}
+                            onChange={e => setTopValue(e.target.value)}
+                            onFocus={e => setTopValue('')}
                         />
                     </label>
                     <label className='convertLabel'>
@@ -53,9 +57,11 @@ const LeftConvertPanel = (props) => {
                         <input
                             className='convertInput'
                             type='text'
-                            value={fromRgbMiddleValue}
+                            value={middleValue}
                             placeholder={props.fromMiddleInput}
-                            // onChange={e => setColorValue(e.target.value)}
+                            maxLength='3'
+                            onChange={e => setMiddleValue(e.target.value)}
+                            onFocus={e => setMiddleValue('')}
                         />
                     </label>
                     <label className='convertLabel'>
@@ -63,12 +69,16 @@ const LeftConvertPanel = (props) => {
                         <input
                             className='convertInput'
                             type='text'
-                            value={fromRgbBottomValue}
+                            value={bottomValue}
                             placeholder={props.fromBottomInput}
-                            // onChange={e => setColorValue(e.target.value)}
+                            maxLength='3'
+                            onChange={e => setBottomValue(e.target.value)}
+                            onFocus={e => setBottomValue('')}
                         />
                     </label>
-                    <button className='submitButton' onClick={props.playerSubmit}>Konvert</button>
+                    <button className='submitButton' onClick={() => {
+                        props.playerSubmit(stringVal)
+                    }}>Konvert</button>
                 </div>
             </div>
         </div>

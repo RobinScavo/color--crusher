@@ -168,7 +168,7 @@ export function generateCustomColors(playerColor) {
     return addStyleString(arr)
 }
 
-function RGBtoHSL (rgbValue) {
+export function RGBtoHSL (rgbValue) {
     //slice -n- dice
     let sliced = rgbValue.slice(1, rgbValue.length -1);
     let split = sliced.split(',');
@@ -222,14 +222,66 @@ function RGBtoHSL (rgbValue) {
     return(`(${h}, ${s}%, ${l}%)`)
 }
 
-export function HSLtoRGB (hslValue) {
-    let sliced = hslValue.slice(1, hslValue.length -2);
+export function RGBtoHSLvalue (rgbValue) {
+    //slice -n- dice
+    let sliced = rgbValue.slice(1, rgbValue.length -1);
     let split = sliced.split(',');
-    let h = Number(split[0]);
-    let preS = split[1]
-    preS = preS.slice(0, preS.length-1)
-    let s = Number(preS);
-    let l = Number(split[2]);
+    let red = Number(split[0]);
+    let green = Number(split[1]);
+    let blue = Number(split[2]);
+
+    //Make red, green, blue fractions of 1
+    red /= 255;
+    green /= 255;
+    blue /= 255;
+
+    //Find greatest and smallest channel values
+    let cmin = Math.min(red, green, blue);
+    let cmax = Math.max(red, green, blue);
+    let delta = cmax - cmin;
+
+    //calculate hue
+    //no difference
+    let h = 0;
+    let s = 0;
+    let l = 0;
+    if (delta === 0) {
+        h = 0;
+    }
+    //Red is max
+    else if (cmax === red) {
+        h = ((green - blue) / delta) % 6;
+    }
+    //Green is max
+    else if (cmax === green) {
+        h = (blue - red) / delta + 2;
+    }
+    //Blue is max
+    else {
+        h = (red - green) / delta + 4;
+    }
+    h = Math.round(h * 60);
+    //Make negative hues positive behind 360 degrees
+    if (h < 0) {
+        h += 360
+    }
+    //Calculate lightness
+    l = (cmax + cmin) / 2;
+    //Calculate saturation
+    s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+    // Multiply by 100
+    s = +(s * 100).toFixed(1);
+    l = +(l * 100).toFixed(1);
+
+    return [`${h}`, `${s}`, `${l}`]
+}
+
+export function HSLtoRGB (hslValue) {
+    let split = hslValue.split(',');
+    let arr = split.map(x => Number(x))
+    let h = arr[0];
+    let s = arr[1];
+    let l = arr[2];
 
     s /= 100;
     l /= 100;
@@ -260,6 +312,38 @@ export function HSLtoRGB (hslValue) {
     b = Math.round((b + m) * 255);
 
     return `(${r}, ${g}, ${b})`;
+}
+
+export function HEXtoRGB (hex) {
+    let r = 0;
+    let g = 0;
+    let b = 0;
+
+    if (hex.length === 4) {
+        r = parseInt(hex[1] + hex[1], 16);
+        g = parseInt(hex[2] + hex[2], 16);
+        b = parseInt(hex[3] + hex[3], 16);
+    } else if (hex.length === 7) {
+        r = parseInt(hex[1] + hex[2], 16)
+        g = parseInt(hex[3] + hex[4], 16);
+        b = parseInt(hex[5] + hex[6], 16);
+    }
+    return [`${r}`, `${g}`, `${b}`]
+}
+
+export function RGBtoHEX (rgb) {
+    let r = Number(rgb[0])
+    let g = Number(rgb[1])
+    let b = Number(rgb[2])
+    r = r.toString(16)
+    g = g.toString(16)
+    b = b.toString(16)
+
+    if (r.length ===1)  {r = 0 + r}
+    if (g.length ===1)  {g = 0 + g}
+    if (b.length ===1)  {b = 0 + b}
+
+    return [`${r}`, `${g}`, `${b}`]
 }
 
 function findComplement (color) {
