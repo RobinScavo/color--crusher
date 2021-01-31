@@ -44,7 +44,6 @@ class ColorBall extends React.Component {
     checkGuess = (id) => {
         if (!this.state.gameOn) return;
         if (this.props.startConvert) return;
-        console.log(this.state.startConvert)
         if (this.state.target === id) {
             this.setState({color: {}})
             this.state.correctGuess();

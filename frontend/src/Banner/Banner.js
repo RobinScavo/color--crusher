@@ -28,7 +28,9 @@ const Banner = () => {
                 <h1 className='gameName'>Kolor Konverter</h1>
             }
 
-            <CryptoCoin />
+            <CryptoCoin index={0} className='cryptoOne'/>
+            <CryptoCoin index={1} className='cryptoTwo'/>
+            <CryptoCoin index={2} className='cryptoThree'/>
             <UserName />
         </div>
     )

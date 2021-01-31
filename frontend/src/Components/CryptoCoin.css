@@ -15,24 +15,47 @@
     z-index: 1;
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
     cursor: pointer;
-    will-change: transform, opacity;
+    /* will-change: transform, opacity; */
 }
 
-.tempDiv {
+
+/* .tempDiv {
     -webkit-animation: flip-horizontal-bottom 0.4s cubic-bezier(0.550, 0.085, 0.680, 0.530) ;
     animation: flip-horizontal-bottom 0.4s cubic-bezier(0.550, 0.085, 0.680, 0.530) ;
-}
+} */
 
 
 
 .cryptoOne {
     animation: TransitioningBackground 11s linear infinite;
-    /* margin-left: 40px;
-    margin-top: 30px; */
     position: absolute;
     right: 20px;
     top: 50px;
+    /* animation-name: rollOne, rotate;
+    animation-duration: 3s, 3s; */
 }
+
+.cryptoOneRoll {
+    animation-name: rollOne, rotate;
+    animation-duration: 1.5s, 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    visibility: hidden;
+}
+
+@keyframes rollOne {
+    0% {
+        right: 20px;
+        top: 50px;
+        visibility: visible;
+    }
+    100% {
+        right: -100px;
+        top: 60px;
+        visibility: hidden;
+    }
+  }
+
 
 .cryptoTwo {
     animation: TransitioningBackground 9s linear infinite;
@@ -43,6 +66,27 @@
     top: 45px;
 }
 
+.cryptoTwoRoll {
+    animation-name: rollTwo, rotate;
+    animation-duration: 1.5s, 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    visibility: hidden;
+}
+
+@keyframes rollTwo {
+    0% {
+        right: 65px;
+        visibility: visible;
+        top: 45px;
+    }
+    100% {
+        right: -160px;
+        visibility: hidden;
+        top: 75px;
+    }
+  }
+
 .cryptoThree {
     animation: TransitioningBackground 12s linear infinite;
     /* margin-left: 10px;
@@ -51,6 +95,36 @@
     right:110px;
     top:40px;
 }
+
+.cryptoThreeRoll {
+    animation-name: rollThree, rotate;
+    animation-duration: 1.5s, 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    visibility: hidden;
+}
+
+@keyframes rollThree {
+    0% {
+        right: 110px;
+        top: 40px;
+        visibility: visible;
+    }
+    100% {
+        right: -160px;
+        top: 75px;
+        visibility: hidden;
+    }
+  }
+
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+  }
 
 /* @keyframes TransitioningBackground {
     0% {

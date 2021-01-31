@@ -432,7 +432,7 @@ export const zenObject = {
     4: "Everything has a crack in it, that's how the light gets in.",
     5: "These mountains that you carry, you were only meant to climb.",
     6: "Let go or be dragged.",
-    // 7: "Transcend the bullshit.",
+    7: "Transcend the bullshit.",
     8: "And when they played they really played. And when they worked they really worked.",
     9: "Relax. Nothing is under control.",
     10: "If you chase two rabbits, you catch none.",
@@ -446,5 +446,5 @@ export const zenObject = {
     18: "Matters of great concern should be treated lightly. Matters of small concerns should be treated seriously.",
     19: "Obstacles don't block the path, they are the path.",
     20: "If it is to be, it must be me.",
-    // 21: "Don't enable the scumbags."
+    21: "Don't enable the scumbags."
 }

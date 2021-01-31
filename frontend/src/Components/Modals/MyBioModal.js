@@ -14,7 +14,7 @@ const MyBioModal = () => {
                 <div className='bioTextDiv'>
                     <div className='bioFancyDiv'></div>
                     <div className='bioText'>
-                        Robin Scavo is a full stack web developer with a
+                        Robin Scavo is a web developer with a
                         heavy inclination for UX/UI. He lives in Missoula,
                         Montana and is currently accepting job offers.
                     </div>
