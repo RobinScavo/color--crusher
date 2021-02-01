@@ -9,10 +9,10 @@ const RGBboard = () => {
     const values = useContext(KarenContext)
     const arr = values.colorArray;
     const target = values.colorTargetId;
-    let kernelVisibility = values.kernelVisibility;
     let kernelLength = values.zenKernel.length;
     let kernelClassLength = 'shortKernel';
     let visibility = 'visible';
+    let kernelVisibility = values.kernelVisibility ? 'flashKernel' : '';
 
     //Arrays for ColorBall map
     let idArray = ['colorOne', 'colorTwo', 'colorThree', 'colorFour', 'colorFive', 'colorSix'];

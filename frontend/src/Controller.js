@@ -36,7 +36,7 @@ class Controller extends React.Component {
             coinArray: [true, true, true],
             gameOn: false,
             zenKernel: '',
-            kernelVisibility: 'visible',
+            kernelVisibility: false,
             zenObject: zenObject,
             mutableZen: zenObject,
             windowDisplayed: false,
@@ -194,12 +194,12 @@ class Controller extends React.Component {
              });
         } else if (this.state.startZen) {
             this.setState({
-                kernelVisibility: 'hidden',
+                kernelVisibility: true,
                 gameOn: false,
             })
             setTimeout(() => {
                 this.toggleKernelDisplay();
-            }, 1500)
+            }, 4000)
         }
         this.clearBoard();
         setTimeout(() => {
@@ -291,9 +291,10 @@ class Controller extends React.Component {
 
         this.setState({
             zenKernel: randomKernel,
-            kernelVisibility: 'visible',
+            kernelVisibility: false,
         })
     }
+
 
     render() {
         return (
