@@ -1,4 +1,5 @@
 .cryptoCoin {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,17 +12,77 @@
     background-size: cover;
     background-size: 250% 250%;
     color: rgba(42, 81, 109);
-    border: 1px solid rgb(255, 90, 0);
+    border: 1px solid rgb(221, 217, 217);
     z-index: 1;
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
     cursor: pointer;
+    box-sizing: border-box;
+    background-color: rgb(192, 192, 192);
+}
+
+.cryptoCoinFront, .cryptoCoinBack {
+    backface-visibility: hidden;
+    position: absolute;
+}
+
+.cryptoCoinFront {
+    z-index: 4;
+    transform: rotateX(0deg);
+}
+
+.cryptoCoinBack {
+    z-index: 3;
+    transform: rotateX(180deg);
 }
 
 .cryptoOne {
     animation: TransitioningBackground 21s linear infinite;
     position: absolute;
+    /* right: 20px;
+    top: 50px; */
+}
+
+.coinContainerOne {
+    perspective: 1000px;
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
     right: 20px;
     top: 50px;
+    z-index: 1;
+}
+
+.coinContainerThree {
+    perspective: 1000px;
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    right:110px;
+    top:40px;
+    z-index: 1;
+}
+
+.coinContainerTwo {
+    perspective: 1000px;
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    right: 65px;
+    top: 45px;
+    z-index: 1;
+}
+
+.coinFlipper {
+    height: 35px;
+    width: 35px;
+    transition: 2s;
+    transform-style: preserve-3d;
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
 }
 
 .cryptoOneRoll {
@@ -70,8 +131,6 @@
 .cryptoTwo {
     animation: TransitioningBackground 19s linear infinite;
     position: absolute;
-    right: 65px;
-    top: 45px;
 }
 
 .cryptoTwoRoll {
@@ -120,8 +179,6 @@
 .cryptoThree {
     animation: TransitioningBackground 22s linear infinite;
     position: absolute;
-    right:110px;
-    top:40px;
 }
 
 .cryptoThreeRoll {

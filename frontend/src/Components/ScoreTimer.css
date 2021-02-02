@@ -18,8 +18,8 @@
 
 .scoreTimerDiv {
     position: absolute;
-    left: 50px;
-    top: 10px;
+    /* left: 50px;
+    top: 10px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,9 +34,10 @@
     overflow: hidden;
     animation: TransitioningBackground 40s linear infinite;
     color: rgba(42, 81, 109);
-    border: 1px solid rgb(255, 90, 0);
+    border: 1px solid rgb(221, 217, 217);
     z-index: 1;
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
 }
 
 .scoreTimer {
@@ -45,4 +46,44 @@
     align-items: center;
     height: 60px;
     width: 60px;
+}
+
+.scoreContainer {
+    perspective: 1000px;
+    position: absolute;
+    top: 10px;
+    left: 60px;
+    z-index: 3;
+}
+
+.scoreTimerDiv:hover, .scoreFlipper:hover {
+    transform: rotateX(180deg);
+}
+
+.scoreFlipper {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    transition: 2s;
+    transform-style: preserve-3d;
+    position: relative;
+    z-index: 2;
+}
+
+.scoreTimerFront,  .scoreTimerBack {
+    backface-visibility: hidden;
+    position: absolute;
+}
+
+.scoreTimerFront {
+    z-index: 4;
+    transform: rotateX(0deg)
+}
+
+.scoreTimerBack {
+    transform: rotateX(180deg);
+    z-index: 3;
 }

@@ -181,7 +181,7 @@ class Controller extends React.Component {
     }
 
     correctGuess = () => {
-        let coinCount = 0;
+        let coinCount = this.state.coins;
 
         if (this.state.startBattle) {
             for (let coin of this.state.coinArray) {
@@ -190,10 +190,11 @@ class Controller extends React.Component {
 
             this.setState({
                 gameOn: false,
-                coins: this.state.coins += coinCount,
+                coins: coinCount,
              });
         } else if (this.state.startZen) {
             this.setState({
+                coins: coinCount,
                 kernelVisibility: true,
                 gameOn: false,
             })

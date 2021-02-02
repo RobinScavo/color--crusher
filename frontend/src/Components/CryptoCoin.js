@@ -9,6 +9,8 @@ const CryptoCoin = (props) => {
     const id = values.coinArray[props.index];
     const rolloutIdArray = ['cryptoOneRoll', 'cryptoTwoRoll', 'cryptoThreeRoll'];
     const fallIdArray = ['cryptoOneFall', 'cryptoTwoFall', 'cryptoThreeFall'];
+    const coinContainerArray = ['coinContainerOne', 'coinContainerTwo', 'coinContainerThree'];
+    const containerId = coinContainerArray[props.index]
     const rolloutId =rolloutIdArray[props.index];
     const fallId =fallIdArray[props.index];
     let rollout = '';
@@ -23,6 +25,7 @@ const CryptoCoin = (props) => {
             setIsFalling(false)
         }, 3500)
         if (!values.gameOn && values.round > 0) {
+            console.log('hit')
             setIsFalling(id)
         }
     }, [id, values.gameOn, values.round])
@@ -32,9 +35,12 @@ const CryptoCoin = (props) => {
     rollout = isRolling ? rolloutId : '';
 
     return (
-        <>
-            <h3 className={`cryptoCoin ${props.className} ${rollout} ${falling}`}>kk</h3>
-        </>
+        <div className={`coinContainer ${containerId} ${rollout} ${falling}`}>
+            <div className='coinFlipper'>
+                <div className={`cryptoCoin ${props.className} cryptoCoinFront`}>kk</div>
+                <div className={`cryptoCoin ${props.className} cryptoCoinBack`}>bb</div>
+            </div>
+        </div>
     )
 }
 

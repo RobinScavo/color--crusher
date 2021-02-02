@@ -12,13 +12,13 @@ const MyBioModal = () => {
             <div className='bioDiv'>
                 <div className='myPic'></div>
                 <div className='bioTextDiv'>
-                    <div className='bioFancyDiv'></div>
-                    <div className='bioText'>
+                    <div className='bioFancyDiv upperFancy'></div>
+                    <div className='bioText upperBioText'>
                         Robin Scavo is a web developer with a
                         heavy inclination for UX/UI. He lives in Missoula,
                         Montana and is currently accepting job offers.
                     </div>
-                    <div className='bioFancyDiv'></div>
+                    <div className='bioFancyDiv upperFancy'></div>
                 </div>
                 <div className='bioTextDiv lowerBioDiv'>
                     <div className='bioFancyDiv'></div>
