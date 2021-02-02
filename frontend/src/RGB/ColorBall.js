@@ -47,6 +47,7 @@ class ColorBall extends React.Component {
         if (this.state.target === id) {
             this.setState({color: {}})
             this.state.correctGuess();
+            return;
         } else {
             this.setState({
                 color: {},

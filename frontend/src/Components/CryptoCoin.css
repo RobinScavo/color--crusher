@@ -7,32 +7,21 @@
     border-radius: 50%;
     font-size: 17px;
     font-family: 'Fontdiner Swanky';
-    background-image: url('../Images/gold.jpg');
+    background-image: url('../Images/Silver.jpg');
     background-size: cover;
     background-size: 250% 250%;
-    color: rgba(5, 13, 133, 0.9);
-    border: 1px solid #503c11;
+    color: rgba(42, 81, 109);
+    border: 1px solid rgb(255, 90, 0);
     z-index: 1;
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
     cursor: pointer;
-    /* will-change: transform, opacity; */
 }
 
-
-/* .tempDiv {
-    -webkit-animation: flip-horizontal-bottom 0.4s cubic-bezier(0.550, 0.085, 0.680, 0.530) ;
-    animation: flip-horizontal-bottom 0.4s cubic-bezier(0.550, 0.085, 0.680, 0.530) ;
-} */
-
-
-
 .cryptoOne {
-    animation: TransitioningBackground 11s linear infinite;
+    animation: TransitioningBackground 21s linear infinite;
     position: absolute;
     right: 20px;
     top: 50px;
-    /* animation-name: rollOne, rotate;
-    animation-duration: 3s, 3s; */
 }
 
 .cryptoOneRoll {
@@ -41,6 +30,14 @@
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
     visibility: hidden;
+}
+
+.cryptoOneFall {
+    animation-name: fallOne;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.33, 0, 0.66, 0.33);
+    /* visibility: hidden; */
 }
 
 @keyframes rollOne {
@@ -56,11 +53,22 @@
     }
   }
 
+@keyframes fallOne {
+    0% {
+        right: 20px;
+        top: 50x;
+        visibility: visible;
+    }
+    100% {
+        right: 20px;
+        top: 810px;
+        visibility: hidden;
+    }
+}
+
 
 .cryptoTwo {
-    animation: TransitioningBackground 9s linear infinite;
-    /* margin-left: 10px;
-    margin-top: 33px; */
+    animation: TransitioningBackground 19s linear infinite;
     position: absolute;
     right: 65px;
     top: 45px;
@@ -72,6 +80,15 @@
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
     visibility: hidden;
+}
+
+.cryptoTwoFall {
+    animation-name: fallTwo;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-delay: 0.5s;
+    animation-timing-function: cubic-bezier(0.33, 0, 0.66, 0.33);
+    /* visibility: hidden; */
 }
 
 @keyframes rollTwo {
@@ -87,10 +104,21 @@
     }
   }
 
+  @keyframes fallTwo {
+    0% {
+        right: 65px;
+        top: 45px;
+        visibility: visible;
+    }
+    100% {
+        right: 65px;
+        top: 810px;
+        visibility: hidden;
+    }
+}
+
 .cryptoThree {
-    animation: TransitioningBackground 12s linear infinite;
-    /* margin-left: 10px;
-    margin-top: 37px; */
+    animation: TransitioningBackground 22s linear infinite;
     position: absolute;
     right:110px;
     top:40px;
@@ -102,6 +130,15 @@
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
     visibility: hidden;
+}
+
+.cryptoThreeFall {
+    animation-name: fallThree;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-delay: 1s;
+    animation-timing-function: cubic-bezier(0.33, 0, 0.66, 0.33);
+    /* visibility: hidden; */
 }
 
 @keyframes rollThree {
@@ -116,6 +153,19 @@
         visibility: hidden;
     }
   }
+
+  @keyframes fallThree {
+    0% {
+        right: 110px;
+        top: 40x;
+        visibility: visible;
+    }
+    100% {
+        right: 110px;
+        top: 810px;
+        visibility: hidden;
+    }
+}
 
 @keyframes rotate {
     0% {

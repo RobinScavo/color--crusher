@@ -7,26 +7,38 @@ import './CryptoCoin.css'
 const CryptoCoin = (props) => {
     const values = useContext(KarenContext);
     const id = values.coinArray[props.index];
-    const rolloutIArray = ['cryptoOneRoll', 'cryptoTwoRoll', 'cryptoThreeRoll'];
-    const rolloutId =rolloutIArray[props.index];
-    let rollout = 'cat';
+    const rolloutIdArray = ['cryptoOneRoll', 'cryptoTwoRoll', 'cryptoThreeRoll'];
+    const fallIdArray = ['cryptoOneFall', 'cryptoTwoFall', 'cryptoThreeFall'];
+    const rolloutId =rolloutIdArray[props.index];
+    const fallId =fallIdArray[props.index];
+    let rollout = '';
+    let falling = '';
 
-
-    const [isVisible, setIsVisible] = useState(id)
+    const [isRolling, setisRolling] = useState(false)
+    const [isFalling, setIsFalling] = useState(false)
 
     useEffect(() => {
-        setIsVisible(id)
-    }, [id])
-    console.log('IIIIIIII', id, rolloutId)
+        setisRolling(!id)
+        setTimeout(() => {
+            setIsFalling(false)
+        }, 3500)
+        if (!values.gameOn && values.round > 0) {
+            setIsFalling(id)
+        }
+    }, [id, values.gameOn, values.round])
 
-    rollout = isVisible ? '' : rolloutId
+
+    falling = isFalling ? fallId : '';
+    rollout = isRolling ? rolloutId : '';
 
     return (
         <>
-            <h3 className={`cryptoCoin ${props.className} ${rollout}`}>kk</h3>
+            <h3 className={`cryptoCoin ${props.className} ${rollout} ${falling}`}>kk</h3>
         </>
     )
 }
+
+// onClick={() => setCoinFall(true)
 
 export default CryptoCoin;
 
