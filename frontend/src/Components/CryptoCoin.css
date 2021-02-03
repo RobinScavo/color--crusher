@@ -21,17 +21,17 @@
 }
 
 /* .cryptoCoinFront {
-    z-index: 4;
+    z-index: 2;
     transform: rotateX(0deg);
     backface-visibility: hidden;
     position: absolute;
 }
 
 .cryptoCoinBack {
-    z-index: 3;
     transform: rotateX(180deg);
     backface-visibility: hidden;
     position: absolute;
+    z-index: 1;
 } */
 
 .cryptoOne {
@@ -49,6 +49,10 @@
     top: 50px;
     z-index: 1;
 }
+
+/* .coinContainerOne:hover .coinFlipper{
+    transform: rotateX(180deg)
+} */
 
 .coinContainerThree {
     perspective: 1000px;
@@ -71,8 +75,8 @@
     top: 45px;
     z-index: 1;
 }
-
-/* .coinFlipper {
+/*
+.coinFlipperOne {
     height: 35px;
     width: 35px;
     transition: 2s;
@@ -84,18 +88,17 @@
 
 .cryptoOneRoll {
     animation-name: rollOne, rotate;
-    animation-duration: 1.5s, 1.5s;
+    animation-duration: 2s, 2s;
     animation-iteration-count: 1;
-    animation-timing-function: ease-in;
+    animation-timing-function: ease-in, ease-in;
     visibility: hidden;
 }
 
-.cryptoOneFall {
-    animation-name: fallOne;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(0.33, 0, 0.66, 0.33);
-    visibility: hidden;
+.cryptoOneFall, .coinFlipperOne {
+    animation-name: fallOne, flipOne;
+    animation-duration: 1.7s, 1.7s;
+    animation-iteration-count: 1, 1;
+    animation-timing-function: cubic-bezier(0.33, 0, 0.66, 0.33), ease-in;
 }
 
 @keyframes rollOne {
@@ -124,6 +127,15 @@
     }
 }
 
+@keyframes flipOne {
+    0%, 100% {
+        transform: rotateX(0deg)
+    }
+    50% {
+        transform: rotateX(180deg)
+    }
+}
+
 
 .cryptoTwo {
     animation: TransitioningBackground 32s linear infinite;
@@ -132,19 +144,28 @@
 
 .cryptoTwoRoll {
     animation-name: rollTwo, rotate;
-    animation-duration: 1.5s, 2s;
+    animation-duration: 2s, 2s;
     animation-iteration-count: 1;
-    animation-timing-function: ease-in;
+    animation-timing-function: ease-in, ease-in;
     visibility: hidden;
 }
 
-.cryptoTwoFall {
-    animation-name: fallTwo;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    animation-delay: 0.5s;
-    animation-timing-function: cubic-bezier(0.33, 0, 0.66, 0.33);
-    visibility: hidden;
+/* .coinFlipperTwo {
+    height: 35px;
+    width: 35px;
+    transition: 2s;
+    transform-style: preserve-3d;
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
+} */
+
+.cryptoTwoFall, .coinFlipperTwo {
+    animation-name: fallTwo, flipTwo;
+    animation-duration: 1.7s, 1.7s;
+    animation-iteration-count: 1, 1;
+    animation-delay: 0.5s, 0.5s;
+    animation-timing-function: cubic-bezier(0.33, 0, 0.66, 0.33), ease-in;
 }
 
 @keyframes rollTwo {
@@ -173,6 +194,15 @@
     }
 }
 
+@keyframes flipTwo {
+    0%, 100% {
+        transform: rotateX(0deg)
+    }
+    50% {
+        transform: rotateX(180deg)
+    }
+}
+
 .cryptoThree {
     animation: TransitioningBackground 29s linear infinite;
     position: absolute;
@@ -180,19 +210,28 @@
 
 .cryptoThreeRoll {
     animation-name: rollThree, rotate;
-    animation-duration: 1.5s, 2s;
+    animation-duration: 2s, 2s;
     animation-iteration-count: 1;
-    animation-timing-function: ease-in;
+    animation-timing-function: ease-in, ease-in;
     visibility: hidden;
 }
 
-.cryptoThreeFall {
-    animation-name: fallThree;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    animation-delay: 1s;
-    animation-timing-function: cubic-bezier(0.33, 0, 0.66, 0.33);
-    visibility: hidden;
+/* .coinFlipperThree {
+    height: 35px;
+    width: 35px;
+    transition: 2s;
+    transform-style: preserve-3d;
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
+} */
+
+.cryptoThreeFall, .coinFlipperThree {
+    animation-name: fallThree, flipThree;
+    animation-duration: 1.7s, 1.7s;
+    animation-iteration-count: 1, 1;
+    animation-delay: 1s, 1s;
+    animation-timing-function: cubic-bezier(0.33, 0, 0.66, 0.33), ease-in;
 }
 
 @keyframes rollThree {
@@ -218,6 +257,15 @@
         right: 110px;
         top: 810px;
         visibility: hidden;
+    }
+}
+
+@keyframes flipThree {
+    0%, 100% {
+        transform: rotateX(0deg)
+    }
+    50% {
+        transform: rotateX(180deg);
     }
 }
 

@@ -195,7 +195,6 @@ class Controller extends React.Component {
              });
         } else if (this.state.startZen) {
             this.setState({
-                coins: coinCount,
                 kernelVisibility: true,
                 gameOn: false,
             })

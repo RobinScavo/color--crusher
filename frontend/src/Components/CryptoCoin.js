@@ -10,9 +10,12 @@ const CryptoCoin = (props) => {
     const rolloutIdArray = ['cryptoOneRoll', 'cryptoTwoRoll', 'cryptoThreeRoll'];
     const fallIdArray = ['cryptoOneFall', 'cryptoTwoFall', 'cryptoThreeFall'];
     const coinContainerArray = ['coinContainerOne', 'coinContainerTwo', 'coinContainerThree'];
+    const coinFlipperArray = ['coinFlipperOne', 'coinFlipperTwo', 'coinFlipperThree'];
     const containerId = coinContainerArray[props.index]
-    const rolloutId =rolloutIdArray[props.index];
-    const fallId =fallIdArray[props.index];
+    const rolloutId = rolloutIdArray[props.index];
+    const fallId = fallIdArray[props.index];
+    const flipperId = coinFlipperArray[props.index];
+
     let rollout = '';
     let falling = '';
 
@@ -25,7 +28,7 @@ const CryptoCoin = (props) => {
             setTimeout(() => {
                 setIsFalling(false)
                 console.log('falling')
-            }, 3500)
+            }, 2800)
         }
         if (!values.gameOn && values.round > 0) {
             setIsFalling(id)
@@ -38,9 +41,9 @@ const CryptoCoin = (props) => {
 
     return (
         <div className={`coinContainer ${containerId} ${rollout} ${falling}`}>
-            <div className='coinFlipper'>
-                <div className={`cryptoCoin ${props.className} cryptoCoinBack`}>bb</div>
+            <div className={`coinFlipper ${flipperId} ${rollout} ${falling}`}>
                 <div className={`cryptoCoin ${props.className} cryptoCoinFront`}>kk</div>
+                {/* <div className={`cryptoCoin ${props.className} cryptoCoinBack`}>bb</div> */}
             </div>
         </div>
     )
