@@ -20,20 +20,6 @@
     background-color: rgb(192, 192, 192);
 }
 
-/* .cryptoCoinFront {
-    z-index: 2;
-    transform: rotateX(0deg);
-    backface-visibility: hidden;
-    position: absolute;
-}
-
-.cryptoCoinBack {
-    transform: rotateX(180deg);
-    backface-visibility: hidden;
-    position: absolute;
-    z-index: 1;
-} */
-
 .cryptoOne {
     animation: TransitioningBackground 35s linear infinite;
     position: absolute;
@@ -49,10 +35,6 @@
     top: 50px;
     z-index: 1;
 }
-
-/* .coinContainerOne:hover .coinFlipper{
-    transform: rotateX(180deg)
-} */
 
 .coinContainerThree {
     perspective: 1000px;
@@ -75,16 +57,6 @@
     top: 45px;
     z-index: 1;
 }
-/*
-.coinFlipperOne {
-    height: 35px;
-    width: 35px;
-    transition: 2s;
-    transform-style: preserve-3d;
-    position: relative;
-    z-index: 2;
-    border-radius: 50%;
-} */
 
 .cryptoOneRoll {
     animation-name: rollOne, rotate;
@@ -150,16 +122,6 @@
     visibility: hidden;
 }
 
-/* .coinFlipperTwo {
-    height: 35px;
-    width: 35px;
-    transition: 2s;
-    transform-style: preserve-3d;
-    position: relative;
-    z-index: 2;
-    border-radius: 50%;
-} */
-
 .cryptoTwoFall, .coinFlipperTwo {
     animation-name: fallTwo, flipTwo;
     animation-duration: 1.7s, 1.7s;
@@ -215,16 +177,6 @@
     animation-timing-function: ease-in, ease-in;
     visibility: hidden;
 }
-
-/* .coinFlipperThree {
-    height: 35px;
-    width: 35px;
-    transition: 2s;
-    transform-style: preserve-3d;
-    position: relative;
-    z-index: 2;
-    border-radius: 50%;
-} */
 
 .cryptoThreeFall, .coinFlipperThree {
     animation-name: fallThree, flipThree;
