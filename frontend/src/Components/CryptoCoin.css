@@ -10,7 +10,7 @@
     font-family: 'Fontdiner Swanky';
     background-image: url('../Images/Silver.jpg');
     background-size: cover;
-    background-size: 250% 250%;
+    background-size: 300% 300%;
     color: rgba(42, 81, 109);
     border: 1px solid rgb(221, 217, 217);
     z-index: 1;
@@ -20,26 +20,23 @@
     background-color: rgb(192, 192, 192);
 }
 
-.cryptoCoinFront, .cryptoCoinBack {
-    backface-visibility: hidden;
-    position: absolute;
-}
-
-.cryptoCoinFront {
+/* .cryptoCoinFront {
     z-index: 4;
     transform: rotateX(0deg);
+    backface-visibility: hidden;
+    position: absolute;
 }
 
 .cryptoCoinBack {
     z-index: 3;
     transform: rotateX(180deg);
-}
+    backface-visibility: hidden;
+    position: absolute;
+} */
 
 .cryptoOne {
-    animation: TransitioningBackground 21s linear infinite;
+    animation: TransitioningBackground 35s linear infinite;
     position: absolute;
-    /* right: 20px;
-    top: 50px; */
 }
 
 .coinContainerOne {
@@ -75,7 +72,7 @@
     z-index: 1;
 }
 
-.coinFlipper {
+/* .coinFlipper {
     height: 35px;
     width: 35px;
     transition: 2s;
@@ -83,11 +80,11 @@
     position: relative;
     z-index: 2;
     border-radius: 50%;
-}
+} */
 
 .cryptoOneRoll {
     animation-name: rollOne, rotate;
-    animation-duration: 1.5s, 2s;
+    animation-duration: 1.5s, 1.5s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
     visibility: hidden;
@@ -98,7 +95,7 @@
     animation-duration: 2s;
     animation-iteration-count: 1;
     animation-timing-function: cubic-bezier(0.33, 0, 0.66, 0.33);
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 @keyframes rollOne {
@@ -129,7 +126,7 @@
 
 
 .cryptoTwo {
-    animation: TransitioningBackground 19s linear infinite;
+    animation: TransitioningBackground 32s linear infinite;
     position: absolute;
 }
 
@@ -147,7 +144,7 @@
     animation-iteration-count: 1;
     animation-delay: 0.5s;
     animation-timing-function: cubic-bezier(0.33, 0, 0.66, 0.33);
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 @keyframes rollTwo {
@@ -177,7 +174,7 @@
 }
 
 .cryptoThree {
-    animation: TransitioningBackground 22s linear infinite;
+    animation: TransitioningBackground 29s linear infinite;
     position: absolute;
 }
 
@@ -195,7 +192,7 @@
     animation-iteration-count: 1;
     animation-delay: 1s;
     animation-timing-function: cubic-bezier(0.33, 0, 0.66, 0.33);
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 @keyframes rollThree {
@@ -233,20 +230,20 @@
     }
   }
 
-/* @keyframes TransitioningBackground {
+@keyframes TransitioningBackground {
     0% {
-        background-position: 1% 0%;
+        background-position: 50% 0%;
     }
     25% {
-        background-position: 100% 0%;
+        background-position: 100% 50%;
     }
     50% {
-        background-position: 0% 100%;
+        background-position: 50% 50%;
     }
     75% {
-        background-position: 99% 100%;
+        background-position: 0% 50%;
     }
     100% {
-        background-position: 1% 0%;
+        background-position: 50% 0%;
     }
-} */
+}

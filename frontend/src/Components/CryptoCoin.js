@@ -21,14 +21,16 @@ const CryptoCoin = (props) => {
 
     useEffect(() => {
         setisRolling(!id)
-        setTimeout(() => {
-            setIsFalling(false)
-        }, 3500)
+        if (isFalling) {
+            setTimeout(() => {
+                setIsFalling(false)
+                console.log('falling')
+            }, 3500)
+        }
         if (!values.gameOn && values.round > 0) {
-            console.log('hit')
             setIsFalling(id)
         }
-    }, [id, values.gameOn, values.round])
+    }, [id, values.gameOn, values.round, isFalling])
 
 
     falling = isFalling ? fallId : '';
@@ -37,8 +39,8 @@ const CryptoCoin = (props) => {
     return (
         <div className={`coinContainer ${containerId} ${rollout} ${falling}`}>
             <div className='coinFlipper'>
-                <div className={`cryptoCoin ${props.className} cryptoCoinFront`}>kk</div>
                 <div className={`cryptoCoin ${props.className} cryptoCoinBack`}>bb</div>
+                <div className={`cryptoCoin ${props.className} cryptoCoinFront`}>kk</div>
             </div>
         </div>
     )

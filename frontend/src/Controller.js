@@ -180,6 +180,7 @@ class Controller extends React.Component {
         this.setState ({ coinArray: tempArray })
     }
 
+
     correctGuess = () => {
         let coinCount = this.state.coins;
 

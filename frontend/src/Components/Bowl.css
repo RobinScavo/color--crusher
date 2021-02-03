@@ -66,8 +66,8 @@
     height: 50px;
     background-image: url('../Images/Silver.jpg');
     background-size: cover;
-    background-size: 250% 250%;
-    animation: BowlTransitioningBackground 21s linear infinite;
+    background-size: 300% 300%;
+    animation: BowlTransitioningBackground 40s linear infinite;
     border-radius: 50%;
     z-index: 0;
     box-shadow: 0px 5px 15px 5px rgb(192, 192, 192);
@@ -76,19 +76,19 @@
 
 @keyframes BowlTransitioningBackground {
     0% {
-        background-position: 1% 0%;
+        background-position: 50% 0%;
     }
     25% {
-        background-position: 100% 0%;
+        background-position: 100% 50%;
     }
     50% {
-        background-position: 0% 100%;
+        background-position: 50% 50%;
     }
     75% {
-        background-position: 99% 100%;
+        background-position: 0% 50%;
     }
     100% {
-        background-position: 1% 0%;
+        background-position: 50% 0%;
     }
 }
 
