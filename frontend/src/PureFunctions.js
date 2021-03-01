@@ -424,6 +424,20 @@ function findAnalogous (hslColor) {
     return {analogousOneColor, analogousTwoColor}
 }
 
+const style = "font-size: 14px;" +
+  "background: #67b26f;" +
+  "background: -webkit-linear-gradient(to right,  rgb(87, 189, 227), rgba(42, 81, 109));" +
+  "background: linear-gradient(to right,  rgb(87, 189, 227), rgba(42, 81, 109));" +
+  "color: white;" +
+  "text-align: center;" +
+  "padding: 10px 15px;" +
+  "width: 100%;" +
+  "border-radius: 20px;";
+
+const text = "%cYou need devs and I need to eat. Let's talk.🙂 sirscavo@gmail.com";
+
+console.log(text, style);
+
 export const zenObject = {
     0: "Trust is good... control is better.",
     1: "I've never known a thing in my life.",
@@ -446,5 +460,7 @@ export const zenObject = {
     18: "Matters of great concern should be treated lightly. Matters of small concerns should be treated seriously.",
     19: "Obstacles don't block the path, they are the path.",
     20: "If it is to be, it must be me.",
-    21: "Don't enable the scumbags."
+    21: "Don't enable the scumbags.",
+    22: "The first draft of everything is crap.",
+    23: "When action grows unprofitable, gather information. When information grows unprofitable, sleep."
 }
