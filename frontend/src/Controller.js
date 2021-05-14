@@ -4,7 +4,7 @@ import {
     generateEasyColors,
     HSLtoRGB,
     generateBattleColors,
-    generateZenColors,
+    // generateZenColors,
     generateGhostColors,
     generatePastelColors,
     generateCustomColors,
@@ -35,10 +35,10 @@ class Controller extends React.Component {
             coins: 0,
             coinArray: [true, true, true],
             gameOn: false,
-            zenKernel: '',
-            kernelVisibility: false,
-            zenObject: zenObject,
-            mutableZen: zenObject,
+            // zenKernel: '',
+            // kernelVisibility: false,
+            // zenObject: zenObject,
+            // mutableZen: zenObject,
             windowDisplayed: false,
             customColor: '255, 255, 255',
 
@@ -47,7 +47,7 @@ class Controller extends React.Component {
             bioModal: false,
             playerPageModal: false,
 
-            startZen: false,
+            // startZen: false,
             startBattle: false,
             startConvert: false,
 
@@ -63,7 +63,7 @@ class Controller extends React.Component {
             toggleWindowDisplay: this.toggleWindowDisplay,
 
             toggleGameOn: this.toggleGameOn,
-            toggleStartZen: this.toggleStartZen,
+            // toggleStartZen: this.toggleStartZen,
             toggleStartBattle: this.toggleStartBattle,
             toggleStartConvert: this.toggleStartConvert,
 
@@ -101,6 +101,7 @@ class Controller extends React.Component {
             this.setState({ createAnalogous: false})
         }, delayOrNot)
     }
+
     toggleCreatePastel = () => {
         if (this.state.createAnalogous || this.state.createPastel || this.state.createTriadic) return;
         this.setState({ createPastel: true});
@@ -114,6 +115,7 @@ class Controller extends React.Component {
             this.setState({ createPastel: false})
         }, delayOrNot)
     }
+
     toggleCreateTriadic = () => {
         if (this.state.createAnalogous || this.state.createPastel || this.state.createTriadic) return;
         this.setState({ createTriadic: true});
@@ -144,18 +146,19 @@ class Controller extends React.Component {
         }, delayOrNot)
     }
 
-    toggleStartZen = () => {
-        if (this.state.startBattle) this.toggleStartBattle();
-        if (this.state.startConvert) this.toggleStartConvert();
-        this.setState({ startZen: !this.state.startZen });
-    }
+    // toggleStartZen = () => {
+    //     if (this.state.startBattle) this.toggleStartBattle();
+    //     if (this.state.startConvert) this.toggleStartConvert();
+    //     this.setState({ startZen: !this.state.startZen });
+    // }
     toggleStartBattle = () => {
-        if (this.state.startZen) this.toggleStartZen();
+        // if (this.state.startZen) this.toggleStartZen();
         if (this.state.startConvert) this.toggleStartConvert();
         this.setState({ startBattle: !this.state.startBattle });
     }
+
     toggleStartConvert = () => {
-        if (this.state.startZen) this.toggleStartZen();
+        // if (this.state.startZen) this.toggleStartZen();
         if (this.state.startBattle) this.toggleStartBattle();
         this.setState({ startConvert: !this.state.startConvert});
     }
@@ -181,6 +184,7 @@ class Controller extends React.Component {
     }
 
 
+    //refactor this
     correctGuess = () => {
         let coinCount = this.state.coins;
 
@@ -241,14 +245,14 @@ class Controller extends React.Component {
         let targetId = targetArray[randomSix];
         let arr = [];
 
-        if (this.state.startZen) arr = generateZenColors();
+        // if (this.state.startZen) arr = generateZenColors();
 
         if (this.state.startConvert && !this.state.createTriadic && !this.state.createAnalogous && !this.state.createPastel)
             arr = generateGhostColors();
         if (this.state.startConvert && this.state.createTriadic && !this.state.createAnalogous && !this.state.createPastel)
             arr = generateBattleColors();
-        if (this.state.startConvert && !this.state.createTriadic && this.state.createAnalogous && !this.state.createPastel)
-            arr = generateZenColors();
+        // if (this.state.startConvert && !this.state.createTriadic && this.state.createAnalogous && !this.state.createPastel)
+        //     arr = generateZenColors();
         if (this.state.startConvert && !this.state.createTriadic && !this.state.createAnalogous && this.state.createPastel)
             arr = generatePastelColors();
         if (this.state.startConvert && this.state.createCustom)
@@ -279,22 +283,22 @@ class Controller extends React.Component {
         })
     }
 
-    toggleKernelDisplay = () => {
-        let randomKernel = '';
-        if (Object.keys(this.state.mutableZen).length > 0) {
-            let kernelArray = Object.keys(this.state.mutableZen);
-            let randomNum = Math.random();
-            let kernelIndex = Math.floor(randomNum * kernelArray.length)
-            let randomKey = kernelArray[kernelIndex];
-            randomKernel = this.state.mutableZen[randomKey]
-            delete this.state.mutableZen[randomKey]
-        };
+    // toggleKernelDisplay = () => {
+    //     let randomKernel = '';
+    //     if (Object.keys(this.state.mutableZen).length > 0) {
+    //         let kernelArray = Object.keys(this.state.mutableZen);
+    //         let randomNum = Math.random();
+    //         let kernelIndex = Math.floor(randomNum * kernelArray.length)
+    //         let randomKey = kernelArray[kernelIndex];
+    //         randomKernel = this.state.mutableZen[randomKey]
+    //         delete this.state.mutableZen[randomKey]
+    //     };
 
-        this.setState({
-            zenKernel: randomKernel,
-            kernelVisibility: false,
-        })
-    }
+    //     this.setState({
+    //         zenKernel: randomKernel,
+    //         kernelVisibility: false,
+    //     })
+    // }
 
 
     render() {

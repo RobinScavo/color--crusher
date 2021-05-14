@@ -9,10 +9,10 @@ const RGBboard = () => {
     const values = useContext(KarenContext)
     const arr = values.colorArray;
     const target = values.colorTargetId;
-    let kernelLength = values.zenKernel.length;
-    let kernelClassLength = 'shortKernel';
+    // let kernelLength = values.zenKernel.length;
+    // let kernelClassLength = 'shortKernel';
     let visibility = 'visible';
-    let kernelVisibility = values.kernelVisibility ? 'flashKernel' : '';
+    // let kernelVisibility = values.kernelVisibility ? 'flashKernel' : '';
 
     //Arrays for ColorBall map
     let idArray = ['colorOne', 'colorTwo', 'colorThree', 'colorFour', 'colorFive', 'colorSix'];
@@ -23,11 +23,11 @@ const RGBboard = () => {
     if (!values.gameOn && values.round > 0) visibility = 'hidden';
 
     //Adjust font for kernel length
-    if (kernelLength > 35 && kernelLength < 50) {
-        kernelClassLength = 'longKernel'
-    } else if  (kernelLength > 50) {
-        kernelClassLength = 'realLongKernel'
-    }
+    // if (kernelLength > 35 && kernelLength < 50) {
+    //     kernelClassLength = 'longKernel'
+    // } else if  (kernelLength > 50) {
+    //     kernelClassLength = 'realLongKernel'
+    // }
 
     return (
         <div className='lipDiv'>
@@ -73,13 +73,13 @@ const RGBboard = () => {
                             <h2 className='colorNumber'>CORRECT</h2>
                         </div>
                     }
-                    {values.startZen &&
+                    {/* {values.startZen &&
                         <div className='targetDiv'>
                             <div className='kernelDiv'>
                                 <h2 className={`${kernelClassLength} ${kernelVisibility}`}>{values.zenKernel}</h2>
                             </div>
                         </div>
-                    }
+                    } */}
                 </div>
             </div>
         </div>

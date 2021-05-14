@@ -17,7 +17,7 @@ const Bowl = (props) => {
                 <h2 className='display'>{props.display}</h2>
             }
             {!values.startBattle &&
-                <h2 className='display'>kk</h2>
+                <h2 className='display'>cc</h2>
             }
 
             <div className='lowerHalf'></div>

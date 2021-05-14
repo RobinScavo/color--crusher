@@ -19,7 +19,7 @@ const LeftConvertPanel = (props) => {
             <div className={`convertButtonDiv leftButtonDiv`} >
                 <div className='upperButtonDiv'>
 
-                    <div className='convertTextDiv'>Konvert From</div>
+                    <div className='convertTextDiv'>Convert From</div>
                     <button className={`convertButton ${props.fromRgbButton ? 'activeConvert' : 'hiddenConvert'}`} onClick={props.toggleFromRgbButton}
                         >RGB</button>
                     <button className={`convertButton ${props.fromHslButton ? 'activeConvert' : 'hiddenConvert'}`} onClick={props.toggleFromHslButton}
@@ -28,7 +28,7 @@ const LeftConvertPanel = (props) => {
                         >HEX</button>
                     <div className={`convertArrow`}>➛</div>
 
-                    <div className={`convertTextDiv`}>Konvert To</div>
+                    <div className={`convertTextDiv`}>Convert To</div>
                     <button className={`convertButton ${props.toRgbButton ? 'activeConvert' : 'hiddenConvert'}`} onClick={props.toggleToRgbButton}
                         >RGB</button>
                     <button className={`convertButton ${props.toHslButton ? 'activeConvert' : 'hiddenConvert'}`} onClick={props.toggleToHslButton}
@@ -78,7 +78,7 @@ const LeftConvertPanel = (props) => {
                     </label>
                     <button className='submitButton' onClick={() => {
                         props.playerSubmit(stringVal)
-                    }}>Konvert</button>
+                    }}>Convert</button>
                 </div>
             </div>
         </div>

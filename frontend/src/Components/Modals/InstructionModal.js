@@ -30,7 +30,7 @@ function InstructionModal() {
         {/* Zen Mode */}
         <div className='lowerDiv'>
           <div className='modeSelectDiv'>
-            <div className='modeDiv'>
+            {/* <div className='modeDiv'>
               <div className='buttonDiv'>
                 <h1 className='titleText'>Zen Mode</h1>
                 <button className='goldButton zen' onClick={() => {
@@ -43,7 +43,7 @@ function InstructionModal() {
                 <h1 className='arrow'>➛</h1>
                 <h1 className='modeText'>Just klick the balls. Relax.</h1>
               </div>
-            </div>
+            </div> */}
 
             {/* BattleMode */}
             <div className='modeDiv'>
@@ -57,14 +57,14 @@ function InstructionModal() {
               </div>
               <div className='arrowText'>
                 <h1 className='arrow'>➛</h1>
-                <h1 className='modeText'>Kompete aginst the best!</h1>
+                <h1 className='modeText'>Compete aginst the best!</h1>
               </div>
             </div>
 
             {/* Demo mode */}
             <div className='modeDiv'>
               <div className='buttonDiv'>
-                <h1 className='titleText'>KonvertMode</h1>
+                <h1 className='titleText'>ConvertMode</h1>
                 <button className='goldButton convert' onClick={() => {
                   values.toggleInstructionModal();
                   values.toggleStartConvert();
@@ -73,7 +73,7 @@ function InstructionModal() {
               </div>
               <div className='arrowText'>
                 <h1 className='arrow'>➛</h1>
-                <h1 className='modeText'>Konvert your kolors.</h1>
+                <h1 className='modeText'>Convert your colors.</h1>
               </div>
             </div>
           </div>

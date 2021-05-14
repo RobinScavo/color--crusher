@@ -44,7 +44,7 @@ const ScoreTimer = () => {
         <div className={`scoreContainer ${falling}`}>
             <div className='scoreTimerDiv scoreTimerFront'>
                 {!values.startBattle &&
-                    <h1 className='scoreTimer'>kk</h1>
+                    <h1 className='scoreTimer'>cc</h1>
                 }
                 {values.startBattle &&
                     <h1 className='scoreTimer'>{seconds}</h1>

@@ -16,16 +16,16 @@ const Banner = () => {
             <ScoreTimer gameStart={values.gameOn}/>
 
             {!values.gameOn && !values.startBattle && !values.startZen &&
-                <h1 className='gameName'>Kolor Krusher</h1>
+                <h1 className='gameName'>Color Crusher</h1>
             }
             {values.startBattle &&
                 <h1 className='gameName'>Battle Mode</h1>
             }
-            {values.startZen &&
+            {/* {values.startZen &&
                 <h1 className='gameName'>Zen Mode</h1>
-            }
+            } */}
             {values.startConvert &&
-                <h1 className='gameName'>Kolor Konverter</h1>
+                <h1 className='gameName'>Color Converter</h1>
             }
 
             <CryptoCoin index={0} className='cryptoOne'/>

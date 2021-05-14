@@ -37,7 +37,7 @@ const CryptoCoin = (props) => {
 
     return (
         <div className={`coinContainer ${containerId} ${rollout} ${falling}`}>
-            <div className={`cryptoCoin ${props.className} cryptoCoinFront`}>kk</div>
+            <div className={`cryptoCoin ${props.className} cryptoCoinFront`}>cc</div>
         </div>
     )
 }

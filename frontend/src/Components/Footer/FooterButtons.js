@@ -9,9 +9,9 @@ import './FooterButtons.css'
 const FooterButtons = () => {
     const values = useContext(KarenContext)
 
-    const checkZen = () => {
-        if (values.startZen) values.toggleStartZen()
-    }
+    // const checkZen = () => {
+    //     if (values.startZen) values.toggleStartZen()
+    // }
     const checkBattle = () => {
         if (values.startBattle) values.toggleStartBattle()
     }
@@ -22,7 +22,7 @@ const FooterButtons = () => {
     return (
         <div className='footerButtonDiv'>
             <button className='footerButton' onClick={() => {
-                checkZen();
+                // checkZen();
                 checkBattle();
                 checkConvert();
                 values.clearRounds();

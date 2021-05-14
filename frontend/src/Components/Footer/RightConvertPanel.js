@@ -10,7 +10,7 @@ const RightConvertPanel = (props) => {
     return (
         <div className='convertDiv' id='rightConvert'>
             <div className='rightButtonDiv' >
-                <div className='rightConvertTextDiv'>Kreate Random Kolors</div>
+                <div className='rightConvertTextDiv'>Create Random Colors</div>
                 <button className='rightConvertButton' onClick={() => {
                     values.toggleCreateTriadic();
                 } }>Triadic</button>
