@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 
-import KarenContext from '../KarenContext';
-import Bowl from '../Components/Bowl'
+import KarenContext from '../../KarenContext';
+import Bowl from './Bowl'
 import FooterButtons from './FooterButtons'
 import ClassConvertPanels from './ClassConvertPanels'
 

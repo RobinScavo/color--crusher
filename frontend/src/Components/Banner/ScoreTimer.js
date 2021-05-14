@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 
-import KarenContext from '../KarenContext';
+import KarenContext from '../../KarenContext';
 import './ScoreTimer.css'
 
 const ScoreTimer = () => {

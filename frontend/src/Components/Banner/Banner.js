@@ -4,9 +4,9 @@ import './Banner.css';
 
 
 import UserName from './UserName'
-import KarenContext from '../KarenContext'
-import ScoreTimer from '../Components/ScoreTimer';
-import CryptoCoin from '../Components/CryptoCoin';
+import KarenContext from '../../KarenContext'
+import ScoreTimer from './ScoreTimer';
+import CryptoCoin from './CryptoCoin';
 
 const Banner = () => {
     const values = useContext(KarenContext)

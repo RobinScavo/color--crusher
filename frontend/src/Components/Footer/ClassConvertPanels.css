@@ -269,7 +269,7 @@
     border: none;
     outline: none;
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
-    background-image: url('../Images/Silver.jpg');
+    background-image: url('../../Images/Silver.jpg');
     background-size: cover;
     background-size: 300% 300%;
     overflow: hidden;
@@ -294,7 +294,7 @@
     height: 28px;
     width: 28px;
     border-radius: 50%;
-    background-image: url('../Images/Silver.jpg');
+    background-image: url('../../Images/Silver.jpg');
     background-size: cover;
     background-size: 300% 300%;
     overflow: hidden;

@@ -28,7 +28,7 @@
     position: absolute;
     bottom: 25px;
     background-color: rgb(51, 99, 129);
-    background-image: url('../Images/footer-blue.png');
+    background-image: url('../../Images/footer-blue.png');
     z-index: 0;
 }
 

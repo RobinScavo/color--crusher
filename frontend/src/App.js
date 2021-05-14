@@ -24,7 +24,12 @@ function App() {
         </Switch>
 
       )} */}
-      <Route path ='/'>
+      {/* <Switch>
+        <Route exact path ='/' component={Controller}>
+        <Route path ='/players' component={Controller}>
+
+      </Switch> */}
+      <Route>
           <Controller />
       </Route>
     </>

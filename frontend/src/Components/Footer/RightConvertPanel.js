@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 
-import KarenContext from '../KarenContext'
+import KarenContext from '../../KarenContext'
 
 import './ClassConvertPanels.css'
 

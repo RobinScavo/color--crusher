@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { RGBtoHSLvalue, HSLtoRGB, RGBtoHEX, HEXtoRGB } from '../PureFunctions'
+import { RGBtoHSLvalue, HSLtoRGB, RGBtoHEX, HEXtoRGB } from '../../PureFunctions'
 import LeftConvertPanel from './LeftConvertPanel';
 import RightConvertPanel from './RightConvertPanel';
 
@@ -177,6 +177,7 @@ class ConvertPanels extends React.Component {
             fromBottomInput: this.state.rgbInputArray[2],
         }
     )}
+
     toggleFromHslButton = () => {
         if (this.state.fromRgbButton) this.setState({fromRgbButton: false})
         if (this.state.fromHexButton) this.setState({fromHexButton: false})
@@ -190,6 +191,7 @@ class ConvertPanels extends React.Component {
             fromBottomInput: this.state.hslInputArray[2],
         }
     )}
+
     toggleFromHexButton = () => {
         if (this.state.fromHslButton) this.setState({fromHslButton: false})
         if (this.state.fromRgbButton) this.setState({fromRgbButton: false})
@@ -203,6 +205,7 @@ class ConvertPanels extends React.Component {
             fromBottomInput: this.state.hexInputArray[2],
         }
     )}
+
     toggleToRgbButton = () => {
         if (this.state.toHexButton) this.setState({toHexButton: false})
         if (this.state.toHslButton) this.setState({toHslButton: false})
@@ -216,6 +219,7 @@ class ConvertPanels extends React.Component {
             toBottomInput: this.state.rgbInputArray[2],
         }
     )}
+
     toggleToHslButton = () => {
         if (this.state.toHexButton) this.setState({toHexButton: false})
         if (this.state.toRgbButton) this.setState({toRgbButton: false})
@@ -229,6 +233,7 @@ class ConvertPanels extends React.Component {
             toBottomInput: this.state.hslInputArray[2],
         }
     )}
+
     toggleToHexButton = () => {
         if (this.state.toRgbButton) this.setState({toRgbButton: false})
         if (this.state.toHslButton) this.setState({toHslButton: false})

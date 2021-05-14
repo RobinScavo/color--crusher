@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import './HighScoreDisplay.css'
 
 const HighScoreDisplay = () => {
+
+
     const data  = [
         {rank: 1, name: 'Robin Scavo', score: 477},
         {rank: 2, name: 'Angela Scavo', score: 467},
@@ -19,9 +21,61 @@ const HighScoreDisplay = () => {
 
     ]
 
+    // const getHiScores = () => {
+    //     fetch('../../../backend/routes/players')
+    // }
+    const [myList, setList] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await fetch('/api/getList');
+            setList(result.body);
+            console.log(result, myList)
+        };
+        fetchData();
+    }, [])
+
+
+    // const getList = () => {
+    //     fetch('/api/getList')
+    //     // .then(res => console.log(res))
+    //     .then(res => res.json())
+    //     .then(list => setList({ list }))
+    // }
+
+    // useEffect(() => {
+    //     console.log('useEFfect')
+    //     getList()
+    // }, [])
+    // const getList = () => {
+    //     fetch('/api/getList')
+    //     .then(res => res.json())
+    //     .then(list => setList({ list }))
+    // }
+
+    // getList();
+    // console.log('TTTTTTTTT', myList)
+
     return (
         <div className='highScoreDiv'>
-            <h1 className='highScoreText'>High Skores</h1>
+          {myList.length ? (
+            <div>
+              {/* Render the list of items */}
+              {myList.map((item) => {
+                return(
+                  <div>
+                    {item}
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div>
+              <h2>No List Items Found</h2>
+            </div>
+          )
+        }
+            {/* <h1 className='highScoreText'>High Skores</h1>
             <table className='highScoreTable'>
                 {data.map(user => (
                     <tbody key={user.rank.toString()}>
@@ -37,7 +91,7 @@ const HighScoreDisplay = () => {
 
                     </tbody>
                 ))}
-            </table>
+            </table> */}
         </div>
     )
 }

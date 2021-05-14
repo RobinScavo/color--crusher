@@ -64,7 +64,7 @@
     left: 13px;
     width: 220px;
     height: 50px;
-    background-image: url('../Images/Silver.jpg');
+    background-image: url('../../Images/Silver.jpg');
     background-size: cover;
     background-size: 300% 300%;
     animation: BowlTransitioningBackground 40s linear infinite;

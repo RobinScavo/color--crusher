@@ -26,7 +26,7 @@
     border-radius: 50%;
     font-size: 36px;
     font-family: 'Fontdiner Swanky';
-    background-image: url('../Images/Silver.jpg');
+    background-image: url('../../Images/Silver.jpg');
     background-size: cover;
     background-size: 300% 300%;
     overflow: hidden;

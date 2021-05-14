@@ -11,7 +11,7 @@ import {
     zenObject,
 } from './PureFunctions';
 
-import Backdrop from './Backdrop/Backdrop'
+import Backdrop from './Components/Backdrop/Backdrop'
 import KarenContext from './KarenContext';
 import InstructionModal from './Components/Modals/InstructionModal';
 import LoginModal from './Components/Modals/LoginFormModal';

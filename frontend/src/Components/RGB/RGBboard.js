@@ -1,6 +1,6 @@
 import React, { useContext} from 'react';
 
-import KarenContext from '../KarenContext';
+import KarenContext from '../../KarenContext';
 import ColorBall from './ColorBall';
 
 import './RGBboard.css'
