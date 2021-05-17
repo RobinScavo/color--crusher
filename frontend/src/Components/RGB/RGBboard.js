@@ -52,7 +52,7 @@ const RGBboard = () => {
                     {/* Start button */}
                     {!values.gameOn && values.round === 0 && !values.instructionModal && !values.startConvert && !values.startBattle &&
                         <button className='startButton' onClick={() => {
-                            values.toggleInstructionModal()
+                            values.toggleMainModal()
                         }}>START</button>
                     }
                     {/* Clear button */}

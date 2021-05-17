@@ -61,11 +61,13 @@
     height: 55px;
     width: 55px;
     border-radius: 50%;
-    background-image: url('../../Images/gold.jpg');
+    background-image: url('../../Images/Silver.jpg');
     background-size: cover;
     background-size: 250% 250%;
     overflow: hidden;
-    animation: TransitioningBackground 10s linear infinite;
+    animation: TransitioningBackground 40s linear infinite;
+    color: rgba(42, 81, 109);
+    border: 1px solid  rgb(221, 217, 217);
     color: rgba(42, 81, 109);
     border: 1px solid #503c11;
     z-index: 1;
@@ -110,11 +112,10 @@
     margin-top: 20px;
 }
 
-.monkeyPic {
-    height: 95px;
-    width: 95px;
-    margin-bottom: 5px;
-    margin-top: 5px;
+/* .monkeyPic {
+    height: 75px;
+    width: 75px;
+    margin-bottom: 10px;
     border-radius: 50%;
     background-image: url('../../Images/tuktuk.jpg');
     border: 1px solid rgba(42, 81, 109);
@@ -123,7 +124,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    font-size: 18px;
+    font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,4 +134,4 @@
 .monkeyPic:hover {
     background: rgba(42, 81, 109);
     color: rgb(212, 190, 194)
-}
+} */

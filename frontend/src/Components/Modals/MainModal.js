@@ -4,9 +4,9 @@ import HighScoreDisplay from '../HighScoreDisplay/HighScoreDisplay'
 import KarenContext from '../../KarenContext'
 
 import './LogInFormModal.css'
-import './InstructionModel.css'
+import './MainModel.css'
 
-function InstructionModal() {
+function MainModel() {
   const values = useContext(KarenContext);
 
   return (
@@ -21,67 +21,68 @@ function InstructionModal() {
           {/* Log In */}
           <div className='optionDiv'>
             <button className='logStateButton' onClick={() => {
-              values.toggleInstructionModal();
+              values.toggleMainModal();
               values.toggleLoginModal();
             }}>Log In / Sign Up</button>
           </div>
         </div>
 
-        {/* Zen Mode */}
+
         <div className='lowerDiv'>
           <div className='modeSelectDiv'>
-            {/* <div className='modeDiv'>
-              <div className='buttonDiv'>
-                <h1 className='titleText'>Zen Mode</h1>
-                <button className='goldButton zen' onClick={() => {
-                    values.toggleInstructionModal();
-                    values.toggleStartZen();
-                    values.startGame();
-                }}>zen</button>
-              </div>
-              <div className='arrowText'>
-                <h1 className='arrow'>➛</h1>
-                <h1 className='modeText'>Just klick the balls. Relax.</h1>
-              </div>
-            </div> */}
 
             {/* BattleMode */}
             <div className='modeDiv'>
               <div className='buttonDiv'>
-                <h1 className='titleText'>Battle Mode</h1>
+                <h1 className='titleText'>BattleMode</h1>
                 <button  className='goldButton battle' onClick={() => {
-                  values.toggleInstructionModal();
+                  values.toggleMainModal();
                   values.toggleStartBattle();
                   values.startGame();
                 }}>Battle</button>
               </div>
               <div className='arrowText'>
                 <h1 className='arrow'>➛</h1>
-                <h1 className='modeText'>Compete aginst the best!</h1>
+                <h1 className='modeText'>Try your RGB reading skills against the best in the world!</h1>
               </div>
             </div>
 
-            {/* Demo mode */}
+            {/* Convert mode */}
             <div className='modeDiv'>
               <div className='buttonDiv'>
                 <h1 className='titleText'>ConvertMode</h1>
                 <button className='goldButton convert' onClick={() => {
-                  values.toggleInstructionModal();
+                  values.toggleMainModal();
                   values.toggleStartConvert();
                   values.startGame();
-                }}>Konvert</button>
+                }}>Convert</button>
               </div>
               <div className='arrowText'>
                 <h1 className='arrow'>➛</h1>
-                <h1 className='modeText'>Convert your colors.</h1>
+                <h1 className='modeText'>Convert your color values or find your next color scheme.</h1>
               </div>
             </div>
-          </div>
-          <HighScoreDisplay />
+
+            {/*Bio page*/}
+            <div className='modeDiv'>
+              <div className='buttonDiv'>
+                <h1 className='titleText'>MeetMode</h1>
+                <button className='bioPic' onClick={() => {
+                  values.toggleLoginModal();
+                  values.toggleBioModal();
+                }}>Bio Page</button>
+              </div>
+              <div className='arrowTextBio'>
+                <h1 className='arrow'>➛</h1>
+                <h1 className='modeTextBio'>Meet the developer!</h1>
+              </div>
+            </div>
+            </div>
+            <HighScoreDisplay />
         </div>
       </div>
     </div>
     )
 }
 
-export default InstructionModal;
+export default MainModel;

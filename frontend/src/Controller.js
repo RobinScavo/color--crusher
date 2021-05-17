@@ -8,12 +8,11 @@ import {
     generateGhostColors,
     generatePastelColors,
     generateCustomColors,
-    zenObject,
 } from './PureFunctions';
 
 import Backdrop from './Components/Backdrop/Backdrop'
 import KarenContext from './KarenContext';
-import InstructionModal from './Components/Modals/InstructionModal';
+import MainModal from './Components/Modals/MainModal';
 import LoginModal from './Components/Modals/LoginFormModal';
 import PlayerPageModal from './Components/Modals/PlayerPageModal';
 import MyBioModal from './Components/Modals/MyBioModal';
@@ -42,7 +41,7 @@ class Controller extends React.Component {
             windowDisplayed: false,
             customColor: '255, 255, 255',
 
-            instructionModal: false,
+            MainModal: false,
             loginModal: false,
             bioModal: false,
             playerPageModal: false,
@@ -56,7 +55,7 @@ class Controller extends React.Component {
             createPastel: false,
             createCustom: false,
 
-            toggleInstructionModal: this.toggleInstructionModal,
+            toggleMainModal: this.toggleMainModal,
             toggleLoginModal: this.toggleLoginModal,
             toggleBioModal: this.toggleBioModal,
             togglePlayerPageModal: this.togglePlayerPageModal,
@@ -80,7 +79,7 @@ class Controller extends React.Component {
         }
     }
 
-    toggleInstructionModal = () => this.setState({ instructionModal: !this.state.instructionModal })
+    toggleMainModal = () => this.setState({ MainModal: !this.state.MainModal })
     toggleLoginModal = () => this.setState({ loginModal: !this.state.loginModal })
     toggleBioModal = () => this.setState({ bioModal: !this.state.bioModal })
     togglePlayerPageModal = () => this.setState({ playerPageModal: !this.state.playerPageModal })
@@ -309,9 +308,9 @@ class Controller extends React.Component {
                         <Backdrop />
 
                         {/* Modal Control */}
-                        {this.state.instructionModal &&
+                        {this.state.MainModal &&
                             <Modal >
-                                <InstructionModal />
+                                <MainModal />
                             </Modal>
                         }
                         {this.state.loginModal &&

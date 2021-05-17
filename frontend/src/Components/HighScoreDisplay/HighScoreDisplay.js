@@ -24,16 +24,16 @@ const HighScoreDisplay = () => {
     // const getHiScores = () => {
     //     fetch('../../../backend/routes/players')
     // }
-    const [myList, setList] = useState([]);
+    // const [myList, setList] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const result = await fetch('/api/getList');
-            setList(result.body);
-            console.log(result, myList)
-        };
-        fetchData();
-    }, [])
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const result = await fetch('/api/getList');
+    //         setList(result.body);
+    //         console.log(result, myList)
+    //     };
+    //     fetchData();
+    // }, [])
 
 
     // const getList = () => {
@@ -58,10 +58,9 @@ const HighScoreDisplay = () => {
 
     return (
         <div className='highScoreDiv'>
-          {myList.length ? (
+          {/* {data.length ? (
             <div>
-              {/* Render the list of items */}
-              {myList.map((item) => {
+              {data.map((item) => {
                 return(
                   <div>
                     {item}
@@ -74,8 +73,8 @@ const HighScoreDisplay = () => {
               <h2>No List Items Found</h2>
             </div>
           )
-        }
-            {/* <h1 className='highScoreText'>High Skores</h1>
+        } */}
+            <h1 className='highScoreText'>High Skores</h1>
             <table className='highScoreTable'>
                 {data.map(user => (
                     <tbody key={user.rank.toString()}>
@@ -91,7 +90,7 @@ const HighScoreDisplay = () => {
 
                     </tbody>
                 ))}
-            </table> */}
+            </table>
         </div>
     )
 }

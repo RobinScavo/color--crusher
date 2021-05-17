@@ -24,31 +24,33 @@ function LoginForm() {
   //   );
   // };
 
+  // onSubmit={handleSubmit}
+
   return (
     <>
     <div className='fullDiv'>
       <div className='logInFormDiv'>
         <h1 className='logSignTitle logTitle'>LogIn</h1>
-        {/* <form className='loginForm' onSubmit={handleSubmit}>
-          {<ul>
+        <form className='loginForm' >
+          {/* {<ul>
             {errors.map((error, idx) => (
               <li key={idx}>{error}</li>
             ))}
-          </ul>}
+          </ul>} */}
             <input
               className='logInput'
               placeholder='Player Name'
               type="text"
-              value={credential}
-              onChange={(e) => setCredential(e.target.value)}
+              // value={credential}
+              // onChange={(e) => setCredential(e.target.value)}
               required
             />
             <input
               className='logInput'
               placeholder='Password'
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              // value={password}
+              // onChange={(e) => setPassword(e.target.value)}
               required
             />
             <button className='logSignButton' type="submit">LogIn</button>
@@ -56,7 +58,7 @@ function LoginForm() {
               values.toggleInstructionModal();
               values.toggleLoginModal();
             }}>Back</button>
-        </form> */}
+        </form>
         <div className='thisBioLink'>
             <div className='monkeyPic' onClick={() => {
                 values.toggleLoginModal();

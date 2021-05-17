@@ -34,7 +34,7 @@ const PlayerPageModal = () => {
             </div>
             <button className='thisBackButton' onClick={() => {
                 values.togglePlayerPageModal();
-                values.toggleInstructionModal();
+                values.toggleMainModal();
             }}>Back</button>
         </div>
     )
