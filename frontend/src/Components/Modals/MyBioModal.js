@@ -35,7 +35,7 @@ const MyBioModal = () => {
                 <div className='contactText topText'></div>
                 <button className='bioBackButton' onClick={() => {
                     values.toggleBioModal();
-                    values.toggleInstructionModal();
+                    values.toggleMainModal();
                 }}>Back</button>
                 <div className='contactDiv'>
                     <div className='linkedIn'></div>

@@ -35,7 +35,7 @@ function MainModel() {
             <div className='modeDiv'>
               <div className='buttonDiv'>
                 <h1 className='titleText'>BattleMode</h1>
-                <button  className='goldButton battle' onClick={() => {
+                <button  className='silverButton battle' onClick={() => {
                   values.toggleMainModal();
                   values.toggleStartBattle();
                   values.startGame();
@@ -51,7 +51,7 @@ function MainModel() {
             <div className='modeDiv'>
               <div className='buttonDiv'>
                 <h1 className='titleText'>ConvertMode</h1>
-                <button className='goldButton convert' onClick={() => {
+                <button className='silverButton convert' onClick={() => {
                   values.toggleMainModal();
                   values.toggleStartConvert();
                   values.startGame();
@@ -70,11 +70,11 @@ function MainModel() {
                 <button className='bioPic' onClick={() => {
                   values.toggleLoginModal();
                   values.toggleBioModal();
-                }}>Bio Page</button>
+                }}>Bio</button>
               </div>
-              <div className='arrowTextBio'>
+              <div className='arrowText'>
                 <h1 className='arrow'>➛</h1>
-                <h1 className='modeTextBio'>Meet the developer!</h1>
+                <h1 className='modeText meetMeText'>Meet the developer!</h1>
               </div>
             </div>
             </div>

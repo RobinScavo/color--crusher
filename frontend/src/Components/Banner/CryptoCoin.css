@@ -10,18 +10,18 @@
     font-family: 'Fontdiner Swanky';
     background-image: url('../../Images/Silver.jpg');
     background-size: cover;
-    background-size: 300% 300%;
+    background-size: 250% 250%;
     color: rgba(42, 81, 109);
-    border: 1px solid rgb(221, 217, 217);
+    border: 2px solid rgba(42, 81, 109);
     z-index: 1;
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
+    /* cursor: pointer; */
     box-sizing: border-box;
     background-color: rgb(192, 192, 192);
 }
 
 .cryptoOne {
-    animation: TransitioningBackground 35s linear infinite;
+    animation: TransitioningBackground 65s linear infinite;
     position: absolute;
 }
 
@@ -110,7 +110,7 @@
 
 
 .cryptoTwo {
-    animation: TransitioningBackground 32s linear infinite;
+    animation: TransitioningBackground 75s linear infinite;
     position: absolute;
 }
 
@@ -166,7 +166,7 @@
 }
 
 .cryptoThree {
-    animation: TransitioningBackground 29s linear infinite;
+    animation: TransitioningBackground 85s linear infinite;
     position: absolute;
 }
 
