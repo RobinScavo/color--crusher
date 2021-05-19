@@ -53,19 +53,12 @@ function LoginForm() {
               // onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button className='logSignButton' type="submit">LogIn</button>
-              <button  className='backButton' onClick={() => {
+            <button className='silverButton logSignButton' type="submit">LogIn</button>
+            <button  className='backButton' onClick={() => {
               values.toggleMainModal();
               values.toggleLoginModal();
             }}>Back</button>
         </form>
-        <div className='thisBioLink'>
-            <div className='monkeyPic' onClick={() => {
-                values.toggleLoginModal();
-                values.toggleBioModal();
-            }}>Bio Page</div>
-            <h1 className='meetDevText thisDevText'><div className='arrowSpan'>➛</div>Meet the developer!</h1>
-        </div>
       </div>
       <div className='signUpFormDiv'>
         <SignUpForm />

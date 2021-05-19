@@ -20,7 +20,7 @@ function MainModel() {
 
           {/* Log In */}
           <div className='optionDiv'>
-            <button className='logStateButton' onClick={() => {
+            <button className='modalButton' onClick={() => {
               values.toggleMainModal();
               values.toggleLoginModal();
             }}>Log In / Sign Up</button>

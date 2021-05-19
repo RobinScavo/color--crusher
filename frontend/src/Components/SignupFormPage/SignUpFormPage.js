@@ -4,7 +4,6 @@ import { Redirect } from "react-router-dom";
 
 // import * as sessionActions from "../../store/session";
 
-import './SignupForm.css'
 
 function SignupFormPage() {
   // const dispatch = useDispatch();
@@ -73,7 +72,7 @@ function SignupFormPage() {
           required
         />
       </label>
-      <button className='logSignButton' type="submit">SignUp</button>
+      <button id='signUpButton' className='silverButton' type="submit">SignUp</button>
     </form>
   );
 }
