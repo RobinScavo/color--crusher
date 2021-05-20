@@ -128,6 +128,7 @@ class Controller extends React.Component {
             this.setState({ createTriadic: false});
         }, delayOrNot)
     }
+
     setCustomColor = (custom) => {
         // if (this.state.createAnalogous || this.state.createPastel || this.state.createTriadic) return;
         this.setState({

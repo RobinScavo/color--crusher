@@ -112,6 +112,7 @@
     z-index: 1;
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
     outline: none;
+    cursor: pointer;
 }
 
 .silverButton:hover {
@@ -200,6 +201,8 @@
     align-items: center;
     color: transparent;
     font-family: 'Fontdiner Swanky';
+    cursor: pointer;
+    outline: none;
 }
 
 .bioPic:hover {

@@ -48,10 +48,6 @@
     padding-left: 2px;
 }
 
-.lowerBioDiv {
-    margin-bottom: 8px;
-}
-
 .contactText {
     display: flex;
     justify-content: center;
@@ -87,7 +83,7 @@
     height: 100%;
     width: 85%;
     font-size: 15px;
-    margin-top: 20px;
+    margin-top: 35px;
     line-height: 17px;
 }
 
@@ -248,14 +244,19 @@
 .websiteLink {
     font-size: 20px;
     position: absolute;
+    color: rgb(67, 169, 233)
 }
 
-.blogLink{
+.emailLink {
     font-size: 20px;
+    color: rgb(67, 169, 233);
+    font-family: 'Fraunces', serif;
 }
 
-.websiteLink:hover, .blogLink:hover{
+.websiteLink:hover, .emailLink:hover{
     color: rgb(255, 90, 0);
+    cursor: pointer;
+    outline: none;
 }
 
 .gitHub, .linkedIn {
@@ -274,13 +275,19 @@
     height: 58px;
     width: 58px;
     border: 4px solid rgb(255, 90, 0);
+    cursor: pointer;
+    outline: none;
 }
 
 .sfsgDiv:hover, .openBookDiv:hover {
     bottom: 15px;
+    cursor: pointer;
+    outline: none;
 }
 
 .bioBackButton:hover {
     background-color: rgb(255, 90, 0);
     color: rgba(42, 81, 109);
+    cursor: pointer;
+    outline: none;
 }
