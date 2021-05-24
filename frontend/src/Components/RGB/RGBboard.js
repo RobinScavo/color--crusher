@@ -59,7 +59,7 @@ const RGBboard = () => {
                     {values.startConvert &&
                         <button className='startButton' onClick={() => {
                             values.correctGuess()
-                        }}>Klear</button>
+                        }}>Clear</button>
                     }
                     {/* Target color */}
                     {values.startBattle && values.gameOn && values.startBattle &&

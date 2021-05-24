@@ -4,7 +4,7 @@ import {
     generateEasyColors,
     HSLtoRGB,
     generateBattleColors,
-    // generateZenColors,
+    generateZenColors,
     generateGhostColors,
     generatePastelColors,
     generateCustomColors,
@@ -197,15 +197,16 @@ class Controller extends React.Component {
                 gameOn: false,
                 coins: coinCount,
              });
-        } else if (this.state.startZen) {
-            this.setState({
-                kernelVisibility: true,
-                gameOn: false,
-            })
-            setTimeout(() => {
-                this.toggleKernelDisplay();
-            }, 4000)
         }
+        // else if (this.state.startZen) {
+        //     this.setState({
+        //         kernelVisibility: true,
+        //         gameOn: false,
+        //     })
+        //     setTimeout(() => {
+        //         this.toggleKernelDisplay();
+        //     }, 4000)
+        // }
         this.clearBoard();
         setTimeout(() => {
             this.updateColorArrayContext();
@@ -245,14 +246,12 @@ class Controller extends React.Component {
         let targetId = targetArray[randomSix];
         let arr = [];
 
-        // if (this.state.startZen) arr = generateZenColors();
-
         if (this.state.startConvert && !this.state.createTriadic && !this.state.createAnalogous && !this.state.createPastel)
             arr = generateGhostColors();
         if (this.state.startConvert && this.state.createTriadic && !this.state.createAnalogous && !this.state.createPastel)
             arr = generateBattleColors();
-        // if (this.state.startConvert && !this.state.createTriadic && this.state.createAnalogous && !this.state.createPastel)
-        //     arr = generateZenColors();
+        if (this.state.startConvert && !this.state.createTriadic && this.state.createAnalogous && !this.state.createPastel)
+            arr = generateZenColors();
         if (this.state.startConvert && !this.state.createTriadic && !this.state.createAnalogous && this.state.createPastel)
             arr = generatePastelColors();
         if (this.state.startConvert && this.state.createCustom)
@@ -273,12 +272,14 @@ class Controller extends React.Component {
         let third = colorTarget[2]
         let combined = `${first.slice(1)}, ${second.slice(0, second.length -1)}, ${third.slice(0, third.length-2)}`
         let converted = HSLtoRGB(combined)
+        console.log('converted:', converted, ' targetColor:', targetColor, ' array:', arr)
         this.setState({
             coinArray: [true, true, true],
             colorArray: arr,
             round: this.state.round + 1,
             colorTargetId: targetId,
             gameOn: true,
+            // colorTarget: targetColor,
             colorTarget: converted,
         })
     }

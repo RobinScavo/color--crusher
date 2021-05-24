@@ -1,83 +1,103 @@
-// function randomPastelColor() {
-//     //pick a "red" from 0 to 255
-//     const r = Math.floor(Math.random() * 76) + 180;
-//     //pick a "green" from 0 to 255
-//     const g = Math.floor(Math.random() * 76) + 180;
-//     //pick a "blue" from 0 to 255
-//     const b = Math.floor(Math.random() * 76) + 180;
-
-//     if ((r + g + b) > 700) randomPastelColor();
-//     console.log('*******', r, g, b, (r + g + b))
-//     // return RGBtoHSL(`(${r}, ${g}, ${b})`);
-// }
-
-const checkInput = (playerInput, mode) => {
-    const result = [];
-    if (mode === 'rgb') {
-        for (let i = 0; i < 3; i++) {
-            if (!Number(playerInput[i]) && Number(playerInput[i]) !== 0) {
-                result.push('From 0 to 255')
-                console.log('NAN', playerInput[i])
-            }
-            if (playerInput[i] < 0 || playerInput[i] > 255) {
-                result.push('From 0 to 255')
-                console.log('outtaRange', playerInput[i])
-            } else  {
-                result.push(playerInput[i])
-                console.log('bueno', playerInput[i])
-            }
-        }
-    }
-    if (mode === 'hsl') {
-        if (playerInput[0] < 0 || playerInput[0] > 360) {
-            result.push('From 0 to 360')
-        } else {
-            result.push(playerInput[0])
-        }
-        for (let i = 1; i < 3; i++) {
-            if (playerInput[i] < 0 || playerInput[i] > 100) {
-                result.push('From 0 to 100')
-            } else  {
-                result.push(playerInput[i])
-            }
-        }
-    }
-    if (mode === 'hex') {
-        const validNumberInputs = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-        const validLetterInputs = ['A', 'B', 'C', 'D', 'E', 'F'];
-        for (let i = 0; i < 3; i++) {
-            if (playerInput[i].length !== 2) {
-                result.push('From 00 to FF')
-                continue;
-            }
-            if ((validNumberInputs.includes(Number(playerInput[i][0]))|| validLetterInputs.includes(playerInput[i][0])) &&
-                (validNumberInputs.includes(Number(playerInput[i][1])) || validLetterInputs.includes(playerInput[i][1]))) {
-                result.push(playerInput[i])
-            } else {
-                result.push('From 00 to FF')
-            }
-        }
-    }
-    return result;
+function generateBattleColors() {
+    const arr = []
+    //Pick Random RGB color
+    const ranColor = randomColor()
+    arr.push(ranColor);
+    //Find compliment
+    const compliment = findComplement(ranColor)
+    //find triadic compliments
+    const triOne = findTriadics(ranColor).triOneColor;
+    const triTwo = findTriadics(ranColor).triTwoColor;
+    //Find triadic compliments of compliment
+    const triCompOne  = findTriadics(compliment).triOneColor;
+    const triCompTwo  = findTriadics(compliment).triTwoColor;
+    arr.push(triCompOne, triOne, compliment, triTwo, triCompTwo)
+    console.log('battleArray', arr)
+    // return addStyleString(arr)
 }
 
-// console.log(checkInput(['13', 'F1', 'BB'], 'hex'))
-// console.log(checkInput(['3', '09', 'k1'], 'hex'))
-// console.log(checkInput(['255', '0', '222'], 'rgb'))
-// console.log(checkInput(['25', '00', '11'], 'rgb'))
-// console.log(checkInput(['255', '0', '222'], 'rgb'))
-// console.log(checkInput(['ye', '444', '111'], 'rgb'))
-// console.log(checkInput(['360', '33', '22'], 'hsl'))
-// console.log(checkInput(['1111', '100', '222'], 'hsl'))
+function findTriadics (hslColor) {
+    let valueArray= hslColor.split(',');
+    let hue = Number(valueArray[0].slice(1));
+    let satch = Number(valueArray[1].slice(0, valueArray[1].length -1));
+    let light = Number(valueArray[2].slice(0, valueArray[2].length -1));
+    let triOne = 0;
+    let triTwo = 0;
+
+    if (hue < 120) {
+        triOne = hue + 120;
+        triTwo = hue + 240;
+    } else if (hue >= 120 && hue < 240) {
+        triOne = hue + 120;
+        triTwo = hue - 120;
+    } else {
+        triOne = hue - 240;
+        triTwo = hue - 120;
+    }
+
+    let triOneColor = (`${triOne}, ${satch}%, ${light}%`)
+    let triTwoColor = (`${triTwo}, ${satch}%, ${light}%`)
+    console.log('------', triOneColor)
+    let RGBtriOneColor = HSLtoRGB(triOneColor);
+    let RGBtriTwoColor = HSLtoRGB(triTwoColor);
+
+    return {RGBtriOneColor, RGBtriTwoColor}
+}
+// console.log('@@@@@@@@', findTriadics('255, 11%, 33%'))
+console.log(generateBattleColors());
+
+
+function HSLtoRGB (hslValue) {
+    console.log('input', hslValue)
+    let split = hslValue.split(',');
+
+    //slice off '%' and convert to numbers
+    let h = Number(split[0]);
+    let s = Number(split[1].substr(0,split[1].length -1));
+    let l = Number(split[2].substr(0,split[2].length -1));
+    // console.log(split, 'hslTOrgb', h, s, l)
+
+    s /= 100;
+    l /= 100;
+
+    let c = (1 - Math.abs(2 * l - 1)) * s;
+    let x = c * (1 - Math.abs((h / 60) % 2 - 1));
+    let m = l - c/2;
+    let r = 0;
+    let g = 0;
+    let b = 0;
+
+    if (0 <= h && h < 60) {
+        r = c; g = x; b = 0;
+    } else if (60 <= h && h < 120) {
+        r = x; g = c; b = 0;
+    } else if (120 <= h && h < 180) {
+        r = 0; g = c; b = x;
+    } else if (180 <= h && h < 240) {
+        r = 0; g = x; b = c;
+    } else if (240 <= h && h < 300) {
+        r = x; g = 0; b = c;
+    } else if (300 <= h && h < 360) {
+        r = c; g = 0; b = x;
+    }
+
+    r = Math.round((r + m) * 255);
+    g = Math.round((g + m) * 255);
+    b = Math.round((b + m) * 255);
+
+    // console.log(`${r}, ${g}, ${b}`)
+    return `(${r}, ${g}, ${b})`;
+}
 
 
 function RGBtoHSL (rgbValue) {
-    //slice -n- dice
+    //slice off parens,
     let sliced = rgbValue.slice(1, rgbValue.length -1);
     let split = sliced.split(',');
     let red = Number(split[0]);
     let green = Number(split[1]);
     let blue = Number(split[2]);
+    // console.log(split, red, green, blue)
 
     //Make red, green, blue fractions of 1
     red /= 255;
@@ -122,88 +142,84 @@ function RGBtoHSL (rgbValue) {
     s = +(s * 100).toFixed(1);
     l = +(l * 100).toFixed(1);
 
-    return(`(${h}, ${s}%, ${l}%)`)
+    return(`(${h},${s}%,${l}%)`)
 }
 
-function HEXtoRGB (hex) {
-    let r = 0;
-    let g = 0;
-    let b = 0;
+function findComplement (color) {
+    let convertedColor = (RGBtoHSL(color))
+    console.log('convert', convertedColor)
+    let splitColor = convertedColor.split(',');
+    let hue = Number(splitColor[0].slice(1));
+    let satch = splitColor[1].slice(1);
+    let light = splitColor[2].slice(0, splitColor[2].length -1);
+    console.log(splitColor)
+    let complimentHue = 0;
 
-    if (hex.length === 4) {
-        r = parseInt(hex[1] + hex[1], 16);
-        g = parseInt(hex[2] + hex[2], 16);
-        b = parseInt(hex[3] + hex[3], 16);
-    } else if (hex.length === 7) {
-        r = parseInt(hex[1] + hex[2], 16)
-        g = parseInt(hex[3] + hex[4], 16);
-        b = parseInt(hex[5] + hex[6], 16);
+    if (hue >= 180) {
+        complimentHue = hue - 180;
+    } else {
+        complimentHue = hue + 180;
     }
-    return [`${r}`, `${g}`, `${b}`]
+
+    let compHSL = (`${complimentHue},${satch},${light}`)
+    console.log('complement', compHSL)
+    return HSLtoRGB(compHSL);
 }
+// console.log(findComplement('255, 11, 22'))
+// console.log(HSLtoRGB())
+function generateEasyColors() {
+    //Array of all possible 'easy ' colors (all values either 0 or 255)
+    let arr = [
+        "(0, 0, 0)",
+        "(0, 0, 255)",
+        "(255, 0, 255)",
+        "(255, 255, 255)",
+        "(0, 255, 255)",
+        "(255, 0, 0)",
+        "(0, 255, 0)",
+        "(255, 255, 0)"
+    ];
 
-function RGBtoHEX (rgb) {
-    let r = Number(rgb[0])
-    let g = Number(rgb[1])
-    let b = Number(rgb[2])
-    r = r.toString(16)
-    g = g.toString(16)
-    b = b.toString(16)
-
-    if (r.length ===1)  {r = 0 + r}
-    if (g.length ===1)  {g = 0 + g}
-    if (b.length ===1)  {b = 0 + b}
-
-    return `${r}${g}${b}`
-}
-
-// console.log(HEXtoRGB('#f40016'))
-// console.log(RGBtoHSL('(111, 22, 111)'))
-console.log(RGBtoHEX(['111', '222', '33']))
-// console.log(RGBtoHEX(244, 0, 22))
-// console.log(RGBtoHEX(244, 33, 202))
-
-
-function HSLtoRGB (hslValue) {
-    let sliced = hslValue.slice(0, hslValue.length);
-    let split = sliced.split(',');
-    let arr = split.map(x => Number(x))
-    let h = arr[0];
-    let s = arr[1];
-    let l = arr[2];
-    console.log(hslValue, sliced)
-
-    s /= 100;
-    l /= 100;
-
-    let c = (1 - Math.abs(2 * l - 1)) * s;
-    let x = c * (1 - Math.abs((h / 60) % 2 - 1));
-    let m = l - c/2;
-    let r = 0;
-    let g = 0;
-    let b = 0;
-    // console.log(r, m, b, g, c, x)
-    if (0 <= h && h < 60) {
-        r = c; g = x; b = 0;
-    } else if (60 <= h && h < 120) {
-        r = x; g = c; b = 0;
-    } else if (120 <= h && h < 180) {
-        r = 0; g = c; b = x;
-    } else if (180 <= h && h < 240) {
-        r = 0; g = x; b = c;
-    } else if (240 <= h && h < 300) {
-        r = x; g = 0; b = c;
-    } else if (300 <= h && h < 360) {
-        r = c; g = 0; b = x;
+    let returnArr = []
+    //fill returnArr array with random easy colors
+    while (returnArr.length !== 6) {
+        let randomNum = Math.floor(Math.random() *8);
+        let randomColor = arr[randomNum]
+        if(!returnArr.includes(randomColor)){
+            returnArr.push(randomColor)
+        }
     }
-    // console.log(r, m, b, g)
-    r = Math.round((r + m) * 255);
-    g = Math.round((g + m) * 255);
-    b = Math.round((b + m) * 255);
-
-    return `(${r}, ${g}, ${b})`;
+    //Add 3D effect
+    // const newArray = addStyleString(returnArr)
+    return returnArr
 }
 
-console.log(HSLtoRGB(`95, 74, 50`))
-// console.log(HSLtoRGB(`1, 77, 10`))
-// console.log(HSLtoRGB(`112, 92, 50`))
+function randomColor() {
+    //pick a "red" from 0 to 255
+    const r = Math.floor(Math.random() * 256);
+    //pick a "green" from 0 to 255
+    const g = Math.floor(Math.random() * 256);
+    //pick a "blue" from 0 to 255
+    const b = Math.floor(Math.random() * 256);
+    // return RGBtoHSL(`(${r}, ${g}, ${b})`);
+    return `${r}, ${g}, ${b}`;
+}
+
+function generateHardColors() {
+    const arr = [];
+
+    for (let i = 0; i < 6; i++) {
+        arr.push(randomColor());
+    }
+
+    // const newArray = addStyleString(arr);
+    return arr;
+}
+
+// console.log('!!!!!', HSLtoRGB('255, 11%, 33%'))
+
+// console.log(RGBtoHSL('rgb(255, 22, 11)'))
+// console.log(generateEasyColors())
+// console.log(generateHardColors())
+// console.log(RGBtoHSL(generateEasyColors()[1]))
+// console.log(RGBtoHSL(generateHardColors()[1]))
