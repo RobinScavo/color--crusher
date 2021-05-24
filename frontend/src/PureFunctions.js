@@ -31,11 +31,22 @@ function addStyleString (arr) {
 
     //iterate through the array of choosen colors and add the 3-D effect
     for (let i = 0; i < arr.length; i++) {
-        newArray.push({ background: `radial-gradient(circle at 100px 100px, rgb${arr[i]}, #000)` })
+        newArray.push({ background: `radial-gradient(circle at 100px 100px, rgb(${arr[i]}), #000)` })
     }
 
     return newArray
 }
+
+// function addStyleString (arr) {
+//     const newArray = []
+
+//     //iterate through the array of choosen colors and add the 3-D effect
+//     for (let i = 0; i < arr.length; i++) {
+//         newArray.push({ background: `radial-gradient(circle at 100px 100px, rgb${arr[i]}, #000)` })
+//     }
+
+//     return newArray
+// }
 
 // export function generateHardColors() {
 //     const arr = [];
@@ -108,21 +119,45 @@ function randomPastelColor() {
 
 export function generateBattleColors() {
     const arr = []
+
     //Pick Random RGB color
     const ranColor = randomColor()
     arr.push(ranColor);
+
     //Find compliment
     const compliment = findComplement(ranColor)
+
     //find triadic compliments
-    const triOne = findTriadics(ranColor).triOneColor;
-    const triTwo = findTriadics(ranColor).triTwoColor;
-    //Find triadic compliments of compliments
-    const analogousOne  = findTriadics(compliment).triOneColor;
-    const analogousTwo  = findTriadics(compliment).triTwoColor;
-    arr.push(analogousOne, triOne, compliment, triTwo, analogousTwo)
-    console.log('battleArray', arr)
+    const triOne = findTriadics(ranColor).RGBtriOneColor;
+    const triTwo = findTriadics(ranColor).RGBtriTwoColor;
+
+    //Find triadic compliments of compliment
+    const triCompOne  = findTriadics(compliment).RGBtriOneColor;
+    const triCompTwo  = findTriadics(compliment).RGBtriTwoColor;
+
+    arr.push(triCompOne, triOne, compliment, triTwo, triCompTwo)
+
+    console.log('JJJJJJJJJJJ', arr)
     return addStyleString(arr)
 }
+
+// export function generateBattleColors() {
+//     const arr = []
+//     //Pick Random RGB color
+//     const ranColor = randomColor()
+//     arr.push(ranColor);
+//     //Find compliment
+//     const compliment = findComplement(ranColor)
+//     //find triadic compliments
+//     const triOne = findTriadics(ranColor).triOneColor;
+//     const triTwo = findTriadics(ranColor).triTwoColor;
+//     //Find triadic compliments of compliments
+//     const analogousOne  = findTriadics(compliment).triOneColor;
+//     const analogousTwo  = findTriadics(compliment).triTwoColor;
+//     arr.push(analogousOne, triOne, compliment, triTwo, analogousTwo)
+//     console.log('battleArray', arr)
+//     return addStyleString(arr)
+// }
 
 export function generateZenColors() {
     const arr = []
@@ -190,11 +225,11 @@ export function generateCustomColors(playerColor) {
 function findComplement (color) {
     let convertedColor = (RGBtoHSL(color))
     let splitColor = convertedColor.split(',');
-    console.log('.......', splitColor)
+    // console.log('.......', splitColor)
     let hue = Number(splitColor[0].slice(1));
     let satch = splitColor[1].slice(1);
     let light = splitColor[2].slice(0, splitColor[2].length -1);
-    // console.log(color, convertedColor, hue, satch, light)
+    console.log('IIIIIIIII', color, convertedColor, hue, satch, light)
     let complimentHue = 0;
 
     if (hue >= 180) {
@@ -204,15 +239,16 @@ function findComplement (color) {
     }
 
     let compHSL = (`${complimentHue}, ${satch}, ${light}`)
-    // console.log('complement', compHSL)
+    console.log('complement', compHSL, HSLtoRGB(compHSL))
     return HSLtoRGB(compHSL);
 }
 
-function findTriadics (hslColor) {
-    let valueArray= hslColor.split(',');
+function findTriadics (rgbValue) {
+    let hslValue = RGBtoHSL(rgbValue)
+    let valueArray= hslValue.split(',');
     let hue = Number(valueArray[0].slice(1));
-    let satch = valueArray[1].slice(1, valueArray[1].length -1);
-    let light = valueArray[2].slice(1, valueArray[2].length -2);;
+    let satch = Number(valueArray[1].slice(0, valueArray[1].length -1));
+    let light = Number(valueArray[2].slice(0, valueArray[2].length -2));
     let triOne = 0;
     let triTwo = 0;
 
@@ -227,13 +263,40 @@ function findTriadics (hslColor) {
         triTwo = hue - 120;
     }
 
-    let triOneColor = (`(${triOne}, ${satch}%, ${light}%)`)
-    let triTwoColor = (`(${triTwo}, ${satch}%, ${light}%)`)
+    let triOneColor = (`${triOne}, ${satch}%, ${light}%`)
+    let triTwoColor = (`${triTwo}, ${satch}%, ${light}%`)
     let RGBtriOneColor = HSLtoRGB(triOneColor);
     let RGBtriTwoColor = HSLtoRGB(triTwoColor);
 
     return {RGBtriOneColor, RGBtriTwoColor}
 }
+
+// function findTriadics (hslColor) {
+//     let valueArray= hslColor.split(',');
+//     let hue = Number(valueArray[0].slice(1));
+//     let satch = valueArray[1].slice(1, valueArray[1].length -1);
+//     let light = valueArray[2].slice(1, valueArray[2].length -2);;
+//     let triOne = 0;
+//     let triTwo = 0;
+
+//     if (hue < 120) {
+//         triOne = hue + 120;
+//         triTwo = hue + 240;
+//     } else if (hue >= 120 && hue < 240) {
+//         triOne = hue + 120;
+//         triTwo = hue - 120;
+//     } else {
+//         triOne = hue - 240;
+//         triTwo = hue - 120;
+//     }
+
+//     let triOneColor = (`(${triOne}, ${satch}%, ${light}%)`)
+//     let triTwoColor = (`(${triTwo}, ${satch}%, ${light}%)`)
+//     let RGBtriOneColor = HSLtoRGB(triOneColor);
+//     let RGBtriTwoColor = HSLtoRGB(triTwoColor);
+
+//     return {RGBtriOneColor, RGBtriTwoColor}
+// }
 
 function findAnalogous (hslColor) {
     let valueArray= hslColor.split(',');
@@ -264,8 +327,8 @@ function findAnalogous (hslColor) {
 
 export function RGBtoHSL (rgbValue) {
     //slice -n- dice
-    let sliced = rgbValue.slice(1, rgbValue.length -1);
-    let split = sliced.split(',');
+    // let sliced = rgbValue.slice(1, rgbValue.length -1);
+    let split = rgbValue.split(',');
     let red = Number(split[0]);
     let green = Number(split[1]);
     let blue = Number(split[2]);
@@ -313,7 +376,7 @@ export function RGBtoHSL (rgbValue) {
     s = +(s * 100).toFixed(1);
     l = +(l * 100).toFixed(1);
 
-    return(`(${h}, ${s}%, ${l}%)`)
+    return(`${h}, ${s}%, ${l}%`)
 }
 
 export function RGBtoHSLvalue (rgbValue) {
@@ -371,14 +434,12 @@ export function RGBtoHSLvalue (rgbValue) {
 }
 
 export function HSLtoRGB (hslValue) {
-    // console.log('input', hslValue)
     let split = hslValue.split(',');
-    let arr = split.map(x => Number(x))
-    // console.log('split', split, 'arr', arr)
-    let h = arr[0];
-    let s = arr[1];
-    let l = arr[2];
-    // console.log(arr, hslValue, 'hslTOrgb', h, s, l)
+
+    //slice off '%' and convert to numbers
+    let h = Number(split[0]);
+    let s = Number(split[1].substr(0,split[1].length -1));
+    let l = Number(split[2].substr(0,split[2].length -1));
 
     s /= 100;
     l /= 100;
@@ -408,8 +469,49 @@ export function HSLtoRGB (hslValue) {
     g = Math.round((g + m) * 255);
     b = Math.round((b + m) * 255);
 
-    return `(${r}, ${g}, ${b})`;
+    return `${r}, ${g}, ${b}`;
 }
+
+// export function HSLtoRGB (hslValue) {
+//     // console.log('input', hslValue)
+//     let split = hslValue.split(',');
+//     let arr = split.map(x => Number(x))
+//     // console.log('split', split, 'arr', arr)
+//     let h = arr[0];
+//     let s = arr[1];
+//     let l = arr[2];
+//     // console.log(arr, hslValue, 'hslTOrgb', h, s, l)
+
+//     s /= 100;
+//     l /= 100;
+
+//     let c = (1 - Math.abs(2 * l - 1)) * s;
+//     let x = c * (1 - Math.abs((h / 60) % 2 - 1));
+//     let m = l - c/2;
+//     let r = 0;
+//     let g = 0;
+//     let b = 0;
+
+//     if (0 <= h && h < 60) {
+//         r = c; g = x; b = 0;
+//     } else if (60 <= h && h < 120) {
+//         r = x; g = c; b = 0;
+//     } else if (120 <= h && h < 180) {
+//         r = 0; g = c; b = x;
+//     } else if (180 <= h && h < 240) {
+//         r = 0; g = x; b = c;
+//     } else if (240 <= h && h < 300) {
+//         r = x; g = 0; b = c;
+//     } else if (300 <= h && h < 360) {
+//         r = c; g = 0; b = x;
+//     }
+
+//     r = Math.round((r + m) * 255);
+//     g = Math.round((g + m) * 255);
+//     b = Math.round((b + m) * 255);
+
+//     return `(${r}, ${g}, ${b})`;
+// }
 
 export function HEXtoRGB (hex) {
     let r = 0;
