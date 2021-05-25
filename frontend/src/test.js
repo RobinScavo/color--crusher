@@ -32,15 +32,37 @@ function generateBattleColors() {
     return addStyleString(arr)
 }
 
+function findComplement (color) {
+    let convertedColor = (RGBtoHSL(color))
+
+    let splitColor = convertedColor.split(',');
+    let hue = Number(splitColor[0]);
+    let satch = splitColor[1];
+    let light = splitColor[2];
+    let complimentHue = 0;
+
+    if (hue >= 180) {
+        complimentHue = hue - 180;
+    } else {
+        complimentHue = hue + 180;
+    }
+
+    let compHSL = (`${complimentHue},${satch},${light}`)
+    console.log('complement', compHSL, HSLtoRGB(compHSL))
+    return HSLtoRGB(compHSL);
+}
+// console.log(findTriadics('240, 217, 18'))
+console.log('XXXXXXXX', generateBattleColors())
+
 function findTriadics (rgbValue) {
-    let hslValue = RGBtoHSL(rgbValue)
-    let valueArray= hslValue.split(',');
-    let hue = Number(valueArray[0].slice(1));
-    let satch = Number(valueArray[1].slice(0, valueArray[1].length -1));
-    let light = Number(valueArray[2].slice(0, valueArray[2].length -2));
+    let convertedColor = RGBtoHSL(rgbValue)
+    let splitColor = convertedColor.split(',');
+    let hue = Number(splitColor[0]);
+    let satch = splitColor[1];
+    let light = splitColor[2];
     let triOne = 0;
     let triTwo = 0;
-
+    console.log('triadics', rgbValue, convertedColor, hue, satch, light)
     if (hue < 120) {
         triOne = hue + 120;
         triTwo = hue + 240;
@@ -52,8 +74,8 @@ function findTriadics (rgbValue) {
         triTwo = hue - 120;
     }
 
-    let triOneColor = (`${triOne}, ${satch}%, ${light}%`)
-    let triTwoColor = (`${triTwo}, ${satch}%, ${light}%`)
+    let triOneColor = (`${triOne},${satch},${light}`)
+    let triTwoColor = (`${triTwo},${satch},${light}`)
     let RGBtriOneColor = HSLtoRGB(triOneColor);
     let RGBtriTwoColor = HSLtoRGB(triTwoColor);
 
@@ -159,28 +181,6 @@ function RGBtoHSL (rgbValue) {
     return(`${h},${s}%,${l}%`)
 }
 
-function findComplement (color) {
-    let convertedColor = (RGBtoHSL(color))
-    let splitColor = convertedColor.split(',');
-    console.log('convert', splitColor)
-    let hue = Number(splitColor[0].slice(1));
-    let satch = splitColor[1].slice(1);
-    let light = splitColor[2].slice(0, splitColor[2].length -1);
-    console.log('hue, stach, light', hue, satch ,light)
-    let complimentHue = 0;
-
-    if (hue >= 180) {
-        complimentHue = hue - 180;
-    } else {
-        complimentHue = hue + 180;
-    }
-
-    let compHSL = (`${complimentHue},${satch},${light}`)
-    console.log('complement', compHSL, HSLtoRGB(compHSL))
-    return HSLtoRGB(compHSL);
-}
-console.log(findComplement('240, 217, 18'))
-// console.log(HSLtoRGB())
 function generateEasyColors() {
     //Array of all possible 'easy ' colors (all values either 0 or 255)
     let arr = [
