@@ -183,8 +183,6 @@ class Controller extends React.Component {
         this.setState ({ coinArray: tempArray })
     }
 
-
-    //refactor this
     correctGuess = () => {
         let coinCount = this.state.coins;
 
@@ -198,15 +196,7 @@ class Controller extends React.Component {
                 coins: coinCount,
              });
         }
-        // else if (this.state.startZen) {
-        //     this.setState({
-        //         kernelVisibility: true,
-        //         gameOn: false,
-        //     })
-        //     setTimeout(() => {
-        //         this.toggleKernelDisplay();
-        //     }, 4000)
-        // }
+
         this.clearBoard();
         setTimeout(() => {
             this.updateColorArrayContext();
@@ -263,44 +253,20 @@ class Controller extends React.Component {
                 : arr = generateBattleColors()
             }
 
+        //display target value
         const targetColor = arr[randomSix]
         const firstSlice = (targetColor.background.slice(42))
         let colorTarget = (firstSlice.slice(0, firstSlice.length -7))
-        colorTarget = colorTarget.split(',')
-        let first = colorTarget[0]
-        let second = colorTarget[1]
-        let third = colorTarget[2]
-        let combined = `${first.slice(1)}, ${second.slice(0, second.length -1)}, ${third.slice(0, third.length-2)}`
-        let converted = HSLtoRGB(combined)
-        console.log('converted:', converted, ' targetColor:', targetColor, ' array:', arr)
+
         this.setState({
             coinArray: [true, true, true],
             colorArray: arr,
             round: this.state.round + 1,
             colorTargetId: targetId,
             gameOn: true,
-            // colorTarget: targetColor,
-            colorTarget: converted,
+            colorTarget: colorTarget,
         })
     }
-
-    // toggleKernelDisplay = () => {
-    //     let randomKernel = '';
-    //     if (Object.keys(this.state.mutableZen).length > 0) {
-    //         let kernelArray = Object.keys(this.state.mutableZen);
-    //         let randomNum = Math.random();
-    //         let kernelIndex = Math.floor(randomNum * kernelArray.length)
-    //         let randomKey = kernelArray[kernelIndex];
-    //         randomKernel = this.state.mutableZen[randomKey]
-    //         delete this.state.mutableZen[randomKey]
-    //     };
-
-    //     this.setState({
-    //         zenKernel: randomKernel,
-    //         kernelVisibility: false,
-    //     })
-    // }
-
 
     render() {
         return (
