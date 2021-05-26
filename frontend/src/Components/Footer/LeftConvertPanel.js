@@ -7,7 +7,7 @@ const LeftConvertPanel = (props) => {
     const [middleValue, setMiddleValue] = useState('');
     const [bottomValue, setBottomValue] = useState('');
     const stringVal = [`${topValue}`, `${middleValue}`, `${bottomValue}`]
-
+    console.log('left values', stringVal)
     useEffect(() => {
         setTopValue(props.fromTopInput)
         setMiddleValue(props.fromMiddleInput)

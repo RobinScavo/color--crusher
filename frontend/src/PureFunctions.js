@@ -1,4 +1,16 @@
+//Add 3D effect
+function addStyleString (arr) {
+    const newArray = []
 
+    //iterate through the array of choosen colors and add the 3-D effect
+    for (let i = 0; i < arr.length; i++) {
+        newArray.push({ background: `radial-gradient(circle at 100px 100px, rgb(${arr[i]}), #000)` })
+    }
+
+    return newArray
+}
+
+//Color value array factories:
 export function generateEasyColors() {
     //Array of all possible 'easy ' colors (all values either 0 or 255)
     let arr = [
@@ -26,17 +38,6 @@ export function generateEasyColors() {
     return newArray
 }
 
-function addStyleString (arr) {
-    const newArray = []
-
-    //iterate through the array of choosen colors and add the 3-D effect
-    for (let i = 0; i < arr.length; i++) {
-        newArray.push({ background: `radial-gradient(circle at 100px 100px, rgb(${arr[i]}), #000)` })
-    }
-
-    return newArray
-}
-
 // export function generateHardColors() {
 //     const arr = [];
 
@@ -57,7 +58,7 @@ export function generateGhostColors() {
         let sliced = temp.slice(1)
         arr.push(sliced);
     }
-    console.log('artrrrrr', arr)
+
     const newArray = addStyleString(arr);
     const blurredArray = addBlurClass(newArray)
     return blurredArray;
@@ -99,7 +100,7 @@ function randomPastelColor() {
         return randomPastelColor()
     }
     // console.log(r, g, b)
-    return RGBtoHSL(`${r}, ${g}, ${b}`);
+    return `${r}, ${g}, ${b}`;
 }
 
 export function generateBattleColors() {
@@ -122,7 +123,7 @@ export function generateBattleColors() {
 
     arr.push(triCompOne, triTwo, compliment, triOne, triCompTwo)
 
-    console.log(arr)
+    // console.log(arr)
     return addStyleString(arr)
 }
 
@@ -134,11 +135,11 @@ export function generateZenColors() {
     //Find compliment
     const compliment = findComplement(ranColor)
     //find analogous compliments
-    const triOne = findAnalogous(ranColor).analogousOneColor;
-    const triTwo = findAnalogous(ranColor).analogousTwoColor;
+    const triOne = findAnalogous(ranColor).RGBanalogousOne;
+    const triTwo = findAnalogous(ranColor).RGBanalogousTwo;
     //Find analogous compliments of compliment
-    const analogousOne  = findAnalogous(compliment).analogousOneColor;
-    const analogousTwo  = findAnalogous(compliment).analogousTwoColor;
+    const analogousOne  = findAnalogous(compliment).RGBanalogousOne;
+    const analogousTwo  = findAnalogous(compliment).RGBanalogousTwo;
     arr.push(analogousOne, triOne, compliment, triTwo, analogousTwo)
 
     return addStyleString(arr)
@@ -148,18 +149,18 @@ export function generatePastelColors() {
     const arr = []
     //Pick Random RGB color
     const ranColor = randomPastelColor()
-    // console.log('TTTTTTT', ranColor)
+    console.log('TTTTTTT', ranColor)
     arr.push(ranColor);
     //Find compliment
     const compliment = findComplement(ranColor)
-    //find analogous compliments
-    const triOne = findAnalogous(ranColor).analogousOneColor;
-    const triTwo = findAnalogous(ranColor).analogousTwoColor;
-    //Find analogous compliments of compliment
-    const analogousOne  = findAnalogous(compliment).analogousOneColor;
-    const analogousTwo  = findAnalogous(compliment).analogousTwoColor;
-    arr.push(analogousOne, triOne, compliment, triTwo, analogousTwo)
-    // console.log('JJJJJJJJ', arr)
+    //find split compliments
+    const splitCompOne = findAnalogous(ranColor).RGBanalogousOne;
+    const splitCompTwo = findAnalogous(ranColor).RGBanalogousTwo;
+    //Find analogous compliments
+    const analogousOne  = findAnalogous(compliment).RGBanalogousOne;
+    const analogousTwo  = findAnalogous(compliment).RGBanalogousTwo;
+    arr.push(analogousOne, splitCompOne, compliment, splitCompTwo, analogousTwo)
+    console.log('JJJJJJJJ', arr)
     return addStyleString(arr)
 }
 
@@ -168,25 +169,27 @@ export function generateCustomColors(playerColor) {
     //Pick Random RGB color
     // const ranColor = randomPastelColor()
     // let convertedColor = RGBtoHSL(playerColor);
-    let tempArr = playerColor.split(',')
-    let first = tempArr[0]
-    let second = `${tempArr[1]}%`
-    let third = `${tempArr[2]}%`
-    let tempPlayer = `(${first}, ${second}, ${third})`
-    arr.push(tempPlayer);
+    // let tempArr = playerColor.split(',')
+    // let first = tempArr[0]
+    // let second = `${tempArr[1]}%`
+    // let third = `${tempArr[2]}%`
+    // let tempPlayer = `(${first}, ${second}, ${third})`
+    arr.push(playerColor);
     //Find compliment
-    const compliment = findComplement(tempPlayer)
+    const compliment = findComplement(playerColor)
     //find analogous compliments
-    const triOne = findAnalogous(tempPlayer).analogousOneColor;
-    const triTwo = findAnalogous(tempPlayer).analogousTwoColor;
+    const triOne = findAnalogous(playerColor).RGBanalogousOne;
+    const triTwo = findAnalogous(playerColor).RGBanalogousTwo;
     //Find analogous compliments of compliment
-    const analogousOne  = findAnalogous(compliment).analogousOneColor;
-    const analogousTwo  = findAnalogous(compliment).analogousTwoColor;
+    const analogousOne  = findAnalogous(compliment).RGBanalogousOne;
+    const analogousTwo  = findAnalogous(compliment).RGBanalogousTwo;
     arr.push(analogousOne, triOne, compliment, triTwo, analogousTwo)
     // console.log('UUUUUUUU', arr, playerColor)
 
     return addStyleString(arr)
 }
+
+//Find compliment colors:
 
 function findComplement (color) {
     let convertedColor = (RGBtoHSL(color))
@@ -228,9 +231,9 @@ function findTriadics (rgbValue) {
         triOne = hue - 240;
         triTwo = hue - 120;
     }
-
     let triOneColor = (`${triOne},${satch},${light}`)
     let triTwoColor = (`${triTwo},${satch},${light}`)
+    // console.log('triadics', triOneColor)
     let RGBtriOneColor = HSLtoRGB(triOneColor);
     let RGBtriTwoColor = HSLtoRGB(triTwoColor);
 
@@ -257,14 +260,17 @@ function findAnalogous (rgbValue) {
         triOne = hue - 210;
         triTwo = hue - 150;
     }
-
-    let analogousOneColor = (`(${triOne}, ${satch},${light}`)
-    let analogousTwoColor = (`(${triTwo}, ${satch},${light}`)
+    let analogousOneColor = (`${triOne},${satch},${light}`)
+    let analogousTwoColor = (`${triTwo},${satch},${light}`)
+    // console.log('analogous', analogousOneColor)
     let RGBanalogousOne = HSLtoRGB(analogousOneColor)
     let RGBanalogousTwo = HSLtoRGB(analogousTwoColor)
 
     return {RGBanalogousOne, RGBanalogousTwo}
 }
+
+
+//Color value conversions:
 
 export function RGBtoHSL (rgbValue) {
     //slice -n- dice

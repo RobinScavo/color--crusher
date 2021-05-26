@@ -131,6 +131,7 @@ class Controller extends React.Component {
 
     setCustomColor = (custom) => {
         // if (this.state.createAnalogous || this.state.createPastel || this.state.createTriadic) return;
+        console.log('ZZZZZZZZZ', custom)
         this.setState({
             createCustom: true,
             customColor: custom,
@@ -223,7 +224,6 @@ class Controller extends React.Component {
     }
 
     updateColorArrayContext = () => {
-        console.log('update')
         let randomSix = Math.floor(Math.random() * 6)
         let targetArray = [
             'colorOne',
@@ -265,7 +265,8 @@ class Controller extends React.Component {
             colorTargetId: targetId,
             gameOn: true,
             colorTarget: colorTarget,
-        })
+        });
+        console.log('color array:', arr)
     }
 
     render() {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { RGBtoHSLvalue, HSLtoRGB, RGBtoHEX, HEXtoRGB } from '../../PureFunctions'
+import { RGBtoHSLvalue, HSLtoRGB, RGBtoHEX, HEXtoRGB, RGBtoHSL } from '../../PureFunctions'
 import LeftConvertPanel from './LeftConvertPanel';
 import RightConvertPanel from './RightConvertPanel';
 
@@ -83,7 +83,8 @@ class ConvertPanels extends React.Component {
         let convertedColor = ''
 
         if ((this.state.fromRgbButton  && this.state.toHslButton)) {
-            convertedColor = RGBtoHSLvalue(`(${tempInput.join(', ')})`)
+            convertedColor = tempInput.join(',');
+            console.log('@@@@@@@@@@@@',convertedColor)
         } else if (this.state.fromHslButton && this.state.toRgbButton) {
             let tempColor = HSLtoRGB(`${tempInput.join(',')}`)
             tempColor = tempColor.slice(1, tempColor.length -1)
@@ -110,9 +111,10 @@ class ConvertPanels extends React.Component {
             toMiddleInput: `${convertedColor[1]}`,
             toBottomInput: `${convertedColor[2]}`,
         })
-        this.state.setCustom(`${convertedColor[0]}, ${convertedColor[1]}, ${convertedColor[2]}`);
+        this.state.setCustom(convertedColor);
     }
 
+    //Player input validation
     checkInput = (playerInput, mode) => {
         const result = [];
 
