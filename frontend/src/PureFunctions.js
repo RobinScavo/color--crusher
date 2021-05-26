@@ -57,7 +57,7 @@ export function generateGhostColors() {
         let sliced = temp.slice(1)
         arr.push(sliced);
     }
-
+    console.log('artrrrrr', arr)
     const newArray = addStyleString(arr);
     const blurredArray = addBlurClass(newArray)
     return blurredArray;
@@ -120,7 +120,7 @@ export function generateBattleColors() {
     const triCompOne  = findTriadics(compliment).RGBtriOneColor;
     const triCompTwo  = findTriadics(compliment).RGBtriTwoColor;
 
-    arr.push(triCompOne, triOne, compliment, triTwo, triCompTwo)
+    arr.push(triCompOne, triTwo, compliment, triOne, triCompTwo)
 
     console.log(arr)
     return addStyleString(arr)
