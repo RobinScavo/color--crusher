@@ -48,11 +48,11 @@ function findComplement (color) {
     }
 
     let compHSL = (`${complimentHue},${satch},${light}`)
-    console.log('complement', compHSL, HSLtoRGB(compHSL))
+    // console.log('complement', compHSL, HSLtoRGB(compHSL))
     return HSLtoRGB(compHSL);
 }
 // console.log(findTriadics('240, 217, 18'))
-console.log('XXXXXXXX', generateBattleColors())
+// console.log('XXXXXXXX', generateBattleColors())
 
 function findTriadics (rgbValue) {
     let convertedColor = RGBtoHSL(rgbValue)
@@ -123,7 +123,7 @@ function HSLtoRGB (hslValue) {
 
     return `${r}, ${g}, ${b}`;
 }
-
+console.log(HSLtoRGB('232,44%,11%'))
 // console.log(RGBtoHSL('160, 169, 0'))
 function RGBtoHSL (rgbValue) {
     //slice off parens,
@@ -177,7 +177,7 @@ function RGBtoHSL (rgbValue) {
     s = +(s * 100).toFixed(1);
     l = +(l * 100).toFixed(1);
 
-    console.log(`............${h},${s}%,${l}%`)
+    // console.log(`............${h},${s}%,${l}%`)
     return(`${h},${s}%,${l}%`)
 }
 
@@ -229,6 +229,25 @@ function generateHardColors() {
     // const newArray = addStyleString(arr);
     return arr;
 }
+
+function HEXtoRGB (hex) {
+    let r = 0;
+    let g = 0;
+    let b = 0;
+
+    if (hex.length === 4) {
+        r = parseInt(hex[1] + hex[1], 16);
+        g = parseInt(hex[2] + hex[2], 16);
+        b = parseInt(hex[3] + hex[3], 16);
+    } else if (hex.length === 7) {
+        r = parseInt(hex[1] + hex[2], 16)
+        g = parseInt(hex[3] + hex[4], 16);
+        b = parseInt(hex[5] + hex[6], 16);
+    }
+    return `${r}, ${g}, ${b}`
+}
+
+console.log(HEXtoRGB(`#33AAEE`))
 
 // console.log('!!!!!', HSLtoRGB('255, 11%, 33%'))
 

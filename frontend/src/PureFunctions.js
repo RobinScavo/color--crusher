@@ -2,16 +2,15 @@
 function addStyleString (arr) {
     const newArray = []
 
-    //iterate through the array of choosen colors and add the 3-D effect
+    //iterate through the given array of colors and add the 3-D effect
     for (let i = 0; i < arr.length; i++) {
         newArray.push({ background: `radial-gradient(circle at 100px 100px, rgb(${arr[i]}), #000)` })
     }
-
     return newArray
 }
 
 //Color value array factories:
-export function generateEasyColors() {
+export function generateEasyArray() {
     //Array of all possible 'easy ' colors (all values either 0 or 255)
     let arr = [
         "0, 0, 0",
@@ -38,41 +37,19 @@ export function generateEasyColors() {
     return newArray
 }
 
-// export function generateHardColors() {
-//     const arr = [];
-
-//     for (let i = 0; i < 6; i++) {
-//         arr.push(randomColor());
-//     }
-//     console.log('generate hard colors', arr)
-
-//     const newArray = addStyleString(arr);
-//     return newArray;
-// }
-
-export function generateGhostColors() {
+export function generateGhostArray() {
     const arr = [];
 
     for (let i = 0; i < 6; i++) {
-        let temp = randomColor();
-        let sliced = temp.slice(1)
-        arr.push(sliced);
+        // let temp = randomColor();
+        // let sliced = temp.slice(0)
+        arr.push('broken color');
     }
 
     const newArray = addStyleString(arr);
-    const blurredArray = addBlurClass(newArray)
-    return blurredArray;
-}
-
-function addBlurClass(arr) {
-    const blurredArray = [];
-
-    for (let i = 0; i < arr.length; i++) {
-        let object = arr[i];
-        object.class = 'blurred';
-        blurredArray.push(object)
-    }
-    return blurredArray;
+    // const blurredArray = addBlurClass(newArray)
+    return newArray;
+    // return arr;
 }
 
 function randomColor() {
@@ -103,7 +80,7 @@ function randomPastelColor() {
     return `${r}, ${g}, ${b}`;
 }
 
-export function generateBattleColors() {
+export function generateTriadicArray() {
     const arr = []
 
     //Pick Random RGB color
@@ -127,7 +104,7 @@ export function generateBattleColors() {
     return addStyleString(arr)
 }
 
-export function generateZenColors() {
+export function generateAnalogousArray() {
     const arr = []
     //Pick Random RGB color
     const ranColor = randomColor()
@@ -145,11 +122,11 @@ export function generateZenColors() {
     return addStyleString(arr)
 }
 
-export function generatePastelColors() {
+export function generatePastelArray() {
     const arr = []
     //Pick Random RGB color
     const ranColor = randomPastelColor()
-    console.log('TTTTTTT', ranColor)
+    // console.log('TTTTTTT', ranColor)
     arr.push(ranColor);
     //Find compliment
     const compliment = findComplement(ranColor)
@@ -164,16 +141,9 @@ export function generatePastelColors() {
     return addStyleString(arr)
 }
 
-export function generateCustomColors(playerColor) {
+export function generateCustomArray(playerColor) {
     const arr = []
     //Pick Random RGB color
-    // const ranColor = randomPastelColor()
-    // let convertedColor = RGBtoHSL(playerColor);
-    // let tempArr = playerColor.split(',')
-    // let first = tempArr[0]
-    // let second = `${tempArr[1]}%`
-    // let third = `${tempArr[2]}%`
-    // let tempPlayer = `(${first}, ${second}, ${third})`
     arr.push(playerColor);
     //Find compliment
     const compliment = findComplement(playerColor)
@@ -184,7 +154,6 @@ export function generateCustomColors(playerColor) {
     const analogousOne  = findAnalogous(compliment).RGBanalogousOne;
     const analogousTwo  = findAnalogous(compliment).RGBanalogousTwo;
     arr.push(analogousOne, triOne, compliment, triTwo, analogousTwo)
-    // console.log('UUUUUUUU', arr, playerColor)
 
     return addStyleString(arr)
 }
@@ -233,7 +202,7 @@ function findTriadics (rgbValue) {
     }
     let triOneColor = (`${triOne},${satch},${light}`)
     let triTwoColor = (`${triTwo},${satch},${light}`)
-    // console.log('triadics', triOneColor)
+    console.log('triadics', triOneColor)
     let RGBtriOneColor = HSLtoRGB(triOneColor);
     let RGBtriTwoColor = HSLtoRGB(triTwoColor);
 
@@ -323,64 +292,13 @@ export function RGBtoHSL (rgbValue) {
     s = +(s * 100).toFixed(1);
     l = +(l * 100).toFixed(1);
 
+    // console.log(`${h}, ${s}%, ${l}%`)
     return(`${h}, ${s}%, ${l}%`)
 }
 
-export function RGBtoHSLvalue (rgbValue) {
-    //slice -n- dice
-    let sliced = rgbValue.slice(1, rgbValue.length -1);
-    let split = sliced.split(',');
-    let red = Number(split[0]);
-    let green = Number(split[1]);
-    let blue = Number(split[2]);
-
-    //Make red, green, blue fractions of 1
-    red /= 255;
-    green /= 255;
-    blue /= 255;
-
-    //Find greatest and smallest channel values
-    let cmin = Math.min(red, green, blue);
-    let cmax = Math.max(red, green, blue);
-    let delta = cmax - cmin;
-
-    //calculate hue
-    //no difference
-    let h = 0;
-    let s = 0;
-    let l = 0;
-    if (delta === 0) {
-        h = 0;
-    }
-    //Red is max
-    else if (cmax === red) {
-        h = ((green - blue) / delta) % 6;
-    }
-    //Green is max
-    else if (cmax === green) {
-        h = (blue - red) / delta + 2;
-    }
-    //Blue is max
-    else {
-        h = (red - green) / delta + 4;
-    }
-    h = Math.round(h * 60);
-    //Make negative hues positive behind 360 degrees
-    if (h < 0) {
-        h += 360
-    }
-    //Calculate lightness
-    l = (cmax + cmin) / 2;
-    //Calculate saturation
-    s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
-    // Multiply by 100
-    s = +(s * 100).toFixed(1);
-    l = +(l * 100).toFixed(1);
-
-    return [`${h}`, `${s}`, `${l}`]
-}
-
 export function HSLtoRGB (hslValue) {
+    //expected input format: '222, 22%, 22%'
+    console.log('WWWWWWWWW', hslValue)
     let split = hslValue.split(',');
 
     //slice off '%' and convert to numbers
@@ -416,6 +334,8 @@ export function HSLtoRGB (hslValue) {
     g = Math.round((g + m) * 255);
     b = Math.round((b + m) * 255);
 
+    console.log(`${r}, ${g}, ${b}`)
+    //output format: '11, 22, 33'
     return `${r}, ${g}, ${b}`;
 }
 
@@ -433,10 +353,12 @@ export function HEXtoRGB (hex) {
         g = parseInt(hex[3] + hex[4], 16);
         b = parseInt(hex[5] + hex[6], 16);
     }
-    return [`${r}`, `${g}`, `${b}`]
+    return `${r}, ${g}, ${b}`
 }
 
 export function RGBtoHEX (rgb) {
+    // let tempArray = rgb.split[',']
+    console.log('ZZZZZZz', rgb)
     let r = Number(rgb[0])
     let g = Number(rgb[1])
     let b = Number(rgb[2])
@@ -448,7 +370,7 @@ export function RGBtoHEX (rgb) {
     if (g.length ===1)  {g = 0 + g}
     if (b.length ===1)  {b = 0 + b}
 
-    return [`${r}`, `${g}`, `${b}`]
+    return `${r}, ${g}, ${b}`
 }
 
 
@@ -493,3 +415,81 @@ console.log(text, style);
 //     22: "The first draft of everything is crap.",
 //     23: "When action grows unprofitable, gather information. When information grows unprofitable, sleep."
 // }
+
+
+// export function generateHardColors() {
+//     const arr = [];
+
+//     for (let i = 0; i < 6; i++) {
+//         arr.push(randomColor());
+//     }
+//     console.log('generate hard colors', arr)
+
+//     const newArray = addStyleString(arr);
+//     return newArray;
+// }
+
+// function addBlurClass(arr) {
+//     const blurredArray = [];
+
+//     for (let i = 0; i < arr.length; i++) {
+//         let object = arr[i];
+//         object.class = 'blurred';
+//         blurredArray.push(object)
+//     }
+//     return blurredArray;
+// }
+
+export function RGBtoHSLvalue (rgbValue) {
+    //     //slice -n- dice
+    //     let sliced = rgbValue.slice(1, rgbValue.length -1);
+    //     let split = sliced.split(',');
+    //     let red = Number(split[0]);
+    //     let green = Number(split[1]);
+    //     let blue = Number(split[2]);
+
+    //     //Make red, green, blue fractions of 1
+    //     red /= 255;
+    //     green /= 255;
+    //     blue /= 255;
+
+    //     //Find greatest and smallest channel values
+    //     let cmin = Math.min(red, green, blue);
+    //     let cmax = Math.max(red, green, blue);
+    //     let delta = cmax - cmin;
+
+    //     //calculate hue
+    //     //no difference
+    //     let h = 0;
+    //     let s = 0;
+    //     let l = 0;
+    //     if (delta === 0) {
+    //         h = 0;
+    //     }
+    //     //Red is max
+    //     else if (cmax === red) {
+    //         h = ((green - blue) / delta) % 6;
+    //     }
+    //     //Green is max
+    //     else if (cmax === green) {
+    //         h = (blue - red) / delta + 2;
+    //     }
+    //     //Blue is max
+    //     else {
+    //         h = (red - green) / delta + 4;
+    //     }
+    //     h = Math.round(h * 60);
+    //     //Make negative hues positive behind 360 degrees
+    //     if (h < 0) {
+    //         h += 360
+    //     }
+    //     //Calculate lightness
+    //     l = (cmax + cmin) / 2;
+    //     //Calculate saturation
+    //     s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+    //     // Multiply by 100
+    //     s = +(s * 100).toFixed(1);
+    //     l = +(l * 100).toFixed(1);
+
+    //     return [`${h}`, `${s}`, `${l}`]
+}

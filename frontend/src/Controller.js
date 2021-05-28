@@ -1,13 +1,12 @@
 import React from 'react'
 
 import {
-    generateEasyColors,
-    HSLtoRGB,
-    generateBattleColors,
-    generateZenColors,
-    generateGhostColors,
-    generatePastelColors,
-    generateCustomColors,
+    generateEasyArray,
+    generateTriadicArray,
+    generateAnalogousArray,
+    generateGhostArray,
+    generatePastelArray,
+    generateCustomArray,
 } from './PureFunctions';
 
 import Backdrop from './Components/Backdrop/Backdrop'
@@ -21,7 +20,7 @@ import { ModalProvider } from './ModalContext/Modal';
 
 class Controller extends React.Component {
     constructor (props) {
-        const battleArray = generateBattleColors();
+        const battleArray = generateAnalogousArray();
 
         super (props);
         this.state = {
@@ -131,7 +130,6 @@ class Controller extends React.Component {
 
     setCustomColor = (custom) => {
         // if (this.state.createAnalogous || this.state.createPastel || this.state.createTriadic) return;
-        console.log('ZZZZZZZZZ', custom)
         this.setState({
             createCustom: true,
             customColor: custom,
@@ -147,19 +145,12 @@ class Controller extends React.Component {
         }, delayOrNot)
     }
 
-    // toggleStartZen = () => {
-    //     if (this.state.startBattle) this.toggleStartBattle();
-    //     if (this.state.startConvert) this.toggleStartConvert();
-    //     this.setState({ startZen: !this.state.startZen });
-    // }
     toggleStartBattle = () => {
-        // if (this.state.startZen) this.toggleStartZen();
         if (this.state.startConvert) this.toggleStartConvert();
         this.setState({ startBattle: !this.state.startBattle });
     }
 
     toggleStartConvert = () => {
-        // if (this.state.startZen) this.toggleStartZen();
         if (this.state.startBattle) this.toggleStartBattle();
         this.setState({ startConvert: !this.state.startConvert});
     }
@@ -237,20 +228,20 @@ class Controller extends React.Component {
         let arr = [];
 
         if (this.state.startConvert && !this.state.createTriadic && !this.state.createAnalogous && !this.state.createPastel)
-            arr = generateGhostColors();
+            arr = generateGhostArray();
         if (this.state.startConvert && this.state.createTriadic && !this.state.createAnalogous && !this.state.createPastel)
-            arr = generateBattleColors();
+            arr = generateTriadicArray();
         if (this.state.startConvert && !this.state.createTriadic && this.state.createAnalogous && !this.state.createPastel)
-            arr = generateZenColors();
+            arr = generateAnalogousArray();
         if (this.state.startConvert && !this.state.createTriadic && !this.state.createAnalogous && this.state.createPastel)
-            arr = generatePastelColors();
+            arr = generatePastelArray();
         if (this.state.startConvert && this.state.createCustom)
-            arr = generateCustomColors(this.state.customColor);
+            arr = generateCustomArray(this.state.customColor);
 
         if (this.state.startBattle) {
             this.state.round <= 2
-                ? arr = generateEasyColors()
-                : arr = generateBattleColors()
+                ? arr = generateEasyArray()
+                : arr = generateTriadicArray()
             }
 
         //display target value
