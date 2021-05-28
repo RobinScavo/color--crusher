@@ -202,7 +202,7 @@ function findTriadics (rgbValue) {
     }
     let triOneColor = (`${triOne},${satch},${light}`)
     let triTwoColor = (`${triTwo},${satch},${light}`)
-    console.log('triadics', triOneColor)
+    // console.log('triadics', triOneColor)
     let RGBtriOneColor = HSLtoRGB(triOneColor);
     let RGBtriTwoColor = HSLtoRGB(triTwoColor);
 
@@ -298,7 +298,7 @@ export function RGBtoHSL (rgbValue) {
 
 export function HSLtoRGB (hslValue) {
     //expected input format: '222, 22%, 22%'
-    console.log('WWWWWWWWW', hslValue)
+    // console.log('WWWWWWWWW', hslValue)
     let split = hslValue.split(',');
 
     //slice off '%' and convert to numbers
@@ -334,7 +334,7 @@ export function HSLtoRGB (hslValue) {
     g = Math.round((g + m) * 255);
     b = Math.round((b + m) * 255);
 
-    console.log(`${r}, ${g}, ${b}`)
+    // console.log(`${r}, ${g}, ${b}`)
     //output format: '11, 22, 33'
     return `${r}, ${g}, ${b}`;
 }
@@ -357,11 +357,10 @@ export function HEXtoRGB (hex) {
 }
 
 export function RGBtoHEX (rgb) {
-    // let tempArray = rgb.split[',']
-    console.log('ZZZZZZz', rgb)
-    let r = Number(rgb[0])
-    let g = Number(rgb[1])
-    let b = Number(rgb[2])
+    let tempArray = rgb.split(',')
+    let r = Number(tempArray[0])
+    let g = Number(tempArray[1])
+    let b = Number(tempArray[2])
     r = r.toString(16)
     g = g.toString(16)
     b = b.toString(16)
@@ -370,6 +369,7 @@ export function RGBtoHEX (rgb) {
     if (g.length ===1)  {g = 0 + g}
     if (b.length ===1)  {b = 0 + b}
 
+    console.log('CCCCCCCC', `${r}, ${g}, ${b}`)
     return `${r}, ${g}, ${b}`
 }
 

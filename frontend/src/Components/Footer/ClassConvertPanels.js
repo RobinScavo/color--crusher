@@ -78,46 +78,54 @@ class ConvertPanels extends React.Component {
             fromBottomInput: `${tempInput[2]}`,
         })
 
-        let convertedColor = ''
+        let renderedColor = '';
+        let displayedValue = '';
 
         //RGB to HSL
         if ((this.state.fromRgbButton  && this.state.toHslButton)) {
-            convertedColor = tempInput.join(',');
+            renderedColor = tempInput.join(',');
+            displayedValue = RGBtoHSL(renderedColor)
 
         //HSL to RGB
         } else if (this.state.fromHslButton && this.state.toRgbButton) {
             let stringHSL = `${tempInput[0]}, ${tempInput[1]}%, ${tempInput[2]}%`
-            convertedColor = HSLtoRGB(stringHSL)
+            renderedColor = HSLtoRGB(stringHSL)
+            displayedValue = tempInput.join(',')
 
         //Hex to RGB
         } else if (this.state.fromHexButton && this.state.toRgbButton) {
-            convertedColor = HEXtoRGB(`#${tempInput.join('')}`)
+            renderedColor = HEXtoRGB(`#${tempInput.join('')}`);
+            displayedValue = renderedColor;
 
         //RGB to HEX
         } else if (this.state.fromRgbButton && this.state.toHexButton) {
-            convertedColor = RGBtoHEX(tempInput.join(','))
+            renderedColor = tempInput.join(',');
+            displayedValue = RGBtoHEX(tempInput.join(','))
 
-
+        //HSL to HEX
         } else if (this.state.fromHslButton && this.state.toHexButton) {
             let stringHSL = `${tempInput[0]}, ${tempInput[1]}%, ${tempInput[2]}%`
-            let tempColor = HSLtoRGB(stringHSL)
-            convertedColor = RGBtoHEX(tempColor)
-            console.log('VVVVVVVVV', convertedColor)
+            renderedColor = HSLtoRGB(stringHSL)
+            displayedValue = RGBtoHEX(tempInput.join(','))
 
+        //HEX to HSL
         } else if (this.state.fromHexButton && this.state.toHslButton) {
-            let tempColor = HEXtoRGB(`#${tempInput.join('')}`)
-            convertedColor = RGBtoHSL(`(${tempColor.join(', ')})`)
-        } else if ((this.state.fromRgbButton && this.state.toRgbButton) ||
-                   (this.state.fromHslButton && this.state.toHslButton) ||
-                   (this.state.fromHexButton && this.state.toHexButton)) {
-                        convertedColor = tempInput;
+            renderedColor = HEXtoRGB(`#${tempInput.join('')}`);
+            displayedValue = RGBtoHSL(renderedColor);
         }
+        // else if ((this.state.fromRgbButton && this.state.toRgbButton) ||
+        //            (this.state.fromHslButton && this.state.toHslButton) ||
+        //            (this.state.fromHexButton && this.state.toHexButton)) {
+        //                 renderedColor = tempInput;
+        // }
+
+        let displayArray = displayedValue.split(',')
         this.setState({
-            toTopInput: `${convertedColor[0]}`,
-            toMiddleInput: `${convertedColor[1]}`,
-            toBottomInput: `${convertedColor[2]}`,
+            toTopInput: `${displayArray[0]}`,
+            toMiddleInput: `${displayArray[1]}`,
+            toBottomInput: `${displayArray[2]}`,
         })
-        this.state.setCustom(convertedColor);
+        this.state.setCustom(renderedColor);
     }
 
     //Player input validation
@@ -177,6 +185,10 @@ class ConvertPanels extends React.Component {
     }
 
     toggleFromRgbButton = () => {
+        if (this.state.toRgbButton) this.setState ({
+            toRgbButton: false,
+            toHslButton: true,
+        })
         if (this.state.fromRgbButton) return;
         if (this.state.fromHslButton) this.setState({fromHslButton: false})
         if (this.state.fromHexButton) this.setState({fromHexButton: false})
@@ -192,6 +204,10 @@ class ConvertPanels extends React.Component {
     )}
 
     toggleFromHslButton = () => {
+        if (this.state.toHslButton) this.setState ({
+            toHslButton: false,
+            toRgbButton: true,
+        })
         if (this.state.fromRgbButton) this.setState({fromRgbButton: false})
         if (this.state.fromHexButton) this.setState({fromHexButton: false})
         this.setState ({
@@ -206,6 +222,10 @@ class ConvertPanels extends React.Component {
     )}
 
     toggleFromHexButton = () => {
+        if (this.state.toHexButton) this.setState ({
+            toHexButton: false,
+            toRgbButton: true,
+        })
         if (this.state.fromHslButton) this.setState({fromHslButton: false})
         if (this.state.fromRgbButton) this.setState({fromRgbButton: false})
         this.setState ({
@@ -220,6 +240,7 @@ class ConvertPanels extends React.Component {
     )}
 
     toggleToRgbButton = () => {
+        if (this.state.fromRgbButton) return;
         if (this.state.toHexButton) this.setState({toHexButton: false})
         if (this.state.toHslButton) this.setState({toHslButton: false})
         this.setState ({
@@ -234,6 +255,7 @@ class ConvertPanels extends React.Component {
     )}
 
     toggleToHslButton = () => {
+        if (this.state.fromHslButton) return;
         if (this.state.toHexButton) this.setState({toHexButton: false})
         if (this.state.toRgbButton) this.setState({toRgbButton: false})
         this.setState ({
@@ -248,6 +270,7 @@ class ConvertPanels extends React.Component {
     )}
 
     toggleToHexButton = () => {
+        if (this.state.fromHexButton) return;
         if (this.state.toRgbButton) this.setState({toRgbButton: false})
         if (this.state.toHslButton) this.setState({toHslButton: false})
         this.setState ({
