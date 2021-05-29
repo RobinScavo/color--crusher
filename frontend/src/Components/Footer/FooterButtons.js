@@ -1,17 +1,14 @@
 import React, { useContext } from 'react'
 
-import KarenContext from '../../KarenContext';
+import ColorContext from '../../ColorContext';
 
 import './FooterButtons.css'
 
 
 
 const FooterButtons = () => {
-    const values = useContext(KarenContext)
+    const values = useContext(ColorContext)
 
-    // const checkZen = () => {
-    //     if (values.startZen) values.toggleStartZen()
-    // }
     const checkBattle = () => {
         if (values.startBattle) values.toggleStartBattle()
     }
@@ -22,7 +19,6 @@ const FooterButtons = () => {
     return (
         <div className='footerButtonDiv'>
             <button className='footerButton' onClick={() => {
-                // checkZen();
                 checkBattle();
                 checkConvert();
                 values.clearRounds();

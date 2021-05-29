@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 
-import KarenContext from '../../KarenContext'
+import ColorContext from '../../ColorContext'
 
 import './Window.css'
 
 const Window = () => {
-    const values = useContext(KarenContext);
+    const values = useContext(ColorContext);
 
     const windowDisplay = values.windowDisplayed;
     let windowVisibility = false;

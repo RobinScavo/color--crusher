@@ -4,13 +4,13 @@ import RGBboard from '../RGB/RGBboard'
 import Banner from '../Banner/Banner'
 import Footer from '../Footer/Footer'
 import Window from '../Window/Window'
-import KarenContext from '../../KarenContext'
+import ColorContext from '../../ColorContext'
 
 
 import './Backdrop.css'
 
 const BackDrop = () => {
-    const values = useContext(KarenContext);
+    const values = useContext(ColorContext);
 
     return (
         <div className='backDrop'>

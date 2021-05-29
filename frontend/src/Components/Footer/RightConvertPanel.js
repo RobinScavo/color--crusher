@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 
-import KarenContext from '../../KarenContext'
+import ColorContext from '../../ColorContext'
 
 import './ClassConvertPanels.css'
 
 const RightConvertPanel = (props) => {
-    const values = useContext(KarenContext)
+    const values = useContext(ColorContext)
 
     return (
         <div className='convertDiv' id='rightConvert'>

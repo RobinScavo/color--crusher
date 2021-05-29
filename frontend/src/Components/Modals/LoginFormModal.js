@@ -3,12 +3,12 @@ import React, { useContext, useState } from "react";
 
 // import * as sessionActions from "../../store/session";
 import SignUpForm from '../SignupFormPage/SignUpFormPage'
-import KarenContext from '../../KarenContext'
+import ColorContext from '../../ColorContext'
 
 import './LogInFormModal.css'
 
 function LoginForm() {
-  const values = useContext(KarenContext)
+  const values = useContext(ColorContext)
   // const dispatch = useDispatch();
   // const [credential, setCredential] = useState("");
   // const [password, setPassword] = useState("");

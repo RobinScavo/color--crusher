@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 
 import './Bowl.css'
-import KarenContext from '../../KarenContext'
+import ColorContext from '../../ColorContext'
 
 const Bowl = (props) => {
-    const values = useContext(KarenContext);
+    const values = useContext(ColorContext);
 
     return (
     <div className='bowlOutter'  id={props.id}>

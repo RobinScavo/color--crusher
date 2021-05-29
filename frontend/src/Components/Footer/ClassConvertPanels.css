@@ -256,17 +256,15 @@
     font-size: 18px;
     margin-left: 10px;
     margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 0px;
     padding-top: 2px;
     height: 45px;
     width: 95px;
-    margin-top: 10px;
-    margin-bottom: 0px;
     background-color: rgba(42, 81, 109);
-    border-radius: 5%;
+    /* border-radius: 5%; */
     font-family: 'Fontdiner Swanky';
     border-radius: 5px;
-    overflow: hidden;
-    border: none;
     outline: none;
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
     background-image: url('../../Images/Silver.jpg');
@@ -276,7 +274,7 @@
     animation: TransitioningBackground 40s linear infinite;
     color:rgba(42, 81, 109);
     z-index: 1;
-    border: 1px solid rgb(221, 217, 217);
+    border: 2px solid rgba(42, 81, 109);
     box-sizing: border-box;
 }
 
@@ -284,6 +282,7 @@
     background-color: rgb(51, 99, 129);
     background-image: none;
     color: rgb(236, 224, 224);
+    border: 1px solid rgb(236, 224, 224);
 }
 
 .convertBling {
@@ -300,7 +299,7 @@
     overflow: hidden;
     animation: TransitioningBackground 20s linear infinite;
     color: rgba(42, 81, 109);
-    border: 1px solid rgb(221, 217, 217);
+    border: 2px solid rgba(42, 81, 109);
     z-index: 1;
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
     margin-left: 10px;

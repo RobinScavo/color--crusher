@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 
 import HighScoreDisplay from '../HighScoreDisplay/HighScoreDisplay'
-import KarenContext from '../../KarenContext'
+import ColorContext from '../../ColorContext'
 
 import './LogInFormModal.css'
 import './MainModel.css'
 
 function MainModel() {
-  const values = useContext(KarenContext);
+  const values = useContext(ColorContext);
 
   return (
     <div className='instructionDiv'>

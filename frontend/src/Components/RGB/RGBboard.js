@@ -1,18 +1,15 @@
 import React, { useContext} from 'react';
 
-import KarenContext from '../../KarenContext';
+import ColorContext from '../../ColorContext';
 import ColorBall from './ColorBall';
 
 import './RGBboard.css'
 
 const RGBboard = () => {
-    const values = useContext(KarenContext)
+    const values = useContext(ColorContext)
     const arr = values.colorArray;
     const target = values.colorTargetId;
-    // let kernelLength = values.zenKernel.length;
-    // let kernelClassLength = 'shortKernel';
     let visibility = 'visible';
-    // let kernelVisibility = values.kernelVisibility ? 'flashKernel' : '';
 
     //Arrays for ColorBall map
     let idArray = ['colorOne', 'colorTwo', 'colorThree', 'colorFour', 'colorFive', 'colorSix'];
@@ -21,13 +18,6 @@ const RGBboard = () => {
 
     // Ghost-ball effect when clearing board
     if (!values.gameOn && values.round > 0) visibility = 'hidden';
-
-    //Adjust font for kernel length
-    // if (kernelLength > 35 && kernelLength < 50) {
-    //     kernelClassLength = 'longKernel'
-    // } else if  (kernelLength > 50) {
-    //     kernelClassLength = 'realLongKernel'
-    // }
 
     return (
         <div className='lipDiv'>
@@ -50,7 +40,10 @@ const RGBboard = () => {
                 ))}
                 <div className='targetColorDiv' >
                     {/* Start button */}
-                    {!values.gameOn && values.round === 0 && !values.instructionModal && !values.startConvert && !values.startBattle &&
+                    {!values.gameOn && values.round === 0 &&
+                     !values.instructionModal &&
+                     !values.startConvert &&
+                     !values.startBattle &&
                         <button className='startButton' onClick={() => {
                             values.toggleMainModal()
                         }}>START</button>
@@ -62,24 +55,22 @@ const RGBboard = () => {
                         }}>Clear</button>
                     }
                     {/* Target color */}
-                    {values.startBattle && values.gameOn && values.startBattle &&
+                    {values.startBattle &&
+                     values.gameOn &&
+                     values.startBattle &&
                         <div className='targetDiv'>
                             <h2 className='colorText'>RGB</h2>
                             <h2 className='colorNumber'>{values.colorTarget}</h2>
                         </div>
                     }
-                    {values.startBattle && !values.gameOn && values.round > 0 && !values.startZen &&
+                    {values.startBattle &&
+                     values.round > 0 &&
+                     !values.gameOn &&
+                     !values.startZen &&
                         <div className='targetDiv'>
                             <h2 className='colorNumber'>CORRECT</h2>
                         </div>
                     }
-                    {/* {values.startZen &&
-                        <div className='targetDiv'>
-                            <div className='kernelDiv'>
-                                <h2 className={`${kernelClassLength} ${kernelVisibility}`}>{values.zenKernel}</h2>
-                            </div>
-                        </div>
-                    } */}
                 </div>
             </div>
         </div>

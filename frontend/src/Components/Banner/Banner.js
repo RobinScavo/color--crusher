@@ -4,12 +4,12 @@ import './Banner.css';
 
 
 import UserName from './UserName'
-import KarenContext from '../../KarenContext'
+import ColorContext from '../../ColorContext'
 import ScoreTimer from './ScoreTimer';
 import CryptoCoin from './CryptoCoin';
 
 const Banner = () => {
-    const values = useContext(KarenContext)
+    const values = useContext(ColorContext)
 
     return (
         <div className='bannerDiv'>

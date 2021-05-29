@@ -10,7 +10,7 @@ import {
 } from './PureFunctions';
 
 import Backdrop from './Components/Backdrop/Backdrop'
-import KarenContext from './KarenContext';
+import KarenContext from './ColorContext';
 import MainModal from './Components/Modals/MainModal';
 import LoginModal from './Components/Modals/LoginFormModal';
 import PlayerPageModal from './Components/Modals/PlayerPageModal';
@@ -33,10 +33,6 @@ class Controller extends React.Component {
             coins: 0,
             coinArray: [true, true, true],
             gameOn: false,
-            // zenKernel: '',
-            // kernelVisibility: false,
-            // zenObject: zenObject,
-            // mutableZen: zenObject,
             windowDisplayed: false,
             customColor: '255, 255, 255',
 
@@ -45,7 +41,6 @@ class Controller extends React.Component {
             bioModal: false,
             playerPageModal: false,
 
-            // startZen: false,
             startBattle: false,
             startConvert: false,
 
@@ -61,7 +56,6 @@ class Controller extends React.Component {
             toggleWindowDisplay: this.toggleWindowDisplay,
 
             toggleGameOn: this.toggleGameOn,
-            // toggleStartZen: this.toggleStartZen,
             toggleStartBattle: this.toggleStartBattle,
             toggleStartConvert: this.toggleStartConvert,
 
@@ -227,16 +221,33 @@ class Controller extends React.Component {
         let targetId = targetArray[randomSix];
         let arr = [];
 
-        if (this.state.startConvert && !this.state.createTriadic && !this.state.createAnalogous && !this.state.createPastel)
-            arr = generateGhostArray();
-        if (this.state.startConvert && this.state.createTriadic && !this.state.createAnalogous && !this.state.createPastel)
-            arr = generateTriadicArray();
-        if (this.state.startConvert && !this.state.createTriadic && this.state.createAnalogous && !this.state.createPastel)
-            arr = generateAnalogousArray();
-        if (this.state.startConvert && !this.state.createTriadic && !this.state.createAnalogous && this.state.createPastel)
-            arr = generatePastelArray();
-        if (this.state.startConvert && this.state.createCustom)
-            arr = generateCustomArray(this.state.customColor);
+        if (this.state.startConvert &&
+            !this.state.createTriadic &&
+            !this.state.createAnalogous &&
+            !this.state.createPastel)
+                arr = generateGhostArray();
+
+        if (this.state.startConvert &&
+            this.state.createTriadic &&
+            !this.state.createAnalogous &&
+            !this.state.createPastel)
+                arr = generateTriadicArray();
+
+        if (this.state.startConvert &&
+            this.state.createAnalogous &&
+            !this.state.createTriadic &&
+            !this.state.createPastel)
+                arr = generateAnalogousArray();
+
+        if (this.state.startConvert &&
+            this.state.createPastel &&
+            !this.state.createTriadic &&
+            !this.state.createAnalogous)
+                arr = generatePastelArray();
+
+        if (this.state.startConvert &&
+            this.state.createCustom)
+                arr = generateCustomArray(this.state.customColor);
 
         if (this.state.startBattle) {
             this.state.round <= 2
@@ -257,7 +268,6 @@ class Controller extends React.Component {
             gameOn: true,
             colorTarget: colorTarget,
         });
-        console.log('color array:', arr)
     }
 
     render() {

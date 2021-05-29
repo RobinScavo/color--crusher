@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react';
 
-import KarenContext from '../../KarenContext';
+import ColorContext from '../../ColorContext';
 import './ScoreTimer.css'
 
 const ScoreTimer = () => {
-    const values = useContext(KarenContext);
+    const values = useContext(ColorContext);
     const update = values.updateTimer;
     let falling = '';
 

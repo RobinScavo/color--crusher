@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 
-import KarenContext from '../../KarenContext';
+import ColorContext from '../../ColorContext';
 import Bowl from './Bowl'
 import FooterButtons from './FooterButtons'
 import ClassConvertPanels from './ClassConvertPanels'
@@ -8,7 +8,7 @@ import ClassConvertPanels from './ClassConvertPanels'
 import './Footer.css'
 
 const Footer = () => {
-    const values = useContext(KarenContext);
+    const values = useContext(ColorContext);
 
     return (
         <div className ='footerDiv'>

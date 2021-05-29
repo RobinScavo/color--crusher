@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react';
 
-import KarenContext from '../../KarenContext';
+import ColorContext from '../../ColorContext';
 import './CryptoCoin.css'
 
 const CryptoCoin = (props) => {
-    const values = useContext(KarenContext);
+    const values = useContext(ColorContext);
     const id = values.coinArray[props.index];
     const rolloutIdArray = ['cryptoOneRoll', 'cryptoTwoRoll', 'cryptoThreeRoll'];
     const fallIdArray = ['cryptoOneFall', 'cryptoTwoFall', 'cryptoThreeFall'];

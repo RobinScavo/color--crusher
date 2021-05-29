@@ -89,8 +89,8 @@ class ConvertPanels extends React.Component {
         //HSL to RGB
         } else if (this.state.fromHslButton && this.state.toRgbButton) {
             let stringHSL = `${tempInput[0]}, ${tempInput[1]}%, ${tempInput[2]}%`
-            renderedColor = HSLtoRGB(stringHSL)
-            displayedValue = tempInput.join(',')
+            renderedColor = HSLtoRGB(stringHSL);
+            displayedValue = renderedColor;
 
         //Hex to RGB
         } else if (this.state.fromHexButton && this.state.toRgbButton) {
@@ -106,18 +106,13 @@ class ConvertPanels extends React.Component {
         } else if (this.state.fromHslButton && this.state.toHexButton) {
             let stringHSL = `${tempInput[0]}, ${tempInput[1]}%, ${tempInput[2]}%`
             renderedColor = HSLtoRGB(stringHSL)
-            displayedValue = RGBtoHEX(tempInput.join(','))
+            displayedValue = RGBtoHEX(renderedColor)
 
         //HEX to HSL
         } else if (this.state.fromHexButton && this.state.toHslButton) {
             renderedColor = HEXtoRGB(`#${tempInput.join('')}`);
             displayedValue = RGBtoHSL(renderedColor);
         }
-        // else if ((this.state.fromRgbButton && this.state.toRgbButton) ||
-        //            (this.state.fromHslButton && this.state.toHslButton) ||
-        //            (this.state.fromHexButton && this.state.toHexButton)) {
-        //                 renderedColor = tempInput;
-        // }
 
         let displayArray = displayedValue.split(',')
         this.setState({
@@ -173,8 +168,10 @@ class ConvertPanels extends React.Component {
                     result.push('From 00 to FF')
                     continue;
                 }
-                if ((validNumberInputs.includes(Number(playerInput[i][0]))|| validLetterInputs.includes(playerInput[i][0])) &&
-                    (validNumberInputs.includes(Number(playerInput[i][1])) || validLetterInputs.includes(playerInput[i][1]))) {
+                if ((validNumberInputs.includes(Number(playerInput[i][0]))||
+                     validLetterInputs.includes(playerInput[i][0])) &&
+                    (validNumberInputs.includes(Number(playerInput[i][1])) ||
+                     validLetterInputs.includes(playerInput[i][1]))) {
                     result.push(playerInput[i])
                 } else {
                     result.push('From 00 to FF')

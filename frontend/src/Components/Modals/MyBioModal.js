@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 // import { Link } from 'react-router-dom'
 
-import KarenContext from '../../KarenContext'
+import ColorContext from '../../ColorContext'
 
 import './MyBioModal.css'
 
 const MyBioModal = () => {
-    const values = useContext(KarenContext)
+    const values = useContext(ColorContext)
 
     const myEmail = 'sirscavo@gmail.com'
 

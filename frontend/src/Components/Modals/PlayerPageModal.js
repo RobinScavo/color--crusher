@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 
-import KarenContext from '../../KarenContext'
+import ColorContext from '../../ColorContext'
 import HighScoreDisplay from '../HighScoreDisplay/HighScoreDisplay'
 
 import './PlayerPageModal.css'
 
 const PlayerPageModal = () => {
-    const values = useContext(KarenContext);
+    const values = useContext(ColorContext);
 
     return (
         <div className='playerDiv'>
