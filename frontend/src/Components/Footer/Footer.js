@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import ColorContext from '../../ColorContext';
 import Bowl from './Bowl'
 import FooterButtons from './FooterButtons'
-import ClassConvertPanels from './ClassConvertPanels'
+import ConvertContainer from './ConvertContainer'
 
 import './Footer.css'
 
@@ -20,7 +20,7 @@ const Footer = () => {
                 </>
             }
             {values.startConvert &&
-                <ClassConvertPanels setCustom={values.setCustomColor}/>
+                <ConvertContainer />
             }
         </div>
     )

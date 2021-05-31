@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import ColorContext from '../../ColorContext'
 
-import './ClassConvertPanels.css'
+import './ConvertContainer.css'
 
 const RightConvertPanel = (props) => {
     const values = useContext(ColorContext)

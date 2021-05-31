@@ -17,8 +17,6 @@ const GameContainer = () => {
 
     useEffect(() => {}, [arr])
 
-    console.log('KKKKKKKKKK', arr[1])
-
     // Ghost-ball effect when clearing board
     // if (!values.gameOn && values.round > 0) visibility = 'hidden';
 
