@@ -1,23 +1,27 @@
-import React, { useContext} from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import ColorContext from '../../ColorContext';
 import ColorBall from './ColorBall';
 
-import './RGBboard.css'
+import './GameContainer.css'
 
-const RGBboard = () => {
+const GameContainer = () => {
     const values = useContext(ColorContext)
     const arr = values.colorArray;
     const target = values.colorTargetId;
-    let visibility = 'visible';
 
     //Arrays for ColorBall map
     let idArray = ['colorOne', 'colorTwo', 'colorThree', 'colorFour', 'colorFive', 'colorSix'];
     let delayArray =[0, 750, 600, 450, 300, 150];
-    let indexArray = [0, 1, 2, 3, 4, 5]
+    let indexArray = [0, 1, 2, 3, 4, 5];
+
+    useEffect(() => {}, [arr])
+
+    console.log('KKKKKKKKKK', arr[1])
 
     // Ghost-ball effect when clearing board
-    if (!values.gameOn && values.round > 0) visibility = 'hidden';
+    // if (!values.gameOn && values.round > 0) visibility = 'hidden';
+
 
     return (
         <div className='lipDiv'>
@@ -29,13 +33,13 @@ const RGBboard = () => {
                         id={idArray[index]}
                         color={arr[index]}
                         delay={delayArray[index]}
-                        blurred={arr[index].class}
-                        visibility={visibility}
+                        // blurred={arr[index].class}
                         target={target}
                         correctGuess={values.correctGuess}
                         removeCoin={values.removeCoin}
                         gameOn={values.gameOn}
                         startConvert={values.startConvert}
+                        visibility='visible'
                     />
                 ))}
                 <div className='targetColorDiv' >
@@ -77,4 +81,4 @@ const RGBboard = () => {
     )
 }
 
-export default RGBboard;
+export default GameContainer;

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import RGBboard from '../RGB/RGBboard'
+import GameContainer from '../RGB/GameContainer'
 import Banner from '../Banner/Banner'
 import Footer from '../Footer/Footer'
 import Window from '../Window/Window'
@@ -17,7 +17,7 @@ const BackDrop = () => {
             <Banner />
             <div className='upperRoundDiv'>
                 <Window />
-                <RGBboard />
+                <GameContainer />
                 <div className='innerDiv'></div>
                 <div className='sideDivRight'></div>
                 <div className='sideDiv'></div>

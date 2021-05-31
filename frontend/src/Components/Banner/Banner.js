@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
-import './Banner.css';
-// import LoginFormModel from '../Components/LoginFormModal/LogInFormModal'
 
+import './Banner.css';
 
 import UserName from './UserName'
 import ColorContext from '../../ColorContext'
@@ -15,15 +14,12 @@ const Banner = () => {
         <div className='bannerDiv'>
             <ScoreTimer gameStart={values.gameOn}/>
 
-            {!values.gameOn && !values.startBattle && !values.startZen &&
+            {!values.gameOn && !values.startBattle &&
                 <h1 className='gameName'>Color Crusher</h1>
             }
             {values.startBattle &&
                 <h1 className='gameName'>Battle Mode</h1>
             }
-            {/* {values.startZen &&
-                <h1 className='gameName'>Zen Mode</h1>
-            } */}
             {values.startConvert &&
                 <h1 className='gameName'>Color Converter</h1>
             }

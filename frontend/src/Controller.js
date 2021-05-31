@@ -10,7 +10,7 @@ import {
 } from './PureFunctions';
 
 import Backdrop from './Components/Backdrop/Backdrop'
-import KarenContext from './ColorContext';
+import ColorContext from './ColorContext';
 import MainModal from './Components/Modals/MainModal';
 import LoginModal from './Components/Modals/LoginFormModal';
 import PlayerPageModal from './Components/Modals/PlayerPageModal';
@@ -40,6 +40,7 @@ class Controller extends React.Component {
             loginModal: false,
             bioModal: false,
             playerPageModal: false,
+            // repeatRender: true,
 
             startBattle: false,
             startConvert: false,
@@ -273,7 +274,7 @@ class Controller extends React.Component {
     render() {
         return (
             <div className='gameBoardDiv' value={this.state}>
-                <KarenContext.Provider value={this.state}>
+                <ColorContext.Provider value={this.state}>
                     <ModalProvider>
                         <Backdrop />
 
@@ -299,7 +300,7 @@ class Controller extends React.Component {
                             </Modal>
                         }
                     </ModalProvider>
-                </KarenContext.Provider>
+                </ColorContext.Provider>
             </div>
         )
     }
