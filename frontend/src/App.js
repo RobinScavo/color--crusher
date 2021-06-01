@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 // import SignupFormPage from "./Components/SignupFormPage";
-import * as sessionActions from "./store/session";
+// import * as sessionActions from "./store/session";
 // import Navigation from "./Components/Navigation";
+// import ControllerContainer from './ControllerContainer'
 import Controller from './Controller'
 
 function App() {

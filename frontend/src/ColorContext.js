@@ -1,5 +1,5 @@
 import { createContext } from 'react';
 
-const KarenContext = createContext();
+const ColorContext = createContext();
 
-export default KarenContext;
+export default ColorContext;

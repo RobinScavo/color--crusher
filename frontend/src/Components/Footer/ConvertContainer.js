@@ -9,8 +9,6 @@ import './ConvertContainer.css'
 
 const ConvertContainer = () => {
     const values = useContext(ColorContext);
-    console.log('PPPPPP', values)
-
 
     const rgbLabelArray = ['Red', 'Green', 'Blue'];
     const rgbInputArray = ['From 0 to 255', 'From 0 to 255', 'From 0 to 255'];
