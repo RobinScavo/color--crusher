@@ -37,8 +37,9 @@ function MainModel() {
                 <h1 className='titleText'>BattleMode</h1>
                 <button  className='silverButton battle' onClick={() => {
                   values.toggleMainModal();
-                  values.toggleStartBattle();
-                  values.startGame();
+                  values.toggleBattleInstructionModal();
+                  // values.toggleStartBattle();
+                  // values.startGame();
                 }}>Battle</button>
               </div>
               <div className='arrowText'>
@@ -53,8 +54,9 @@ function MainModel() {
                 <h1 className='titleText'>ConvertMode</h1>
                 <button className='silverButton convert' onClick={() => {
                   values.toggleMainModal();
-                  values.toggleStartConvert();
-                  values.startGame();
+                  values.toggleConvertInstructionModal();
+                  // values.toggleStartConvert();
+                  // values.startGame();
                 }}>Convert</button>
               </div>
               <div className='arrowText'>

@@ -15,6 +15,8 @@ import MainModal from './Components/Modals/MainModal';
 import LoginModal from './Components/Modals/LoginFormModal';
 import PlayerPageModal from './Components/Modals/PlayerPageModal';
 import MyBioModal from './Components/Modals/MyBioModal';
+import BattleInstructionModal from './Components/Modals/BattleInstructionModal'
+import ConvertInstructionModal from './Components/Modals/ConvertInstructionModal'
 import { Modal } from './ModalContext/Modal';
 import { ModalProvider } from './ModalContext/Modal';
 
@@ -40,6 +42,8 @@ class Controller extends React.Component {
             loginModal: false,
             bioModal: false,
             playerPageModal: false,
+            battleInstructionModal: false,
+            convertInstructionModal: false,
             // repeatRender: true,
 
             startBattle: false,
@@ -54,6 +58,8 @@ class Controller extends React.Component {
             toggleLoginModal: this.toggleLoginModal,
             toggleBioModal: this.toggleBioModal,
             togglePlayerPageModal: this.togglePlayerPageModal,
+            toggleBattleInstructionModal: this.toggleBattleInstructionModal,
+            toggleConvertInstructionModal: this.toggleConvertInstructionModal,
             toggleWindowDisplay: this.toggleWindowDisplay,
 
             toggleGameOn: this.toggleGameOn,
@@ -77,6 +83,8 @@ class Controller extends React.Component {
     toggleLoginModal = () => this.setState({ loginModal: !this.state.loginModal })
     toggleBioModal = () => this.setState({ bioModal: !this.state.bioModal })
     togglePlayerPageModal = () => this.setState({ playerPageModal: !this.state.playerPageModal })
+    toggleBattleInstructionModal = () => this.setState({ battleInstructionModal: !this.state.battleInstructionModal })
+    toggleConvertInstructionModal = () => this.setState({ convertInstructionModal: !this.state.convertInstructionModal })
     toggleGameOn = () => this.setState({ gameOn: false })
     toggleWindowDisplay = () => this.setState({ windowDisplayed: !this.state.windowDisplayed})
     clearRounds = () => this.setState({ round: 0})
@@ -297,6 +305,16 @@ class Controller extends React.Component {
                         {this.state.playerPageModal &&
                             <Modal>
                                 <PlayerPageModal />
+                            </Modal>
+                        }
+                        {this.state.battleInstructionModal &&
+                            <Modal>
+                                <BattleInstructionModal />
+                            </Modal>
+                        }
+                        {this.state.convertInstructionModal &&
+                            <Modal>
+                                <ConvertInstructionModal />
                             </Modal>
                         }
                     </ModalProvider>

@@ -208,6 +208,8 @@
 .bioPic:hover {
     background: rgba(42, 81, 109);
     color: rgb(212, 190, 194);
+    cursor: pointer;
+    outline: none;
 }
 
 @keyframes TransitioningBackground {
