@@ -1,0 +1,120 @@
+.convertInstructionDiv {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 40px;
+    font-family: 'Fraunces', serif;
+    color: rgb(19, 67, 102);
+    font-size: 21px;
+    overflow: visible;
+}
+
+.explanationDiv {
+    width: 100%;
+    height: 240px;
+    text-align: center;
+}
+
+.expSpan {
+    font-family: 'Fontdiner Swanky';
+}
+
+.wheelDiv {
+    display: flex;
+    width: 100%;
+    height: 700px;
+}
+
+.wheel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 33%;
+}
+
+
+.wheelImage {
+    height: 80%;
+    width: 100%;
+    background-image: url('../../Images/colour-wheel-1734867_1920.png');
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: roll 20s infinite linear;
+}
+
+@keyframes roll {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.wheelOverlayOne {
+    position: absolute;
+    left: 30px;
+    top: 158px;
+    background-image: url('../../Images/comp.png');
+    background-size: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 40%;
+    width: 30%;
+}
+
+.wheelOverlayTwo {
+    position: absolute;
+    left: 206px;
+    top: 97px;
+    background-image: url('../../Images/triadic.png');
+    background-size: 140px;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50%;
+    width: 50%;
+}
+
+.wheelOverlayThree {
+    position: absolute;
+    left: 466px;
+    top: 135px;
+    background-image: url('../../Images/split.png');
+    background-size: 110px;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50%;
+    width: 50%;
+}
+
+.imageCredit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    font-size: 12px;
+}
+
+.imageCredit:hover {
+    color: rgb(255, 90, 0);
+    cursor: pointer;
+    outline: none;
+}
+
+.wheelLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    width: 100%;
+    font-size: 22px;
+    font-family: 'Fontdiner Swanky';
+    padding-top: 5px;
+}
+
+.triadicLabel {
+    margin-bottom: 30px;
+}
