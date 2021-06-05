@@ -17,6 +17,7 @@ import PlayerPageModal from './Components/Modals/PlayerPageModal';
 import MyBioModal from './Components/Modals/MyBioModal';
 import BattleInstructionModal from './Components/Modals/BattleInstructionModal'
 import ConvertInstructionModal from './Components/Modals/ConvertInstructionModal'
+import ScoringModal from './Components/Modals/ScoringModal'
 import { Modal } from './ModalContext/Modal';
 import { ModalProvider } from './ModalContext/Modal';
 
@@ -44,6 +45,7 @@ class Controller extends React.Component {
             playerPageModal: false,
             battleInstructionModal: false,
             convertInstructionModal: false,
+            scoringModal: true,
             // repeatRender: true,
 
             startBattle: false,
@@ -60,6 +62,8 @@ class Controller extends React.Component {
             togglePlayerPageModal: this.togglePlayerPageModal,
             toggleBattleInstructionModal: this.toggleBattleInstructionModal,
             toggleConvertInstructionModal: this.toggleConvertInstructionModal,
+            toggleScoringModal: this.toggleScoringModal,
+
             toggleWindowDisplay: this.toggleWindowDisplay,
 
             toggleGameOn: this.toggleGameOn,
@@ -85,6 +89,8 @@ class Controller extends React.Component {
     togglePlayerPageModal = () => this.setState({ playerPageModal: !this.state.playerPageModal })
     toggleBattleInstructionModal = () => this.setState({ battleInstructionModal: !this.state.battleInstructionModal })
     toggleConvertInstructionModal = () => this.setState({ convertInstructionModal: !this.state.convertInstructionModal })
+    toggleScoringModal = () => this.setState({ scoringModal: !this.state.scoringModal});
+
     toggleGameOn = () => this.setState({ gameOn: false })
     toggleWindowDisplay = () => this.setState({ windowDisplayed: !this.state.windowDisplayed})
     clearRounds = () => this.setState({ round: 0})
@@ -315,6 +321,11 @@ class Controller extends React.Component {
                         {this.state.convertInstructionModal &&
                             <Modal>
                                 <ConvertInstructionModal />
+                            </Modal>
+                        }
+                        {this.state.scoringModal &&
+                            <Modal>
+                                <ScoringModal />
                             </Modal>
                         }
                     </ModalProvider>

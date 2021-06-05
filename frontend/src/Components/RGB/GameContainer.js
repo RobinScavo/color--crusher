@@ -4,6 +4,7 @@ import ColorContext from '../../ColorContext';
 import ColorBall from './ColorBall';
 
 import './GameContainer.css'
+import '../Modals/ConvertInstructionModal.css'
 
 const GameContainer = () => {
     const values = useContext(ColorContext)
@@ -52,9 +53,10 @@ const GameContainer = () => {
                     }
                     {/* Clear button */}
                     {values.startConvert &&
-                        <button className='startButton' onClick={() => {
-                            values.correctGuess()
-                        }}>Clear</button>
+                        <div className='plateWheel'></div>
+                        // <button className='startButton' onClick={() => {
+                        //     values.correctGuess()
+                        // }}>Clear</button>
                     }
                     {/* Target color */}
                     {values.startBattle &&

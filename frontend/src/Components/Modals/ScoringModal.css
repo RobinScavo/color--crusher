@@ -1,0 +1,115 @@
+.scoringDiv {
+    /* background-color: tomato; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    font-family: 'Fontdiner Swanky';
+    color: rgba(42, 81, 109);
+    font-size: 35px;
+}
+
+.scoringHalf {
+    display: flex;
+    width: 60%;
+    height: 100%;
+    /* background-color: teal; */
+}
+
+.bowlScoringDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(87, 189, 227);
+    background-image: url('../../Images/footer-blue.png');
+    background-size: 110% 50%;
+    height: 100%;
+    width: 60%;
+    border: 4px solid rgb(255, 90, 0);;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.scoringLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    width: 100%;
+    color: rgb(212, 190, 194);
+}
+
+.scoringLabelTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    width: 100%;
+    margin-top: 130px;
+    color: rgb(212, 190, 194);
+}
+
+.displayScoringDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellow; */
+    height: 100%;
+    width: 40%;
+    /* padding-top: 20px; */
+}
+
+#scoringBowl {
+    position: absolute;
+    bottom: 35px;
+}
+
+#scoringBowlTop {
+    position: absolute;
+    top: 45px;
+}
+
+.scoringDisplay {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 25%;
+    /* background-color: blue; */
+    font-size: 50px;
+    /* background-color: blueviolet; */
+}
+
+.arithmetic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    /* background-color: brown; */
+    font-size: 35px;
+}
+
+.totalDisplayDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    width: 100%;
+    height: 30%;
+    /* background-color: blanchedalmond; */
+}
+
+.totalLabel {
+    font-size: 35px;
+}
+
+#scoreButton {
+    position: absolute;
+    top: 360px;
+    left: 600px;
+}

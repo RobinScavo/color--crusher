@@ -64,50 +64,21 @@
     font-weight: bolder;
 }
 
-.kernelDiv {
-    display: flex;
-    height: 200px;
-    width: 170px;
-    text-align: center;
+.plateWheel {
+    height: 80%;
+    width: 100%;
+    background-image: url('../../Images/colour-wheel-1734867_1920.png');
+    background-size: 55%;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: roll 20s infinite linear;
 }
 
-.shortKernel {
-    display: flex;
-    align-items: center;
-    font-size: 35px;
-    color: rgba(42, 81, 109);
-    opacity: 0;
-}
-
-.longKernel {
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-    color: rgba(42, 81, 109);
-    opacity: 0;
-}
-
-.realLongKernel {
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    color: rgba(42, 81, 109);
-    opacity: 0;
-}
-
-.flashKernel {
-    animation-name: slowFlash;
-    animation-duration: 4s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in;
-    opacity: 0;
-}
-
-@keyframes slowFlash {
-    0%, 100% {
-        opacity: 0;
+@keyframes roll {
+    0% {
+        transform: rotate(0);
     }
-    50% {
-        opacity: 1;
+    100% {
+        transform: rotate(360deg);
     }
 }
