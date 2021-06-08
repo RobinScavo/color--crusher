@@ -45,7 +45,7 @@ class Controller extends React.Component {
             playerPageModal: false,
             battleInstructionModal: false,
             convertInstructionModal: false,
-            scoringModal: true,
+            scoringModal: false,
             // repeatRender: true,
 
             startBattle: false,
@@ -80,6 +80,7 @@ class Controller extends React.Component {
             updateTimer: this.updateTimerContext,
             removeCoin: this.removeCoin,
             clearRounds: this.clearRounds,
+            newGame: this.newGame
         }
     }
 
@@ -199,9 +200,28 @@ class Controller extends React.Component {
         }
 
         this.clearBoard();
-        setTimeout(() => {
-            this.updateColorArrayContext();
-        }, 1500)
+        if (this.state.round < 6) {
+            setTimeout(() => {
+                this.updateColorArrayContext();
+            }, 1500)
+        } else {
+            this.setState({
+                gameOn: false,
+                startBattle: false
+            })
+            this.toggleScoringModal()
+        }
+    }
+
+    newGame = () => {
+        this.setState({
+            round: 0,
+            coins: 0,
+            score: 0,
+            timer: 15,
+            startBattle: true,
+            gameOn: true,
+        })
     }
 
     clearBoard = () => {
@@ -324,7 +344,7 @@ class Controller extends React.Component {
                             </Modal>
                         }
                         {this.state.scoringModal &&
-                            <Modal>
+                            <Modal >
                                 <ScoringModal />
                             </Modal>
                         }

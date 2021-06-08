@@ -16,7 +16,10 @@ const Bowl = (props) => {
             {values.startBattle &&
                 <h2 className='display'>{props.display}</h2>
             }
-            {!values.startBattle &&
+            {values.scoringModal &&
+                <h2 className='display'>{props.display}</h2>
+            }
+            {!values.startBattle && !values.scoringModal &&
                 <h2 className='display'>cc</h2>
             }
 

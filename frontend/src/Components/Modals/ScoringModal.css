@@ -62,8 +62,8 @@
     width: 30%;
     /* padding-top: 20px; */
     /* background-color: burlywood; */
-    border-top: 4px solid rgba(42, 81, 109, 0.5);
-    border-bottom: 4px solid rgb(12, 99, 161, 0.5);
+    border-top: 2px solid rgba(42, 81, 109, 0.5);
+    border-bottom: 2px solid rgb(12, 99, 161, 0.5);
     box-sizing: border-box;
     margin-right: 10px;
 }
@@ -90,6 +90,29 @@
     /* background-color: blueviolet; */
 }
 
+.topScore {
+    position: absolute;
+    top: 30px;
+}
+
+.bottomScore {
+    position: absolute;
+    overflow: hidden;
+    top: 140px;
+    /* z-index: 1;
+    background: none; */
+}
+
+.topArith {
+    position: absolute;
+    top: 105px;
+}
+
+.bottomArith {
+    position: absolute;
+    top: 215px;
+}
+
 .arithmetic {
     display: flex;
     justify-content: center;
@@ -101,7 +124,121 @@
     margin-bottom: 25px;
 }
 
+.raising {
+    /* color: rgb(255, 90, 0); */
+    animation-name: raise;
+    animation-duration: .6s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-direction: normal;
+    visibility: hidden;
+}
+
+.flashing {
+    animation-name: flash;
+    animation-duration: .4s;
+}
+
+.totalFlashing {
+    animation-name: totalFlash;
+    animation-duration: .4s;
+}
+
+.topFall {
+    animation-name: topFall;
+    animation-duration: .6s;
+    animation-timing-function: ease-in;
+    visibility: hidden;
+}
+
+.middleFall {
+    animation-name: middleFall;
+    animation-duration: .6s;
+    animation-timing-function: ease-in;
+    visibility: hidden;
+}
+
+.hidden {
+    animation-name: hideThis;
+    animation-duration: .4s;
+    visibility: hidden;
+}
+
+@keyframes hideThis {
+    0% {
+        visibility: visible;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+
+@keyframes topFall {
+    0% {
+        top: 30px;
+        visibility: visible;
+    }
+    100% {
+        top: 130px;
+        visibility: hidden;
+    }
+}
+
+@keyframes middleFall {
+    0% {
+        top: 140px;
+        visibility: visible;
+    }
+    100% {
+        top: 270px;
+        visibility: hidden;
+    }
+}
+
+@keyframes raise {
+    0% {
+        top: 215px;
+        visibility: visible;
+    }
+    100% {
+        top: 200px;
+        visibility: hidden;
+    }
+}
+
+@keyframes flash {
+    0% {
+        color: rgba(42, 81, 109);
+        font-size: 50px;
+    }
+    50% {
+        font-size: 52px;
+        /* color: rgb(255, 90, 0); */
+    }
+    100% {
+        color: rgba(42, 81, 109);
+        font-size: 50px;
+    }
+}
+
+@keyframes totalFlash {
+    0% {
+        color: rgba(42, 81, 109);
+        font-size: 70px;
+    }
+    50% {
+        font-size: 72px;
+        /* color: rgb(255, 90, 0); */
+    }
+    100% {
+        color: rgba(42, 81, 109);
+        font-size: 70px;
+    }
+}
+
 .totalDisplayDiv {
+    position: absolute;
+    top: 290px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,12 +250,33 @@
     margin-bottom: 10px;
 }
 
+.totalDisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
 .totalLabel {
+    position: absolute;
+    bottom: -5px;
     font-size: 25px;
 }
 
-#scoreButton {
+#homeButton {
     position: absolute;
     top: 360px;
-    left: 600px;
+    left: 520px;
+}
+
+#testButton {
+    position: absolute;
+    /* top: 360px;
+    left: 700px; */
+}
+
+#playButton {
+    position: absolute;
+    top: 360px;
+    left: 670px
 }
