@@ -44,7 +44,7 @@ const GameContainer = () => {
                 <div className='targetColorDiv' >
                     {/* Start button */}
                     {!values.gameOn && values.round === 0 &&
-                     !values.instructionModal &&
+                    //  !values.instructionModal &&
                      !values.startConvert &&
                      !values.startBattle &&
                         <button className='startButton' onClick={() => {
@@ -70,7 +70,6 @@ const GameContainer = () => {
                     {values.startBattle &&
                      values.round > 0 &&
                      !values.gameOn &&
-                     !values.startZen &&
                         <div className='targetDiv'>
                             <h2 className='colorNumber'>CORRECT</h2>
                         </div>

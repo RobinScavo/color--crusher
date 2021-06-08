@@ -29,6 +29,12 @@ const ScoringModal = () => {
 
     const futureTotal = values.score + values.coins
 
+    useEffect(() => {
+        setTimeout(() => {
+            setTopCountdown(true)
+        }, 1000)
+    })
+
     //Speed countdown/countup
     useEffect(() => {
         let interval = null;
@@ -39,7 +45,7 @@ const ScoringModal = () => {
                 setScore(score => score -1);
                 setSpeed(speed => speed +1)
                 return score
-            }, 30);
+            }, 20);
         }
         return () => clearInterval(interval)
     }, [topCountdown, score, coins])
@@ -63,32 +69,32 @@ const ScoringModal = () => {
     }, [bottomCountdown, coins])
 
     //Animate score totaling
-    // useEffect(() => {
-    //     if (isAnimating) {
-    //         setIsRaising(true)
-    //         setTimeout(() => {
-    //             setAccuracy(accuracy => accuracy *2)
-    //             setIsFlashing(true)
-    //         }, 600)
-    //         setTimeout(() => {
-    //             setTopIsFalling(true)
-    //             setIsFlashing(false)
-    //             setIsHidden(true)
-    //         }, 1000)
-    //         setTimeout(() => {
-    //             setAccuracy(futureTotal)
-    //             setIsFlashing(true)
-    //         }, 1600)
-    //         setTimeout(() => {
-    //             setMiddleIsFalling(true)
-    //         }, 2000)
-    //         setTimeout(() => {
-    //             setTotal(futureTotal)
-    //             setTotalIsFlashing(true)
-    //         }, 2600)
-    //         setIsAnimating(false)
-    //     }
-    // }, [isAnimating, speed, accuracy, futureTotal])
+    useEffect(() => {
+        if (isAnimating) {
+            setIsRaising(true)
+            setTimeout(() => {
+                setAccuracy(accuracy => accuracy *2)
+                setIsFlashing(true)
+            }, 600)
+            setTimeout(() => {
+                setTopIsFalling(true)
+                setIsFlashing(false)
+                setIsHidden(true)
+            }, 1000)
+            setTimeout(() => {
+                setAccuracy(futureTotal)
+                setIsFlashing(true)
+            }, 1600)
+            setTimeout(() => {
+                setMiddleIsFalling(true)
+            }, 2000)
+            setTimeout(() => {
+                setTotal(futureTotal)
+                setTotalIsFlashing(true)
+            }, 2600)
+            setIsAnimating(false)
+        }
+    }, [isAnimating, speed, accuracy, futureTotal])
 
     let raising = isRaising ? 'raising' : ''
     let flashing = isFlashing ? 'flashing' : ''
@@ -126,7 +132,7 @@ const ScoringModal = () => {
                 values.toggleScoringModal();
                 values.toggleMainModal();
             }}>Home</button>
-            <button id='testButton' className='backButton' onClick={() => {
+            {/* <button id='testButton' className='backButton' onClick={() => {
                 setIsHidden(false)
                 setTopIsFalling(false)
                 setMiddleIsFalling(false)
@@ -140,7 +146,7 @@ const ScoringModal = () => {
                 setCoins(15)
                 setTotal(0)
                 setTopCountdown(true)
-            }}>Test</button>
+            }}>Test</button> */}
         </div>
     )
 }

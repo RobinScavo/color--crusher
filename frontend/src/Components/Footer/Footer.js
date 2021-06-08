@@ -13,7 +13,7 @@ const Footer = () => {
     return (
         <div className ='footerDiv'>
             <FooterButtons />
-            {!values.startConvert &&
+            {!values.startConvert && !values.scoringModal &&
                 <>
                 <Bowl id='scoreBowl' display={values.score}/>
                 <Bowl id='coinBowl' display={values.coins}/>

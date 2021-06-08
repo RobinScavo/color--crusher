@@ -167,6 +167,7 @@ class Controller extends React.Component {
 
     startGame = () => {
         this.clearBoard();
+        this.toggleStartBattle();
         this.timeout = setTimeout(() => {
             this.setState({ gameOn: true })
             this.updateColorArrayContext()
@@ -209,7 +210,9 @@ class Controller extends React.Component {
                 gameOn: false,
                 startBattle: false
             })
-            this.toggleScoringModal()
+            setTimeout(() => {
+                this.toggleScoringModal()
+            }, 2000)
         }
     }
 
@@ -218,10 +221,9 @@ class Controller extends React.Component {
             round: 0,
             coins: 0,
             score: 0,
-            timer: 15,
-            startBattle: true,
-            gameOn: true,
+            timer: 15
         })
+        this.startGame();
     }
 
     clearBoard = () => {

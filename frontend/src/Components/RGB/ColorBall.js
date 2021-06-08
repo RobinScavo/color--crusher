@@ -24,6 +24,7 @@ const ColorBall = (props) => {
             setColor({})
         }
         if (validTarget) {
+            console.log('valid hit')
             props.removeCoin()
         }
     }
