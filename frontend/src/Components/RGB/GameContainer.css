@@ -1,12 +1,12 @@
 .plateDiv {
-    top: 10px;
+    top: 1.5%;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
-    height: 700px;
-    width: 700px;
+    height: 97%;
+    width: 97%;
     border-radius: 50%;
     box-shadow:  1px 1px 5px 0.5px rgb(173, 126, 140, 0.5);
     background: radial-gradient(circle at 400px 550px, hsl(0, 16.9%, 76.9%), hsl(351, 24.4%, 33.7%));
@@ -14,19 +14,53 @@
 }
 
 .lipDiv {
-    margin-bottom: 135px;
+    /* margin-bottom: 125px; */
     position: absolute;
+    top: 40px;
     height: 720px;
     width: 720px;
     border-radius: 50%;
     background: radial-gradient(circle at 350px 50px,hsl(0, 16.9%, 76.9%), hsl(351, 24.4%, 33.7%));
     box-shadow:  3px 20px 20px 5px rgb(0, 0, 0, 0.5);
     z-index: 1;
+    font-size: 44px;
 }
 
-@media only screen and (max-height: 900px) {
+/* @media only screen and (max-height: 900px) {
     .lipDiv {
         margin-bottom: 100px;
+    }
+} */
+
+@media only screen and (max-width: 1330px),
+            screen and (max-height: 900px) {
+    .lipDiv {
+        height: 620px;
+        width: 620px;
+    }
+}
+
+@media only screen and (max-width: 1200px),
+            screen and (max-height: 800px) {
+    .lipDiv {
+        height: 520px;
+        width: 520px;
+    }
+}
+
+@media only screen and (max-width: 900px),
+            screen and (max-height: 700px) {
+    .lipDiv {
+        height: 420px;
+        width: 420px;
+    }
+}
+
+@media only screen and (max-width: 800px),
+            screen and (max-height: 600px) {
+    .lipDiv {
+        height: 360px;
+        width: 360px;
     }
 }
 
@@ -35,8 +69,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px;
-    width: 400px;
+    height: 58%;
+    width: 58%;
     border-radius: 50%;
     background: radial-gradient(circle at 150px 150px, hsl(0, 16.9%, 76.9%), hsl(351, 24.4%, 33.7%));
     color: rgba(42, 81, 109);
@@ -52,13 +86,15 @@
     top: 115px;
     right: 150px;
     color: rgba(42, 81, 109);
-    font-size: 44px;
+    /* font-size: 44px; */
+    /* font-size: 100%; */
     font-weight: bolder;
 }
 
 .colorNumber {
     position: relative;
-    font-size: 40px;
+    /* font-size: 40px; */
+    font-size: 93%;
     color: rgba(42, 81, 109);
     padding-bottom: 20px;
     font-weight: bolder;

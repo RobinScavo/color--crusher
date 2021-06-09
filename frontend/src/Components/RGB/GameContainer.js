@@ -46,7 +46,7 @@ const GameContainer = () => {
                         }}>START</button>
                     }
 
-                    {/* Clear button */}
+                    {/* Color Wheel */}
                     {values.startConvert &&
                         <div className='plateWheel'></div>
                     }

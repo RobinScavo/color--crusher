@@ -294,12 +294,13 @@ class Controller extends React.Component {
                 arr = generateAnalogousArray()
             }
 
-        //display target value
-        const targetColor = arr[randomSix]
-        const firstSlice = (targetColor.background.slice(42))
-        let colorTarget = (firstSlice.slice(0, firstSlice.length -7))
 
         if (this.state.startBattle) {
+            //display target value
+            const targetColor = arr[randomSix]
+            const firstSlice = (targetColor.background.slice(42))
+            let colorTarget = (firstSlice.slice(0, firstSlice.length -7))
+
             this.setState({
                 coinArray: [true, true, true],
                 round: this.state.round + 1,
