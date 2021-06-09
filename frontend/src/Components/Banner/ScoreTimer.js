@@ -27,7 +27,7 @@ const ScoreTimer = () => {
     }, [values.gameOn, seconds, update])
 
     useEffect(() => {
-        if (isFalling) {
+        if (values.gameOn && isFalling) {
             setTimeout(() => {
                 setIsFalling(false)
             }, 2800)

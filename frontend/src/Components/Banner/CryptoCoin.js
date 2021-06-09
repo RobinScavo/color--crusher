@@ -21,7 +21,7 @@ const CryptoCoin = (props) => {
 
     useEffect(() => {
         setisRolling(!id)
-        if (isFalling) {
+        if (values.gameOn && isFalling) {
             setTimeout(() => {
                 setIsFalling(false)
             }, 2800)

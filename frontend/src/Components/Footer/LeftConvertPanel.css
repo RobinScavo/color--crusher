@@ -1,0 +1,163 @@
+.convertDiv {
+    height: 300px;
+    width: 290px;
+    background-color: rgb(206, 186, 186);
+    overflow: visible;
+    box-shadow:  3px 20px 20px 5px rgb(0, 0, 0, 0.5);
+}
+
+#leftConvert {
+    position: absolute;
+    width: 240px;
+    left: 0px;
+    bottom: 0px;
+    border-top-right-radius: 15%;
+}
+
+.leftButtonDiv {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 140px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 760px;
+    width: 150px;
+    background-color: rgb(206, 186, 186);
+    background: linear-gradient(to right, rgb(158, 126, 131) 0.5%, rgb(206, 186, 186) 99.5%);
+    z-index: 3;
+    border-top-right-radius: 35px;
+}
+
+.convertTextDiv {
+    text-align: center;
+    height: 40px;
+    width: 90px;
+    margin-bottom: -22px;
+    margin-top: 10px;
+    color: rgba(42, 81, 109);
+    font-size: 18px;
+    font-family: 'Fontdiner Swanky';
+    line-height: 20px;
+}
+
+.convertButton {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 2px;
+    height: 35px;
+    width: 95px;
+    margin-top: 10px;
+    background-color: rgba(42, 81, 109);
+    background-color: rgb(51, 99, 129);
+    border-radius: 5%;
+    color:  rgb(206, 186, 186);
+    font-family: 'Fontdiner Swanky';
+    border-radius: 5px;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.activeConvert {
+    color: rgba(42, 81, 109);
+    background-color: rgb(255, 90, 0);
+}
+
+.hiddenConvert {
+    background-color: rgba(5, 13, 133, 0.9);
+    background-color: rgb(51, 99, 129);;
+}
+
+.convertButton:hover {
+    background-color:  rgb(255, 90, 0);
+    color: rgb(51, 99, 129);
+}
+
+.activeConvert:hover {
+    background-color:  rgb(255, 90, 0);
+}
+
+.upperButtonDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 440px;
+    width: 140px;
+    margin-top: 5px;
+}
+
+.convertInputDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    bottom: 25px;
+    left: 10px;
+    height: 260px;
+    width: 230px;
+    z-index: 4;
+}
+
+.convertLabel {
+    color: rgba(42, 81, 109);
+    font-size: 18px;
+    font-family: 'Fontdiner Swanky';
+    margin-top: 0px;
+    height: 85px;
+    padding-top: 5px;
+}
+
+.convertLabelDiv {
+    margin-top: 5px;
+    height: 100px;
+    color: rgba(42, 81, 109);
+}
+
+.convertInput {
+    width: 170px;
+    height: 28px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    z-index: 5;
+}
+
+.submitButton {
+    font-size: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding-top: 2px;
+    height: 45px;
+    width: 95px;
+    background-color: rgba(42, 81, 109);
+    font-family: 'Fontdiner Swanky';
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
+    background-image: url('../../Images/Silver.jpg');
+    background-size: cover;
+    background-size: 300% 300%;
+    overflow: hidden;
+    animation: TransitioningBackground 40s linear infinite;
+    color:rgba(42, 81, 109);
+    z-index: 1;
+    border: 2px solid rgba(42, 81, 109);
+    box-sizing: border-box;
+}
+
+.submitButton:hover {
+    background-color: rgb(51, 99, 129);
+    background-image: none;
+    color: rgb(236, 224, 224);
+    border: 1px solid rgb(236, 224, 224);
+    cursor: pointer;
+    outline: none;
+}

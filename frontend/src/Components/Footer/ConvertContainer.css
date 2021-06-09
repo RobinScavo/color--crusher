@@ -1,27 +1,27 @@
-.convertDiv {
+/* .convertDiv {
     height: 300px;
     width: 290px;
     background-color: rgb(206, 186, 186);
     overflow: visible;
     box-shadow:  3px 20px 20px 5px rgb(0, 0, 0, 0.5);
-}
+} */
 
-#leftConvert {
+/* #leftConvert {
     position: absolute;
     width: 240px;
     left: 0px;
     bottom: 0px;
     border-top-right-radius: 15%;
-}
+} */
 
-#rightConvert {
+/* #rightConvert {
     position: absolute;
     right: 0px;
     bottom: 0px;
     border-top-left-radius: 15%;
-}
+} */
 
-.leftButtonDiv {
+/* .leftButtonDiv {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -29,38 +29,39 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 830px;
+    height: 760px;
     width: 150px;
     background-color: rgb(206, 186, 186);
     background: linear-gradient(to right, rgb(158, 126, 131) 0.5%, rgb(206, 186, 186) 99.5%);
     z-index: 3;
     border-top-right-radius: 35px;
-}
+} */
 
-.rightButtonDiv {
+/* .rightButtonDiv {
     position: absolute;
     right: 0;
     bottom: 0;
-    height: 600px;
+    height: 500px;
     width: 170px;
     background-color: rgb(206, 186, 186);
     background: linear-gradient(to left, rgb(158, 126, 131) 0.5%, rgb(206, 186, 186) 99.5%);
     z-index: 3;
     border-top-left-radius: 35px;
-}
+} */
 
-.convertTextDiv {
+/* .convertTextDiv {
     text-align: center;
-    height: 60px;
+    height: 40px;
     width: 90px;
-    margin-bottom: -26px;
+    margin-bottom: -22px;
+    margin-top: 10px;
     color: rgba(42, 81, 109);
     font-size: 18px;
     font-family: 'Fontdiner Swanky';
-    line-height: 25px;
-}
+    line-height: 20px;
+} */
 
-.rightConvertTextDiv {
+/* .rightConvertTextDiv {
     text-align: center;
     height: 80px;
     width: 100px;
@@ -70,15 +71,15 @@
     font-size: 22px;
     font-family: 'Fontdiner Swanky';
     line-height: 25px;
-}
+} */
 
-.convertButton {
+/* .convertButton {
     margin-left: 10px;
     margin-right: 10px;
     padding-top: 2px;
     height: 35px;
     width: 95px;
-    margin-top: 25px;
+    margin-top: 10px;
     background-color: rgba(42, 81, 109);
     background-color: rgb(51, 99, 129);
     border-radius: 5%;
@@ -108,8 +109,8 @@
 
 .activeConvert:hover {
     background-color:  rgb(255, 90, 0);
-}
-
+} */
+/*
 .rightConvertButton {
     margin-left: 10px;
     margin-bottom: 20px;
@@ -132,32 +133,30 @@
 .rightConvertButton:hover {
     background-color:  rgb(255, 90, 0);
     color: rgb(51, 99, 129);
-}
+} */
 
-.upperButtonDiv {
+/* .upperButtonDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: 520px;
+    height: 440px;
     width: 140px;
-    margin-top: 15px;
-}
-
+    margin-top: 5px;
+} */
+/*
 .rightButtonDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: 70px;
-    width: 140px;;
     position: absolute;
     right: 0;
     bottom: 0;
-    height: 600px;
+    height: 760px;
     width: 170px;
-}
-
+} */
+/*
 .convertInputDiv {
     display: flex;
     flex-direction: column;
@@ -170,9 +169,9 @@
     height: 260px;
     width: 230px;
     z-index: 4;
-}
+} */
 
-.rightConvertInputDiv {
+/* .rightConvertInputDiv {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -184,9 +183,9 @@
     height: 270px;
     width: 270px;
     z-index: 5;
-}
+} */
 
-.convertLabel {
+/* .convertLabel {
     color: rgba(42, 81, 109);
     font-size: 18px;
     font-family: 'Fontdiner Swanky';
@@ -199,10 +198,10 @@
     margin-top: 5px;
     height: 100px;
     color: rgba(42, 81, 109);
-}
+} */
 
 
-.rightLabelDiv {
+/* .rightLabelDiv {
     margin-top: 0px;
     margin-right: 10px;
     height: 100px;
@@ -217,17 +216,17 @@
     margin-top: 10px;
     height: 30px;
     padding-top: 5px;
-}
-
+} */
+/*
 .convertInput {
     width: 170px;
     height: 28px;
     margin-top: 7px;
     margin-bottom: 7px;
     z-index: 5;
-}
+} */
 
-.rightInput {
+/* .rightInput {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -241,17 +240,17 @@
     font-family: 'Fontdiner Swanky';
     color: rgba(42, 81, 109);
     font-size: 18px;
-}
+} */
 
 
-.convertArrow {
+/* .convertArrow {
     transform: rotate(90deg);
     color:rgba(42, 81, 109);
     font-size: 35px;
     margin-top: 10px;
     margin-bottom: 10px;
-}
-
+} */
+/*
 .submitButton {
     font-size: 18px;
     margin-left: 10px;
@@ -284,9 +283,9 @@
     border: 1px solid rgb(236, 224, 224);
     cursor: pointer;
     outline: none;
-}
+} */
 
-.convertBling {
+/* .convertBling {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -305,9 +304,9 @@
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
     margin-left: 10px;
     background-color: rgba(192, 192, 192);
-}
+} */
 
-.firstBling {
+/* .firstBling {
     bottom: 188px;
     left: 0px;
 }
@@ -336,4 +335,4 @@
     100% {
         background-position: 50% 0%;
     }
-}
+} */

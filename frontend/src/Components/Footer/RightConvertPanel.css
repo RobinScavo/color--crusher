@@ -1,0 +1,249 @@
+.convertDiv {
+    height: 300px;
+    width: 290px;
+    background-color: rgb(206, 186, 186);
+    overflow: visible;
+    box-shadow:  3px 20px 20px 5px rgb(0, 0, 0, 0.5);
+    font-family: 'Fontdiner Swanky';
+}
+
+#rightConvert {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    border-top-left-radius: 15%;
+}
+
+.rightButtonDiv {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 500px;
+    width: 170px;
+    background-color: rgb(206, 186, 186);
+    background: linear-gradient(to left, rgb(158, 126, 131) 0.5%, rgb(206, 186, 186) 99.5%);
+    z-index: 3;
+    border-top-left-radius: 35px;
+}
+
+.rightConvertTextDiv {
+    text-align: center;
+    height: 80px;
+    width: 100px;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    color: rgba(42, 81, 109);
+    font-size: 22px;
+    font-family: 'Fontdiner Swanky';
+    line-height: 25px;
+}
+
+.rightConvertButton {
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    padding-top: 2px;
+    height: 45px;
+    width: 115px;
+    margin-top: 5px;
+    background-color: rgba(42, 81, 109);
+    /* border-radius: 5%; */
+    color:  rgb(206, 186, 186);
+    font-family: 'Fontdiner Swanky';
+    border-radius: 5px;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
+}
+
+.rightConvertButton:hover {
+    cursor: pointer;
+    background-color:  rgb(255, 90, 0);
+    color: rgb(51, 99, 129);
+}
+
+.rightButtonDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 760px;
+    width: 170px;
+}
+
+.repeatLabel {
+    text-align: center;
+    color: rgba(42, 81, 109);
+    font-size: 21px;
+    margin-top: 0px;
+    height: 30px;
+    padding-top: 5px;
+}
+
+.repeatToggle {
+    display: flex;
+    flex-direction: column;
+    height: 85px;
+    width: 115px;
+    background-color: rgb(255, 90, 0);
+    background-color: rgba(42, 81, 109);
+    /* border-radius: 5%; */
+    color: rgba(42, 81, 109);
+    color:  rgb(206, 186, 186);
+    border-radius: 5px;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
+}
+
+.toggleText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+}
+
+.innerToggle {
+    position: absolute;
+    left: 30px;
+    top: 353px;
+    height: 42px;
+    width: 110px;
+    background-color: rgba(42, 81, 109);
+    background-color: rgb(255, 90, 0);
+    border-radius: 5px;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    animation-name: toggleUp;
+    animation-duration: .4s;
+}
+
+.lowerPosition {
+    top: 392px;
+    animation-name: toggleRepeat;
+    animation-duration: .4s;
+}
+
+@keyframes toggleRepeat {
+    0% {
+        top: 353px;
+    }
+    100% {
+        top: 392px;
+    }
+}
+
+@keyframes toggleUp {
+    0% {
+        top: 392px;
+    }
+    100% {
+        top: 353px;
+    }
+}
+
+.rightConvertInputDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    bottom: 30px;
+    left:20px;
+    height: 270px;
+    width: 270px;
+    z-index: 5;
+}
+
+.rightLabelDiv {
+    margin-top: 0px;
+    margin-right: 10px;
+    height: 100px;
+    color: rgba(42, 81, 109);
+}
+
+.rightLabel {
+    text-align: center;
+    color: rgba(42, 81, 109);
+    font-size: 21px;
+    margin-top: 10px;
+    height: 30px;
+    padding-top: 5px;
+}
+
+.rightInput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 45px;
+    margin-left: 10px;
+    border: 4px solid rgba(42, 81, 109);
+    background: linear-gradient( rgb(236, 224, 224) 0.5%,  rgb(212, 190, 194) 99.5%);
+    box-sizing: border-box;
+    border-radius: 5px;
+    /* font-family: 'Fontdiner Swanky'; */
+    color: rgba(42, 81, 109);
+    font-size: 18px;
+}
+
+.convertBling {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url('../../Images/Silver.jpg');
+    background-size: cover;
+    background-size: 300% 300%;
+    overflow: hidden;
+    animation: TransitioningBackground 20s linear infinite;
+    color: rgba(42, 81, 109);
+    border: 2px solid rgba(42, 81, 109);
+    z-index: 1;
+    box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
+    margin-left: 10px;
+    background-color: rgba(192, 192, 192);
+}
+
+.firstBling {
+    bottom: 188px;
+    left: 0px;
+}
+.secondBling {
+    bottom: 98px;
+    left: 0px;
+}
+.thirdBling {
+    bottom: 8px;
+    left: 0px;
+}
+
+@keyframes TransitioningBackground {
+    0% {
+        background-position: 50% 0%;
+    }
+    25% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 50% 50%;
+    }
+    75% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 50% 0%;
+    }
+}

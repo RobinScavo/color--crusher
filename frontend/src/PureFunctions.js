@@ -137,7 +137,6 @@ export function generatePastelArray() {
     const analogousOne  = findAnalogous(compliment).RGBanalogousOne;
     const analogousTwo  = findAnalogous(compliment).RGBanalogousTwo;
     arr.push(analogousOne, splitCompOne, compliment, splitCompTwo, analogousTwo)
-    console.log('JJJJJJJJ', arr)
     return addStyleString(arr)
 }
 

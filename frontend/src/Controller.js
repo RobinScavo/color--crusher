@@ -46,7 +46,7 @@ class Controller extends React.Component {
             battleInstructionModal: false,
             convertInstructionModal: false,
             scoringModal: false,
-            // repeatRender: true,
+            repeatRender: true,
 
             startBattle: false,
             startConvert: false,
@@ -69,6 +69,7 @@ class Controller extends React.Component {
             toggleGameOn: this.toggleGameOn,
             toggleStartBattle: this.toggleStartBattle,
             toggleStartConvert: this.toggleStartConvert,
+            toggleRepeatRender: this.toggleRepeatRender,
 
             toggleCreateTriadic: this.toggleCreateTriadic,
             toggleCreateAnalogous: this.toggleCreateAnalogous,
@@ -84,7 +85,16 @@ class Controller extends React.Component {
         }
     }
 
-    toggleMainModal = () => this.setState({ MainModal: !this.state.MainModal })
+    componentDidMount() {this.toggleCreateAnalogous()}
+
+    toggleMainModal = () => {
+        this.setState({
+            repeatRender: false,
+            createAnalogous: false,
+            MainModal: !this.state.MainModal
+        })
+        this.setState({  })
+    }
     toggleLoginModal = () => this.setState({ loginModal: !this.state.loginModal })
     toggleBioModal = () => this.setState({ bioModal: !this.state.bioModal })
     togglePlayerPageModal = () => this.setState({ playerPageModal: !this.state.playerPageModal })
@@ -93,66 +103,53 @@ class Controller extends React.Component {
     toggleScoringModal = () => this.setState({ scoringModal: !this.state.scoringModal});
 
     toggleGameOn = () => this.setState({ gameOn: false })
+    toggleRepeatRender = () => this.setState({ repeatRender: !this.state.repeatRender })
     toggleWindowDisplay = () => this.setState({ windowDisplayed: !this.state.windowDisplayed})
     clearRounds = () => this.setState({ round: 0})
 
     toggleCreateAnalogous = () => {
-        if (this.state.createAnalogous || this.state.createPastel || this.state.createTriadic) return;
         this.setState({ createAnalogous: true});
-        let delayOrNot = 0;
-        (this.state.colorArray[0].class === 'blurred')
-            ? delayOrNot = 0
-            : delayOrNot = 1500
         this.clearBoard();
         setTimeout(() => {
             this.updateColorArrayContext();
-            this.setState({ createAnalogous: false})
-        }, delayOrNot)
+            if (!this.state.repeatRender) {
+                this.setState({ createAnalogous: false})
+            }
+        }, 1100)
     }
 
     toggleCreatePastel = () => {
-        if (this.state.createAnalogous || this.state.createPastel || this.state.createTriadic) return;
         this.setState({ createPastel: true});
-        let delayOrNot = 0;
-        (this.state.colorArray[0].class === 'blurred')
-            ? delayOrNot = 0
-            : delayOrNot = 1500
         this.clearBoard();
         setTimeout(() => {
             this.updateColorArrayContext();
-            this.setState({ createPastel: false})
-        }, delayOrNot)
+            if (!this.state.repeatRender) {
+                this.setState({ createPastel: false})
+            }
+        }, 1100)
     }
 
     toggleCreateTriadic = () => {
-        if (this.state.createAnalogous || this.state.createPastel || this.state.createTriadic) return;
         this.setState({ createTriadic: true});
-        let delayOrNot = 0;
-        (this.state.colorArray[0].class === 'blurred')
-            ? delayOrNot = 0
-            : delayOrNot = 1500
         this.clearBoard();
         setTimeout(() => {
             this.updateColorArrayContext();
-            this.setState({ createTriadic: false});
-        }, delayOrNot)
+            if (!this.state.repeatRender) {
+                this.setState({ createTriadic: false});
+            }
+        }, 1100)
     }
 
     setCustomColor = (custom) => {
-        // if (this.state.createAnalogous || this.state.createPastel || this.state.createTriadic) return;
         this.setState({
             createCustom: true,
             customColor: custom,
         });
-        let delayOrNot = 0;
-        (this.state.colorArray[0].class === 'blurred')
-            ? delayOrNot = 0
-            : delayOrNot = 1500
         this.clearBoard();
         setTimeout(() => {
             this.updateColorArrayContext();
             this.setState({ createCustom: false});
-        }, delayOrNot)
+        }, 1100)
     }
 
     toggleStartBattle = () => {
@@ -167,7 +164,6 @@ class Controller extends React.Component {
 
     startGame = () => {
         this.clearBoard();
-        this.toggleStartBattle();
         this.timeout = setTimeout(() => {
             this.setState({ gameOn: true })
             this.updateColorArrayContext()
@@ -221,8 +217,9 @@ class Controller extends React.Component {
             round: 0,
             coins: 0,
             score: 0,
-            timer: 15
+            timer: 15,
         })
+        this.toggleStartBattle();
         this.startGame();
     }
 
@@ -230,7 +227,7 @@ class Controller extends React.Component {
         let clearArray = []
         for (let i = 0; i < 6; i++) {
             clearArray.push({ background:
-                `radial-gradient(circle at 100px 100px, rgba(255, 255, 255, 0.1), #000)`
+                `radial-gradient(circle at 100px 100px, rgb(255, 255, 255, 0.1), #000)`
             })
         }
         this.setState({
@@ -292,19 +289,38 @@ class Controller extends React.Component {
                 : arr = generateTriadicArray()
             }
 
+        if (!this.state.startBattle &&
+            !this.state.startConvert) {
+                arr = generateAnalogousArray()
+            }
+
         //display target value
         const targetColor = arr[randomSix]
         const firstSlice = (targetColor.background.slice(42))
         let colorTarget = (firstSlice.slice(0, firstSlice.length -7))
 
+        if (this.state.startBattle) {
+            this.setState({
+                coinArray: [true, true, true],
+                round: this.state.round + 1,
+                colorTargetId: targetId,
+                colorTarget: colorTarget,
+            })
+        }
+
         this.setState({
-            coinArray: [true, true, true],
             colorArray: arr,
-            round: this.state.round + 1,
-            colorTargetId: targetId,
             gameOn: true,
-            colorTarget: colorTarget,
         });
+
+        if (this.state.repeatRender) {
+            setTimeout(() => {
+                this.clearBoard();
+            }, 1100)
+            setTimeout(() => {
+                this.updateColorArrayContext();
+            }, 2200)
+        }
     }
 
     render() {

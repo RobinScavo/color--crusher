@@ -65,8 +65,8 @@
 }
 
 .plateWheel {
-    height: 80%;
-    width: 100%;
+    height: 40%;
+    width: 60%;
     background-image: url('../../Images/colour-wheel-1734867_1920.png');
     background-size: 55%;
     background-position: center;
