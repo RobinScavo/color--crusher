@@ -10,18 +10,6 @@
     margin-bottom: 22px;
   }
 
-  /* .visible {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 2s linear;
-  } */
-
-  /* .hidden {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s 2s, opacity 2s linear;
-  } */
-
 
   #modal-background {
     position: fixed;
@@ -29,7 +17,6 @@
     right: 0;
     left: 0;
     bottom: 0;
-    /* background-color: rgba(0, 0, 0, 0.7); */
   }
 
   #modal-content {
@@ -49,3 +36,9 @@
     backdrop-filter: blur(15px );
     border: 1px solid rgb(236, 224, 224);
   }
+
+  @media only screen and (max-width: 900px) {
+    #modal-content {
+      width: 455px;
+    }
+}

@@ -11,10 +11,9 @@ function MainModel() {
 
   return (
     <div className='instructionDiv'>
-      <div className='allModeDiv'>
         <div className='upperDiv'>
           <div className='greetingDiv'>
-            <h1 className='greetingText'><span className='biggerGreet'>Play as a guest</span> or log in to save your progress</h1>
+            <h1 className='greetingText'><span className='biggerGreet'>Play as a guest</span> or <span className='optionalText'>log in to save your progress</span></h1>
             <h1 className='arrow arrowLog'>➛</h1>
           </div>
 
@@ -27,9 +26,7 @@ function MainModel() {
           </div>
         </div>
 
-
         <div className='lowerDiv'>
-          <div className='modeSelectDiv'>
 
             {/* BattleMode */}
             <div className='modeDiv'>
@@ -55,8 +52,6 @@ function MainModel() {
                 <button className='silverButton convert' onClick={() => {
                   values.toggleMainModal();
                   values.toggleConvertInstructionModal();
-                  // values.toggleStartConvert();
-                  // values.startGame();
                 }}>Convert</button>
               </div>
               <div className='arrowText'>
@@ -79,10 +74,8 @@ function MainModel() {
                 <h1 className='modeText meetMeText'>Meet the developer!</h1>
               </div>
             </div>
-            </div>
             <HighScoreDisplay />
         </div>
-      </div>
     </div>
     )
 }
