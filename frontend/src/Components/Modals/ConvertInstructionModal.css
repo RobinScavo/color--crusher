@@ -3,7 +3,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-family: 'Fraunces', serif;
     color: rgb(19, 67, 102);
     font-size: 21px;
@@ -24,6 +24,7 @@
     display: flex;
     width: 100%;
     height: 700px;
+    margin-top: 10px;
 }
 
 .wheel {
@@ -55,10 +56,10 @@
 
 .wheelOverlayOne {
     position: absolute;
-    left: 30px;
-    top: 158px;
+    left: 3.5%;
+    top: 40%;
     background-image: url('../../Images/comp.png');
-    background-size: 30px;
+    background-size: 13%;
     background-position: center;
     background-repeat: no-repeat;
     height: 40%;
@@ -67,10 +68,11 @@
 
 .wheelOverlayTwo {
     position: absolute;
-    left: 206px;
-    top: 97px;
+    left: 24.5%;
+    top: 24%;
     background-image: url('../../Images/triadic.png');
     background-size: 140px;
+    background-size: 36%;
     background-position: center;
     background-repeat: no-repeat;
     height: 50%;
@@ -79,10 +81,10 @@
 
 .wheelOverlayThree {
     position: absolute;
-    left: 466px;
-    top: 135px;
+    left: 55.7%;
+    top: 35%;
     background-image: url('../../Images/split.png');
-    background-size: 110px;
+    background-size: 27%;
     background-position: center;
     background-repeat: no-repeat;
     height: 50%;
@@ -113,8 +115,27 @@
     font-size: 22px;
     font-family: 'Fontdiner Swanky';
     padding-top: 5px;
+    text-align: center;
 }
 
 .triadicLabel {
     margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 900px) {
+    .explanationDiv{
+        font-size: 90%;
+    }
+    .wheelLabel {
+        font-size: 80%;
+    }
+    .wheelOverlayOne {
+        left: 5%;
+    }
+    .wheelOverlayTwo {
+        left: 25%;
+    }
+    .wheelOverlayThree {
+        left: 54.5%;
+    }
 }
