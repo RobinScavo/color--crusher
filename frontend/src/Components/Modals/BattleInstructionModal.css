@@ -6,7 +6,7 @@
     width: 100%;
     font-family: 'Fraunces', serif;
     color: rgb(19, 67, 102);
-    font-size: 18px;
+    font-size: 100%;
     margin-top: -10px;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .defSpan {
-    font-size: 22px;
+    font-size: 120%;
 }
 
 .exampleDiv {
@@ -37,6 +37,7 @@
     width: 50%;
     height: 90%;
     font-size: 28px;
+    font-size: 160%;
     margin-right: 7px;
     font-family: 'Fontdiner Swanky';
 }
@@ -84,6 +85,7 @@
     height: 25%;
     width: 100%;
     font-size: 25px;
+    font-size: 130%;
     line-height: 40px;
     text-align: center;
 }

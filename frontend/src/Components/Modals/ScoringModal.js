@@ -123,7 +123,7 @@ const ScoringModal = () => {
                     </div>
                 </div>
             </div>
-            <HighScoreDisplay />
+            <HighScoreDisplay id='scoringHiScore'/>
             <button id='playButton' className='backButton' onClick={() => {
                 values.toggleScoringModal();
                 values.newGame();

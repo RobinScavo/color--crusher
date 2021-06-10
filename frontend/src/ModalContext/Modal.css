@@ -35,10 +35,12 @@
     background-clip: padding-box;
     backdrop-filter: blur(15px );
     border: 1px solid rgb(236, 224, 224);
+    font-size: 18px;
   }
 
   @media only screen and (max-width: 900px) {
     #modal-content {
       width: 455px;
+      font-size: 10px;
     }
 }

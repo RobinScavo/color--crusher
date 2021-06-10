@@ -1,7 +1,5 @@
 .scoringDiv {
-    /* background-color: tomato; */
     display: flex;
-    /* justify-content: space-between; */
     align-items: flex-start;
     width: 100%;
     height: 100%;
@@ -12,10 +10,9 @@
 
 .scoringHalf {
     display: flex;
-    justify-content: space-around;
-    width: 60%;
+    justify-content: flex-start;
+    width: 100%;
     height: 100%;
-    /* background-color: teal; */
 }
 
 .bowlScoringDiv {
@@ -27,7 +24,7 @@
     background-image: url('../../Images/footer-blue.png');
     background-size: 110% 50%;
     height: 100%;
-    width: 60%;
+    width: 290px;
     border: 4px solid rgb(255, 90, 0);
     box-sizing: border-box;
     border-radius: 5px;
@@ -52,20 +49,26 @@
     color: rgb(212, 190, 194);
 }
 
+#scoringHiScore {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+
+
 .displayScoringDiv {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    /* background-color: yellow; */
     height: 100%;
-    width: 30%;
-    /* padding-top: 20px; */
-    /* background-color: burlywood; */
+    width: 180px;
     border-top: 2px solid rgba(42, 81, 109, 0.5);
     border-bottom: 2px solid rgb(12, 99, 161, 0.5);
     box-sizing: border-box;
     margin-right: 10px;
+    margin-left: 13px;
 }
 
 #scoringBowl {
@@ -84,10 +87,8 @@
     align-items: flex-end;
     width: 100%;
     height: 15%;
-    /* background-color: blue; */
     font-size: 50px;
     margin-top: 20px;
-    /* background-color: blueviolet; */
 }
 
 .topScore {
@@ -99,8 +100,6 @@
     position: absolute;
     overflow: hidden;
     top: 140px;
-    /* z-index: 1;
-    background: none; */
 }
 
 .topArith {
@@ -119,13 +118,11 @@
     align-items: center;
     width: 100%;
     height: 10%;
-    /* background-color: brown; */
     font-size: 25px;
     margin-bottom: 25px;
 }
 
 .raising {
-    /* color: rgb(255, 90, 0); */
     animation-name: raise;
     animation-duration: .6s;
     animation-iteration-count: 1;
@@ -213,7 +210,6 @@
     }
     50% {
         font-size: 52px;
-        /* color: rgb(255, 90, 0); */
     }
     100% {
         color: rgba(42, 81, 109);
@@ -228,7 +224,6 @@
     }
     50% {
         font-size: 72px;
-        /* color: rgb(255, 90, 0); */
     }
     100% {
         color: rgba(42, 81, 109);
@@ -246,7 +241,6 @@
     font-size: 70px;
     width: 100%;
     height: 25%;
-    /* background-color: blanchedalmond; */
     margin-bottom: 10px;
 }
 
@@ -266,17 +260,31 @@
 #homeButton {
     position: absolute;
     top: 360px;
-    left: 520px;
+    left: 530px;
 }
 
 #testButton {
     position: absolute;
-    /* top: 360px;
-    left: 700px; */
+    top: 380px;
+    left: 0px;
 }
 
 #playButton {
     position: absolute;
     top: 360px;
-    left: 670px
+    left: 700px;
+}
+
+@media only screen and (max-width: 900px) {
+    #scoringHiScore {
+        visibility: hidden;
+    }
+    #playButton {
+        top: 10px;
+        left: 290px;
+    }
+    #homeButton {
+        top: 10px;
+        left: 390px;
+    }
 }

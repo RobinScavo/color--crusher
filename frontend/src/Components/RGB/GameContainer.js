@@ -16,8 +16,10 @@ const GameContainer = () => {
     let delayArray =[0, 750, 600, 450, 300, 150];
     let indexArray = [0, 1, 2, 3, 4, 5];
 
+    let convertMode = values.startConvert ? 'convert' : 'notConvert';
+
     return (
-        <div className='lipDiv'>
+        <div className={`lipDiv ${convertMode}`}>
             <div className='plateDiv' >
                 {/* Set the balls */}
                 {indexArray.map(index => (

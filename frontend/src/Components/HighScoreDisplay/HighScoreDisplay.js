@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import './HighScoreDisplay.css'
 
-const HighScoreDisplay = () => {
+const HighScoreDisplay = (props) => {
 
 
     const data  = [
@@ -57,7 +57,7 @@ const HighScoreDisplay = () => {
     // console.log('TTTTTTTTT', myList)
 
     return (
-        <div className='highScoreDiv'>
+        <div id={props.id} className='highScoreDiv'>
           {/* {data.length ? (
             <div>
               {data.map((item) => {

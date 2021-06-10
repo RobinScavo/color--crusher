@@ -91,10 +91,14 @@ class Controller extends React.Component {
         this.setState({
             repeatRender: false,
             createAnalogous: false,
-            MainModal: !this.state.MainModal
+            MainModal: !this.state.MainModal,
+            round: 0,
+            coins: 0,
+            score: 0,
+            timer: 15
         })
-        this.setState({  })
     }
+
     toggleLoginModal = () => this.setState({ loginModal: !this.state.loginModal })
     toggleBioModal = () => this.setState({ bioModal: !this.state.bioModal })
     togglePlayerPageModal = () => this.setState({ playerPageModal: !this.state.playerPageModal })

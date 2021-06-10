@@ -28,7 +28,7 @@
 
 @media only screen and (max-width: 1330px),
             screen and (max-height: 900px) {
-    .lipDiv {
+    .convert {
         height: 620px;
         width: 620px;
         font-size: 40px;
@@ -37,7 +37,7 @@
 
 @media only screen and (max-width: 1200px),
             screen and (max-height: 800px) {
-    .lipDiv {
+    .convert {
         height: 520px;
         width: 520px;
         font-size: 34px;
@@ -46,18 +46,31 @@
 
 @media only screen and (max-width: 900px),
             screen and (max-height: 700px) {
-    .lipDiv {
+    .convert {
         height: 420px;
         width: 420px;
         font-size: 24px;
+    }
+    .notConvert {
+        height: 620px;
+        width: 620px;
     }
 }
 
 @media only screen and (max-width: 800px),
             screen and (max-height: 600px) {
-    .lipDiv {
+    .convert {
         height: 360px;
         width: 360px;
+    }
+    .notConvert {
+        height: 420px;
+        width: 420px;
+        font-size: 30px;
+    }
+    .bowlOutter {
+        position: absolute;
+        bottom: 50px;
     }
 }
 
