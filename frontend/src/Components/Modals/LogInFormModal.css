@@ -78,6 +78,7 @@ input::placeholder {
     position: absolute;
     top: 15px;
     left: 370px;
+    left: 40%;
     padding-top: 2px;
     height: 35px;
     width: 85px;
@@ -156,4 +157,11 @@ input::placeholder {
 
 #signUpButton {
     font-size: 16px;
+}
+
+
+@media only screen and (max-width: 900px) {
+    input {
+        width: 200px;
+    }
 }

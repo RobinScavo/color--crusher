@@ -58,3 +58,13 @@
 .koinText {
     margin-top: 20px;
 }
+
+@media only screen and (max-width: 900px) {
+    .leftSideDiv {
+        width: 100%;
+    }
+    .rightSideDiv {
+        width: 0%;
+        visibility: hidden;
+    }
+}

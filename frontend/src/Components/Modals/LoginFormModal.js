@@ -55,8 +55,8 @@ function LoginForm() {
             />
             <button className='silverButton logSignButton' type="submit">LogIn</button>
             <button  className='backButton' onClick={() => {
-              values.toggleMainModal();
               values.toggleLoginModal();
+              values.toggleMainModal();
             }}>Back</button>
         </form>
       </div>

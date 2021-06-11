@@ -22,7 +22,7 @@ const PlayerPageModal = () => {
                 </div>
             </div>
             <div className='rightSideDiv'>
-                <HighScoreDisplay />
+                <HighScoreDisplay id='scoringHiScore'/>
             </div>
             <button className='backButton' onClick={() => {
                 values.togglePlayerPageModal();

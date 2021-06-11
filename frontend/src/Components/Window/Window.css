@@ -1,11 +1,13 @@
 .windowDiv {
     position: relative;
-    bottom: 40px;
-    left: 0px;
-    width: 590px;
-    height: 600px;
+    top: -5%;
+    left: 0.5%;
+    height: 720px;
+    width: 720px;
     z-index: 3;
     pointer-events:none;
+    font-size: 19px;
+    /* background-color: turquoise; */
 }
 
 .windowVisible {
@@ -21,8 +23,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 40px;
-    width: 170px;
+    height: 6%;
+    width: 21%;
     border-radius: 5px;
     background: rgba( 255, 255, 255, 0.5 );
     border: solid 1px rgba(255,255,255,0.3);
@@ -34,36 +36,210 @@
     font-weight: bold;
     padding-top: 5px;
     padding-bottom: 5px;
-    font-size: 19px;
 }
 
 .windowOne {
     position: absolute;
     top: 45px;
     left: 222px;
+    top: 22%;
+    left: 38%;
 }
 .windowTwo {
     position: absolute;
-    top: 170px;
-    right: 20px;
+    top: 39%;
+    left: 67%;
 }
 .windowThree {
     position: absolute;
-    bottom: 150px;
-    right: 20px
+    top: 70%;
+    left: 67%;
 }
 .windowFour {
     position: absolute;
-    bottom: 45px;
-    left: 222px;
+    top: 87%;
+    left: 38%;
 }
 .windowFive {
     position: absolute;
-    bottom: 150px;
-    left: 20px;
+    top: 70%;
+    left: 10%;
 }
 .windowSix {
     position: absolute;
-    top: 170px;
-    left: 20px;
+    top: 39%;
+    left: 10%;
 }
+
+@media only screen and (max-width: 1330px), (max-height: 900px) {
+    .windowDiv {
+        height: 620px;
+        width: 620px;
+        font-size: 16px;
+        top: -3%;
+    }
+}
+
+@media only screen and (max-width: 1200px), (max-height: 800px) {
+    .windowDiv {
+        height: 520px;
+        width: 520px;
+        font-size: 13px;
+        top: -15%;
+    }
+}
+
+@media only screen and (max-width: 900px), (max-height: 700px) {
+    .windowDiv {
+        height: 420px;
+        width: 420px;
+        top: -33%;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 800px), (max-height: 600px) {
+    .windowDiv {
+        height: 360px;
+        width: 360px;
+        /* font-size: 20px; */
+    }
+    .bowlOutter {
+        position: absolute;
+        bottom: 50px;
+    }
+}
+/*
+
+@media only screen and (max-width: 1330px) {
+    .convertWindow {
+        height: 620px;
+        width: 620px;
+        font-size: 18px;
+        bottom: 8%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .convertWindow {
+        height: 520px;
+        width: 520px;
+        font-size: 18px;
+        bottom: 8%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .convertWindow {
+        height: 420px;
+        width: 420px;
+        font-size: 13px;
+        bottom: 27%;
+    }
+    .notConvertWindow {
+        height: 620px;
+        width: 620px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .convertWindow {
+        height: 360px;
+        width: 360px;
+        font-size: 12px;
+        bottom: 35%;
+    }
+    .notConvertWindow {
+        height: 420px;
+        width: 420px;
+        font-size: 30px;
+    }
+    .bowlOutter {
+        position: absolute;
+        bottom: 50px;
+    }
+} */
+
+
+/* @media only screen and (max-height: 900px) {
+    .notConvertWindow, .convertWindow {
+        height: 620px;
+        width: 620px;
+        font-size: 13px;
+        bottom: 27%;
+    }
+}
+
+@media only screen and (max-height: 800px) {
+    .notConvertWindow, .convertWindow {
+        height: 520px;
+        width: 520px;
+        font-size: 34px;
+    }
+}
+
+@media only screen and (max-height: 700px) {
+    .notConvertWindow, .convertWindow {
+        height: 420px;
+        width: 420px;
+        font-size: 24px;
+    }
+} */
+
+/*
+@media only screen and (max-width: 1330px),
+            screen and (max-height: 900px) {
+    .notConvertWindow {
+        height: 720px;
+        width: 720px;
+        background-color: tomato;
+    }
+}
+
+@media only screen and (max-width: 1200px),
+            screen and (max-height: 800px) {
+    .windowDiv {
+        height: 620px;
+        width: 620px;
+        font-size: 18px;
+        bottom: 8%;
+    }
+    .notConvertWindow {
+        height: 720px;
+        width: 720px;
+        background-color: tomato;
+    }
+}
+
+@media only screen and (max-width: 900px),
+            screen and (max-height: 700px) {
+    .windowDiv {
+        height: 420px;
+        width: 490px;
+        font-size: 13px;
+        bottom: 27%;
+    }
+    .notConvertWindow {
+        height: 620px;
+        width: 620px;
+    }
+}
+
+@media only screen and (max-width: 800px),
+            screen and (max-height: 600px) {
+    .windowDiv {
+        height: 360px;
+        width: 440px;
+        font-size: 12px;
+        bottom: 35%;
+    }
+    .notConvert {
+        height: 420px;
+        width: 420px;
+        font-size: 30px;
+    }
+    .bowlOutter {
+        position: absolute;
+        bottom: 50px;
+    }
+} */

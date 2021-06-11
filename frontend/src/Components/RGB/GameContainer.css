@@ -14,7 +14,6 @@
 }
 
 .lipDiv {
-    /* margin-bottom: 125px; */
     position: absolute;
     top: 40px;
     height: 720px;
@@ -26,47 +25,36 @@
     font-size: 44px;
 }
 
-@media only screen and (max-width: 1330px),
-            screen and (max-height: 900px) {
-    .convert {
+
+@media only screen and (max-width: 1330px), (max-height: 900px) {
+    .lipDiv {
         height: 620px;
         width: 620px;
         font-size: 40px;
     }
 }
 
-@media only screen and (max-width: 1200px),
-            screen and (max-height: 800px) {
-    .convert {
+@media only screen and (max-width: 1200px), (max-height: 800px) {
+    .lipDiv {
         height: 520px;
         width: 520px;
         font-size: 34px;
     }
 }
 
-@media only screen and (max-width: 900px),
-            screen and (max-height: 700px) {
-    .convert {
+@media only screen and (max-width: 900px), (max-height: 700px) {
+    .lipDiv {
         height: 420px;
         width: 420px;
         font-size: 24px;
     }
-    .notConvert {
-        height: 620px;
-        width: 620px;
-    }
 }
 
-@media only screen and (max-width: 800px),
-            screen and (max-height: 600px) {
-    .convert {
+@media only screen and (max-width: 800px), (max-height: 600px) {
+    .lipDiv {
         height: 360px;
         width: 360px;
-    }
-    .notConvert {
-        height: 420px;
-        width: 420px;
-        font-size: 30px;
+        font-size: 20px;
     }
     .bowlOutter {
         position: absolute;
@@ -96,14 +84,11 @@
     top: 30%;
     right: 39%;
     color: rgba(42, 81, 109);
-    /* font-size: 44px; */
-    /* font-size: 100%; */
     font-weight: bolder;
 }
 
 .colorNumber {
     position: relative;
-    /* font-size: 40px; */
     font-size: 93%;
     color: rgba(42, 81, 109);
     font-weight: bolder;
