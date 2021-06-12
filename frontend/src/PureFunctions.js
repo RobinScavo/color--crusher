@@ -43,7 +43,7 @@ export function generateGhostArray() {
     for (let i = 0; i < 6; i++) {
         // let temp = randomColor();
         // let sliced = temp.slice(0)
-        arr.push('broken color');
+        arr.push('255, 255, 255, 0.1');
     }
 
     const newArray = addStyleString(arr);
@@ -60,6 +60,14 @@ function randomColor() {
     //pick a "blue" from 0 to 255
     const b = Math.floor(Math.random() * 256);
     // return RGBtoHSL(`(${r}, ${g}, ${b})`);
+
+    //make sure not too white or black
+    let difference = Math.abs(Math.abs(r - g) - b)
+    if (difference < 30) {
+        console.log('recursed')
+        return randomColor()
+    }
+
     return `${r}, ${g}, ${b}`;
 }
 
@@ -368,7 +376,7 @@ export function RGBtoHEX (rgb) {
     if (g.length ===1)  {g = 0 + g}
     if (b.length ===1)  {b = 0 + b}
 
-    console.log('CCCCCCCC', `${r}, ${g}, ${b}`)
+    // console.log('CCCCCCCC', `${r}, ${g}, ${b}`)
     return `${r}, ${g}, ${b}`
 }
 

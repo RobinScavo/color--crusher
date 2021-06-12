@@ -9,6 +9,20 @@ function addStyleString (arr) {
     return newArray
 }
 
+function randomColor() {
+    //pick a "red" from 0 to 255
+    const r = Math.floor(Math.random() * 256);
+    //pick a "green" from 0 to 255
+    const g = Math.floor(Math.random() * 256);
+    //pick a "blue" from 0 to 255
+    const b = Math.floor(Math.random() * 256);
+    // return RGBtoHSL(`(${r}, ${g}, ${b})`);
+    console.log('XXXXXXXXXX', Math.abs(Math.abs(r - g) - b))
+    return `${r}, ${g}, ${b}`;
+}
+
+console.log(randomColor())
+
 function generateBattleColors() {
     const arr = []
 
@@ -123,7 +137,7 @@ function HSLtoRGB (hslValue) {
 
     return `${r}, ${g}, ${b}`;
 }
-console.log(HSLtoRGB('232,44%,11%'))
+// console.log(HSLtoRGB('232,44%,11%'))
 // console.log(RGBtoHSL('160, 169, 0'))
 function RGBtoHSL (rgbValue) {
     //slice off parens,
@@ -132,7 +146,7 @@ function RGBtoHSL (rgbValue) {
     let red = Number(split[0]);
     let green = Number(split[1]);
     let blue = Number(split[2]);
-    console.log('RGB', red, green, blue)
+    // console.log('RGB', red, green, blue)
 
     //Make red, green, blue fractions of 1
     red /= 255;
@@ -208,16 +222,16 @@ function generateEasyColors() {
     return returnArr
 }
 
-function randomColor() {
-    //pick a "red" from 0 to 255
-    const r = Math.floor(Math.random() * 256);
-    //pick a "green" from 0 to 255
-    const g = Math.floor(Math.random() * 256);
-    //pick a "blue" from 0 to 255
-    const b = Math.floor(Math.random() * 256);
-    // return RGBtoHSL(`(${r}, ${g}, ${b})`);
-    return `${r}, ${g}, ${b}`;
-}
+// function randomColor() {
+//     //pick a "red" from 0 to 255
+//     const r = Math.floor(Math.random() * 256);
+//     //pick a "green" from 0 to 255
+//     const g = Math.floor(Math.random() * 256);
+//     //pick a "blue" from 0 to 255
+//     const b = Math.floor(Math.random() * 256);
+//     // return RGBtoHSL(`(${r}, ${g}, ${b})`);
+//     return `${r}, ${g}, ${b}`;
+// }
 
 function generateHardColors() {
     const arr = [];
@@ -247,7 +261,7 @@ function HEXtoRGB (hex) {
     return `${r}, ${g}, ${b}`
 }
 
-console.log(HEXtoRGB(`#33AAEE`))
+// console.log(HEXtoRGB(`#33AAEE`))
 
 // console.log('!!!!!', HSLtoRGB('255, 11%, 33%'))
 
