@@ -27,7 +27,6 @@ const LeftConvertPanel = (props) => {
                         >HSL</button>
                     <button className={`convertButton ${props.fromHexButton ? 'activeConvert' : 'hiddenConvert'}`} onClick={props.toggleFromHexButton}
                         >HEX</button>
-                    {/* <div className={`convertArrow`}>➛</div> */}
 
                     <div className={`convertTextDiv`}>Convert To</div>
                     <button className={`convertButton ${props.toRgbButton ? 'activeConvert' : 'hiddenConvert'}`} onClick={props.toggleToRgbButton}
@@ -36,7 +35,6 @@ const LeftConvertPanel = (props) => {
                         >HSL</button>
                     <button className={`convertButton ${props.toHexButton ? 'activeConvert' : 'hiddenConvert'}`} onClick={props.toggleToHexButton}
                         >HEX</button>
-                    {/* <div className='convertArrow'>➛</div> */}
                 </div>
             </div>
             <div >

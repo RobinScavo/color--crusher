@@ -284,6 +284,11 @@ const ConvertContainer = () => {
                 toTopInput={toTopInput}
                 toMiddleInput={toMiddleInput}
                 toBottomInput={toBottomInput}
+
+                toggleCreateTriadic={values.toggleCreateTriadic}
+                toggleCreateAnalogous={values.toggleCreateAnalogous}
+                toggleCreatePastel={values.toggleCreatePastel}
+                toggleRepeatRender={values.toggleRepeatRender}
             />
         </>
     )

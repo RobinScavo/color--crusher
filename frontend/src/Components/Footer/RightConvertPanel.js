@@ -1,13 +1,9 @@
-import React, { useContext, useState } from 'react'
-
-import ColorContext from '../../ColorContext'
+import React, { useState } from 'react'
 
 // import './ConvertContainer.css'
 import './RightConvertPanel.css'
 
 const RightConvertPanel = (props) => {
-    const values = useContext(ColorContext)
-
     const [togglePosition, setTogglePosition] = useState(false);
     const [disable, setDisable] = useState(false);
 
@@ -31,21 +27,21 @@ const RightConvertPanel = (props) => {
                         disabled={disable}
                         onClick={() => {
                             disableButtons()
-                            values.toggleCreateTriadic()
+                            props.toggleCreateTriadic()
                 } }>Triadic</button>
 
                 <button className='rightConvertButton'
                         disabled={disable}
                         onClick={() => {
                             disableButtons()
-                            values.toggleCreateAnalogous()
+                            props.toggleCreateAnalogous()
                 }}>Analogous</button>
 
                 <button className='rightConvertButton'
                         disabled={disable}
                         onClick={() => {
                             disableButtons()
-                            values.toggleCreatePastel()
+                            props.toggleCreatePastel()
                 }}>Pastel</button>
 
                 <div className='repeatLabel'>Repeat</div>
@@ -53,10 +49,9 @@ const RightConvertPanel = (props) => {
                 <div className='repeatToggle' onClick={() => {
                     setTogglePosition(!togglePosition)
                     if (togglePosition) {
-                        console.log('WWWWWWWw')
                         setDisable(false)
                     }
-                    values.toggleRepeatRender()
+                    props.toggleRepeatRender()
                 }}>
                     <div className='toggleText'>On</div>
                     <div className='toggleText'>Off</div>
