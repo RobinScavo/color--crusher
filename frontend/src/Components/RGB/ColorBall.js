@@ -33,6 +33,7 @@ const ColorBall = (props) => {
         setTimeout(() => {
             setColor(props.color);
             setVisibility(props.visibility)
+            setValidTarget(true)
         }, props.delay)
     }, [props.color, props.visibility, props.delay])
 

@@ -222,6 +222,7 @@ class Controller extends React.Component {
             coins: 0,
             score: 0,
             timer: 15,
+            coinArray: [true, true, true]
         })
         this.toggleStartBattle();
         this.startGame();
@@ -291,12 +292,13 @@ class Controller extends React.Component {
             this.state.round <= 2
                 ? arr = generateEasyArray()
                 : arr = generateTriadicArray()
-            }
+        }
+
 
         if (!this.state.startBattle &&
             !this.state.startConvert) {
                 arr = generateAnalogousArray()
-            }
+        }
 
 
         if (this.state.startBattle) {
@@ -310,12 +312,12 @@ class Controller extends React.Component {
                 round: this.state.round + 1,
                 colorTargetId: targetId,
                 colorTarget: colorTarget,
+                gameOn: true,
             })
         }
 
         this.setState({
             colorArray: arr,
-            gameOn: true,
         });
 
         if (this.state.repeatRender) {

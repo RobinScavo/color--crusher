@@ -34,6 +34,7 @@ const GameContainer = () => {
                         visibility='visible'
                     />
                 ))}
+
                 <div className='targetColorDiv' >
 
                     {/* Start button */}
@@ -54,7 +55,6 @@ const GameContainer = () => {
                     {/* Target color */}
                     {values.startBattle &&
                      values.gameOn &&
-                     values.startBattle &&
                         <div className='targetDiv'>
                             <h2 className='colorText'>RGB</h2>
                             <h2 className='colorNumber'>{values.colorTarget}</h2>

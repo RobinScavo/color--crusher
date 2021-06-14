@@ -34,8 +34,9 @@ const BattleInstructionModal = () => {
                 of increasing complexity.<br/> Earn points for speed and accuracy!</div>
             <button  className='gotItButton' onClick={() => {
                 values.toggleBattleInstructionModal();
-                values.toggleStartBattle();
-                values.startGame();
+                values.newGame();
+                // values.toggleStartBattle();
+                // values.startGame();
             }}>Got it!</button>
         </div>
     )
