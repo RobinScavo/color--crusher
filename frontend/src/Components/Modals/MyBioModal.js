@@ -43,7 +43,7 @@ const MyBioModal = () => {
                 <button className='bioBackButton' onClick={() => {
                     values.toggleBioModal();
                     values.toggleMainModal();
-                }}>Back</button>
+                }}>Home</button>
 
                 <div className='contactDiv'>
                     <div className='linkedIn' onClick={() => window.open('https://www.linkedin.com/in/robin-scavo-0617881b5/')}></div>

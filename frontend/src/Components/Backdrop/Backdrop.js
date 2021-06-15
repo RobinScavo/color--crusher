@@ -4,6 +4,7 @@ import GameContainer from '../RGB/GameContainer'
 import Banner from '../Banner/Banner'
 import Footer from '../Footer/Footer'
 import Window from '../Window/Window'
+import CustomWindow from '../CustomWindow/CustomWindow'
 import ColorContext from '../../ColorContext'
 
 
@@ -17,6 +18,7 @@ const BackDrop = () => {
             <Banner />
             <div className='upperRoundDiv'>
                 <Window />
+                <CustomWindow />
                 <GameContainer />
                 <div className='innerDiv'></div>
                 <div className='sideDivRight'></div>

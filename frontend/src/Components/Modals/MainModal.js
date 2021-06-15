@@ -65,7 +65,7 @@ function MainModel() {
               <div className='buttonDiv'>
                 <h1 className='titleText'>MeetMode</h1>
                 <button className='bioPic' onClick={() => {
-                  values.toggleLoginModal();
+                  values.toggleMainModal();
                   values.toggleBioModal();
                 }}>Bio</button>
               </div>

@@ -14,18 +14,6 @@
     border-top-left-radius: 15%;
 }
 
-.rightButtonDiv {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    height: 500px;
-    width: 170px;
-    background-color: rgb(206, 186, 186);
-    background: linear-gradient(to left, rgb(158, 126, 131) 0.5%, rgb(206, 186, 186) 99.5%);
-    z-index: 3;
-    border-top-left-radius: 35px;
-}
-
 .rightConvertTextDiv {
     text-align: center;
     height: 80px;
@@ -47,7 +35,6 @@
     width: 115px;
     margin-top: 5px;
     background-color: rgba(42, 81, 109);
-    /* border-radius: 5%; */
     color:  rgb(206, 186, 186);
     font-family: 'Fontdiner Swanky';
     border-radius: 5px;
@@ -73,6 +60,9 @@
     bottom: 0;
     height: 760px;
     width: 170px;
+    background-color: rgb(206, 186, 186);
+    background: linear-gradient(to left, rgb(158, 126, 131) 0.5%, rgb(206, 186, 186) 99.5%);
+    border-top-left-radius: 35px;
 }
 
 .repeatLabel {
@@ -91,7 +81,6 @@
     width: 115px;
     background-color: rgb(255, 90, 0);
     background-color: rgba(42, 81, 109);
-    /* border-radius: 5%; */
     color: rgba(42, 81, 109);
     color:  rgb(206, 186, 186);
     border-radius: 5px;
@@ -99,6 +88,33 @@
     border: none;
     outline: none;
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 700px) {
+    .convertDiv {
+        width: 270px;
+    }
+    .rightButtonDiv {
+        height: 460px;
+        width: 270px;
+        flex-wrap: wrap;
+    }
+    .repeatToggle {
+        visibility: hidden;
+    }
+    .rightConvertTextDiv {
+        visibility: hidden;
+        height: 0;
+        width: 0;
+    }
+    .rightConvertButton {
+        height: 35px;
+        width: 95px;
+        margin-top: -10px;
+    }
+    .repeatLabel {
+        visibility: hidden;
+    }
 }
 
 .toggleText {
@@ -191,7 +207,6 @@
     background: linear-gradient( rgb(236, 224, 224) 0.5%,  rgb(212, 190, 194) 99.5%);
     box-sizing: border-box;
     border-radius: 5px;
-    /* font-family: 'Fontdiner Swanky'; */
     color: rgba(42, 81, 109);
     font-size: 18px;
 }

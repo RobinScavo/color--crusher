@@ -154,7 +154,7 @@ const ConvertContainer = () => {
 
         //RGB to HSL
         if ((fromRgbButton  && toHslButton)) {
-            renderedColor = tempInput.join(',');
+            renderedColor = tempInput.join(', ');
             displayedValue = RGBtoHSL(renderedColor)
 
         //HSL to RGB
@@ -170,7 +170,7 @@ const ConvertContainer = () => {
 
         //RGB to HEX
         } else if (fromRgbButton && toHexButton) {
-            renderedColor = tempInput.join(',');
+            renderedColor = tempInput.join(', ');
             displayedValue = RGBtoHEX(tempInput.join(','))
 
         //HSL to HEX

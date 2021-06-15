@@ -57,7 +57,7 @@ function LoginForm() {
             <button  className='backButton' onClick={() => {
               values.toggleLoginModal();
               values.toggleMainModal();
-            }}>Back</button>
+            }}>Home</button>
         </form>
       </div>
       <div className='signUpFormDiv'>

@@ -37,6 +37,7 @@ class Controller extends React.Component {
             coinArray: [true, true, true],
             gameOn: false,
             windowDisplayed: false,
+            customDisplayed: false,
             customColor: '255, 255, 255',
 
             MainModal: false,
@@ -109,6 +110,7 @@ class Controller extends React.Component {
     toggleGameOn = () => this.setState({ gameOn: false })
     toggleRepeatRender = () => this.setState({ repeatRender: !this.state.repeatRender })
     toggleWindowDisplay = () => this.setState({ windowDisplayed: !this.state.windowDisplayed})
+    toggleCustomDisplay = () => this.setState({ customDisplayed: !this.state.customDisplayed})
     clearRounds = () => this.setState({ round: 0})
 
     toggleCreateAnalogous = () => {
@@ -152,8 +154,16 @@ class Controller extends React.Component {
         this.clearBoard();
         setTimeout(() => {
             this.updateColorArrayContext();
-            this.setState({ createCustom: false});
+            this.setState({
+                customDisplayed: true,
+                createCustom: false
+            });
         }, 1100)
+        setTimeout(() => {
+            this.setState({
+                customDisplayed: false
+            })
+        }, 3100)
     }
 
     toggleStartBattle = () => {
