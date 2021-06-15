@@ -30,9 +30,12 @@ const ScoringModal = () => {
     const futureTotal = values.score + values.coins
 
     useEffect(() => {
-        setTimeout(() => {
+        let timeout = setTimeout(() => {
             setTopCountdown(true)
         }, 1000)
+        return () => {
+            clearTimeout(timeout)
+        }
     })
 
     //Speed countdown/countup

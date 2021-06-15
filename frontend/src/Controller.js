@@ -194,10 +194,10 @@ class Controller extends React.Component {
                 if (coin) coinCount++
             }
 
-            this.setState({
-                gameOn: false,
-                coins: coinCount,
-             });
+            this.setState({ gameOn: false });
+            setTimeout(() => {
+                this.setState({ coins: coinCount })
+            }, 2700)
         }
 
         this.clearBoard();
@@ -241,10 +241,10 @@ class Controller extends React.Component {
     }
 
     updateTimerContext = (seconds) => {
-        this.setState({
-            timer: seconds,
-            score: this.state.score + seconds,
-        })
+        this.setState({ timer: seconds })
+        setTimeout(() => {
+            this.setState({ score: this.state.score + seconds })
+        }, 1700)
     }
 
     updateColorArrayContext = () => {

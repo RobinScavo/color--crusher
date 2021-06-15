@@ -62,8 +62,8 @@ function randomColor() {
     // return RGBtoHSL(`(${r}, ${g}, ${b})`);
 
     //make sure not too white or black
-    let difference = Math.abs(Math.abs(r - g) - b)
-    if (difference < 30) {
+    let difference = Math.abs(Math.abs(r - g) + Math.abs(r - b) + Math.abs(g - b))
+    if (difference < 80) {
         return randomColor()
     }
 
