@@ -11,23 +11,29 @@ const PlayerPageModal = () => {
     return (
         <div className='playerDiv'>
             <div className='leftSideDiv'>
-                <h1 className='nameText'>Sebastian Scavo</h1>
-                <div className='fancyDisplayDiv  koinText'>
-                    <h1 className='yourDisplayText'>Coin Count</h1>
-                    <div className='silverButton playerButton'>256</div>
+                <div className='playerButtonDiv'>
+                    <button id='editButton' className='upperPlayerButton'>Edit</button>
+                    <button id='deleteButton' className='upperPlayerButton'>Delete</button>
+                    <button className='upperPlayerButton' onClick={() => {
+                        values.togglePlayerPageModal();
+                        values.toggleMainModal();
+                    }}>Home</button>
                 </div>
-                <div className='fancyDisplayDiv skoreText'>
-                    <h1 className='yourDisplayText'>High Score</h1>
-                    <div className='silverButton playerButton'>498</div>
+                <div className='playerDisplayDiv'>
+                    <h1 className='nameText'>Sebastian Scavo</h1>
+                    {/* <div className='fancyDisplayDiv  koinText'>
+                        <h1 className='yourDisplayText'>Coin Count</h1>
+                        <div className='silverButton playerButton'>256</div>
+                    </div> */}
+                    <div className='fancyDisplayDiv skoreText'>
+                        <h1 className='yourDisplayText'>High Score</h1>
+                        <div className='silverButton playerButton'>498</div>
+                    </div>
                 </div>
             </div>
             <div className='rightSideDiv'>
-                <HighScoreDisplay id='scoringHiScore'/>
+                <HighScoreDisplay id='playerHiScore'/>
             </div>
-            <button className='backButton' onClick={() => {
-                values.togglePlayerPageModal();
-                values.toggleMainModal();
-            }}>Back</button>
         </div>
     )
 }

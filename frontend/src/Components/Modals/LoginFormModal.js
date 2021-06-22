@@ -1,12 +1,14 @@
 import React, { useContext, useState } from "react";
 
 import SignUpForm from '../SignupFormPage/SignUpFormPage'
-import ColorContext from '../../ColorContext'
+import ColorContext from '../../ColorContext';
+import UserContext from "../../context/UserContext";
 
 import './LogInFormModal.css'
 
 function LoginForm() {
   const values = useContext(ColorContext);
+  const { onLogin } = useContext(UserContext)
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,7 +16,7 @@ function LoginForm() {
   const handleLogin = (event) => {
     event.preventDefault();
     console.log(email, password)
-    values.onLogin(email, password)
+    onLogin(email, password)
   }
 
   return (

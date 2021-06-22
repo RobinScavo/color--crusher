@@ -20,8 +20,8 @@ function App() {
       .signInWithEmailAndPassword(email, password)
       .then((response) => {
         setUser({
-          email: response.user['email']
-          // isAuthenticated: true
+          email: response.user['email'],
+          isAuthenticated: true,
         })
       })
       .catch(error => console.error(error))
