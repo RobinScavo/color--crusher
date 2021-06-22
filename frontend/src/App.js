@@ -5,9 +5,27 @@ import { Route, Switch } from "react-router-dom";
 // import * as sessionActions from "./store/session";
 // import Navigation from "./Components/Navigation";
 // import ControllerContainer from './ControllerContainer'
+import firebase from "./firebase";
+import { useStorageState } from 'react-storage-hooks';
+
+import UserContext from './context/UserContext'
 import Controller from './Controller'
 
 function App() {
+  const [user, setUser] = useStorageState(localStorage, 'state-user', {});
+
+  const onLogin = (email, password) => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((response) => {
+        setUser({
+          email: response.user['email']
+          // isAuthenticated: true
+        })
+      })
+      .catch(error => console.error(error))
+  }
   // const dispatch = useDispatch();
   // const [isLoaded, setIsLoaded] = useState(false);
   // useEffect(() => {
@@ -30,9 +48,11 @@ function App() {
         <Route path ='/players' component={Controller}>
 
       </Switch> */}
-      <Route>
-          <Controller />
-      </Route>
+      {/* <Route> */}
+      <UserContext.Provider value={{ user, onLogin }}>
+          <Controller onLogin={onLogin}/>
+      </UserContext.Provider>
+      {/* </Route> */}
     </>
 )
 }

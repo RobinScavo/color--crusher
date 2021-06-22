@@ -13,7 +13,7 @@ function MainModel() {
     <div className='instructionDiv'>
         <div className='upperDiv'>
           <div className='greetingDiv'>
-            <h1 className='greetingText'><span className='biggerGreet'>Play as a guest</span> or <span className='optionalText'>log in to save your progress</span></h1>
+            <h1 className='greetingText'><span className='biggerGreet'>Play as a guest</span> or <span className='optionalText'>log in to display your score</span></h1>
             <h1 className='arrow arrowLog'>➛</h1>
           </div>
 

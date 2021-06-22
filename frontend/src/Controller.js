@@ -40,6 +40,7 @@ class Controller extends React.Component {
             customDisplayed: false,
             customColor: '255, 255, 255',
 
+            onLogin: props.onLogin,
             MainModal: false,
             loginModal: false,
             bioModal: false,
