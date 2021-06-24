@@ -13,6 +13,28 @@ import Controller from './Controller'
 
 function App() {
   const [user, setUser] = useStorageState(localStorage, 'state-user', {});
+  const [players, setPlayers] = useState([])
+
+  const player = { key: null, name: '', email: '', password: '', score: 0}
+  const playersRef = firebase.database().ref('players')
+
+  useEffect(() => {
+    const playersRef = firebase.database().ref('players');
+    playersRef.on('value', (snapshot) => {
+      const players = snapshot.val();
+      const newStatePlayers = [];
+      for (let player in players) {
+        newStatePlayers.push({
+          key: player,
+          name: players[player].name,
+          email: players[player].email,
+          password: players[player].password,
+          score: players[player].score,
+        })
+      }
+      setPlayers(newStatePlayers)
+    });
+  }, [setPlayers, playersRef])
 
   const onLogin = (email, password) => {
     firebase
@@ -38,13 +60,43 @@ function App() {
       .catch((error) => console.error(error))
   }
 
-  const onEdit = (email, password) => {
-    console.log(email, password)
+  const onEdit = (updateEmail, updatePassword, updateName, updateScore) => {
+    const playerRef = firebase.database().ref('players/' + player.key);
+    playerRef.update({
+      name: updateName,
+      email: updateEmail,
+      password: updatePassword,
+      score: updateScore,
+    })
+  }
+
+  const addNewPlayer = (playerName, playerPassword, playerEmail, playerScore) => {
+    delete player.key
+    playersRef.push({
+      name: playerName,
+      email: playerEmail,
+      password: playerPassword,
+      score: playerScore})
+  }
+
+  const deletePlayer = (player) => {
+    if (window.confirm('Your account will be deleted. Proceed?')) {
+      const playerRef = firebase.database().ref('players/' + player.key);
+      playerRef.remove();
+    }
   }
 
   return (
     <>
-      <UserContext.Provider value={{ user, onLogin, onLogout, onEdit }}>
+      <UserContext.Provider value={{
+        user,
+        players,
+        onLogin,
+        onLogout,
+        onEdit,
+        addNewPlayer,
+        deletePlayer
+      }}>
           <Controller/>
       </UserContext.Provider>
     </>
