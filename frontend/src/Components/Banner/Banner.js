@@ -2,13 +2,17 @@ import React, { useContext } from 'react';
 
 import './Banner.css';
 
-import UserName from './UserName'
-import ColorContext from '../../ColorContext'
+// import UserName from './UserName'
+import ColorContext from '../../ColorContext';
+import UserContext from '../../context/UserContext';
+
 import ScoreTimer from './ScoreTimer';
 import CryptoCoin from './CryptoCoin';
 
 const Banner = () => {
-    const values = useContext(ColorContext)
+    const values = useContext(ColorContext);
+    const { user } = useContext(UserContext);
+    console.log(user)
 
     return (
         <div className='bannerDiv'>
@@ -32,7 +36,8 @@ const Banner = () => {
                 <CryptoCoin index={2} className='cryptoThree'/>
                 </>
             }
-            <UserName />
+            <h1 className='userName'>{`${user.email}`}</h1>
+            {/* <UserName /> */}
         </div>
     )
 }

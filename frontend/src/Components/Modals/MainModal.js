@@ -2,20 +2,28 @@ import React, { useContext } from 'react';
 
 import HighScoreDisplay from '../HighScoreDisplay/HighScoreDisplay'
 import ColorContext from '../../ColorContext'
+import UserContext from '../../context/UserContext'
 
 import './LogInFormModal.css'
 import './MainModel.css'
 
 function MainModel() {
   const values = useContext(ColorContext);
+  const { user } = useContext(UserContext);
 
   return (
     <div className='instructionDiv'>
         <div className='upperDiv'>
-          <div className='greetingDiv'>
-            <h1 className='greetingText'><span className='biggerGreet'>Play as a guest</span> or <span className='optionalText'>log in to display your score</span></h1>
-            <h1 className='arrow arrowLog'>➛</h1>
-          </div>
+            {user.isAuthenticated ? (
+              <div>
+                <h1 className='greetingText'><span className='biggerGreet'>{`Welcome ${user.name}`}</span></h1>
+              </div>
+            ) : (
+              <div className='greetingDiv'>
+                <h1 className='greetingText'><span className='biggerGreet'>Play as a guest</span> or <span className='optionalText'>log in to display your score</span></h1>
+                <h1 className='arrow arrowLog'>➛</h1>
+              </div>
+            )}
 
           {/* Log In */}
           <div className='optionDiv'>

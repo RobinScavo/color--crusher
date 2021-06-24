@@ -26,33 +26,27 @@ function App() {
       })
       .catch(error => console.error(error))
   }
-  // const dispatch = useDispatch();
-  // const [isLoaded, setIsLoaded] = useState(false);
-  // useEffect(() => {
-  //   dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-  // }, [dispatch]);
+
+  const onLogout = () => {
+    console.log('logOut', user)
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        setUser({ isAuthenticated: false });
+      })
+      .catch((error) => console.error(error))
+  }
+
+  const onEdit = (email, password) => {
+    console.log(email, password)
+  }
 
   return (
     <>
-      {/* <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
-        </Switch>
-
-      )} */}
-      {/* <Switch>
-        <Route exact path ='/' component={Controller}>
-        <Route path ='/players' component={Controller}>
-
-      </Switch> */}
-      {/* <Route> */}
-      <UserContext.Provider value={{ user, onLogin }}>
-          <Controller onLogin={onLogin}/>
+      <UserContext.Provider value={{ user, onLogin, onLogout, onEdit }}>
+          <Controller/>
       </UserContext.Provider>
-      {/* </Route> */}
     </>
 )
 }

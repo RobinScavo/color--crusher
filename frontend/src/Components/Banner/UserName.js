@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { Modal } from '../../ModalContext/Modal';
-import LoginFormModal from '../Modals/LoginFormModal';
+// import React, { useState } from 'react';
+// import { Modal } from '../../ModalContext/Modal';
+// import LoginFormModal from '../Modals/LoginFormModal';
 
-const UserName = () => {
-    const [showModal, setShowModal] = useState(false);
+// const UserName = () => {
+//     const [showModal, setShowModal] = useState(false);
 
-    return (
-        <>
-            <div className='userName' onClick={() => setShowModal(true)}>Guest</div>
-            {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
-                    <LoginFormModal />
-                </Modal>
-            )}
-        </>
-    )
-}
+//     return (
+//         <>
+//             <div className='userName' onClick={() => setShowModal(true)}>Guest</div>
+//             {showModal && (
+//                 <Modal onClose={() => setShowModal(false)}>
+//                     <LoginFormModal />
+//                 </Modal>
+//             )}
+//         </>
+//     )
+// }
 
-export default UserName
+// export default UserName
