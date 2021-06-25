@@ -18,23 +18,23 @@ function App() {
   const player = { key: null, name: '', email: '', password: '', score: 0}
   const playersRef = firebase.database().ref('players')
 
-  useEffect(() => {
-    const playersRef = firebase.database().ref('players');
-    playersRef.on('value', (snapshot) => {
-      const players = snapshot.val();
-      const newStatePlayers = [];
-      for (let player in players) {
-        newStatePlayers.push({
-          key: player,
-          name: players[player].name,
-          email: players[player].email,
-          password: players[player].password,
-          score: players[player].score,
-        })
-      }
-      setPlayers(newStatePlayers)
-    });
-  }, [setPlayers, playersRef])
+  // useEffect(() => {
+  //   const playersRef = firebase.database().ref('players');
+  //   playersRef.on('value', (snapshot) => {
+  //     const players = snapshot.val();
+  //     const newStatePlayers = [];
+  //     for (let player in players) {
+  //       newStatePlayers.push({
+  //         key: player,
+  //         name: players[player].name,
+  //         email: players[player].email,
+  //         password: players[player].password,
+  //         score: players[player].score,
+  //       })
+  //     }
+  //     setPlayers(newStatePlayers)
+  //   });
+  // }, [setPlayers, playersRef])
 
   const onLogin = (email, password) => {
     firebase
@@ -55,36 +55,56 @@ function App() {
       .auth()
       .signOut()
       .then(() => {
-        setUser({ isAuthenticated: false });
+        setUser({
+          email: 'guest',
+          isAuthenticated: false
+        });
       })
       .catch((error) => console.error(error))
   }
 
-  const onEdit = (updateEmail, updatePassword, updateName, updateScore) => {
-    const playerRef = firebase.database().ref('players/' + player.key);
-    playerRef.update({
-      name: updateName,
-      email: updateEmail,
-      password: updatePassword,
-      score: updateScore,
-    })
+  const onSignup = (email, password, name, score) => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      // .then((cred) => console.log('ZZZZZZZZZ', cred))
+      .then((credential) => {
+        setUser({
+          email: credential.user.email,
+          isAuthenticated: true,
+          name: name,
+          score: score
+        })
+      })
+      .catch((error) => console.error(error))
   }
 
-  const addNewPlayer = (playerName, playerPassword, playerEmail, playerScore) => {
-    delete player.key
-    playersRef.push({
-      name: playerName,
-      email: playerEmail,
-      password: playerPassword,
-      score: playerScore})
-  }
+  // const onEdit = (updateEmail, updatePassword, updateName, updateScore) => {
+  //   const playerRef = firebase.database().ref('players/' + player.key);
+  //   playerRef.update({
+  //     name: updateName,
+  //     email: updateEmail,
+  //     password: updatePassword,
+  //     score: updateScore,
+  //   })
+  // }
 
-  const deletePlayer = (player) => {
-    if (window.confirm('Your account will be deleted. Proceed?')) {
-      const playerRef = firebase.database().ref('players/' + player.key);
-      playerRef.remove();
-    }
-  }
+  // const addNewPlayer = (playerName, playerPassword, playerEmail, playerScore) => {
+  //   const playersRef = firebase.database().ref('players')
+  //   delete player.key
+  //   playersRef.push({
+  //     name: playerName,
+  //     email: playerEmail,
+  //     password: playerPassword,
+  //     score: playerScore})
+  // }
+
+  // const deletePlayer = (player) => {
+  //   if (window.confirm('Your account will be deleted. Proceed?')) {
+  //     const playerRef = firebase.database().ref('players/' + player.key);
+  //     playerRef.remove();
+  //   }
+  // }
 
   return (
     <>
@@ -93,9 +113,10 @@ function App() {
         players,
         onLogin,
         onLogout,
-        onEdit,
-        addNewPlayer,
-        deletePlayer
+        onSignup,
+        // onEdit,
+        // addNewPlayer,
+        // deletePlayer
       }}>
           <Controller/>
       </UserContext.Provider>

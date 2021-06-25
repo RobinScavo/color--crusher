@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 import SignUpForm from '../SignupFormPage/SignUpFormPage'
 import ColorContext from '../../ColorContext';
@@ -8,7 +8,7 @@ import './LogInFormModal.css'
 
 function LoginForm() {
   const values = useContext(ColorContext);
-  const { onLogin } = useContext(UserContext)
+  const { onLogin, user } = useContext(UserContext)
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,8 +16,18 @@ function LoginForm() {
   const handleLogin = (event) => {
     event.preventDefault();
     console.log(email, password)
-    onLogin(email, password)
+    onLogin(email, password);
   }
+
+  useEffect(() => {
+    if(user.isAuthenticated) {
+      values.toggleLoginModal()
+      values.togglePlayerPageModal()
+    } else {
+      console.log('out')
+    }
+
+  }, [user])
 
   return (
     <>

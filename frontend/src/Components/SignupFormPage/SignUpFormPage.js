@@ -1,78 +1,78 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { useStorageState } from "react-storage-hooks";
 
-// import * as sessionActions from "../../store/session";
+import UserContext from "../../context/UserContext";
 
 
 function SignupFormPage() {
-  // const dispatch = useDispatch();
-  // const sessionUser = useSelector((state) => state.session.user);
-  // const [email, setEmail] = useState("");
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [confirmPassword, setConfirmPassword] = useState("");
-  // const [errors, setErrors] = useState([]);
+  const { onSignup, addNewPlayer } = useContext(UserContext)
 
-  // if (sessionUser) return <Redirect to="/" />;
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [score, setScore] = useState(0);
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState('')
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (password === confirmPassword) {
-  //     setErrors([]);
-  //     return dispatch(sessionActions.signup({ email, username, password }))
-  //       .catch(res => {
-  //         if (res.data && res.data.errors) setErrors(res.data.errors);
-  //       });
-  //   }
-  //   return setErrors(['Confirm Password field must be the same as the Password field']);
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  // onSubmit={handleSubmit}
+    // if (password !== confirmPassword) return setError('Passwords do not match');
+
+    // addNewPlayer(username, password, email, score)
+    onSignup(email, password, username, score)
+  };
 
   return (
-    <form className='form' >
+    <form className='form' onSubmit={handleSubmit}>
       <h1 className='logSignTitle'>Sign Up</h1>
-      {/* <ul className='errors'>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul> */}
+
       <label className='signUpLabel'>
         <input
           placeholder='Email'
           type="text"
-          // value={email}
-          // onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
       </label>
+
       <label className='signUpLabel'>
         <input
           placeholder='Player Name'
           type="text"
-          // value={username}
-          // onChange={(e) => setUsername(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           required
         />
       </label>
+
       <label className='signUpLabel'>
         <input
           placeholder='Password'
           type="password"
-          // value={password}
-          // onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
       </label>
+
       <label className='signUpLabel'>
         <input
           placeholder='Confirm Password'
           type="password"
-          // value={confirmPassword}
-          // onChange={(e) => setConfirmPassword(e.target.value)}
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
       </label>
-      <button id='signUpButton' className='silverButton' type="submit">SignUp</button>
+
+      <button
+        id='signUpButton'
+        className='silverButton'
+        type="submit"
+      >SignUp</button>
+
     </form>
   );
 }

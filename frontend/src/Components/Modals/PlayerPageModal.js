@@ -9,7 +9,7 @@ import './PlayerPageModal.css'
 
 const PlayerPageModal = () => {
     const values = useContext(ColorContext);
-    const { onLogout, onEdit } = useContext(UserContext);
+    const { onLogout, onEdit, user } = useContext(UserContext);
 
     const [editMode, setEditMode] =useState(false);
     const [email, setEmail] = useState('');
@@ -18,7 +18,7 @@ const PlayerPageModal = () => {
 
     const handleEdit = (event) => {
       event.preventDefault();
-      console.log(email, password, name)
+    //   console.log(email, password, name)
       onEdit(email, password)
     }
 
@@ -32,21 +32,21 @@ const PlayerPageModal = () => {
 
                             <input
                             className='logInput'
-                            placeholder='Email'
+                            value={user.email}
                             type="email"
                             onChange={(event) => setEmail(event.target.value)}
                             />
 
-                            <input
+                            {/* <input
                             className='logInput'
-                            placeholder='Password'
+                            value={user.password}
                             type="password"
                             onChange={(event) => setPassword(event.target.value)}
-                            />
+                            /> */}
 
                             <input
                             className='logInput'
-                            placeholder='Name'
+                            value={user.name}
                             type="text"
                             onChange={(event) => setName(event.target.value)}
                             />
@@ -91,10 +91,10 @@ const PlayerPageModal = () => {
                     </div>
 
                     <div className='playerDisplayDiv'>
-                        <h1 className='nameText'>Sebastian Scavo</h1>
+                        <h1 className='nameText'>{user.name || 'guest'}</h1>
                         <div className='fancyDisplayDiv skoreText'>
                             <h1 className='yourDisplayText'>High Score</h1>
-                            <div className='silverButton playerButton'>498</div>
+                            <div className='silverButton playerButton'>{user.score || 0}</div>
                         </div>
                     </div>
 
