@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React  from 'react';
 
 import './HighScoreDisplay.css'
 
 const HighScoreDisplay = (props) => {
-
 
     const data  = [
         {rank: 1, name: 'Robin Scavo', score: 477},
@@ -21,59 +20,8 @@ const HighScoreDisplay = (props) => {
 
     ]
 
-    // const getHiScores = () => {
-    //     fetch('../../../backend/routes/players')
-    // }
-    // const [myList, setList] = useState([]);
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         const result = await fetch('/api/getList');
-    //         setList(result.body);
-    //         console.log(result, myList)
-    //     };
-    //     fetchData();
-    // }, [])
-
-
-    // const getList = () => {
-    //     fetch('/api/getList')
-    //     // .then(res => console.log(res))
-    //     .then(res => res.json())
-    //     .then(list => setList({ list }))
-    // }
-
-    // useEffect(() => {
-    //     console.log('useEFfect')
-    //     getList()
-    // }, [])
-    // const getList = () => {
-    //     fetch('/api/getList')
-    //     .then(res => res.json())
-    //     .then(list => setList({ list }))
-    // }
-
-    // getList();
-    // console.log('TTTTTTTTT', myList)
-
     return (
         <div id={props.id} className='highScoreDiv'>
-          {/* {data.length ? (
-            <div>
-              {data.map((item) => {
-                return(
-                  <div>
-                    {item}
-                  </div>
-                );
-              })}
-            </div>
-          ) : (
-            <div>
-              <h2>No List Items Found</h2>
-            </div>
-          )
-        } */}
             <h1 className='highScoreText'>High Skores</h1>
             <table className='highScoreTable'>
                 {data.map(user => (

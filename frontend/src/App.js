@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
-// import SignupFormPage from "./Components/SignupFormPage";
-// import * as sessionActions from "./store/session";
-// import Navigation from "./Components/Navigation";
-// import ControllerContainer from './ControllerContainer'
-import firebase from "./firebase";
 import { useStorageState } from 'react-storage-hooks';
+import firebase from "./firebase";
 
 import UserContext from './context/UserContext'
 import Controller from './Controller'
@@ -49,7 +43,6 @@ function App() {
   }
 
   const onLogout = () => {
-    // console.log('logOut', user)
     firebase
       .auth()
       .signOut()
