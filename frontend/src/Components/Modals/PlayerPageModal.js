@@ -9,18 +9,16 @@ import './PlayerPageModal.css'
 
 const PlayerPageModal = () => {
     const values = useContext(ColorContext);
-    const { onLogout, onEdit, user } = useContext(UserContext);
+    const { onLogout, onEdit, user, deletePlayer, players } = useContext(UserContext);
 
     const [editMode, setEditMode] =useState(false);
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
+    const [email, setEmail] = useState(user.email);
+    const [name, setName] = useState(user.name);
 
-    const handleEdit = (event) => {
-      event.preventDefault();
-    //   console.log(email, password, name)
-      onEdit(email, password)
-    }
+    const currentPlayer = players.find((player) => (player.email === email))
+
+    const handleEdit = () => onEdit(currentPlayer.key, email, name, user.score)
+    const handleDelete = () => deletePlayer(currentPlayer.key)
 
     return (
         <div className='playerDiv'>
@@ -32,21 +30,14 @@ const PlayerPageModal = () => {
 
                             <input
                             className='logInput'
-                            value={user.email}
+                            value={email}
                             type="email"
                             onChange={(event) => setEmail(event.target.value)}
                             />
 
-                            {/* <input
-                            className='logInput'
-                            value={user.password}
-                            type="password"
-                            onChange={(event) => setPassword(event.target.value)}
-                            /> */}
-
                             <input
                             className='logInput'
-                            value={user.name}
+                            value={name}
                             type="text"
                             onChange={(event) => setName(event.target.value)}
                             />
@@ -54,7 +45,7 @@ const PlayerPageModal = () => {
                             <button
                             className='silverButton logSignButton'
                             type="submit"
-                            disabled={!email && !password}
+                            disabled={!email && !user.password}
                             >Edit</button>
 
                         </form>
@@ -78,7 +69,11 @@ const PlayerPageModal = () => {
                             onClick={() => setEditMode(true)}
                         >Edit</button>
 
-                        <button id='deleteButton' className='upperPlayerButton'>Delete</button>
+                        <button
+                            id='deleteButton'
+                            className='upperPlayerButton'
+                            onClick={() => handleDelete(user)}
+                        >Delete</button>
 
                         <button
                             id='logoutButton'

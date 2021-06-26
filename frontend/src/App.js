@@ -15,26 +15,25 @@ function App() {
   const [user, setUser] = useStorageState(localStorage, 'state-user', {});
   const [players, setPlayers] = useState([])
 
-  const player = { key: null, name: '', email: '', password: '', score: 0}
-  const playersRef = firebase.database().ref('players')
+  // const player = { key: null, name: '', email: '', password: '', score: 0}
 
-  // useEffect(() => {
-  //   const playersRef = firebase.database().ref('players');
-  //   playersRef.on('value', (snapshot) => {
-  //     const players = snapshot.val();
-  //     const newStatePlayers = [];
-  //     for (let player in players) {
-  //       newStatePlayers.push({
-  //         key: player,
-  //         name: players[player].name,
-  //         email: players[player].email,
-  //         password: players[player].password,
-  //         score: players[player].score,
-  //       })
-  //     }
-  //     setPlayers(newStatePlayers)
-  //   });
-  // }, [setPlayers, playersRef])
+  useEffect(() => {
+    const playersRef = firebase.database().ref('players');
+    playersRef.on('value', (snapshot) => {
+      const players = snapshot.val();
+      const newStatePlayers = [];
+      for (let player in players) {
+        newStatePlayers.push({
+          key: player,
+          name: players[player].name,
+          email: players[player].email,
+          password: players[player].password,
+          score: players[player].score,
+        })
+      }
+      setPlayers(newStatePlayers)
+    });
+  }, [])
 
   const onLogin = (email, password) => {
     firebase
@@ -50,7 +49,7 @@ function App() {
   }
 
   const onLogout = () => {
-    console.log('logOut', user)
+    // console.log('logOut', user)
     firebase
       .auth()
       .signOut()
@@ -67,44 +66,46 @@ function App() {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      // .then((cred) => console.log('ZZZZZZZZZ', cred))
       .then((credential) => {
+        // console.log('!!!!!!!!!!', credential)
         setUser({
           email: credential.user.email,
           isAuthenticated: true,
           name: name,
           score: score
         })
+        addNewPlayer(email, password, name, score)
       })
       .catch((error) => console.error(error))
   }
 
-  // const onEdit = (updateEmail, updatePassword, updateName, updateScore) => {
-  //   const playerRef = firebase.database().ref('players/' + player.key);
-  //   playerRef.update({
-  //     name: updateName,
-  //     email: updateEmail,
-  //     password: updatePassword,
-  //     score: updateScore,
-  //   })
-  // }
+  const onEdit = (key, email, name, score) => {
+    const playerRef = firebase.database().ref('players/' + key);
+    playerRef.update({
+      name: name,
+      email: email,
+      score: score,
+    })
+  }
 
-  // const addNewPlayer = (playerName, playerPassword, playerEmail, playerScore) => {
-  //   const playersRef = firebase.database().ref('players')
-  //   delete player.key
-  //   playersRef.push({
-  //     name: playerName,
-  //     email: playerEmail,
-  //     password: playerPassword,
-  //     score: playerScore})
-  // }
+  const addNewPlayer = (email, password, name, score) => {
+    const playersRef = firebase.database().ref('players')
+    // delete player.key
+    playersRef.push({
+      name: name,
+      email: email,
+      password: password,
+      score: score
+    })
+  }
 
-  // const deletePlayer = (player) => {
-  //   if (window.confirm('Your account will be deleted. Proceed?')) {
-  //     const playerRef = firebase.database().ref('players/' + player.key);
-  //     playerRef.remove();
-  //   }
-  // }
+  const deletePlayer = (player) => {
+    if (window.confirm('Your account will be deleted. Proceed?')) {
+      const playerRef = firebase.database().ref('players/' + player);
+      playerRef.remove();
+    }
+    onLogout();
+  }
 
   return (
     <>
@@ -114,9 +115,9 @@ function App() {
         onLogin,
         onLogout,
         onSignup,
-        // onEdit,
-        // addNewPlayer,
-        // deletePlayer
+        onEdit,
+        addNewPlayer,
+        deletePlayer
       }}>
           <Controller/>
       </UserContext.Provider>

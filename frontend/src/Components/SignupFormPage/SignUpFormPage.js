@@ -1,25 +1,24 @@
 import React, { useState, useContext } from "react";
-import { useStorageState } from "react-storage-hooks";
+// import { useStorageState } from "react-storage-hooks";
 
 import UserContext from "../../context/UserContext";
 
 
 function SignupFormPage() {
-  const { onSignup, addNewPlayer } = useContext(UserContext)
+  const { onSignup } = useContext(UserContext)
 
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [score, setScore] = useState(0);
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState('')
+  // const [error, setError] = useState('')
 
-  const handleSubmit = (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     // if (password !== confirmPassword) return setError('Passwords do not match');
 
-    // addNewPlayer(username, password, email, score)
     onSignup(email, password, username, score)
   };
 
