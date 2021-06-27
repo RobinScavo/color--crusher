@@ -8,8 +8,7 @@ import Controller from './Controller'
 function App() {
   const [user, setUser] = useStorageState(localStorage, 'state-user', {});
   const [players, setPlayers] = useState([])
-
-  // const player = { key: null, name: '', email: '', password: '', score: 0}
+  const [currentPlayer, setCurrentPlayer] = useState({ key: null, name: 'guest', email: '', score: 0})
 
   useEffect(() => {
     const playersRef = firebase.database().ref('players');
@@ -27,7 +26,24 @@ function App() {
       }
       setPlayers(newStatePlayers)
     });
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    firebase
+      .auth()
+      .onAuthStateChanged((user) => {
+        if (user) {
+          const targetPlayer = players.find((player) => (player.email === user.email));
+          console.log('targetPlayer', targetPlayer)
+          setCurrentPlayer({
+            key: targetPlayer.key,
+            name: targetPlayer.name,
+            email: user.email,
+            score: targetPlayer.score,
+         })
+        }
+      })
+  }, [user, players]);
 
   const onLogin = (email, password) => {
     firebase
@@ -47,8 +63,15 @@ function App() {
       .auth()
       .signOut()
       .then(() => {
+        setCurrentPlayer({
+          key: null,
+          name: 'guest',
+          email: '',
+          score: 0
+        })
+
         setUser({
-          email: 'guest',
+          email: '',
           isAuthenticated: false
         });
       })
@@ -81,6 +104,11 @@ function App() {
     })
   }
 
+  // const updateScore = (score, key) => {
+  //   const playerRef = firebase.database().ref('players/' + key);
+  //   if()
+  // }
+
   const addNewPlayer = (email, password, name, score) => {
     const playersRef = firebase.database().ref('players')
     // delete player.key
@@ -105,6 +133,7 @@ function App() {
       <UserContext.Provider value={{
         user,
         players,
+        currentPlayer,
         onLogin,
         onLogout,
         onSignup,

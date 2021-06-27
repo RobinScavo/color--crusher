@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 
 import ColorContext from '../../ColorContext'
+import UserContext from '../../context/UserContext'
 
 import Bowl from '../Footer/Bowl';
 import HighScoreDisplay from '../HighScoreDisplay/HighScoreDisplay';
@@ -10,6 +11,7 @@ import '../HighScoreDisplay/HighScoreDisplay.css'
 
 const ScoringModal = () => {
     const values = useContext(ColorContext)
+    const { updateScore } = useContext(UserContext)
 
     const [score, setScore] = useState(values.score)
     const [coins, setCoins] = useState(values.coins)

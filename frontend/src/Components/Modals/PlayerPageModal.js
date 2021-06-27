@@ -9,13 +9,13 @@ import './PlayerPageModal.css'
 
 const PlayerPageModal = () => {
     const values = useContext(ColorContext);
-    const { onLogout, onEdit, user, deletePlayer, players } = useContext(UserContext);
+    const { onLogout, onEdit, user, deletePlayer, currentPlayer } = useContext(UserContext);
 
     const [editMode, setEditMode] =useState(false);
     const [email, setEmail] = useState(user.email);
     const [name, setName] = useState(user.name);
 
-    const currentPlayer = players.find((player) => (player.email === email))
+    // const targetPlayer = players.find((player) => (player.email === email))
 
     const handleEdit = () => onEdit(currentPlayer.key, email, name, user.score)
     const handleDelete = () => deletePlayer(currentPlayer.key)
@@ -86,10 +86,10 @@ const PlayerPageModal = () => {
                     </div>
 
                     <div className='playerDisplayDiv'>
-                        <h1 className='nameText'>{user.name || 'guest'}</h1>
+                        <h1 className='nameText'>{currentPlayer.name}</h1>
                         <div className='fancyDisplayDiv skoreText'>
                             <h1 className='yourDisplayText'>High Score</h1>
-                            <div className='silverButton playerButton'>{user.score || 0}</div>
+                            <div className='silverButton playerButton'>{currentPlayer.score}</div>
                         </div>
                     </div>
 

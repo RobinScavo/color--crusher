@@ -9,14 +9,14 @@ import './MainModel.css'
 
 function MainModel() {
   const values = useContext(ColorContext);
-  const { user } = useContext(UserContext);
+  const { currentPlayer, user } = useContext(UserContext);
 
   return (
     <div className='instructionDiv'>
         <div className='upperDiv'>
             {user.isAuthenticated ? (
               <div>
-                <h1 className='greetingText'><span className='biggerGreet'>{`Welcome ${user.name}`}</span></h1>
+                <h1 className='greetingText'><span className='biggerGreet'>{`Welcome ${currentPlayer.name}`}</span></h1>
               </div>
             ) : (
               <div className='greetingDiv'>

@@ -11,8 +11,8 @@ import CryptoCoin from './CryptoCoin';
 
 const Banner = () => {
     const values = useContext(ColorContext);
-    const { user } = useContext(UserContext);
-    console.log(user)
+    const { currentPlayer } = useContext(UserContext);
+    // console.log(user)
 
     return (
         <div className='bannerDiv'>
@@ -36,7 +36,7 @@ const Banner = () => {
                 <CryptoCoin index={2} className='cryptoThree'/>
                 </>
             }
-            <h1 className='userName'>{`${user.email}`}</h1>
+            <h1 className='userName'>{`${currentPlayer.name}`}</h1>
             {/* <UserName /> */}
         </div>
     )
