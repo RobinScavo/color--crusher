@@ -12,17 +12,15 @@ const PlayerPageModal = () => {
     const { onLogout, onEdit, user, deletePlayer, currentPlayer } = useContext(UserContext);
 
     const [editMode, setEditMode] =useState(false);
-    const [email, setEmail] = useState(user.email);
-    const [name, setName] = useState(user.name);
-
-    // const targetPlayer = players.find((player) => (player.email === email))
+    const [email, setEmail] = useState(currentPlayer.email);
+    const [name, setName] = useState(currentPlayer.name);
 
     const handleEdit = () => onEdit(currentPlayer.key, email, name, user.score)
     const handleDelete = () => deletePlayer(currentPlayer.key)
 
     return (
         <div className='playerDiv'>
-            {editMode ? (
+            {editMode &&
                 <div className='leftSideDiv'>
                     <div className='logInFormDiv' id='editForm'>
                         <h1 className='logSignTitle editTitle'>Edit Info</h1>
@@ -30,14 +28,14 @@ const PlayerPageModal = () => {
 
                             <input
                             className='logInput'
-                            value={email}
+                            value={currentPlayer.email}
                             type="email"
                             onChange={(event) => setEmail(event.target.value)}
                             />
 
                             <input
                             className='logInput'
-                            value={name}
+                            value={currentPlayer.name}
                             type="text"
                             onChange={(event) => setName(event.target.value)}
                             />
@@ -59,47 +57,61 @@ const PlayerPageModal = () => {
                         className='upperPlayerButton'
                         onClick={() => setEditMode(false)}
                     >Cancel</button>
-                </div>
-                ) : (
-                <div className='leftSideDiv'>
-                    <div className='playerButtonDiv'>
-                        <button
-                            id='editButton'
-                            className='upperPlayerButton'
-                            onClick={() => setEditMode(true)}
-                        >Edit</button>
+                </div>}
 
-                        <button
-                            id='deleteButton'
-                            className='upperPlayerButton'
-                            onClick={() => handleDelete(user)}
-                        >Delete</button>
+                {!editMode &&
+                    <div className='leftSideDiv'>
+                        <div className='playerButtonDiv'>
+                            {currentPlayer.email &&
+                                <>
+                                <button
+                                    id='editButton'
+                                    className='upperPlayerButton'
+                                    onClick={() => setEditMode(true)}
+                                >Edit</button>
 
-                        <button
-                            id='logoutButton'
-                            className='upperPlayerButton'
-                            onClick={(event) => {
-                                event.preventDefault();
-                                onLogout();
-                            }}
-                        >Logout</button>
-                    </div>
+                                <button
+                                    id='deleteButton'
+                                    className='upperPlayerButton'
+                                    onClick={() => handleDelete(user)}
+                                >Delete</button>
 
-                    <div className='playerDisplayDiv'>
-                        <h1 className='nameText'>{currentPlayer.name}</h1>
-                        <div className='fancyDisplayDiv skoreText'>
-                            <h1 className='yourDisplayText'>High Score</h1>
-                            <div className='silverButton playerButton'>{currentPlayer.score}</div>
+                                <button
+                                    id='logoutButton'
+                                    className='upperPlayerButton'
+                                    onClick={(event) => {
+                                        event.preventDefault();
+                                        onLogout();
+                                    }}
+                                >Logout</button>
+                                </>
+                            }
+
+                            {!currentPlayer.email &&
+                                <button
+                                    className='upperPlayerButton'
+                                    onClick={() => {
+                                        values.toggleLoginModal()
+                                        values.togglePlayerPageModal();
+                                    }}
+                                >Login</button>
+                            }
+
                         </div>
-                    </div>
 
-                    <button id='playerHomeButton' className='upperPlayerButton' onClick={() => {
-                            values.togglePlayerPageModal();
-                            values.toggleMainModal();
-                    }}>Home</button>
-                </div>
-                )
-            }
+                        <div className='playerDisplayDiv'>
+                            <h1 className='nameText'>{currentPlayer.name}</h1>
+                            <div className='fancyDisplayDiv skoreText'>
+                                <h1 className='yourDisplayText'>High Score</h1>
+                                <div className='silverButton playerButton'>{currentPlayer.score}</div>
+                            </div>
+                        </div>
+
+                        <button id='playerHomeButton' className='upperPlayerButton' onClick={() => {
+                                values.togglePlayerPageModal();
+                                values.toggleMainModal();
+                        }}>Home</button>
+                    </div>}
 
             <div className='rightSideDiv'>
                 <HighScoreDisplay id='playerHiScore'/>

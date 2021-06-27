@@ -159,6 +159,41 @@ input::placeholder {
     font-size: 16px;
 }
 
+.demoTextDiv {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* background-color: blueviolet; */
+    height: 30px;
+    width: 350px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.demoText {
+    height: 30px;
+    padding-top: 10px;
+    margin-left: 0px;
+}
+
+.demoButtonDiv {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 13px;
+    width: 500px;
+    /* background-color: brown; */
+    padding-top: 10px;
+    padding-left: 2px;
+}
+
+#demoArrow {
+    width: 28px;
+    margin-bottom: 10px;
+    /* background-color: chartreuse; */
+}
+
 
 @media only screen and (max-width: 900px) {
     input {

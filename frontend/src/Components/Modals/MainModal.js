@@ -15,23 +15,40 @@ function MainModel() {
     <div className='instructionDiv'>
         <div className='upperDiv'>
             {user.isAuthenticated ? (
-              <div>
-                <h1 className='greetingText'><span className='biggerGreet'>{`Welcome ${currentPlayer.name}`}</span></h1>
-              </div>
-            ) : (
+              <>
               <div className='greetingDiv'>
-                <h1 className='greetingText'><span className='biggerGreet'>Play as a guest</span> or <span className='optionalText'>log in to display your score</span></h1>
+                <h1 className='greetingText'><span className='biggerGreet'>
+                  {`Welcome ${currentPlayer.name}`}</span>
+                </h1>
                 <h1 className='arrow arrowLog'>➛</h1>
               </div>
+              <div className='optionDiv'>
+                <button className='modalButton' onClick={() => {
+                  values.toggleMainModal();
+                  values.togglePlayerPageModal();
+                }}>Player Page</button>
+              </div>
+              </>
+            ) : (
+              <>
+              <div className='greetingDiv'>
+                <h1 className='greetingText'>
+                  <span className='biggerGreet'>Play as a guest</span>
+                  or <span className='optionalText'>
+                  log in to record your score</span>
+                </h1>
+                <h1 className='arrow arrowLog'>➛</h1>
+              </div>
+              <div className='optionDiv'>
+                <button className='modalButton' onClick={() => {
+                  values.toggleMainModal();
+                  values.toggleLoginModal();
+                }}>Log In / Sign Up</button>
+              </div>
+              </>
             )}
 
           {/* Log In */}
-          <div className='optionDiv'>
-            <button className='modalButton' onClick={() => {
-              values.toggleMainModal();
-              values.toggleLoginModal();
-            }}>Log In / Sign Up</button>
-          </div>
         </div>
 
         <div className='lowerDiv'>

@@ -7,24 +7,23 @@ import UserContext from "../../context/UserContext";
 import './LogInFormModal.css'
 
 function LoginForm() {
-  const values = useContext(ColorContext);
-  const { onLogin, user } = useContext(UserContext)
+  const { togglePlayerPageModal,
+          toggleMainModal,
+          toggleLoginModal} = useContext(ColorContext);
+  const { onLogin, onDemoLogin, user } = useContext(UserContext)
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = (event) => {
     event.preventDefault();
-    console.log(email, password)
     onLogin(email, password);
   }
 
   useEffect(() => {
-    if(user.isAuthenticated) {
-      values.toggleLoginModal()
-      values.togglePlayerPageModal()
-    } else {
-      console.log('out')
+    if (user.isAuthenticated) {
+      toggleLoginModal()
+      togglePlayerPageModal()
     }
 
   }, [user])
@@ -56,9 +55,30 @@ function LoginForm() {
               disabled={!email && !password}
             >LogIn</button>
 
+            <div className='demoButtonDiv'>
+              <button
+                className='silverButton logSignButton'
+                onClick={() => {
+                  console.log('WEWEWEWEWEW')
+                  setEmail('demo@gmail.com')
+                  setPassword('121212')
+                  setTimeout(() => {
+                    onDemoLogin()
+                  }, 1200)
+                }}
+              >Demo</button>
+
+              <h1 className='demoTextDiv'>
+                <h1 id='demoArrow' className='arrow'>➛</h1>
+                <h1 className='demoText'>Log in with demo credentials</h1>
+              </h1>
+
+
+            </div>
+
             <button  className='backButton' onClick={() => {
-              values.toggleLoginModal();
-              values.toggleMainModal();
+              toggleLoginModal();
+              toggleMainModal();
             }}>Home</button>
         </form>
       </div>
@@ -66,12 +86,6 @@ function LoginForm() {
       <div className='signUpFormDiv'>
         <SignUpForm />
       </div>
-
-      <button className='playerPageButton' onClick={() => {
-        values.toggleLoginModal();
-        values.togglePlayerPageModal();
-      }}>Player</button>
-
     </div>
     </>
   )

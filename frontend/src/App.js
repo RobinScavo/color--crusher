@@ -58,6 +58,8 @@ function App() {
       .catch(error => console.error(error))
   }
 
+  const onDemoLogin = () => onLogin('demo@gmail.com', '121212')
+
   const onLogout = () => {
     firebase
       .auth()
@@ -138,6 +140,7 @@ function App() {
         onLogout,
         onSignup,
         onEdit,
+        onDemoLogin,
         addNewPlayer,
         deletePlayer
       }}>
