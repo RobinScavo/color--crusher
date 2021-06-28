@@ -29,6 +29,7 @@ function App() {
   }, []);
 
   useEffect(() => {
+    // if (players.length === 0) onLogout();
     firebase
       .auth()
       .onAuthStateChanged((user) => {
@@ -106,10 +107,16 @@ function App() {
     })
   }
 
-  // const updateScore = (score, key) => {
-  //   const playerRef = firebase.database().ref('players/' + key);
-  //   if()
-  // }
+  const updateScore = (newScore) => {
+    const playerRef = firebase.database().ref('players/' + currentPlayer.key);
+    if(newScore > currentPlayer.score) {
+      playerRef.update({
+        name: currentPlayer.name,
+        email: currentPlayer.email,
+        score: newScore
+      })
+    }
+  }
 
   const addNewPlayer = (email, password, name, score) => {
     const playersRef = firebase.database().ref('players')
@@ -142,7 +149,8 @@ function App() {
         onEdit,
         onDemoLogin,
         addNewPlayer,
-        deletePlayer
+        deletePlayer,
+        updateScore
       }}>
           <Controller/>
       </UserContext.Provider>

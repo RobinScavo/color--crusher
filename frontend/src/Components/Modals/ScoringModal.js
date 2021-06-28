@@ -78,7 +78,7 @@ const ScoringModal = () => {
         if (isAnimating) {
             setIsRaising(true)
             setTimeout(() => {
-                setAccuracy(accuracy => accuracy *2)
+                setAccuracy(accuracy => accuracy *3)
                 setIsFlashing(true)
             }, 600)
             setTimeout(() => {
@@ -98,8 +98,11 @@ const ScoringModal = () => {
                 setTotalIsFlashing(true)
             }, 2600)
             setIsAnimating(false)
+            setTimeout(() => {
+                updateScore(futureTotal)
+            }, 3100)
         }
-    }, [isAnimating, speed, accuracy, futureTotal])
+    }, [isAnimating, speed, accuracy, futureTotal, updateScore])
 
     let raising = isRaising ? 'raising' : ''
     let flashing = isFlashing ? 'flashing' : ''
@@ -121,7 +124,7 @@ const ScoringModal = () => {
                     <h2 className={`scoringDisplay topScore ${topFalling}`}>{speed}</h2>
                     <h2 className={`arithmetic topArith ${hidden}`}>+</h2>
                     <h2 className={`scoringDisplay bottomScore ${flashing} ${middleFalling}`}>{accuracy}</h2>
-                    <h2 className={`arithmetic  bottomArith ${raising}`}>x 2</h2>
+                    <h2 className={`arithmetic  bottomArith ${raising}`}>x 3</h2>
                     <div className={`totalDisplayDiv`}>
                         <h2 className={`totalDisplay ${totalFlashing}`}>{total}</h2>
                         <h3 className='totalLabel'>Total</h3>

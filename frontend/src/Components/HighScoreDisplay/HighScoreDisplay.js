@@ -5,7 +5,7 @@ import UserContext from '../../context/UserContext';
 import './HighScoreDisplay.css'
 
 const HighScoreDisplay = (props) => {
-  const { players } = useContext(UserContext);
+  const { currentPlayer, players } = useContext(UserContext);
 
     return (
         <div id={props.id} className='highScoreDiv'>
@@ -13,9 +13,9 @@ const HighScoreDisplay = (props) => {
             <table className='highScoreTable'>
                 {players.map(player => (
                     <tbody key={player.key.toString()}>
-                        <tr className='tableRow'>
+                        <tr className={`tableRow ${player.key === currentPlayer.key ? 'highlight' : ''} `}>
                             <th className='rankColumn'>
-                                <div className='rankBling'>{players.indexOf(player)}</div>
+                                <div className='rankBling'>{players.indexOf(player)+1}</div>
                             </th>
                             <th className='userColumn'>{player.name}</th>
                             <th className='scoreColumn'>{player.score}</th>

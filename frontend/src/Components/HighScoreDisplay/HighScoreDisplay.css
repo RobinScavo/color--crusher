@@ -82,6 +82,10 @@
     background-size: 60px 60px;
 }
 
+.highlight {
+    background: rgba(255, 90, 0, 0.7);
+}
+
 .highScoreDiv::-webkit-scrollbar {
     display: none;
   }
