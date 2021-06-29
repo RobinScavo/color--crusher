@@ -33,7 +33,7 @@ function MainModel() {
               <>
               <div className='greetingDiv'>
                 <h1 className='greetingText'>
-                  <span className='biggerGreet'>Play as a guest</span>
+                  <span className='biggerGreet'>Play as a guest  </span>
                   or <span className='optionalText'>
                   log in to record your score</span>
                 </h1>

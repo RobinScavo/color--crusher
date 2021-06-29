@@ -11,10 +11,16 @@ function App() {
   const [currentPlayer, setCurrentPlayer] = useState({ key: null, name: '', email: '', score: 0})
 
   useEffect(() => {
-    const playersRef = firebase.database().ref('players');
+    const playersRef =
+      firebase
+        .database()
+        .ref('players')
+        // .orderByChild('score');
+
     playersRef.on('value', (snapshot) => {
       const players = snapshot.val();
       const newStatePlayers = [];
+
       for (let player in players) {
         newStatePlayers.push({
           key: player,
@@ -24,6 +30,10 @@ function App() {
           score: players[player].score,
         })
       }
+
+      newStatePlayers.sort(function(a, b) {
+        return b.score - a.score
+      })
       setPlayers(newStatePlayers)
     });
   }, []);
@@ -35,7 +45,7 @@ function App() {
     } else {
       return
     }
-    console.log(targetPlayer)
+
     firebase
       .auth()
       .onAuthStateChanged(() => {
@@ -76,6 +86,7 @@ function App() {
           email: '',
           score: 0
         })
+
         setUser({
           email: '',
           isAuthenticated: false
@@ -89,11 +100,11 @@ function App() {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((credential) => {
-        // console.log('!!!!!!!!!!', credential)
         setUser({
           email: credential.user.email,
           isAuthenticated: true,
         })
+
         addNewPlayer(email, password, name, score)
       })
       .catch((error) => console.error(error))

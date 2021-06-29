@@ -11,11 +11,13 @@
 #scoreBowl {
     position: absolute;
     left: -20px;
+    bottom: 0px;
 }
 
 #coinBowl {
     position: absolute;
     right: -20px;
+    bottom: 0px;
 }
 
 .bowl {
