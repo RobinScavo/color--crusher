@@ -15,11 +15,12 @@ const Window = () => {
     const slicedArray = [];
     const cheaterArray = ['windowOne', 'windowTwo', 'windowThree', 'windowFour', 'windowFive', 'windowSix']
 
-
-    for (let i = 0; i < 6; i++) {
-        let temp = colorArray[i].background
-        let sliced = temp.slice(43, temp.length -8)
-        slicedArray.push(sliced)
+    if(colorArray[0]) {
+        for (let i = 0; i < 6; i++) {
+            let temp = colorArray[i].background
+            let sliced = temp.slice(43, temp.length -8)
+            slicedArray.push(sliced)
+        }
     }
 
     return (

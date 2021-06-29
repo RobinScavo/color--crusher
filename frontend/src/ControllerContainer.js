@@ -97,9 +97,7 @@ const ControllerContainer = () => {
 
     const toggleStartBattle = () => {
         if (startConvert) toggleStartConvert();
-        console.log('TTTTTTTTT', startBattle, startConvert)
         setStartBattle(!startBattle)
-        console.log('YYYYYYYY', startBattle)
     }
 
     const toggleStartConvert = () => {

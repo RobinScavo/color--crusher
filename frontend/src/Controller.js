@@ -109,10 +109,24 @@ class Controller extends React.Component {
     toggleScoringModal = () => this.setState({ scoringModal: !this.state.scoringModal});
 
     toggleGameOn = () => this.setState({ gameOn: false })
-    toggleRepeatRender = () => this.setState({ repeatRender: !this.state.repeatRender })
     toggleWindowDisplay = () => this.setState({ windowDisplayed: !this.state.windowDisplayed})
     toggleCustomDisplay = () => this.setState({ customDisplayed: !this.state.customDisplayed})
     clearRounds = () => this.setState({ round: 0})
+
+    toggleRepeatRender = () => {
+        if (this.state.repeatRender) {
+            this.setState({
+                createPastel: false,
+                createTriadic: false,
+                createAnalogous: false,
+                repeatRender: false
+            })
+        } else {
+            this.setState({
+                repeatRender: true
+            })
+        }
+    }
 
     toggleCreateAnalogous = () => {
         this.setState({ createAnalogous: true});

@@ -29,11 +29,12 @@ const ColorBall = (props) => {
     }
 
     useEffect(() => {
-        setTimeout(() => {
+        let delayRender = setTimeout(() => {
             setColor(props.color);
             setVisibility(props.visibility)
             setValidTarget(true)
         }, props.delay)
+        return () => clearTimeout(delayRender)
     }, [props.color, props.visibility, props.delay])
 
     return (

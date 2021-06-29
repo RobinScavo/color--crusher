@@ -228,7 +228,7 @@ function findAnalogous (rgbValue) {
     if (hue < 150) {
         triOne = hue + 150;
         triTwo = hue + 210;
-    } else if (hue >= 150 && hue < 240) {
+    } else if (hue >= 150 && hue < 210) {
         triOne = hue + 150;
         triTwo = hue - 150;
     } else {
@@ -237,7 +237,6 @@ function findAnalogous (rgbValue) {
     }
     let analogousOneColor = (`${triOne},${satch},${light}`)
     let analogousTwoColor = (`${triTwo},${satch},${light}`)
-    // console.log('analogous', analogousOneColor)
     let RGBanalogousOne = HSLtoRGB(analogousOneColor)
     let RGBanalogousTwo = HSLtoRGB(analogousTwoColor)
 
@@ -304,7 +303,6 @@ export function RGBtoHSL (rgbValue) {
 
 export function HSLtoRGB (hslValue) {
     //expected input format: '222, 22%, 22%'
-    // console.log('WWWWWWWWW', hslValue)
     let split = hslValue.split(',');
 
     //slice off '%' and convert to numbers
@@ -321,6 +319,7 @@ export function HSLtoRGB (hslValue) {
     let r = 0;
     let g = 0;
     let b = 0;
+
 
     if (0 <= h && h < 60) {
         r = c; g = x; b = 0;
@@ -340,8 +339,9 @@ export function HSLtoRGB (hslValue) {
     g = Math.round((g + m) * 255);
     b = Math.round((b + m) * 255);
 
+    // console.log('WWWWWWWWW', hslValue, `${r}, ${g}, ${b}`)
     // console.log(`${r}, ${g}, ${b}`)
-    //output format: '11, 22, 33'
+    //output format: '11, 22, 33's
     return `${r}, ${g}, ${b}`;
 }
 
