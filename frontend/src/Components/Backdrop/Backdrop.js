@@ -26,10 +26,10 @@ const BackDrop = () => {
                 <Footer />
                 <div className='bottomBar'>
                     {values.startBattle &&
-                        <h3>Score</h3>
+                        <h3 className='bottomBarText'>Score</h3>
                     }
                     {values.startBattle &&
-                        <h3>Coins</h3>
+                        <h3 className='bottomBarText'>Coins</h3>
                     }
                 </div>
             </div>

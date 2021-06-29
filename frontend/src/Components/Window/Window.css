@@ -1,13 +1,11 @@
 .windowDiv {
-    position: relative;
-    top: -5%;
-    left: 0.5%;
+    position: absolute;
+    top: 0px;
     height: 720px;
     width: 720px;
     z-index: 3;
     pointer-events:none;
     font-size: 19px;
-    /* background-color: turquoise; */
 }
 
 .windowVisible {
@@ -76,7 +74,6 @@
         height: 620px;
         width: 620px;
         font-size: 16px;
-        top: -15%;
     }
 }
 
@@ -85,7 +82,6 @@
         height: 520px;
         width: 520px;
         font-size: 13px;
-        top: -25%;
     }
 }
 
@@ -93,7 +89,7 @@
     .windowDiv {
         height: 420px;
         width: 420px;
-        top: -36%;
+        top: 30px;
         font-size: 10px;
     }
 }
@@ -102,145 +98,6 @@
     .windowDiv {
         height: 360px;
         width: 360px;
-        top: -42%;
-        /* font-size: 20px; */
-    }
-    .bowlOutter {
-        position: absolute;
-        bottom: 50px;
+       font-size: 10px;
     }
 }
-/*
-
-@media only screen and (max-width: 1330px) {
-    .convertWindow {
-        height: 620px;
-        width: 620px;
-        font-size: 18px;
-        bottom: 8%;
-    }
-}
-
-@media only screen and (max-width: 1200px) {
-    .convertWindow {
-        height: 520px;
-        width: 520px;
-        font-size: 18px;
-        bottom: 8%;
-    }
-}
-
-@media only screen and (max-width: 900px) {
-    .convertWindow {
-        height: 420px;
-        width: 420px;
-        font-size: 13px;
-        bottom: 27%;
-    }
-    .notConvertWindow {
-        height: 620px;
-        width: 620px;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .convertWindow {
-        height: 360px;
-        width: 360px;
-        font-size: 12px;
-        bottom: 35%;
-    }
-    .notConvertWindow {
-        height: 420px;
-        width: 420px;
-        font-size: 30px;
-    }
-    .bowlOutter {
-        position: absolute;
-        bottom: 50px;
-    }
-} */
-
-
-/* @media only screen and (max-height: 900px) {
-    .notConvertWindow, .convertWindow {
-        height: 620px;
-        width: 620px;
-        font-size: 13px;
-        bottom: 27%;
-    }
-}
-
-@media only screen and (max-height: 800px) {
-    .notConvertWindow, .convertWindow {
-        height: 520px;
-        width: 520px;
-        font-size: 34px;
-    }
-}
-
-@media only screen and (max-height: 700px) {
-    .notConvertWindow, .convertWindow {
-        height: 420px;
-        width: 420px;
-        font-size: 24px;
-    }
-} */
-
-/*
-@media only screen and (max-width: 1330px),
-            screen and (max-height: 900px) {
-    .notConvertWindow {
-        height: 720px;
-        width: 720px;
-        background-color: tomato;
-    }
-}
-
-@media only screen and (max-width: 1200px),
-            screen and (max-height: 800px) {
-    .windowDiv {
-        height: 620px;
-        width: 620px;
-        font-size: 18px;
-        bottom: 8%;
-    }
-    .notConvertWindow {
-        height: 720px;
-        width: 720px;
-        background-color: tomato;
-    }
-}
-
-@media only screen and (max-width: 900px),
-            screen and (max-height: 700px) {
-    .windowDiv {
-        height: 420px;
-        width: 490px;
-        font-size: 13px;
-        bottom: 27%;
-    }
-    .notConvertWindow {
-        height: 620px;
-        width: 620px;
-    }
-}
-
-@media only screen and (max-width: 800px),
-            screen and (max-height: 600px) {
-    .windowDiv {
-        height: 360px;
-        width: 440px;
-        font-size: 12px;
-        bottom: 35%;
-    }
-    .notConvert {
-        height: 420px;
-        width: 420px;
-        font-size: 30px;
-    }
-    .bowlOutter {
-        position: absolute;
-        bottom: 50px;
-    }
-} */
