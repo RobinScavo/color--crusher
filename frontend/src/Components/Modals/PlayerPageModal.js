@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 
 import ColorContext from '../../ColorContext';
 import UserContext from '../../context/UserContext';
@@ -16,7 +16,9 @@ const PlayerPageModal = () => {
     const [name, setName] = useState(currentPlayer.name);
 
     const handleEdit = () => onEdit(currentPlayer.key, email, name, user.score)
-    const handleDelete = () => deletePlayer(currentPlayer.key)
+    const handleDelete = () => deletePlayer(currentPlayer.key);
+
+    useEffect(() => {}, [user])
 
     return (
         <div className='playerDiv'>

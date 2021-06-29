@@ -8,7 +8,7 @@ import Controller from './Controller'
 function App() {
   const [user, setUser] = useStorageState(localStorage, 'state-user', {});
   const [players, setPlayers] = useState([])
-  const [currentPlayer, setCurrentPlayer] = useState({ key: null, name: 'guest', email: '', score: 0})
+  const [currentPlayer, setCurrentPlayer] = useState({ key: null, name: '', email: '', score: 0})
 
   useEffect(() => {
     const playersRef = firebase.database().ref('players');
@@ -29,19 +29,23 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // if (players.length === 0) onLogout();
+    let targetPlayer = { key: null, name: '', email: '', score: 0}
+    if (user.email) {
+      targetPlayer = players.find((player) => (player.email === user.email))
+    } else {
+      return
+    }
+    console.log(targetPlayer)
     firebase
       .auth()
-      .onAuthStateChanged((user) => {
-        if (user) {
-          const targetPlayer = players.find((player) => (player.email === user.email));
-          console.log('targetPlayer', targetPlayer)
+      .onAuthStateChanged(() => {
+        if (targetPlayer) {
           setCurrentPlayer({
             key: targetPlayer.key,
             name: targetPlayer.name,
-            email: user.email,
-            score: targetPlayer.score,
-         })
+            email: targetPlayer.email,
+            score: targetPlayer.score
+          })
         }
       })
   }, [user, players]);
@@ -59,7 +63,7 @@ function App() {
       .catch(error => console.error(error))
   }
 
-  const onDemoLogin = () => onLogin('demo@gmail.com', '121212')
+  const onDemoLogin = () => onLogin('player@gmail.com', '121212')
 
   const onLogout = () => {
     firebase
@@ -68,11 +72,10 @@ function App() {
       .then(() => {
         setCurrentPlayer({
           key: null,
-          name: 'guest',
+          name: '',
           email: '',
           score: 0
         })
-
         setUser({
           email: '',
           isAuthenticated: false
@@ -90,8 +93,6 @@ function App() {
         setUser({
           email: credential.user.email,
           isAuthenticated: true,
-          name: name,
-          score: score
         })
         addNewPlayer(email, password, name, score)
       })

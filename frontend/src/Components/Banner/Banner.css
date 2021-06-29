@@ -40,8 +40,12 @@
 
 .userName {
     position: absolute;
-    right: 50px;
-    top: 16px;
+    height: 30px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 5px;
+    right: 10px;
+    top: 10px;
     font-size: 22px;
     color: rgba(42, 81, 109, 0.7);
 }
