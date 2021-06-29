@@ -2,9 +2,9 @@
     position: absolute;
     right: 25px;
     bottom: 30px;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end; */
     font-size: 20px;
     /* font-size: 125%; */
     height: 300px;
@@ -27,16 +27,20 @@
 }
 
 .highScoreText {
+    position: sticky;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 55px;
+    /* width: 100%; */
     font-size: 20px;
     background-color: rgb(87, 189, 227);
     color: rgb(212, 190, 194);
     border-bottom: 2px solid rgba(42, 81, 109);
     background-image: url('../../Images/footer-blue.png');
     background-size: 35% 200%;
+    z-index: 5;
 }
 
 .rankColumn {
@@ -63,7 +67,7 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 195px;
+    width: 202px;
 }
 
 .rankBling {

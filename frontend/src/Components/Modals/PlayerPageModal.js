@@ -84,6 +84,8 @@ const PlayerPageModal = () => {
                                     onClick={(event) => {
                                         event.preventDefault();
                                         onLogout();
+                                        values.toggleMainModal();
+                                        values.togglePlayerPageModal();
                                     }}
                                 >Logout</button>
                                 </>

@@ -12,8 +12,8 @@ function LoginForm() {
           toggleLoginModal} = useContext(ColorContext);
   const { onLogin, onDemoLogin, user } = useContext(UserContext)
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('Email');
+  const [password, setPassword] = useState('Password');
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -37,14 +37,14 @@ function LoginForm() {
 
             <input
               className='logInput'
-              placeholder='Email'
+              placeholder={email}
               type="email"
               onChange={(event) => setEmail(event.target.value)}
             />
 
             <input
               className='logInput'
-              placeholder='Password'
+              placeholder={password}
               type="password"
               onChange={(event) => setPassword(event.target.value)}
             />
@@ -57,9 +57,9 @@ function LoginForm() {
 
             <div className='demoButtonDiv'>
               <button
+                id='demoButton'
                 className='silverButton logSignButton'
                 onClick={() => {
-                  console.log('WEWEWEWEWEW')
                   setEmail('demo@gmail.com')
                   setPassword('121212')
                   setTimeout(() => {

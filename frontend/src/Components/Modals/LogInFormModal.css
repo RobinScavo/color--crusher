@@ -183,7 +183,6 @@ input::placeholder {
     align-items: center;
     margin-top: 13px;
     width: 500px;
-    /* background-color: brown; */
     padding-top: 10px;
     padding-left: 2px;
 }
@@ -191,12 +190,17 @@ input::placeholder {
 #demoArrow {
     width: 28px;
     margin-bottom: 10px;
-    /* background-color: chartreuse; */
 }
 
 
 @media only screen and (max-width: 900px) {
     input {
         width: 200px;
+    }
+    .demoTextDiv {
+        width: 0px;
+    }
+    .demoButtonDiv {
+        justify-content: center;
     }
 }
