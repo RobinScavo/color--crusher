@@ -119,6 +119,7 @@ function App() {
       email: email,
       score: score,
     })
+    setFlashMessage('updated')
   }
 
   const updateScore = (newScore) => {
@@ -173,7 +174,8 @@ function App() {
         onDemoLogin,
         addNewPlayer,
         deletePlayer,
-        updateScore
+        updateScore,
+        setFlashMessage
       }}>
           {message && <Message type={message} />}
           <Controller />

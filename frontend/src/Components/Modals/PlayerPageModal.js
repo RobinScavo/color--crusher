@@ -30,14 +30,14 @@ const PlayerPageModal = () => {
 
                             <input
                             className='logInput'
-                            value={currentPlayer.email}
+                            placeholder={currentPlayer.email}
                             type="email"
                             onChange={(event) => setEmail(event.target.value)}
                             />
 
                             <input
                             className='logInput'
-                            value={currentPlayer.name}
+                            placeholder={currentPlayer.name}
                             type="text"
                             onChange={(event) => setName(event.target.value)}
                             />
