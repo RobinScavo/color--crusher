@@ -10,7 +10,11 @@ const Message = ({ type }) => {
         mismatched: 'Email confirmation must match.',
         improperlyNamed: 'Name must be 3 to 15 characters.',
         improperlyPassworded: 'Password must be 6 to 15 characters.',
-        improperlyEmailed: 'Must be a valid email.'
+        improperlyEmailed: 'Must be a valid email.',
+        invalidCredentialed: 'Invalid Credentials.',
+        signupFailed: 'Sign up failure.',
+        logoutFailed: 'Log out failure.'
+
     }
 
     return (

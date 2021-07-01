@@ -3,9 +3,9 @@ import React, { useContext, useState, useEffect } from 'react';
 import ColorContext from '../../ColorContext';
 import UserContext from '../../context/UserContext';
 
-import HighScoreDisplay from '../HighScoreDisplay/HighScoreDisplay'
+import HighScoreDisplay from '../HighScoreDisplay/HighScoreDisplay';
 
-import './PlayerPageModal.css'
+import './PlayerPageModal.css';
 
 const PlayerPageModal = () => {
     const values = useContext(ColorContext);

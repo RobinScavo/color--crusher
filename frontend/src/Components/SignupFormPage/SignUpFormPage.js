@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-// import { useStorageState } from "react-storage-hooks";
 
 import UserContext from "../../context/UserContext";
 
@@ -10,8 +9,6 @@ function SignupFormPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  // const [score, setScore] = useState(0);
-  // const [error, setError] = useState('')
 
   const validateEmail = (email) => {
     const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -25,7 +22,6 @@ function SignupFormPage() {
     if (password.length < 6 || password.length > 15) return setFlashMessage('improperlyPassworded');
     if (username.length < 3 || username.length > 15) return setFlashMessage('improperlyNamed');
     if (!validateEmail(email)) return setFlashMessage('improperlyEmailed')
-
 
     onSignup(email, password, username, 0)
   };

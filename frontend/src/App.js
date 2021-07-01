@@ -72,7 +72,7 @@ function App() {
           isAuthenticated: true,
         })
       })
-      .catch(error => console.error(error))
+      .catch(() => setFlashMessage('invalidCredentialed'))
   }
 
   const onDemoLogin = () => onLogin('player@gmail.com', '121212')
@@ -94,7 +94,7 @@ function App() {
           isAuthenticated: false
         });
       })
-      .catch((error) => console.error(error))
+      .catch(() => setFlashMessage('logoutFailed'))
   }
 
   const onSignup = (email, password, name, score) => {
@@ -109,7 +109,7 @@ function App() {
 
         addNewPlayer(email, password, name, score)
       })
-      .catch((error) => console.error(error))
+      .catch(() => setFlashMessage('signupFailed'))
   }
 
   const onEdit = (key, email, name, score) => {
