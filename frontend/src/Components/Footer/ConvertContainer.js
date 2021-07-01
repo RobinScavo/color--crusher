@@ -17,6 +17,8 @@ const ConvertContainer = () => {
     const hexLabelArray = ['Red', 'Green', 'Blue'];
     const hexInputArray = ['From 00 to FF', 'From 00 to FF', 'From 00 to FF'];
 
+    const [togglePosition, setTogglePosition] = useState(false);
+
     const [fromRgbButton, setFromRgbButton] = useState(true)
     const [fromHslButton, setFromHslButton] = useState(false)
     const [fromHexButton, setFromHexButton] = useState(false)
@@ -40,6 +42,8 @@ const ConvertContainer = () => {
     const [toTopInput, setToTopInput] = useState(hslInputArray[0])
     const [toMiddleInput, setToMiddleInput] = useState(hslInputArray[1])
     const [toBottomInput, setToBottomInput] = useState(hslInputArray[2])
+
+    const toggleTogglePosition = () => {setTogglePosition(!togglePosition)}
 
     const toggleFromRgbButton = () => {
         if (toRgbButton) {
@@ -261,6 +265,8 @@ const ConvertContainer = () => {
                 toRgbButton={toRgbButton}
                 toHslButton={toHslButton}
                 toHexButton={toHexButton}
+                repeatRender={values.repeatRender}
+                togglePosition={togglePosition}
 
                 fromTopLabel={fromTopLabel}
                 fromMiddleLabel={fromMiddleLabel}
@@ -275,6 +281,8 @@ const ConvertContainer = () => {
                 toggleToRgbButton={toggleToRgbButton}
                 toggleToHslButton={toggleToHslButton}
                 toggleToHexButton={toggleToHexButton}
+                toggleTogglePosition={toggleTogglePosition}
+                toggleRepeatRender={values.toggleRepeatRender}
                 playerSubmit={playerSubmit}
             />
             <RightConvertPanel
@@ -284,11 +292,14 @@ const ConvertContainer = () => {
                 toTopInput={toTopInput}
                 toMiddleInput={toMiddleInput}
                 toBottomInput={toBottomInput}
+                togglePosition={togglePosition}
+                repeatRender={values.repeatRender}
 
                 toggleCreateTriadic={values.toggleCreateTriadic}
                 toggleCreateAnalogous={values.toggleCreateAnalogous}
                 toggleCreatePastel={values.toggleCreatePastel}
                 toggleRepeatRender={values.toggleRepeatRender}
+                toggleTogglePosition={toggleTogglePosition}
             />
         </>
     )

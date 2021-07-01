@@ -13,7 +13,10 @@ const HighScoreDisplay = (props) => {
             <table className='highScoreTable'>
                 {players.map(player => (
                     <tbody key={player.key.toString()}>
-                        <tr className={`tableRow ${player.key === currentPlayer.key ? 'highlight' : ''} `}>
+                        <tr
+                            className={`tableRow ${player.key === currentPlayer.key ? 'highlight' : ''} `}
+                            // ref={player.key === currentPlayer.key ? {playerRef} : null}
+                        >
                             <th className='rankColumn'>
                                 <div className='rankBling'>{players.indexOf(player)+1}</div>
                             </th>

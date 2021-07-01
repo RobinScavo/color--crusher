@@ -68,10 +68,10 @@ function LoginForm() {
                 }}
               >Demo</button>
 
-              <h1 className='demoTextDiv'>
+              <div className='demoTextDiv'>
                 <h1 id='demoArrow' className='arrow'>➛</h1>
                 <h1 className='demoText'>Log in with demo credentials</h1>
-              </h1>
+              </div>
 
 
             </div>

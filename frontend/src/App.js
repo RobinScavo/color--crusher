@@ -4,11 +4,13 @@ import firebase from "./firebase";
 
 import UserContext from './context/UserContext'
 import Controller from './Controller'
+import Message from './Components/Message/Message'
 
 function App() {
   const [user, setUser] = useStorageState(localStorage, 'state-user', {});
   const [players, setPlayers] = useState([])
   const [currentPlayer, setCurrentPlayer] = useState({ key: null, name: '', email: '', score: 0})
+  const [message, setMessage] = useState('')
 
   useEffect(() => {
     const playersRef =
@@ -130,6 +132,13 @@ function App() {
     }
   }
 
+  const setFlashMessage = (message) => {
+    setMessage(message)
+    setTimeout(() => {
+      setMessage(null)
+    }, 1600)
+  }
+
   const addNewPlayer = (email, password, name, score) => {
     const playersRef = firebase.database().ref('players')
     // delete player.key
@@ -138,13 +147,15 @@ function App() {
       email: email,
       password: password,
       score: score
-    })
+    });
+    setFlashMessage('saved')
   }
 
   const deletePlayer = (player) => {
     if (window.confirm('Your account will be deleted. Proceed?')) {
       const playerRef = firebase.database().ref('players/' + player);
       playerRef.remove();
+      setFlashMessage('deleted')
     }
     onLogout();
   }
@@ -164,7 +175,8 @@ function App() {
         deletePlayer,
         updateScore
       }}>
-          <Controller/>
+          {message && <Message type={message} />}
+          <Controller />
       </UserContext.Provider>
     </>
 )

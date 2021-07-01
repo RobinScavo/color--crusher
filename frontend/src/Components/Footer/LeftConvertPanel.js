@@ -47,8 +47,14 @@ const LeftConvertPanel = (props) => {
                             value={topValue}
                             placeholder={props.fromTopInput}
                             maxLength='3'
-                            onChange={e => setTopValue(e.target.value)}
-                            onFocus={e => setTopValue('')}
+                            onChange={(e) => setTopValue(e.target.value)}
+                            onFocus={() => {
+                                if (props.repeatRender) {
+                                    props.toggleRepeatRender()
+                                    props.toggleTogglePosition()
+                                }
+                                setTopValue('')
+                            }}
                         />
                     </label>
                     <label className='convertLabel'>
@@ -60,7 +66,13 @@ const LeftConvertPanel = (props) => {
                             placeholder={props.fromMiddleInput}
                             maxLength='3'
                             onChange={e => setMiddleValue(e.target.value)}
-                            onFocus={e => setMiddleValue('')}
+                            onFocus={() => {
+                                if (props.repeatRender) {
+                                    props.toggleRepeatRender()
+                                    props.toggleTogglePosition()
+                                }
+                                setMiddleValue('')
+                            }}
                         />
                     </label>
                     <label className='convertLabel'>
@@ -72,7 +84,13 @@ const LeftConvertPanel = (props) => {
                             placeholder={props.fromBottomInput}
                             maxLength='3'
                             onChange={e => setBottomValue(e.target.value)}
-                            onFocus={e => setBottomValue('')}
+                            onFocus={() => {
+                                if (props.repeatRender) {
+                                    props.toggleRepeatRender()
+                                    props.toggleTogglePosition()
+                                }
+                                setBottomValue('')
+                            }}
                         />
                     </label>
                     <button className='submitButton' onClick={() => {

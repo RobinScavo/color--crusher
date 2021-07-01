@@ -88,6 +88,7 @@
     border: none;
     outline: none;
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 700px) {
@@ -243,6 +244,11 @@
 .thirdBling {
     bottom: 8px;
     left: 0px;
+}
+
+.repeating {
+    background-color: rgb(255, 90, 0);
+    color: rgb(51, 99, 129)
 }
 
 @keyframes TransitioningBackground {

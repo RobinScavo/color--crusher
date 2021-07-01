@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect, useRef } from 'react'
 
 import ColorContext from '../../ColorContext'
 import UserContext from '../../context/UserContext'
@@ -30,6 +30,7 @@ const ScoringModal = () => {
     const [isHidden, setIsHidden] = useState(false)
 
     const futureTotal = values.score + values.coins
+    // const playerRef = useRef()
 
     useEffect(() => {
         let timeout = setTimeout(() => {
@@ -39,6 +40,10 @@ const ScoringModal = () => {
             clearTimeout(timeout)
         }
     })
+
+    // const handleScroll = () => {
+    //     playerRef.current.scrollIntoView({ behavior: 'smooth'})
+    // }
 
     //Speed countdown/countup
     useEffect(() => {
@@ -131,7 +136,7 @@ const ScoringModal = () => {
                     </div>
                 </div>
             </div>
-            <HighScoreDisplay id='scoringHiScore'/>
+            <HighScoreDisplay id='scoringHiScore' />
             <button id='playButton' className='backButton' onClick={() => {
                 values.toggleScoringModal();
                 values.newGame();

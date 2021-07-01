@@ -4,18 +4,27 @@ import React, { useState } from 'react'
 import './RightConvertPanel.css'
 
 const RightConvertPanel = (props) => {
-    const [togglePosition, setTogglePosition] = useState(false);
     const [disable, setDisable] = useState(false);
+    const [triadicRepeating, setTriadicRepeating] = useState('')
+    const [analogousRepeating, setAnalogousRepeating] = useState('')
+    const [pastelRepeating, setPastelRepeating] = useState('')
 
-    const postition = togglePosition ? 'lowerPosition' : ''
+
+    const postition = props.togglePosition ? 'lowerPosition' : ''
 
     const disableButtons = () => {
         setDisable(true)
-        if (!togglePosition) {
+        if (!props.togglePosition) {
             setTimeout(() => {
                 setDisable(false)
             }, 2200)
         }
+    }
+
+    const clearRepeat = () => {
+        setTriadicRepeating('')
+        setAnalogousRepeating('')
+        setPastelRepeating('')
     }
 
     return (
@@ -23,32 +32,46 @@ const RightConvertPanel = (props) => {
             <div className='rightButtonDiv' >
                 <div className='rightConvertTextDiv'>Create Random Colors</div>
 
-                <button className='rightConvertButton'
+                <button className={`rightConvertButton ${triadicRepeating}`}
                         disabled={disable}
                         onClick={() => {
                             disableButtons()
                             props.toggleCreateTriadic()
+                            if (props.repeatRender) {
+                                clearRepeat()
+                                setTriadicRepeating('repeating')
+                            }
                 } }>Triadic</button>
 
-                <button className='rightConvertButton'
+                <button className={`rightConvertButton ${analogousRepeating}`}
                         disabled={disable}
                         onClick={() => {
                             disableButtons()
                             props.toggleCreateAnalogous()
+                            if (props.repeatRender) {
+                                clearRepeat()
+                                setAnalogousRepeating('repeating')
+                            }
                 }}>Analogous</button>
 
-                <button className='rightConvertButton'
+                <button className={`rightConvertButton ${pastelRepeating}`}
                         disabled={disable}
                         onClick={() => {
                             disableButtons()
                             props.toggleCreatePastel()
+                            if (props.repeatRender) {
+                                clearRepeat()
+                                setPastelRepeating('repeating')
+                            }
+
                 }}>Pastel</button>
 
                 <div className='repeatLabel'>Repeat</div>
 
                 <div className='repeatToggle' onClick={() => {
-                    setTogglePosition(!togglePosition)
-                    if (togglePosition) {
+                    props.toggleTogglePosition()
+                    if (props.togglePosition) {
+                        clearRepeat()
                         setDisable(false)
                     }
                     props.toggleRepeatRender()

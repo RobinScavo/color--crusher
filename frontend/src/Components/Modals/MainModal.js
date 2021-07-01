@@ -9,7 +9,7 @@ import './MainModel.css'
 
 function MainModel() {
   const values = useContext(ColorContext);
-  const { currentPlayer, user } = useContext(UserContext);
+  const { currentPlayer, user, onLogin } = useContext(UserContext);
 
   return (
     <div className='instructionDiv'>
@@ -58,6 +58,10 @@ function MainModel() {
               <div className='buttonDiv'>
                 <h1 className='titleText'>BattleMode</h1>
                 <button  className='silverButton battle' onClick={() => {
+                  if (!currentPlayer.email) {
+                    console.log('gogogog')
+                    onLogin('guest@gmail.com', '121212')
+                  }
                   values.toggleMainModal();
                   values.toggleBattleInstructionModal();
                   // values.toggleStartBattle();

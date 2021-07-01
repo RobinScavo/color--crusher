@@ -94,6 +94,7 @@ class Controller extends React.Component {
             repeatRender: false,
             createAnalogous: false,
             MainModal: !this.state.MainModal,
+            coinArray: [true, true, true],
             round: 0,
             coins: 0,
             score: 0,

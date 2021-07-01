@@ -1,0 +1,28 @@
+.messageDiv {
+    position: fixed;
+    top: 32%;
+    left: 33%;
+    height: 200px;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 22px; */
+    z-index: 5;
+    color: rgba(42, 81, 109);
+    border-radius: 5px;
+    background: rgba( 255, 255, 255, 0.7 );
+    background-clip: padding-box;
+    backdrop-filter: blur(15px );
+    border: 1px solid rgb(236, 224, 224);
+    font-size: 28px;
+  }
+
+  .messageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 300px;
+    text-align: center;
+  }
