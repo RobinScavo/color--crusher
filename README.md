@@ -1,41 +1,64 @@
-# Kolor_Krusher-Express
--Game for teaching and practicing CSS. Each round will cover a different concept:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-ROUND 1: Select the correct RGB color value.
+## Available Scripts
 
-ROUND 2: Use buttons to apply CSS flex-box properties to elements. Make your shapes look like the example.
+In the project directory, you can run:
 
-ROUND 3: Use buttons to apply CSS grid properties to elements. Make your shapes look like the example.
+### `npm start`
 
--Scoring will be based on a timer that starts at 15 seconds. On selecting the correct choice the remaining time will be added to the players score. Accuracy is rewarded with "crypto coins" which are not only added to the players score but are accumulated and can be used to 'upgrade' your character.
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-TECHNOLOGIES -React -React-router-dom -Flask -SQL Alchemy -React Spring -WTForms????
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-ROUTES
+### `npm test`
 
--'/playerPage' <-- starts as login and upon submission renders player name, highscore and amount of crypto coins. Players can scroll through the scoring list, search for other players and transfer crypto coins to other players.
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
--'/RGBgame' <-- start the game here. BackDrop with RGBboard inside
+### `npm run build`
 
--'/FlexBox' <-- round 2, Backdrop with FlexBox inside
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
--./Grid' <-- round 3, Backdrop with Grid inside
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-Controller.js -Class component containing game state (Score, round, timer, gameOn, coins and coinArray)
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-RGBcontroller.js -Class component containing colorArray, colorTargetId, colorTarget.
+### `npm run eject`
 
-COMPONENTS
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-Backdrop: renders the Banner, Footer (which appear on every route) as well as either the current game board or the player page.
-Banner: renders ScoreTimer GameName and CryptoCoin
-Footer renders two Bowl's
-RGBboard renders six ColorBall and the target color or 'Correct!' text
-ColorBall class component rendering a ball with variable style. Clicking one results in checkGuess() method being run.
-MVP's
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Player Page featuring CRUD operations: CREATE: user form (csurf protected) UPDATE: player high score if they top prior one UPDATE: player coin count if they earn more or transfer them DELETE: user name --> cascade delete high score and coin count
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-Add animations to RGB game
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-Create flex-box round
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

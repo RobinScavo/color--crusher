@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.74996f52.chunk.css",
+    "main.js": "/static/js/main.90187a2a.chunk.js",
+    "main.js.map": "/static/js/main.90187a2a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6290e5e0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6290e5e0.js.map",
+    "static/js/2.069e8fb3.chunk.js": "/static/js/2.069e8fb3.chunk.js",
+    "static/js/2.069e8fb3.chunk.js.map": "/static/js/2.069e8fb3.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.74996f52.chunk.css.map": "/static/css/main.74996f52.chunk.css.map",
+    "static/js/2.069e8fb3.chunk.js.LICENSE.txt": "/static/js/2.069e8fb3.chunk.js.LICENSE.txt",
+    "static/media/MyBioModal.css": "/static/media/sfsg.8ea3dd2a.png",
+    "static/media/ConvertInstructionModal.css": "/static/media/colour-wheel-1734867_1920.1dbefde4.png",
+    "static/media/ScoringModal.css": "/static/media/footer-blue.1ab13827.png",
+    "static/media/MainModel.css": "/static/media/tuktuk.21469f13.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6290e5e0.js",
+    "static/js/2.069e8fb3.chunk.js",
+    "static/css/main.74996f52.chunk.css",
+    "static/js/main.90187a2a.chunk.js"
+  ]
+}

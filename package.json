@@ -1,26 +1,44 @@
 {
-  "name": "authentication-frontend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "browserslist": "^4.16.6",
+    "firebase": "^8.6.8",
+    "js-cookie": "^2.2.1",
+    "netlify-cli": "^4.0.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.0",
+    "react-storage-hooks": "^4.0.1",
+    "serve": "^12.0.0"
+  },
   "scripts": {
-    "heroku-postbuild": "npm run build --prefix frontend",
-    "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",
-    "dev:backend": "npm install --prefix backend start",
-    "dev:frontend": "npm install --prefix frontend start",
-    "sequelize": "npm run --prefix backend sequelize",
-    "sequelize-cli": "npm run --prefix backend sequelize-cli",
-    "start": "npm start --prefix backend"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RobinScavo/solo-project.git"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/RobinScavo/solo-project/issues"
+  "browserslist": {
+    "production": [
+      ">0.3%",
+      "not ie 11",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
-  "homepage": "https://github.com/RobinScavo/solo-project#readme",
-  "proxy": "http://localhost:5000"
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
+  }
 }
