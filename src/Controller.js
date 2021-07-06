@@ -10,7 +10,7 @@ import {
 } from './PureFunctions';
 
 import Backdrop from './Components/Backdrop/Backdrop'
-import ColorContext from './ColorContext';
+import ColorContext from './context/ColorContext';
 import MainModal from './Components/Modals/MainModal';
 import LoginModal from './Components/Modals/LoginFormModal';
 import PlayerPageModal from './Components/Modals/PlayerPageModal';

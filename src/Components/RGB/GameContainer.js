@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import ColorContext from '../../ColorContext';
+import ColorContext from '../../context/ColorContext';
 import ColorBall from './ColorBall';
 
 import './GameContainer.css'
@@ -38,8 +38,6 @@ const GameContainer = () => {
                 <div className='targetColorDiv' >
 
                     {/* Start button */}
-                    {/* {!values.gameOn &&
-                     values.round === 0 && */}
                      {!values.startConvert &&
                      !values.startBattle &&
                         <button className='startButton' onClick={() => {

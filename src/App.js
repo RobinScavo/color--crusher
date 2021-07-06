@@ -17,7 +17,6 @@ function App() {
       firebase
         .database()
         .ref('players')
-        // .orderByChild('score');
 
     playersRef.on('value', (snapshot) => {
       const players = snapshot.val();
@@ -142,7 +141,7 @@ function App() {
 
   const addNewPlayer = (email, password, name, score) => {
     const playersRef = firebase.database().ref('players')
-    // delete player.key
+
     playersRef.push({
       name: name,
       email: email,

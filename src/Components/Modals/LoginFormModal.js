@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 
 import SignUpForm from '../SignupFormPage/SignUpFormPage'
-import ColorContext from '../../ColorContext';
+import ColorContext from '../../context/ColorContext';
 import UserContext from "../../context/UserContext";
 
 import './LogInFormModal.css'

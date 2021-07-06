@@ -83,7 +83,7 @@ function randomPastelColor() {
     if ((r+g+b) > 700 || (r+g+b) < 600  || ((Math.abs(r - g)) + (Math.abs(g - b))) < 40) {
         return randomPastelColor()
     }
-    // console.log(r, g, b)
+
     return `${r}, ${g}, ${b}`;
 }
 
@@ -107,7 +107,6 @@ export function generateTriadicArray() {
 
     arr.push(triCompOne, triTwo, compliment, triOne, triCompTwo)
 
-    // console.log(arr)
     return addStyleString(arr)
 }
 
@@ -133,7 +132,7 @@ export function generatePastelArray() {
     const arr = []
     //Pick Random RGB color
     const ranColor = randomPastelColor()
-    // console.log('TTTTTTT', ranColor)
+
     arr.push(ranColor);
     //Find compliment
     const compliment = findComplement(ranColor)
@@ -182,7 +181,7 @@ function findComplement (color) {
     }
 
     let compHSL = (`${complimentHue},${satch},${light}`)
-    // console.log('complement', compHSL, HSLtoRGB(compHSL))
+
     return HSLtoRGB(compHSL);
 }
 
@@ -195,7 +194,7 @@ function findTriadics (rgbValue) {
 
     let triOne = 0;
     let triTwo = 0;
-    // console.log('triadics', rgbValue, convertedColor, hue, satch, light)
+
     if (hue < 120) {
         triOne = hue + 120;
         triTwo = hue + 240;
@@ -208,7 +207,7 @@ function findTriadics (rgbValue) {
     }
     let triOneColor = (`${triOne},${satch},${light}`)
     let triTwoColor = (`${triTwo},${satch},${light}`)
-    // console.log('triadics', triOneColor)
+
     let RGBtriOneColor = HSLtoRGB(triOneColor);
     let RGBtriTwoColor = HSLtoRGB(triTwoColor);
 
@@ -297,7 +296,6 @@ export function RGBtoHSL (rgbValue) {
     s = +(s * 100).toFixed(1);
     l = +(l * 100).toFixed(1);
 
-    // console.log(`${h}, ${s}%, ${l}%`)
     return(`${h}, ${s}%, ${l}%`)
 }
 
@@ -339,8 +337,6 @@ export function HSLtoRGB (hslValue) {
     g = Math.round((g + m) * 255);
     b = Math.round((b + m) * 255);
 
-    // console.log('WWWWWWWWW', hslValue, `${r}, ${g}, ${b}`)
-    // console.log(`${r}, ${g}, ${b}`)
     //output format: '11, 22, 33's
     return `${r}, ${g}, ${b}`;
 }
@@ -375,10 +371,8 @@ export function RGBtoHEX (rgb) {
     if (g.length ===1)  {g = 0 + g}
     if (b.length ===1)  {b = 0 + b}
 
-    // console.log('CCCCCCCC', `${r}, ${g}, ${b}`)
     return `${r}, ${g}, ${b}`
 }
-
 
 //Console greeting
 const style = "font-size: 14px;" +
@@ -394,108 +388,3 @@ const style = "font-size: 14px;" +
 const text = "%cLet's talk!🙂 sirscavo@gmail.com";
 
 console.log(text, style);
-
-// export const zenObject = {
-//     0: "Trust is good... control is better.",
-//     1: "I've never known a thing in my life.",
-//     2: "Nothing is something worth doing.",
-//     3: "Sleep is the best meditation.",
-//     4: "Everything has a crack in it, that's how the light gets in.",
-//     5: "These mountains that you carry, you were only meant to climb.",
-//     6: "Let go or be dragged.",
-//     7: "Transcend the bullshit.",
-//     8: "And when they played they really played. And when they worked they really worked.",
-//     9: "Relax. Nothing is under control.",
-//     10: "If you chase two rabbits, you catch none.",
-//     11: "Don't be afraid to just sit and watch.",
-//     12: "Become comfortable with not knowing.",
-//     13: "Life begins where fear ends.",
-//     14: "Don't curse the darkness, light a candle.",
-//     15: "This will never come again.",
-//     16: "Nothing is what you want.",
-//     17: "I have lived with several Zen masters - all of them cats.",
-//     18: "Matters of great concern should be treated lightly. Matters of small concerns should be treated seriously.",
-//     19: "Obstacles don't block the path, they are the path.",
-//     20: "If it is to be, it must be me.",
-//     21: "Don't enable the scumbags.",
-//     22: "The first draft of everything is crap.",
-//     23: "When action grows unprofitable, gather information. When information grows unprofitable, sleep."
-// }
-
-
-// export function generateHardColors() {
-//     const arr = [];
-
-//     for (let i = 0; i < 6; i++) {
-//         arr.push(randomColor());
-//     }
-//     console.log('generate hard colors', arr)
-
-//     const newArray = addStyleString(arr);
-//     return newArray;
-// }
-
-// function addBlurClass(arr) {
-//     const blurredArray = [];
-
-//     for (let i = 0; i < arr.length; i++) {
-//         let object = arr[i];
-//         object.class = 'blurred';
-//         blurredArray.push(object)
-//     }
-//     return blurredArray;
-// }
-
-export function RGBtoHSLvalue (rgbValue) {
-    //     //slice -n- dice
-    //     let sliced = rgbValue.slice(1, rgbValue.length -1);
-    //     let split = sliced.split(',');
-    //     let red = Number(split[0]);
-    //     let green = Number(split[1]);
-    //     let blue = Number(split[2]);
-
-    //     //Make red, green, blue fractions of 1
-    //     red /= 255;
-    //     green /= 255;
-    //     blue /= 255;
-
-    //     //Find greatest and smallest channel values
-    //     let cmin = Math.min(red, green, blue);
-    //     let cmax = Math.max(red, green, blue);
-    //     let delta = cmax - cmin;
-
-    //     //calculate hue
-    //     //no difference
-    //     let h = 0;
-    //     let s = 0;
-    //     let l = 0;
-    //     if (delta === 0) {
-    //         h = 0;
-    //     }
-    //     //Red is max
-    //     else if (cmax === red) {
-    //         h = ((green - blue) / delta) % 6;
-    //     }
-    //     //Green is max
-    //     else if (cmax === green) {
-    //         h = (blue - red) / delta + 2;
-    //     }
-    //     //Blue is max
-    //     else {
-    //         h = (red - green) / delta + 4;
-    //     }
-    //     h = Math.round(h * 60);
-    //     //Make negative hues positive behind 360 degrees
-    //     if (h < 0) {
-    //         h += 360
-    //     }
-    //     //Calculate lightness
-    //     l = (cmax + cmin) / 2;
-    //     //Calculate saturation
-    //     s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
-    //     // Multiply by 100
-    //     s = +(s * 100).toFixed(1);
-    //     l = +(l * 100).toFixed(1);
-
-    //     return [`${h}`, `${s}`, `${l}`]
-}

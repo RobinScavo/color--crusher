@@ -1,6 +1,6 @@
-import React, { useContext, useState, useEffect, useRef } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 
-import ColorContext from '../../ColorContext'
+import ColorContext from '../../context/ColorContext'
 import UserContext from '../../context/UserContext'
 
 import Bowl from '../Footer/Bowl';
@@ -145,21 +145,6 @@ const ScoringModal = () => {
                 values.toggleScoringModal();
                 values.toggleMainModal();
             }}>Home</button>
-            {/* <button id='testButton' className='backButton' onClick={() => {
-                setIsHidden(false)
-                setTopIsFalling(false)
-                setMiddleIsFalling(false)
-                setIsFlashing(false)
-                setTotalIsFlashing(false)
-                setIsRaising(false)
-                setIsAnimating(false)
-                setSpeed(0)
-                setAccuracy(0)
-                setScore(12)
-                setCoins(15)
-                setTotal(0)
-                setTopCountdown(true)
-            }}>Test</button> */}
         </div>
     )
 }

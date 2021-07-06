@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 
 import './Bowl.css'
-import ColorContext from '../../ColorContext'
+import ColorContext from '../../context/ColorContext'
 
 const Bowl = (props) => {
     const values = useContext(ColorContext);

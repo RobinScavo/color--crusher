@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
-// import { Link } from 'react-router-dom'
 
-import ColorContext from '../../ColorContext'
+import ColorContext from '../../context/ColorContext'
 
 import './MyBioModal.css'
 
@@ -30,7 +29,6 @@ const MyBioModal = () => {
                     <div className='bioText'>
                         When not building apps like<br/><span className='krazyFont'>
                         Color Crusher</span> Robin can usually be found traveling.<br/><br/>
-                        {/* <Link className='emailLink' href={`mailto:${myEmail}`}>Email Robin Scavo</Link> */}
                         <a className='emailLink' href={`mailto:${myEmail}`}>Email Robin Scavo</a>
                     </div>
                     <div className='bioFancyDiv'></div>

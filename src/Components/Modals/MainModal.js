@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import HighScoreDisplay from '../HighScoreDisplay/HighScoreDisplay'
-import ColorContext from '../../ColorContext'
+import ColorContext from '../../context/ColorContext'
 import UserContext from '../../context/UserContext'
 
 import './LogInFormModal.css'
@@ -64,8 +64,6 @@ function MainModel() {
                   }
                   values.toggleMainModal();
                   values.toggleBattleInstructionModal();
-                  // values.toggleStartBattle();
-                  // values.startGame();
                 }}>Battle</button>
               </div>
               <div className='arrowText'>

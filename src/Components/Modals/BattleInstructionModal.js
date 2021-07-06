@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 
-import ColorContext from '../../ColorContext'
+import ColorContext from '../../context/ColorContext'
 
 import './BattleInstructionModal.css'
 
@@ -35,8 +35,6 @@ const BattleInstructionModal = () => {
             <button  className='gotItButton' onClick={() => {
                 values.toggleBattleInstructionModal();
                 values.newGame();
-                // values.toggleStartBattle();
-                // values.startGame();
             }}>Got it!</button>
         </div>
     )

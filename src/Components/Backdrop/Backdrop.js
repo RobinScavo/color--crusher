@@ -5,7 +5,7 @@ import Banner from '../Banner/Banner'
 import Footer from '../Footer/Footer'
 import Window from '../Window/Window'
 import CustomWindow from '../CustomWindow/CustomWindow'
-import ColorContext from '../../ColorContext'
+import ColorContext from '../../context/ColorContext'
 
 
 import './Backdrop.css'

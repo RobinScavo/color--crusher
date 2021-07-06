@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 
-import ColorContext from '../../ColorContext';
+import ColorContext from '../../context/ColorContext';
 import { HSLtoRGB, RGBtoHEX, HEXtoRGB, RGBtoHSL } from '../../PureFunctions'
 import LeftConvertPanel from './LeftConvertPanel';
 import RightConvertPanel from './RightConvertPanel';

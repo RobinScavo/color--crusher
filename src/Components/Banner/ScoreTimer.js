@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 
-import ColorContext from '../../ColorContext';
+import ColorContext from '../../context/ColorContext';
 import './ScoreTimer.css'
 import '../RGB/GameContainer.css'
 

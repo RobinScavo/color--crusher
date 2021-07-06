@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import './Banner.css';
 
 // import UserName from './UserName'
-import ColorContext from '../../ColorContext';
+import ColorContext from '../../context/ColorContext';
 import UserContext from '../../context/UserContext';
 
 import ScoreTimer from './ScoreTimer';

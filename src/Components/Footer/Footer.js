@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 
-import ColorContext from '../../ColorContext';
+import ColorContext from '../../context/ColorContext';
 import Bowl from './Bowl'
 import FooterButtons from './FooterButtons'
 import ConvertContainer from './ConvertContainer'
