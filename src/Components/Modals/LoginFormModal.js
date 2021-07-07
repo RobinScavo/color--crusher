@@ -60,7 +60,7 @@ function LoginForm() {
                 id='demoButton'
                 className='silverButton logSignButton'
                 onClick={() => {
-                  setEmail('demo@gmail.com')
+                  setEmail('player@gmail.com')
                   setPassword('121212')
                   setTimeout(() => {
                     onDemoLogin()

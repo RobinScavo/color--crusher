@@ -5,8 +5,6 @@ import { HSLtoRGB, RGBtoHEX, HEXtoRGB, RGBtoHSL } from '../../PureFunctions'
 import LeftConvertPanel from './LeftConvertPanel';
 import RightConvertPanel from './RightConvertPanel';
 
-import './ConvertContainer.css'
-
 const ConvertContainer = () => {
     const values = useContext(ColorContext);
 

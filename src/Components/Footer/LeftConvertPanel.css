@@ -103,6 +103,21 @@
     }
 }
 
+@media only screen and (max-height: 850px) {
+    .leftButtonDiv {
+        height: 460px;
+        width: 240px;
+    }
+    .upperButtonDiv {
+        flex-wrap: wrap;
+        height: 170px;
+        width: 240px;
+    }
+    .convertTextDiv {
+        font-size: 12px;
+    }
+}
+
 .convertInputDiv {
     display: flex;
     flex-direction: column;

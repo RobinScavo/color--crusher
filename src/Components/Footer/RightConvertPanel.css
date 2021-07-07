@@ -118,6 +118,33 @@
     }
 }
 
+@media only screen and (max-height: 850px) {
+    .convertDiv {
+        width: 270px;
+    }
+    .rightButtonDiv {
+        height: 460px;
+        width: 270px;
+        flex-wrap: wrap;
+    }
+    .repeatToggle {
+        visibility: hidden;
+    }
+    .rightConvertTextDiv {
+        visibility: hidden;
+        height: 0;
+        width: 0;
+    }
+    .rightConvertButton {
+        height: 35px;
+        width: 95px;
+        margin-top: -10px;
+    }
+    .repeatLabel {
+        visibility: hidden;
+    }
+}
+
 .toggleText {
     display: flex;
     justify-content: center;

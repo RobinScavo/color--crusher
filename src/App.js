@@ -77,16 +77,18 @@ function App() {
   const onDemoLogin = () => onLogin('player@gmail.com', '121212')
 
   const onLogout = () => {
+    const nullPlayer = {
+      key: null,
+      name: '',
+      email: '',
+      score: 0
+    }
+
     firebase
       .auth()
       .signOut()
       .then(() => {
-        setCurrentPlayer({
-          key: null,
-          name: '',
-          email: '',
-          score: 0
-        })
+        setCurrentPlayer(nullPlayer)
 
         setUser({
           email: '',
