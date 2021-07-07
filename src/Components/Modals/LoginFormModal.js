@@ -26,7 +26,7 @@ function LoginForm() {
       togglePlayerPageModal()
     }
 
-  }, [user])
+  }, [user, toggleLoginModal, togglePlayerPageModal])
 
   return (
     <>
