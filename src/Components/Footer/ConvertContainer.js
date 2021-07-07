@@ -182,7 +182,7 @@ const ConvertContainer = () => {
             displayedValue = RGBtoHEX(renderedColor)
 
         //HEX to HSL
-        } else if (this.state.fromHexButton && this.state.toHslButton) {
+        } else if (fromHexButton && toHslButton) {
             renderedColor = HEXtoRGB(`#${tempInput.join('')}`);
             displayedValue = RGBtoHSL(renderedColor);
         }

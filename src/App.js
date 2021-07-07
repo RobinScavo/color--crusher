@@ -114,12 +114,20 @@ function App() {
   }
 
   const onEdit = (key, email, name, score) => {
-    const playerRef = firebase.database().ref('players/' + key);
-    playerRef.update({
+    //disallow modification of Player and Guest
+    if (user.email === 'guest@gmail.com' || user.email === 'player@gmail.com') {
+      setFlashMessage('cannotEdit')
+      return
+    }
+
+    const newInfo =({
       name: name,
       email: email,
       score: score,
     })
+
+    const playerRef = firebase.database().ref('players/' + key);
+    playerRef.update(newInfo)
     setFlashMessage('updated')
   }
 
@@ -154,6 +162,12 @@ function App() {
   }
 
   const deletePlayer = (player) => {
+    //disallow modification of Player and Guest
+    if (user.email === 'guest@gmail.com' || user.email === 'player@gmail.com') {
+      setFlashMessage('cannotEdit')
+      return
+    }
+
     if (window.confirm('Your account will be deleted. Proceed?')) {
       const playerRef = firebase.database().ref('players/' + player);
       playerRef.remove();

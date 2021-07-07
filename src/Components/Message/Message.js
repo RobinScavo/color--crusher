@@ -13,7 +13,8 @@ const Message = ({ type }) => {
         improperlyEmailed: 'Must be a valid email.',
         invalidCredentialed: 'Invalid Credentials.',
         signupFailed: 'Sign up failure.',
-        logoutFailed: 'Log out failure.'
+        logoutFailed: 'Log out failure.',
+        cannotEdit: 'Player and Guest cannot be modified'
 
     }
 

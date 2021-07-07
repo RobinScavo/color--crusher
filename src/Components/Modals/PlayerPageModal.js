@@ -15,7 +15,7 @@ const PlayerPageModal = () => {
     const [email, setEmail] = useState(currentPlayer.email);
     const [name, setName] = useState(currentPlayer.name);
 
-    const handleEdit = () => onEdit(currentPlayer.key, email, name, user.score)
+    const handleEdit = () => onEdit(currentPlayer.key, email, name, currentPlayer.score)
     const handleDelete = () => deletePlayer(currentPlayer.key);
 
     useEffect(() => {}, [user])
@@ -26,7 +26,7 @@ const PlayerPageModal = () => {
                 <div className='leftSideDiv'>
                     <div className='logInFormDiv' id='editForm'>
                         <h1 className='logSignTitle editTitle'>Edit Info</h1>
-                        <form  className='loginForm' onSubmit={handleEdit}>
+                        <div  className='loginForm' >
 
                             <input
                             className='logInput'
@@ -46,9 +46,10 @@ const PlayerPageModal = () => {
                             className='silverButton logSignButton'
                             type="submit"
                             disabled={!email && !user.password}
+                            onClick={handleEdit}
                             >Edit</button>
 
-                        </form>
+                        </div>
                     </div>
                     <button  id='editHomeButton' className='backButton' onClick={() => {
                         values.toggleLoginModal();

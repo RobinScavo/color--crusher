@@ -59,7 +59,6 @@ function MainModel() {
                 <h1 className='titleText'>BattleMode</h1>
                 <button  className='silverButton battle' onClick={() => {
                   if (!currentPlayer.email) {
-                    console.log('gogogog')
                     onLogin('guest@gmail.com', '121212')
                   }
                   values.toggleMainModal();
