@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 
-import GameContainer from '../RGB/GameContainer'
-import Banner from '../Banner/Banner'
-import Footer from '../Footer/Footer'
-import Window from '../Window/Window'
-import CustomWindow from '../CustomWindow/CustomWindow'
-import ColorContext from '../../context/ColorContext'
+import ColorContext from '../../context/ColorContext';
+
+import GameContainer from '../RGB/GameContainer';
+import Banner from '../Banner/Banner';
+import Footer from '../Footer/Footer';
+import Window from '../Window/Window';
+import CustomWindow from '../CustomWindow/CustomWindow';
 
 
 import './Backdrop.css'

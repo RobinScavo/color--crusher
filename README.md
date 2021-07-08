@@ -1,6 +1,6 @@
 https://colorcrusher.herokuapp.com/
 
-Objective: learn react, css and Firebase
+Objective: learn react, css and Firebase. I sought to create as much of the front end as possible with vanilla JS and CSS. While I plan to explore component libraries and CSS bootstrapping in the future, for the project I tried to build things from scratch.
 
 What I learned:
 
@@ -10,7 +10,15 @@ What I learned:
 
 3) Firebase- When learning full stack development I think its best to start with a tool like Firebase which simplifies Authentication and CRUD actions. This will allow students to see the overall "forest" before focusing on specific "trees" like Express.
 
+4) 3 different modal implementations: portal, flash messaging, dom manipulation
+
+5) Personally-
+
 Features:
+    -SPHERICAL 3-D EFFECT: three dimensional balls were created by layering two different color gradients: one a dynamically created base color and the second a greyscale which remains constant. When the game board clears I remove the base color which causes the "ghost ball" effect.  (photo and link)
+    -DELAYED RENDERING: I created a custom React hook which would delay the rendering of a component based on a varible argument. I used this hook for the color balls... causing the counter-clockwise effect as balls are cleared and then colored. (code snippet)
+    -COLOR VALUE CONVERSIONS: Thanks to this helpful article (link) I found algorithms that transform RGB values into HEX and HSL values. With an HSL value in hand, simple subtraction  will give the various compliment colors on the color wheel.
+    -SHIMMERING COINS:
 
 
 
