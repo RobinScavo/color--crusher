@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-// import './ConvertContainer.css'
 import './RightConvertPanel.css'
 
 const RightConvertPanel = (props) => {
@@ -8,7 +7,6 @@ const RightConvertPanel = (props) => {
     const [triadicRepeating, setTriadicRepeating] = useState('')
     const [analogousRepeating, setAnalogousRepeating] = useState('')
     const [pastelRepeating, setPastelRepeating] = useState('')
-
 
     const postition = props.togglePosition ? 'lowerPosition' : ''
 

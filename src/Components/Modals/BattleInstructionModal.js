@@ -1,11 +1,8 @@
-import React, { useContext } from 'react'
-
-import ColorContext from '../../context/ColorContext'
+import React from 'react'
 
 import './BattleInstructionModal.css'
 
-const BattleInstructionModal = () => {
-    const values = useContext(ColorContext);
+const BattleInstructionModal = (props) => {
 
     return (
         <div className='battleInstructionDiv'>
@@ -33,8 +30,8 @@ const BattleInstructionModal = () => {
             <div className='summaryDiv'>Test your ability to decipher RGB values
                 of increasing complexity.<br/> Earn points for speed and accuracy!</div>
             <button  className='gotItButton' onClick={() => {
-                values.toggleBattleInstructionModal();
-                values.newGame();
+                props.toggleBattleInstructionModal();
+                props.newGame();
             }}>Got it!</button>
         </div>
     )

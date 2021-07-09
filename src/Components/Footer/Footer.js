@@ -12,13 +12,34 @@ const Footer = () => {
 
     return (
         <div className ='footerDiv'>
-            <FooterButtons />
+            <FooterButtons
+                startBattle={values.startBattle}
+                startConvert={values.startConvert}
+                toggleStartBattle={values.toggleStartBattle}
+                toggleStartConvert={values.toggleStartConvert}
+                clearRounds={values.clearRounds}
+                toggleGameOn={values.toggleGameOn}
+                toggleWindowDisplay={values.toggleWindowDisplay}
+            />
+
             {!values.startConvert && !values.scoringModal &&
                 <>
-                <Bowl id='scoreBowl' display={values.score}/>
-                <Bowl id='coinBowl' display={values.coins}/>
+                <Bowl
+                    id='scoreBowl'
+                    display={values.score}
+                    startBattle={values.startBattle}
+                    scoringModal={values.scoringModal}
+                />
+
+                <Bowl
+                    id='coinBowl'
+                    display={values.coins}
+                    startBattle={values.startBattle}
+                    scoringModal={values.scoringModal}
+                />
                 </>
             }
+
             {values.startConvert &&
                 <ConvertContainer />
             }

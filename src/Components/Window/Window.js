@@ -1,17 +1,13 @@
-import React, { useContext } from 'react'
-
-import ColorContext from '../../context/ColorContext'
+import React from 'react'
 
 import './Window.css'
 
-const Window = () => {
-    const values = useContext(ColorContext);
-
-    const windowDisplay = values.windowDisplayed;
+const Window = (props) => {
+    const windowDisplay = props.windowDisplayed;
     let windowVisibility = false;
     windowVisibility = windowDisplay ? 'windowVisible' : 'windowHidden';
 
-    const colorArray = values.colorArray;
+    const colorArray = props.colorArray;
     const slicedArray = [];
     const cheaterArray = ['windowOne', 'windowTwo', 'windowThree', 'windowFour', 'windowFive', 'windowSix']
 
@@ -25,7 +21,7 @@ const Window = () => {
 
     return (
         <>
-            {values.startBattle &&
+            {props.startBattle &&
                 <div className={`windowDiv ${windowVisibility}`}>
                     {cheaterArray.map(cheater => <div key={cheater.toString()} className={`window ${cheater}`} >
                         <div >Only Cheating</div>
@@ -34,7 +30,7 @@ const Window = () => {
                 </div>
             }
 
-            {!values.startBattle &&
+            {!props.startBattle &&
                 <div className={`windowDiv ${windowVisibility}`}>
                     <div className='window windowOne'>
                         <div>RGB</div>

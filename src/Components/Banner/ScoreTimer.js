@@ -1,42 +1,40 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, {  useState, useEffect } from 'react';
 
-import ColorContext from '../../context/ColorContext';
 import './ScoreTimer.css'
 import '../RGB/GameContainer.css'
 
-const ScoreTimer = () => {
-    const values = useContext(ColorContext);
-    const update = values.updateTimer;
+const ScoreTimer = (props) => {
+    const update = props.updateTimer;
     let falling = '';
 
-    const [seconds, setSeconds ] = useState(values.timer);
+    const [seconds, setSeconds ] = useState(props.timer);
     const [isFalling, setIsFalling] = useState(false)
 
     useEffect(() => {
         let interval = null;
-        if (values.gameOn && seconds > 0) {
+        if (props.gameOn && seconds > 0) {
             interval = setInterval(() => {
                 setSeconds(seconds => seconds -1);
                 return seconds
             }, 1000);
         }
-        if (!values.gameOn && seconds !== 15) {
+        if (!props.gameOn && seconds !== 15) {
             update(seconds);
             setSeconds(15);
         }
         return () => clearInterval(interval)
-    }, [values.gameOn, seconds, update])
+    }, [props.gameOn, seconds, update])
 
     useEffect(() => {
-        if (values.gameOn && isFalling) {
+        if (props.gameOn && isFalling) {
             setTimeout(() => {
                 setIsFalling(false)
             }, 2800)
         }
-        if (!values.gameOn && values.round > 0) {
+        if (!props.gameOn && props.round > 0) {
             setIsFalling(true)
         }
-    }, [isFalling, values.gameOn, values.round])
+    }, [isFalling, props.gameOn, props.round])
 
     falling = isFalling ? 'scoreFall' : ''
 
@@ -44,10 +42,10 @@ const ScoreTimer = () => {
     return (
         <div className={`scoreContainer ${falling}`}>
             <div className='scoreTimerDiv scoreTimerFront'>
-                {!values.startBattle &&
+                {!props.startBattle &&
                     <h1 className='scoreTimer'>cc</h1>
                 }
-                {values.startBattle &&
+                {props.startBattle &&
                     <h1 className='scoreTimer'>{seconds}</h1>
                 }
             </div>

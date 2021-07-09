@@ -377,7 +377,10 @@ class Controller extends React.Component {
                         }
                         {this.state.bioModal &&
                             <Modal>
-                                <MyBioModal />
+                                <MyBioModal
+                                    toggleBioModal={this.state.toggleBioModal}
+                                    toggleMainModal={this.state.toggleMainModal}
+                                />
                             </Modal>
                         }
                         {this.state.playerPageModal &&
@@ -387,12 +390,19 @@ class Controller extends React.Component {
                         }
                         {this.state.battleInstructionModal &&
                             <Modal>
-                                <BattleInstructionModal />
+                                <BattleInstructionModal
+                                    toggleBattleInstructionModal={this.state.toggleBattleInstructionModal}
+                                    newGame={this.state.newGame}
+                                />
                             </Modal>
                         }
                         {this.state.convertInstructionModal &&
                             <Modal>
-                                <ConvertInstructionModal />
+                                <ConvertInstructionModal
+                                    toggleConvertInstructionModal={this.state.toggleConvertInstructionModal}
+                                    toggleStartConvert={this.state.toggleStartConvert}
+                                    startGame={this.state.startGame}
+                                />
                             </Modal>
                         }
                         {this.state.scoringModal &&

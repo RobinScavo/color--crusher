@@ -1,12 +1,8 @@
-import React, { useContext } from 'react'
-
-import ColorContext from '../../context/ColorContext'
+import React from 'react'
 
 import './MyBioModal.css'
 
-const MyBioModal = () => {
-    const values = useContext(ColorContext)
-
+const MyBioModal = (props) => {
     const myEmail = 'sirscavo@gmail.com'
 
     return (
@@ -39,8 +35,8 @@ const MyBioModal = () => {
                 <div className='contactText topText'></div>
 
                 <button className='bioBackButton' onClick={() => {
-                    values.toggleBioModal();
-                    values.toggleMainModal();
+                    props.toggleBioModal();
+                    props.toggleMainModal();
                 }}>Home</button>
 
                 <div className='contactDiv'>

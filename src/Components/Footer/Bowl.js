@@ -1,11 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 import './Bowl.css'
-import ColorContext from '../../context/ColorContext'
 
 const Bowl = (props) => {
-    const values = useContext(ColorContext);
-
     return (
     <div className='bowlOutter'  id={props.id}>
         <div className='upperHalf'>
@@ -13,13 +10,13 @@ const Bowl = (props) => {
         </div>
         <div className='bowl'>
 
-            {values.startBattle &&
+            {props.startBattle &&
                 <h2 className='display'>{props.display}</h2>
             }
-            {values.scoringModal &&
+            {props.scoringModal &&
                 <h2 className='display'>{props.display}</h2>
             }
-            {!values.startBattle && !values.scoringModal &&
+            {!props.startBattle && !props.scoringModal &&
                 <h2 className='display'>cc</h2>
             }
 

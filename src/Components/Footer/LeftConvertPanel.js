@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-// import './ConvertContainer.css';
 import './LeftConvertPanel.css';
 
 const LeftConvertPanel = (props) => {

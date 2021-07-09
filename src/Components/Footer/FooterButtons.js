@@ -1,19 +1,14 @@
-import React, { useContext } from 'react'
-
-import ColorContext from '../../context/ColorContext';
+import React from 'react'
 
 import './FooterButtons.css'
 
-
-
-const FooterButtons = () => {
-    const values = useContext(ColorContext)
+const FooterButtons = (props) => {
 
     const checkBattle = () => {
-        if (values.startBattle) values.toggleStartBattle()
+        if (props.startBattle) props.toggleStartBattle()
     }
     const checkConvert = () => {
-        if (values.startConvert) values.toggleStartConvert()
+        if (props.startConvert) props.toggleStartConvert()
     }
 
     return (
@@ -21,11 +16,11 @@ const FooterButtons = () => {
             <button className='footerButton' onClick={() => {
                 checkBattle();
                 checkConvert();
-                values.clearRounds();
-                values.toggleGameOn();
+                props.clearRounds();
+                props.toggleGameOn();
             }}>Home</button>
             <button className='footerButton' onClick={() => {
-                values.toggleWindowDisplay();
+                props.toggleWindowDisplay();
             }}>Show Values</button>
         </div>
     )

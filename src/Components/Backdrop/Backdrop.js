@@ -18,13 +18,26 @@ const BackDrop = () => {
         <div className='backDrop'>
             <Banner />
             <div className='upperRoundDiv'>
-                <Window />
-                <CustomWindow />
+
+                <Window
+                    windowDisplayed={values.windowDisplayed}
+                    colorArray={values.colorArray}
+                    startBattle={values.startBattle}
+                />
+
+                <CustomWindow
+                    customDisplayed={values.customDisplayed}
+                    customColor={values.customColor}
+                />
+
                 <GameContainer />
+
                 <div className='innerDiv'></div>
                 <div className='sideDivRight'></div>
                 <div className='sideDiv'></div>
+
                 <Footer />
+
                 <div className='bottomBar'>
                     {values.startBattle &&
                         <h3 className='bottomBarText'>Score</h3>

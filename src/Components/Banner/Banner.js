@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 
 import './Banner.css';
 
-// import UserName from './UserName'
 import ColorContext from '../../context/ColorContext';
 import UserContext from '../../context/UserContext';
 
@@ -12,12 +11,18 @@ import CryptoCoin from './CryptoCoin';
 const Banner = () => {
     const values = useContext(ColorContext);
     const { currentPlayer } = useContext(UserContext);
-    // console.log(user)
 
     return (
         <div className='bannerDiv'>
             {!values.scoringModal &&
-                <ScoreTimer gameStart={values.gameOn}/>
+                <ScoreTimer
+                    gameStart={values.gameOn}
+                    updateTimer={values.updateTimer}
+                    gameOn={values.gameOn}
+                    timer={values.timer}
+                    round={values.round}
+                    startBattle={values.startBattle}
+                />
             }
 
             {!values.gameOn && !values.startBattle &&
@@ -29,6 +34,7 @@ const Banner = () => {
             {values.startConvert &&
                 <h1 className='gameName'>Color Converter</h1>
             }
+
             {!values.scoringModal &&
                 <>
                 <CryptoCoin index={0} className='cryptoOne'/>
@@ -36,8 +42,8 @@ const Banner = () => {
                 <CryptoCoin index={2} className='cryptoThree'/>
                 </>
             }
+
             <h1 className='userName'>{`${currentPlayer.name}`}</h1>
-            {/* <UserName /> */}
         </div>
     )
 }

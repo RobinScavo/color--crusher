@@ -1,13 +1,9 @@
-import React, {useContext } from 'react'
-
-import ColorContext from '../../context/ColorContext'
+import React from 'react'
 
 import '../Window/Window.css'
 
-const Window = () => {
-    const values = useContext(ColorContext);
-
-    const customDisplay = values.customDisplayed;
+const Window = (props) => {
+    const customDisplay = props.customDisplayed;
     let customVisibility = false;
     customVisibility = customDisplay ? 'windowVisible' : 'windowHidden';
 
@@ -15,7 +11,7 @@ const Window = () => {
         <div className={`windowDiv ${customVisibility}`}>
             <div className={`window windowOne  ${customVisibility}`}>
                 <div>RGB</div>
-                <div>{values.customColor}</div>
+                <div>{props.customColor}</div>
             </div>
         </div>
     )
