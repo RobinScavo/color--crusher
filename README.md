@@ -1,4 +1,4 @@
-<h1 style='
+<!-- <h1 style='
     text-align:center;
     font-family:luminari;
     font-size: 40px;
@@ -14,7 +14,9 @@
     border-radius: 5px;
     background-image: url("./src/Images/footer-blue.png");
     background-size: 75% 200%;
-'>Color Crusher README</h1>
+'>Color Crusher README</h1> -->
+
+# Color Crusher Readme #
 
 <div style='
     display: flex;
@@ -22,18 +24,16 @@
     align-items: center;
 '>
 
-<div style='
-    height: 207px;
-    width: 300px;
+<!-- <div style='
     height: 208px;
     width: 290px;
     border: 3px solid rgb(87, 189, 227);
     border-radius: 5px;
-'>
+'> -->
+<img src='./src/Images/screenshot.png' alt='screen shot' height=208px width=290px>
+<!-- ![](./src/Images/screenshot.png) -->
 
-![](./src/Images/screenshot.png)
-
-</div>
+<!-- </div> -->
 
 <br>
 <a href='https://colorcrusher.herokuapp.com' style='
