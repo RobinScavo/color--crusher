@@ -6,6 +6,7 @@
     z-index: 3;
     pointer-events:none;
     font-size: 19px;
+    margin-left: 10px;
 }
 
 .windowVisible {

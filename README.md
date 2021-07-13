@@ -14,8 +14,25 @@
     border-radius: 5px;
     background-image: url("./src/Images/footer-blue.png");
         background-size: 75% 200%;
-'>Color Crusher</h1>
--Walkthrough GIF here
+'>Color Crusher README</h1>
+
+<div style='
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+'>
+
+<div style='
+    height: 207px;
+    width: 300px;
+    border: 3px solid rgb(87, 189, 227);
+    border-radius: 5px;
+'>
+
+![](./src/Images/overview.gif)
+</div>
+
+<br>
 
 <a href='https://colorcrusher.herokuapp.com' style='
     font-family:luminari;
@@ -30,6 +47,8 @@
         border-radius: 5px;
 '>
 Image created with <a>https://excalidraw.com/</a>
+
+</div>
 
 <h2 style='
     font-family:luminari;
@@ -189,11 +208,24 @@ Shine effect:
 <div style='
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     border: 1px solid rgb(255, 90, 0);
     padding: 20px;
     margin-top: 30px
 '>
+
+<div style='
+    height: 285px;
+    width: 300px;
+    border: 3px solid rgb(87, 189, 227);
+    border-radius: 5px;
+'>
+
+![](./src/Images/delay.gif)
+</div>
+
+<br>
 
 <h3 style='
     font-size: 18px;
@@ -244,10 +276,23 @@ useEffect(() => {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     border: 1px solid rgb(255, 90, 0);
     padding: 20px;
     margin-top: 30px
 '>
+
+<div style='
+    height: 61px;
+    width: 97px;
+    border: 3px solid rgb(87, 189, 227);
+    border-radius: 5px;
+'>
+
+![](./src/Images/coin.gif)
+</div>
+
+<br>
 
 <h3 style='
     font-size: 18px;
@@ -293,10 +338,23 @@ useEffect(() => {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     border: 1px solid rgb(255, 90, 0);
     padding: 20px;
     margin-top: 30px
 '>
+
+<div style='
+    height: 61px;
+    width: 97px;
+    border: 3px solid rgb(87, 189, 227);
+    border-radius: 5px;
+'>
+
+![](./src/Images/crypto.gif)
+</div>
+
+<br>
 
 <h3 style='
     font-size: 18px;
