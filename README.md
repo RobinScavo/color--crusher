@@ -23,13 +23,13 @@
 '>
 
 <div style='
-    height: 207px;
-    width: 300px;
+    height: 208px;
+    width: 290px;
     border: 3px solid rgb(87, 189, 227);
     border-radius: 5px;
 '>
 
-![](./src/Images/overview.gif)
+![](./src/Images/overview.png)
 </div>
 
 <br>
