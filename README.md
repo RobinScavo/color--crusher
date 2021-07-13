@@ -23,13 +23,12 @@
 '>
 
 <div style='
-    height: 208px;
-    width: 290px;
+    height: 207px;
+    width: 300px;
     border: 3px solid rgb(87, 189, 227);
     border-radius: 5px;
 '>
 
-![](./src/Images/overview.png)
 </div>
 
 <br>
