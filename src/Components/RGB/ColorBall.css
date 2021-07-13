@@ -1,13 +1,19 @@
-
-
 .colorBall {
     visibility: visible;
+    /* height: 233.5px;
+    width: 233.5px; */
     height: 33.3%;
     width: 33.3%;
     border-radius: 50%;;
     box-shadow: 10px 12px 20px 5px rgba(0, 0, 0, 0.5);
     z-index: 2;
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1ms linear 900ms, opacity 900ms;
 }
 
 .colorBall::before {
@@ -23,12 +29,6 @@
     z-index: 2;
 }
 
-.hidden {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 1ms linear 900ms, opacity 900ms;
-}
-
 .colorBall:hover {
     overflow: visible;
     height: 34%;
@@ -42,12 +42,17 @@
 
 #colorTwo {
     position: absolute;
+    /* position: relative; */
+    /* right: 30px;
+    top: 116px; */
     right: 4.4%;
     top: 16.6%;
 }
 
 #colorThree {
     position: absolute;
+    /* right: 30px;
+    bottom: 116px; */
     right: 4.4%;
     bottom: 16.6%;
 }
@@ -59,12 +64,21 @@
 
 #colorFive {
     position: absolute;
+    left: 30px;
+    bottom: 116px;
     left: 4.4%;
     bottom: 16.6%;
 }
 
 #colorSix {
     position: absolute;
+    left: 30px;
+    top: 116px;
     left: 4.4%;
     top: 16.6%;
 }
+/*
+.blurred {
+    background-clip: padding-box;
+    backdrop-filter: blur(6px );
+} */
