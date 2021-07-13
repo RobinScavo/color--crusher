@@ -16,7 +16,7 @@
     background-size: 75% 200%;
 '>Color Crusher README</h1> -->
 
-<h1 style='color:blue;'>Color Crusher README</h1>
+<h1 style='text-align:center'>Color Crusher README</h1>
 
 <!-- # Color Crusher Readme # -->
 
