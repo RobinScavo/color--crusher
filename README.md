@@ -30,7 +30,7 @@
     border: 3px solid rgb(87, 189, 227);
     border-radius: 5px;
 '> -->
-<img src='./src/Images/screenshot.png' alt='screen shot' height=208px width=290px margin-left='100px'>
+<img src='./src/Images/screenshot.png' alt='screen shot' height=208px width=290px style='display:flex;align-items:center;'>
 <!-- ![](./src/Images/screenshot.png) -->
 
 <!-- </div> -->
