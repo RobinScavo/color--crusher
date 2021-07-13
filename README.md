@@ -73,7 +73,7 @@ Creating Convert Mode gave me lots of practice building various React components
     justify-content:center;
     align-items:center;
     color: rgb(87, 189, 227);
-'>Technologies</h2>
+'> ~ Technologies ~ </h2>
 
   **Color Crusher** is a full stack application relying heavily on the core React library. State management is achieved using the React Context API (two different contexts handle most everything: user context and color context). Instead of using __react-router__, rendering is done conditionally allowing the background to remain constant while the player 'navigates' through the various modals. One of the few React libraries used is __react-storage-hooks__ which easily adds persistent state via local storage. Styling was painstaking done by hand using CSS modules.
 
@@ -286,7 +286,7 @@ Shine effect:
     justify-content:center;
     align-items:center;
     color: rgb(87, 189, 227);
-'>What I learned</h2>
+'> ~ What I learned ~ </h2>
 
 1) CSS- Responsiveness to screen size should be considered early and often when planning your application. While flexbox works great at component level, using the grid method for the layout makes it much easier to prioritize what gets displayed at various screen sizes.
 
@@ -307,7 +307,17 @@ I also realized the importance of removing state from the components which get r
     justify-content:center;
     align-items:center;
     color: rgb(87, 189, 227);
-'>To-Do list</h2>
+'> ~ To-Do list ~ </h2>
     - As you read above, the unneccessary rerendering of components is unacceptable and I plan to refactor into a component map like the one below. The creation and rendering of color balls is a concern that needs to be BELOW the overall game and navigation logic. I also need to futher remove state from any component which is being rendered and pass this responsiblity to parent components. The only two components being rendered which need an internal state are the 'scoreTimer.js' (which internally counts down) and the 'leftConvertPanel' (which does input verification).
 
-    -I greatly enjoyed working with Firebase and if I'm a 'fan-boy' of anything it would be Google products. My plans are to become further acquainted with Firebase, including image hosting and other services. I have some familiarity with Express so my next project will combine the two. I also intend to use Material UI in my next project... now that I've built my own components I'll see what the component libraries can bring to the table.
+<br>
+
+![future component map](./src/Images/futureMap.png)
+
+&emsp;I greatly enjoy using the tools provided to us by Google and Firebase was no exception. I plan to become more acquainted with all the things it offers such as image hosting and cloud services. I have some familiarity with Express so my next project will combine the two. I also intend to explore Material UI... now that I've built my own components I'll see what the libraries can bring to the table.
+
+&emsp;If you read this far then I sincerely appreciate your interest. Feel free to email me with advice, questions, job offers or just to nerd-out with me about math or colors or whatever.
+
+<a href = "mailto: sirscavo@gmail.com">sirscavo@gmail.com</a>
+
+<p>&#128512;</p>
