@@ -13,7 +13,6 @@
     align-items:center;
     color: white;
     border-radius: 5px;
-<<<<<<< HEAD
     background-image: url("./src/Images/footer-blue.png");
         background-size: 75% 200%;
 '>Color Crusher README</h1>
@@ -34,9 +33,6 @@
 </div>
 
 <br>
-=======
-'>Color Crusher</h1>
->>>>>>> parent of f00fdf10... read me
 
 <a href='https://colorcrusher.herokuapp.com' style='
     font-size: 30px;
@@ -92,7 +88,6 @@ Creating Convert Mode gave me lots of practice building various React components
     justify-content:center;
     align-items:center;
     color: rgb(87, 189, 227);
-<<<<<<< HEAD
     margin-top: 30px;
 '> ~ Features ~ </h2>
 
@@ -236,9 +231,6 @@ Shine effect:
 '>DELAYED RENDERING</h3>
 
 &emsp;I created a custom React hook which would delay the rendering of a component based on a varible argument and then used this hook for the color balls. As I move counter-clockwise throught the color balls I increase the delay, creating an interesting effect.
-=======
-'>Features</h2>
->>>>>>> parent of f00fdf10... read me
 
 **1) SPHERICAL 3-D EFFECT--**
       Three dimensional balls were created by layering two different color gradients: one a dynamically created base color and the second a greyscale which remains constant. When the game board clears I remove the base color which causes the "ghost ball" effect.  further reading: (link)
@@ -250,7 +242,6 @@ Shine effect:
 
     - repeat render GIF
 
-<<<<<<< HEAD
 &emsp;Searching online led me to algorithms that transform RGB values into HEX and HSL values (see src/PureFunctions.js). With an HSL value in hand, simple subtraction  will give the various compliment colors on the color wheel. Further reading: https://css-tricks.com/converting-color-spaces-in-javascript/
 
 </div>
@@ -284,10 +275,6 @@ Shine effect:
     align-items:center;
     color: rgb(255, 90, 0);
 '>SHIMMERING COINS</h3>
-=======
-**3) COLOR VALUE CONVERSIONS--**
-    Searching online led me to algorithms that transform RGB values into HEX and HSL values. With an HSL value in hand, simple subtraction  will give the various compliment colors on the color wheel. further reading: link
->>>>>>> parent of f00fdf10... read me
 
 **4) SHIMMERING COINS--**
     To create the shifting silver effect on the coins and bowls I started with an image of silver foil, made it much bigger than the circle displaying it, hid the overflow and then started slowly moving the background image. further reading: link
@@ -297,7 +284,6 @@ Shine effect:
 **5) ANIMATIONS--**
     The timer in the upper left will flip and fall into the bowl below it whenever a player correctly guesses a color. The 'crypto coins' in the upper right will do the same, in addition to rolling off screen when the player chooses unwisely. These animations were accomplished by adding and removing class names with React and utilizing @keyframes in the CSS files.
 
-<<<<<<< HEAD
 </div>
 
 <div style='
@@ -333,9 +319,6 @@ Shine effect:
 &emsp;The timer in the upper left will flip and fall into the bowl below it whenever a player correctly guesses a color. The 'crypto coins' in the upper right will do the same, in addition to rolling off screen when the player chooses unwisely. These animations were accomplished by adding and removing class names with React and utilizing @keyframes in the CSS files.
 
 </div>
-=======
-    -rolling/falling GIF
->>>>>>> parent of f00fdf10... read me
 
 <h2 style='
     font-family:luminari;
