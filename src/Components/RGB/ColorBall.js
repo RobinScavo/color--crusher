@@ -42,7 +42,7 @@ const ColorBall = (props) => {
             className={`colorBall ${visibility}`}
             id={id}
             onClick={() => checkGuess(props.id)}
-            style={color}
+            // style={color}
         >
         </div>
     )

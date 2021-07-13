@@ -15,6 +15,7 @@
     border-radius: 5px;
     background-image: url("./src/Images/footer-blue.png");
         background-size: 75% 200%;
+<<<<<<< HEAD
 '>Color Crusher README</h1>
 
 <div style='
@@ -33,6 +34,10 @@
 </div>
 
 <br>
+=======
+'>Color Crusher</h1>
+-Walkthrough GIF here
+>>>>>>> parent of 31f74f8b... read me complete
 
 <a href='https://colorcrusher.herokuapp.com' style='
     font-size: 30px;
@@ -42,8 +47,6 @@
 '>Play it now!</a>
 
 -Walkthrough GIF here
-
-</div>
 
 <h2 style='
     font-family:luminari;
@@ -203,24 +206,11 @@ Shine effect:
 <div style='
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
     border: 1px solid rgb(255, 90, 0);
     padding: 20px;
     margin-top: 30px
 '>
-
-<div style='
-    height: 285px;
-    width: 300px;
-    border: 3px solid rgb(87, 189, 227);
-    border-radius: 5px;
-'>
-
-![](./src/Images/delay.gif)
-</div>
-
-<br>
 
 <h3 style='
     font-size: 18px;
@@ -250,23 +240,10 @@ Shine effect:
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
     border: 1px solid rgb(255, 90, 0);
     padding: 20px;
     margin-top: 30px
 '>
-
-<div style='
-    height: 61px;
-    width: 97px;
-    border: 3px solid rgb(87, 189, 227);
-    border-radius: 5px;
-'>
-
-![](./src/Images/coin.gif)
-</div>
-
-<br>
 
 <h3 style='
     font-size: 18px;
@@ -290,23 +267,10 @@ Shine effect:
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
     border: 1px solid rgb(255, 90, 0);
     padding: 20px;
     margin-top: 30px
 '>
-
-<div style='
-    height: 61px;
-    width: 97px;
-    border: 3px solid rgb(87, 189, 227);
-    border-radius: 5px;
-'>
-
-![](./src/Images/crypto.gif)
-</div>
-
-<br>
 
 <h3 style='
     font-size: 18px;
