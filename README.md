@@ -15,7 +15,6 @@
     border-radius: 5px;
     background-image: url("./src/Images/footer-blue.png");
         background-size: 75% 200%;
-<<<<<<< HEAD
 '>Color Crusher README</h1>
 
 <div style='
@@ -34,10 +33,6 @@
 </div>
 
 <br>
-=======
-'>Color Crusher</h1>
--Walkthrough GIF here
->>>>>>> parent of 31f74f8b... read me complete
 
 <a href='https://colorcrusher.herokuapp.com' style='
     font-size: 30px;
@@ -55,7 +50,7 @@
     justify-content:center;
     align-items:center;
     color: rgb(87, 189, 227);
-'>Objective</h2>
+'> ~ Objective ~ </h2>
 
 &emsp;The purpose of **Color Crusher** was to futher my understanding of React, Javascript and CSS by building something that I haven't really seen before. Given the oddness of my app, I couldn't just copy and paste code... I was forced to understand concepts fully and adjust them to my specific needs. While I plan to explore component libraries and CSS bootstrapping in the future, for this project I sought to build as much as possible with vanilla JS and CSS.
 
