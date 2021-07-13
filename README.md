@@ -31,7 +31,8 @@
     border-radius: 5px;
 '>
 
-![](./src/Images/overview.png)
+![](./src/Images/screenshot.png)
+
 </div>
 
 <br>
