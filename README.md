@@ -44,6 +44,8 @@
     justify-content: center;
 '>Play it now! colorcrusher.herokuapp.com</a>
 
+<br>
+
 <img src='./src/Images/map.png' alt='component map' style='
         border: 3px solid rgb(87, 189, 227);
         border-radius: 5px;
@@ -399,7 +401,10 @@ useEffect(() => {
 
 <br>
 
-![future component map](./src/Images/futureMap.png)
+<img src='./src/Images/futureMap.png' alt='component map' style='
+        border: 3px solid rgb(87, 189, 227);
+        border-radius: 5px;
+'>
 
 &emsp;I greatly enjoy using the tools provided to us by Google and Firebase was no exception. I plan to become more acquainted with all the things it offers such as image hosting and cloud services. I have some familiarity with Express so my next project will combine the two. I also intend to explore Material UI... now that I've built my own components I'll see what the libraries can bring to the table.
 

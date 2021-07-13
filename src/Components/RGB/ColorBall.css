@@ -1,7 +1,5 @@
 .colorBall {
     visibility: visible;
-    /* height: 233.5px;
-    width: 233.5px; */
     height: 33.3%;
     width: 33.3%;
     border-radius: 50%;;
@@ -42,18 +40,12 @@
 
 #colorTwo {
     position: absolute;
-    /* position: relative; */
-    /* right: 30px;
-    top: 116px; */
     right: 4.4%;
     top: 16.6%;
-    visibility: hidden;
 }
 
 #colorThree {
     position: absolute;
-    /* right: 30px;
-    bottom: 116px; */
     right: 4.4%;
     bottom: 16.6%;
 }
@@ -77,10 +69,4 @@
     top: 116px;
     left: 4.4%;
     top: 16.6%;
-    visibility: hidden;
 }
-/*
-.blurred {
-    background-clip: padding-box;
-    backdrop-filter: blur(6px );
-} */
