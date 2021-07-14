@@ -8,6 +8,7 @@
 <div>
 	<br>
 		<img src="./src/Images/readMe.svg" width="800" height="8000">
+		<img src="./src/Images/readMeTwo.svg" width="800" height="8000">
 	<br>
 </div>
 
