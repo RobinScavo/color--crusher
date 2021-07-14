@@ -1,8 +1,9 @@
-<a href='colorcrusher.herokuapp.com'>
 
-## colorcrusher.herokuapp.com
+<img src='./src/Images/delay.gif' height='308' width='420'/>
 
-</a>
+<br>
+
+<a href='colorcrusher.herokuapp.com'>colorcrusher.herokuapp.com</a>
 
 <div>
 	<br>
