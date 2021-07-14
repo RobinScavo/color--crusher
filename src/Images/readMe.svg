@@ -12,22 +12,28 @@
                 align-items:center;
                 color: white;
                 border-radius: 5px;
-                background-image: url("./src/Images/footer-blue.png");
+                background-image: url("./footer-blue.png");
                 background-size: 75% 200%;
                 '>Color Crusher README
             </h1>
 
-            <h1>ddddd</h1>
-            <h1>ddddd</h1>
-            <h1>ddddd</h1>
-            <h1>ddddd</h1>
-            <h1>ddddd</h1>
-            <h1>ddddd</h1>
-            <h1>ddddd</h1>
-            <h1>ddddd</h1>
-            <h1>ddddd</h1>
-            <h1>ddddd</h1>
-            <h1>ddddd</h1>
+            <div style='
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            '>
+
+                <div style='
+                    height: 208px;
+                    width: 290px;
+                    border: 3px solid rgb(87, 189, 227);
+                    border-radius: 5px;
+                '>
+
+                ![](./src/Images/screenshot.png)
+
+                </div>
+            </div>
         </div>
     </foreignObject>
 </svg>
