@@ -416,6 +416,6 @@ useEffect(() => {
 
 <div>
 	<br>
-		<img src="./src/Images/readMe.svg" width="800" height="400">
+		<img src="./src/Images/readMe.svg" width="800" height="4000">
 	<br>
 </div>
