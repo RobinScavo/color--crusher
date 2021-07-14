@@ -9,6 +9,7 @@
 	<br>
 		<img src="./src/Images/readMe.svg" width="800" height="1600">
 		<img src="./src/Images/readMeTwo.svg" width="800" height="2000">
+		<img src="./src/Images/readMeThree.svg" width="800" height="2000">
 	<br>
 </div>
 
