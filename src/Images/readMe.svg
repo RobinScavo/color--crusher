@@ -1,5 +1,4 @@
 <svg  version="1.1" xmlns="http://www.w3.org/2000/svg">
-<svg>
     <foreignObject width="400" height="4000">
         <div xmlns="http://www.w3.org/1999/xhtml">
             <h1 style='
@@ -8,9 +7,6 @@
                 font-size: 40px;
                 border: 3px solid rgb(255, 90, 0);
                 height:100px;
-                /* background: #67b26f;
-                background: -webkit-linear-gradient(to right,  rgb(87, 189, 227), rgba(42, 81, 109));
-                background: linear-gradient(to right,  rgb(87, 189, 227), rgba(42, 81, 109)); */
                 display:flex;
                 justify-content:center;
                 align-items:center;
@@ -18,12 +14,22 @@
                 border-radius: 5px;
                 background-image: url("./src/Images/footer-blue.png");
                 background-size: 75% 200%;
-            '>Color Crusher README</h1>
+                '>Color Crusher README
+            </h1>
 
-
+            <h1>ddddd</h1>
+            <h1>ddddd</h1>
+            <h1>ddddd</h1>
+            <h1>ddddd</h1>
+            <h1>ddddd</h1>
+            <h1>ddddd</h1>
+            <h1>ddddd</h1>
+            <h1>ddddd</h1>
+            <h1>ddddd</h1>
+            <h1>ddddd</h1>
+            <h1>ddddd</h1>
         </div>
     </foreignObject>
-    </svg>
 </svg>
 <!-- <foreignObject>
 <h1 style='
