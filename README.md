@@ -1,3 +1,14 @@
+<a href='colorcrusher.herokuapp.com'>
+
+## colorcrusher.herokuapp.com
+
+</a>
+
+<div>
+	<br>
+		<img src="./src/Images/readMe.svg" width="800" height="4000">
+	<br>
+</div>
 <!-- <h1 style='
     text-align:center;
     font-family:luminari;
@@ -16,7 +27,7 @@
     background-size: 75% 200%;
 '>Color Crusher README</h1>
 
-<div style='
+<!-- <div style='
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -411,11 +422,4 @@ useEffect(() => {
 
 <a href = "mailto: sirscavo@gmail.com">sirscavo@gmail.com</a>
 
-<p>&#128512;</p> -->
-
-
-<div>
-	<br>
-		<img src="./src/Images/readMe.svg" width="800" height="4000">
-	<br>
-</div>
+<p>&#128512;</p>  -->
