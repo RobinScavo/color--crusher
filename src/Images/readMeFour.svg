@@ -1,15 +1,15 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <foreignObject width="900" height="8000">
+    <foreignObject width="850" height="8000">
         <div xmlns="http://www.w3.org/1999/xhtml" style='background-color:#1b1f23;padding:30px;font-family:Arial, Helvetica, sans-serif'>
-            <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
+            <h2 style='font-size:15px;color:rgb(230, 230, 250);line-height:20px;'>
                 <span style='color:rgb(87, 189, 227)'>5) SVG-</span> Building this README gave me my most important take-away from this project: SVG is a POWERFUL tool and I need to learn everything about it.
             </h2>
 
-            <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
+            <h2 style='font-size:15px;color:rgb(230, 230, 250);line-height:20px;'>
                 <span style='color:rgb(87, 189, 227)'>6) Personally-</span> This project confirmed my suspicions that my interests and talents lie in front-end development. However, I now have enough understanding of the back-end to build a simple one (or collaborate and communicate with people smart enough to build a complex one).
             </h2>
 
-            <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
+            <h2 style='font-size:15px;color:rgb(230, 230, 250);line-height:20px;'>
                 -- On a deeper level, this project gave me the confidence that I'll need in my job search. I'm rarely -if ever- the smartest person in the room and I struggle specifically at absorbing and regurgitating data (i.e. the foundation for our society's entire education system). However, anytime that I get down on myself I need to remember one thing: I can figure shit out better than most people. Through a combination of reading comprehension, experimentation and tenacity I can solve problems that others don't want to solve and I can build things that others haven't seen before. There were several times in this project where I was in uncharted waters with problems that can't be found on Stack Overflow. Nonetheless, I solved those problems and killed every filthy bug that crawled into my app.
             </h2>
 
