@@ -7,12 +7,14 @@
 
 <div>
 	<br>
-		<img src="./src/Images/readMe.svg" width="900" height="1600">
-		<img src="./src/Images/readMeTwo.svg" width="800" height="1850">
+		<img src="./src/Images/readMe.svg" width="800" height="1600">
+		<img src="./src/Images/readMeTwo.svg" width="800" height="1880">
 		<img src="./src/Images/readMeThree.svg" width="800" height="2000">
 		<img src="./src/Images/readMeFour.svg" width="800" height="2000">
 	<br>
 </div>
+
+<a href = "mailto: sirscavo@gmail.com">sirscavo@gmail.com</a>
 
 Component Maps created with excalidraw
 <!-- <h1 style='
