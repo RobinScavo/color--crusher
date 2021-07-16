@@ -5,13 +5,11 @@
 
 <a target="_blank" href='https://colorcrusher.herokuapp.com/'>colorcrusher@herokuapp.com</a>
 
-<!-- [colorcrusher@herokuapp.com](https://colorcrusher.herokuapp.com/) -->
-
 <div>
 	<br>
 		<img src="./src/Images/readMe.svg" width="860" height="1600">
 		<img src="./src/Images/readMeTwo.svg" width="860" height="1880">
-		<img src="./src/Images/readMeThree.svg" width="860" height="2100">
+		<img src="./src/Images/readMeThree.svg" width="860" height="2070">
 		<img src="./src/Images/readMeFour.svg" width="860" height="1330">
 	<br>
 </div>
