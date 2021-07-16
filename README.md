@@ -3,20 +3,26 @@
 
 <br>
 
-[colorcrusher@herokuapp.com](https://colorcrusher.herokuapp.com/)
+<a target="_blank" href='https://colorcrusher.herokuapp.com/'>colorcrusher@herokuapp.com</a>
+
+<!-- [colorcrusher@herokuapp.com](https://colorcrusher.herokuapp.com/) -->
 
 <div>
 	<br>
 		<img src="./src/Images/readMe.svg" width="860" height="1600">
 		<img src="./src/Images/readMeTwo.svg" width="860" height="1880">
 		<img src="./src/Images/readMeThree.svg" width="860" height="2100">
-		<img src="./src/Images/readMeFour.svg" width="860" height="1400">
+		<img src="./src/Images/readMeFour.svg" width="860" height="1330">
 	<br>
 </div>
 
 <a href = "mailto: sirscavo@gmail.com">sirscavo@gmail.com</a>
 
-Component Maps created with excalidraw
+## Component Maps created with <a target="_blank" href='https://excalidraw.com/'>Excalidraw</a>
+
+## Further Reading
+1. <a target="_blank" href='https://css-tricks.com/converting-color-spaces-in-javascript/'>Converting Color Values</a>
+2. <a target="_blank" href='https://blog.bitsrc.io/pure-css-to-make-a-button-shine-and-gently-change-colors-over-time-5b685d9c6a7'>Shimmering coin effect</a>
 <!-- <h1 style='
     text-align:center;
     font-family:luminari;

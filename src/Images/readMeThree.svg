@@ -19,7 +19,7 @@
                 '>COLOR VALUE CONVERSIONS</h3>
 
                 <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
-                    -- Searching online led me to algorithms that transform RGB values into HEX and HSL values (see src/PureFunctions.js). With an HSL value in hand, simple subtraction  will give the various compliment colors on the color wheel. Further reading: https://css-tricks.com/converting-color-spaces-in-javascript/
+                    -- Searching online led me to algorithms that transform RGB values into HEX and HSL values (see src/PureFunctions.js). With an HSL value in hand, simple subtraction  will give the various compliment colors on the color wheel. Further reading at the bottom.
                 </h2>
             </div>
 
@@ -49,7 +49,7 @@
                 '>SHIMMERING COINS</h3>
 
                 <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
-                    -- To create the shifting silver effect on the coins and bowls I started with an image of silver foil, made it much bigger than the circle displaying it, hid the overflow and then started slowly moving the background image. Further reading: https://blog.bitsrc.io/pure-css-to-make-a-button-shine-and-gently-change-colors-over-time-5b685d9c6a7e
+                    -- To create the shifting silver effect on the coins and bowls I started with an image of silver foil, made it much bigger than the circle displaying it, hid the overflow and then started slowly moving the background image. Further reading at the bottom.
                 </h2>
 
                 <img style='object-fit: contain;' height='440' src='
