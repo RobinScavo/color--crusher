@@ -22,7 +22,7 @@
 
 ## Further Reading
 1. <a target="_blank" href='https://css-tricks.com/converting-color-spaces-in-javascript/'>Converting Color Values</a>
-2. <a target="_blank" href='https://blog.bitsrc.io/pure-css-to-make-a-button-shine-and-gently-change-colors-over-time-5b685d9c6a7'>Shimmering coin effect</a>
+2. <a target="_blank" href='https://blog.bitsrc.io/pure-css-to-make-a-button-shine-and-gently-change-colors-over-time-5b685d9c6a7e'>Shimmering coin effect</a>
 <!-- <h1 style='
     text-align:center;
     font-family:luminari;
