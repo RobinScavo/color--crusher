@@ -3,7 +3,7 @@
 
 <br>
 
-[colorcrusher@herokuapp.com]('colorcrusher.herokuapp.com')
+[colorcrusher@herokuapp.com]('https://colorcrusher.herokuapp.com/')
 
 <div>
 	<br>
