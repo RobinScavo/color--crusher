@@ -1,5 +1,5 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <foreignObject width="700" height="8000">
+    <foreignObject width="900" height="8000">
         <div xmlns="http://www.w3.org/1999/xhtml" style='background-color:#1b1f23;padding:30px;font-family:Arial, Helvetica, sans-serif'>
             <div style='
                 display: flex;
@@ -18,7 +18,7 @@
                     color: rgb(255, 90, 0);
                 '>COLOR VALUE CONVERSIONS</h3>
 
-                <h2 style='font-size:15px;color:white;line-height:20px;'>
+                <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
                     -- Searching online led me to algorithms that transform RGB values into HEX and HSL values (see src/PureFunctions.js). With an HSL value in hand, simple subtraction  will give the various compliment colors on the color wheel. Further reading: https://css-tricks.com/converting-color-spaces-in-javascript/
                 </h2>
             </div>
@@ -48,7 +48,7 @@
                     color: rgb(255, 90, 0);
                 '>SHIMMERING COINS</h3>
 
-                <h2 style='font-size:15px;color:white;line-height:20px;'>
+                <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
                     -- To create the shifting silver effect on the coins and bowls I started with an image of silver foil, made it much bigger than the circle displaying it, hid the overflow and then started slowly moving the background image. Further reading: https://blog.bitsrc.io/pure-css-to-make-a-button-shine-and-gently-change-colors-over-time-5b685d9c6a7e
                 </h2>
 
@@ -75,7 +75,7 @@
                     color: rgb(255, 90, 0);
                 '>README</h3>
 
-                <h2 style='font-size:15px;color:white;line-height:20px;'>
+                <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
                     -- I spent a ridiculous amount of time making this README only to find -to my annoyance- that GitHub would scrub all of my inline styling when I pushed. So I decided the only sensible thing to do was spend an even more ridiculous amount of time finding a work-around. GitHub will display any .svg image as my README and by using the ForeignObject tag I could turn HTML code into an SVG. My images had to be converted to data URI's, but that's a good thing for responsivness anyway. I had to make four SVG images due to length constraints and I never got GIF's or links to work (I just moved them to before and after, although I'm sure its possible to do from within an SVG... I feel like anything is possible with SVG.)
                 </h2>
 
@@ -94,23 +94,23 @@
                 margin-top: 30px;
             '> ~ What I learned ~ </h2>
 
-            <h2 style='font-size:15px;color:white;line-height:20px;'>
+            <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
                 <span style='color:rgb(87, 189, 227)'>1) CSS-</span> Responsiveness to screen size should be considered early and often when planning your application. While flexbox works great at component level, using the grid method for the layout makes it much easier to prioritize what gets displayed at various screen sizes.
             </h2>
 
-            <h2 style='font-size:15px;color:white;line-height:20px;'>
+            <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
                 <span style='color:rgb(87, 189, 227)'>2) React-</span> Completing this project really drove home the importance of seperating concerns in state management. In Cotroller.js, I essentially created a 'brain' which does most of the thinking for the application (Its the only component that's a class instead of a function. This was a personal preference for readability). In essence, its a big switch board that sends out the ability to toggle those switches to other components. This centralization lead to unecessary rerendering and its something that I need to correct.
             </h2>
 
-            <h2 style='font-size:15px;color:white;line-height:20px;'>
+            <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
                     -- I also realized the importance of removing state from the components that get rendered in order to improve reusability and testing. I found it much better to handle state in a parent component and then prop-thread needed information and functions down to the 'minions'.
             </h2>
 
-            <h2 style='font-size:15px;color:white;line-height:20px;'>
+            <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
                 <span style='color:rgb(87, 189, 227)'>3) Firebase-</span> When learning full stack development I think its best to start with a tool like Firebase which simplifies Authentication and CRUD actions. This will allow students to see the overall forest of web development before focusing on specific trees like Express.
             </h2>
 
-            <h2 style='font-size:15px;color:white;line-height:20px;'>
+            <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
                 <span style='color:rgb(87, 189, 227)'>4) Modals-</span> I experimented with 3 different ways to implement modals: ReactDOM.createPortal (which renders children in DOM node existing outside the DOM hieracrchy), flash messaging (which uses a pattern similar to Redux), and directly manipulating the DOM with conditional rendering. I prefer the first method.
             </h2>
 

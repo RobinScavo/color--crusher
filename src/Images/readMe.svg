@@ -1,5 +1,5 @@
 <svg  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <foreignObject width="800" height="8000">
+    <foreignObject width="900" height="8000">
         <div xmlns="http://www.w3.org/1999/xhtml" style='background-color:#1b1f23;padding:30px;font-family:Arial, Helvetica, sans-serif'>
             <h2 style='
                     font-family:luminari;
@@ -47,21 +47,21 @@
                     margin-top: 30px;
                 '> ~ Objective ~ </h2>
 
-                <h2 style='font-size:15px;color:white;line-height:20px;'>-- The purpose of Color Crusher was to futher my understanding of React, Javascript and CSS by building something that I haven't really seen before. Given the oddness of my app, I couldn't just copy and paste code... I was forced to understand concepts fully and adjust them to my specific needs. While I plan to explore component libraries and CSS bootstrapping in the future, for this project I sought to build as much as possible with vanilla JS and CSS.
+                <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>-- The purpose of Color Crusher was to futher my understanding of React, Javascript and CSS by building something that I haven't really seen before. Given the oddness of my app, I couldn't just copy and paste code... I was forced to understand concepts fully and adjust them to my specific needs. While I plan to explore component libraries and CSS bootstrapping in the future, for this project I sought to build as much as possible with vanilla JS and CSS.
                     Color Crusher consists of two primary features:
                 </h2>
 
                 <div>
-                    <h2 style='font-size:15px;color:white;line-height:20px;'>
+                    <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
                         <span style='color:rgb(87, 189, 227)'>1) Convert Mode -</span> A tool which developers can use to convert color values and find color complements.
                     </h2>
 
-                    <h2 style='font-size:15px;color:white;line-height:20px;'>
+                    <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
                         <span style='color:rgb(87, 189, 227)'>2) Battle Mode -</span> A game where players can practice reading RGB values.
                     </h2>
                 </div>
 
-                <h2 style='font-size:15px;color:white;line-height:20px;'>
+                <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
                     -- Creating Convert Mode gave me lots of practice building various React components such as buttons and toggle switches, as well as checking player inputs for specific requirements. The primary objective of Battle Mode was to practice some of the essentials of web development: user authentication and CRUD interactions with a database.
                 </h2>
 
@@ -75,11 +75,11 @@
                     margin-top: 20px;
                 '> ~ Technologies ~ </h2>
 
-                <h2 style='font-size:15px;color:white;line-height:20px;'>
+                <h2 style='font-size:15px;color:rgb(230, 230, 250);line-height:20px;'>
                     -- Color Crusher is a full stack application relying heavily on the core React library. State management is achieved using the React Context API (two different contexts handle most everything: user context and color context). Instead of using react-router, rendering is done conditionally which allows the background to remain constant while the player navigates through the various modals. One of the few React libraries used is react-storage-hooks which easily adds persistent state via local storage. Styling was painstaking done by hand using CSS modules.
                 </h2>
 
-                <h2 style='font-size:15px;color:white;line-height:20px;'>
+                <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
                     -- On the backend I used a Firebase database to store player names, emails and scores and this information is fetched whenever the high scores are displayed. User authentication was done with the 'email and password' option for Firebase. The website is deployed on Heroku and kept 'awake' with a simple Google app script.
                 </h2>
             </div>
