@@ -3,7 +3,7 @@
 
 <br>
 
-<a target="_blank" href='https://colorcrusher.herokuapp.com/'>colorcrusher@herokuapp.com</a>
+<a target="_blank" href='https://colorcrusher.herokuapp.com/'>colorcrusher</a>
 
 <div>
 	<br>
