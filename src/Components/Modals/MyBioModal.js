@@ -23,9 +23,9 @@ const MyBioModal = (props) => {
                 <div className='bioTextDiv lowerBioDiv'>
                     <div className='bioFancyDiv'></div>
                     <div className='bioText'>
-                        When not building apps like<br/><span className='krazyFont'>
-                        Color Crusher</span> Robin can usually be found traveling.<br/><br/>
-                        <a className='emailLink' href={`mailto:${myEmail}`}>Email Robin Scavo</a>
+                        Curious how <br/><span className='krazyFont'>
+                        Color Crusher</span> was built?<br/> View the Read Me!<br/><br/>
+                        <div className='emailLink' onClick={() => window.open('https://github.com/RobinScavo/color--crusher')}>Color Crusher Read Me</div>
                     </div>
                     <div className='bioFancyDiv'></div>
                 </div>
@@ -41,10 +41,10 @@ const MyBioModal = (props) => {
 
                 <div className='contactDiv'>
                     <div className='linkedIn' onClick={() => window.open('https://www.linkedin.com/in/robin-scavo-0617881b5/')}></div>
-                    <div className='websiteLink'>Robin's Website Link</div>
+                    <a className='emailLink' href={`mailto:${myEmail}`}>Email Robin Scavo</a>
                     <div className='gitHub' onClick={() => window.open('https://github.com/RobinScavo')}></div>
                 </div>
-                <h1 className='contactText'>Robin's Other Projects</h1>
+                <h1 className='contactText'>Other Projects:</h1>
 
                 <div className='projectDiv'>
                     <div className='sfsgDiv' onClick={() => window.open('https://so-fresh-so-green.herokuapp.com/')}>
