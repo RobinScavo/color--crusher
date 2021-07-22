@@ -7,7 +7,7 @@ import {
     generateGhostArray,
     generatePastelArray,
     generateCustomArray,
-} from './pureFunctions';
+} from './PureFunctions';
 
 import ColorContext from './context/ColorContext';
 
