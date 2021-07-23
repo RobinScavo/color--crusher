@@ -385,7 +385,11 @@ class Controller extends React.Component {
                         }
                         {this.state.playerPageModal &&
                             <Modal>
-                                <PlayerPageModal />
+                                <PlayerPageModal
+                                    togglePlayerPageModal={this.state.togglePlayerPageModal}
+                                    toggleLoginModal={this.state.toggleLoginModal}
+                                    toggleMainModal={this.state.toggleMainModal}
+                                />
                             </Modal>
                         }
                         {this.state.battleInstructionModal &&

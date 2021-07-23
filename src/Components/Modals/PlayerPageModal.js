@@ -1,14 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
 
-import ColorContext from '../../context/ColorContext';
 import UserContext from '../../context/UserContext';
 
 import HighScoreDisplay from '../HighScoreDisplay/HighScoreDisplay';
 
 import './PlayerPageModal.css';
 
-const PlayerPageModal = () => {
-    const values = useContext(ColorContext);
+const PlayerPageModal = (props) => {
     const { onLogout, onEdit, user, deletePlayer, currentPlayer } = useContext(UserContext);
 
     const [editMode, setEditMode] =useState(false);
@@ -52,8 +50,8 @@ const PlayerPageModal = () => {
                         </div>
                     </div>
                     <button  id='editHomeButton' className='backButton' onClick={() => {
-                        values.toggleLoginModal();
-                        values.toggleMainModal();
+                        props.toggleLoginModal();
+                        props.toggleMainModal();
                     }}>Home</button>
                     <button
                         id='cancelButton'
@@ -85,8 +83,8 @@ const PlayerPageModal = () => {
                                     onClick={(event) => {
                                         event.preventDefault();
                                         onLogout();
-                                        values.toggleMainModal();
-                                        values.togglePlayerPageModal();
+                                        props.toggleMainModal();
+                                        props.togglePlayerPageModal();
                                     }}
                                 >Logout</button>
                                 </>
@@ -96,8 +94,9 @@ const PlayerPageModal = () => {
                                 <button
                                     className='upperPlayerButton'
                                     onClick={() => {
-                                        values.toggleLoginModal()
-                                        values.togglePlayerPageModal();
+                                        console.log('login!!!!!!!!!')
+                                        props.togglePlayerPageModal();
+                                        props.toggleLoginModal();
                                     }}
                                 >Login</button>
                             }
@@ -113,8 +112,8 @@ const PlayerPageModal = () => {
                         </div>
 
                         <button id='playerHomeButton' className='upperPlayerButton' onClick={() => {
-                                values.togglePlayerPageModal();
-                                values.toggleMainModal();
+                                props.togglePlayerPageModal();
+                                props.toggleMainModal();
                         }}>Home</button>
                     </div>}
 
