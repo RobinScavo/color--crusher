@@ -18,7 +18,10 @@ function App() {
         .database()
         .ref('players')
 
+    console.log('AAAAAAAA', playersRef)
+
     playersRef.on('value', (snapshot) => {
+      console.log('BBBBBBBBBBB')
       const players = snapshot.val();
       const newStatePlayers = [];
 
@@ -35,6 +38,7 @@ function App() {
       newStatePlayers.sort(function(a, b) {
         return b.score - a.score
       })
+
       setPlayers(newStatePlayers)
     });
   }, []);
@@ -46,6 +50,7 @@ function App() {
     } else {
       return
     }
+
 
     firebase
       .auth()
