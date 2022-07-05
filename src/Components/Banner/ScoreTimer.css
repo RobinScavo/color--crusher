@@ -1,4 +1,4 @@
-@keyframes TransitioningBackground {
+/* @keyframes TransitioningBackground {
     0% {
         background-position: 50% 0%;
     }
@@ -14,7 +14,7 @@
     100% {
         background-position: 50% 0%;
     }
-}
+} */
 
 .scoreTimerDiv {
     position: absolute;
@@ -30,7 +30,7 @@
     background-size: cover;
     background-size: 250% 250%;
     overflow: hidden;
-    animation: TransitioningBackground 100s linear infinite;
+    /* animation: TransitioningBackground 100s linear infinite; */
     color: rgba(42, 81, 109);
     border: 2px solid rgba(42, 81, 109);
     z-index: 1;

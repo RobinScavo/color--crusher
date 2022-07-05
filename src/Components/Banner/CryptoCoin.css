@@ -21,7 +21,7 @@
 }
 
 .cryptoOne {
-    animation: TransitioningBackground 65s linear infinite;
+    /* animation: TransitioningBackground 65s linear infinite; */
     position: absolute;
 }
 
@@ -110,7 +110,7 @@
 
 
 .cryptoTwo {
-    animation: TransitioningBackground 75s linear infinite;
+    /* animation: TransitioningBackground 75s linear infinite; */
     position: absolute;
 }
 
@@ -166,7 +166,7 @@
 }
 
 .cryptoThree {
-    animation: TransitioningBackground 85s linear infinite;
+    /* animation: TransitioningBackground 85s linear infinite; */
     position: absolute;
 }
 
@@ -230,7 +230,7 @@
     }
   }
 
-@keyframes TransitioningBackground {
+/* @keyframes TransitioningBackground {
     0% {
         background-position: 50% 0%;
     }
@@ -246,4 +246,4 @@
     100% {
         background-position: 50% 0%;
     }
-}
+} */
