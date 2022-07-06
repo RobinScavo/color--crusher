@@ -104,10 +104,9 @@
     font-family: 'Fontdiner Swanky';
     background-image: url('../../Images/Silver.jpg');
     background-size: cover;
-    background-size: 250% 250%;
+    /* background-size: 250% 250%; */
     background-color:  rgb(206, 186, 186);
     overflow: hidden;
-    animation: TransitioningBackground 95s linear infinite;
     color: rgba(42, 81, 109);
     border: 2px solid   rgba(42, 81, 109);
     z-index: 1;
@@ -170,10 +169,6 @@
     width: 97px;
 }
 
-.battle {
-    animation: TransitioningBackground 105s linear infinite;
-}
-
 .arrowLog {
     transform: rotate(360deg);
     margin-top: -30px;
@@ -211,22 +206,4 @@
     color: rgb(212, 190, 194);
     cursor: pointer;
     outline: none;
-}
-
-@keyframes TransitioningBackground {
-    0% {
-        background-position: 1% 0%;
-    }
-    25% {
-        background-position: 50% 100%;
-    }
-    50% {
-        background-position: 50% 0%;
-    }
-    75% {
-        background-position: 0% 100%;
-    }
-    100% {
-        background-position: 1% 0%;
-    }
 }

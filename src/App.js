@@ -18,10 +18,7 @@ function App() {
         .database()
         .ref('players')
 
-    console.log('AAAAAAAA', playersRef)
-
     playersRef.on('value', (snapshot) => {
-      console.log('BBBBBBBBBBB')
       const players = snapshot.val();
       const newStatePlayers = [];
 

@@ -94,7 +94,6 @@ const PlayerPageModal = (props) => {
                                 <button
                                     className='upperPlayerButton'
                                     onClick={() => {
-                                        console.log('login!!!!!!!!!')
                                         props.togglePlayerPageModal();
                                         props.toggleLoginModal();
                                     }}

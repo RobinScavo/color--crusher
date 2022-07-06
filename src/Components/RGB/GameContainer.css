@@ -98,7 +98,7 @@
 .plateWheel {
     height: 40%;
     width: 60%;
-    background-image: url('../../Images/colour-wheel-1734867_1920.png');
+    background-image: url('../../Images/colour-wheel.png');
     background-size: 55%;
     background-position: center;
     background-repeat: no-repeat;
@@ -131,7 +131,7 @@
     font-family: 'Fontdiner Swanky';
     background-image: linear-gradient(270deg, rgb(87, 189, 227), rgba(42, 81, 109));
     background-size: 400% 400%;
-    animation: TransitioningBackground 12s ease infinite;
+    animation: TransitioningBackground 6s ease infinite;
     transition: 0.6s;
     font-size: 57%;
 }
@@ -142,4 +142,16 @@
     color: rgba(42, 81, 109);
     cursor: pointer;
     outline: none;
+}
+
+@keyframes TransitioningBackground {
+    0% {
+        background-position: 1% 0%;
+    }
+    50% {
+        background-position: 75% 75%;
+    }
+    100% {
+        background-position: 1% 0%;
+    }
 }

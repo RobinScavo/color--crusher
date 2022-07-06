@@ -385,6 +385,6 @@ const style = "font-size: 14px;" +
   "width: 100%;" +
   "border-radius: 20px;";
 
-const text = "%cLet's talk!🙂 sirscavo@gmail.com";
+const text = "%cEternity is in love with the creations of time.";
 
 console.log(text, style);
