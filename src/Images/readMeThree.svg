@@ -76,7 +76,7 @@
                 '>README</h3>
 
                 <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
-                    -- I spent a ridiculous amount of time making this README only to find -to my annoyance- that GitHub would scrub all of my inline styling when I pushed. So I decided the only sensible thing to do was spend an even more ridiculous amount of time finding a work-around. GitHub will display any .svg image as my README and by using the ForeignObject tag I could turn HTML code into an SVG. My images had to be converted to data URI's, but that's a good thing for responsivness anyway. I had to make four SVG images due to length constraints and I never got GIF's or links to work (I just moved them to before and after, although I'm sure its possible to do from within an SVG... I feel like anything is possible with SVG.)
+                    -- I spent a good deal of time creating a custom README only to find -to my dismay- that GitHub would scrub all of my inline styling when I pushed. So I decided the only sensible thing to do was spend an even more time finding a work-around. GitHub will display any .svg image as my README and by using the ForeignObject tag I could turn HTML code into an SVG. My images had to be converted to data URI's, but that's a good thing for responsivness anyway. I had to make four SVG images due to length constraints and I never got GIF's or links to work (I just moved them to before and after, although I'm sure its possible to do from within an SVG... I feel like anything is possible with SVG.)
                 </h2>
 
                 <img style='object-fit: contain;' height='100' width='540' src='
@@ -103,7 +103,7 @@
             </h2>
 
             <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
-                    -- I also realized the importance of removing state from the components that get rendered in order to improve reusability and testing. I found it much better to handle state in a parent component and then prop-thread needed information and functions down to the 'minions'.
+                    -- I also realized the importance of removing state from components in order to improve reusability and testing. I found it much better to handle state in a parent component and then prop-thread needed information and functions down to 'dumb' components.
             </h2>
 
             <h2 style='font-size:15px;color:rgb(230, 230, 250);;line-height:20px;'>
