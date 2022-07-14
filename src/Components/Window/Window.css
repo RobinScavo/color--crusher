@@ -1,11 +1,11 @@
 .windowDiv {
     position: absolute;
-    top: 0px;
-    height: 720px;
-    width: 720px;
+    top: -40px;
+    height: 40vw;
+    width: 40vw;
     z-index: 3;
     pointer-events:none;
-    font-size: 19px;
+    font-size: 14px;
     margin-left: 10px;
 }
 
@@ -23,7 +23,7 @@
     justify-content: center;
     align-items: center;
     height: 6%;
-    width: 21%;
+    width: 22%;
     border-radius: 5px;
     background: rgba( 255, 255, 255, 0.5 );
     border: solid 1px rgba(255,255,255,0.3);
@@ -35,6 +35,7 @@
     font-weight: bold;
     padding-top: 5px;
     padding-bottom: 5px;
+    line-height: 1.4;
 }
 
 .windowOne {
@@ -70,35 +71,38 @@
     left: 10%;
 }
 
-@media only screen and (max-width: 1330px), (max-height: 900px) {
+@media only screen and (max-width: 1280px) {
     .windowDiv {
-        height: 620px;
-        width: 620px;
-        font-size: 16px;
-    }
-}
-
-@media only screen and (max-width: 1200px), (max-height: 800px) {
-    .windowDiv {
-        height: 520px;
-        width: 520px;
-        font-size: 15px;
-    }
-}
-
-@media only screen and (max-width: 900px), (max-height: 700px) {
-    .windowDiv {
-        height: 420px;
-        width: 420px;
-        top: 30px;
+        height: 50vw;
+        width: 50vw;
         font-size: 12px;
+        top: 30px;
     }
 }
 
-@media only screen and (max-width: 800px), (max-height: 600px) {
+@media only screen and (max-width: 768px) {
     .windowDiv {
-        height: 360px;
-        width: 360px;
-       font-size: 10px;
+        height: 70vw;
+        width: 70vw;
+        font-size: 12px;
+        top: 40px;
+    }
+}
+
+@media only screen and (max-device-width: 600px) {
+    .windowDiv {
+        height: 80vw;
+        width: 80vw;
+        font-size: 18px;
+        top: 10px;
+    }
+}
+
+@media only screen
+and (max-device-width : 480px) {
+    .windowDiv {
+        height: 80vw;
+        width: 80vw;
+        top: 120px;
     }
 }
